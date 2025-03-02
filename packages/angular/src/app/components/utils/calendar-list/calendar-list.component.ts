@@ -2,7 +2,7 @@ import {
   Component, NgModule, EventEmitter, Output, Input, OnInit,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { DxButtonModule, DxCheckBoxModule } from 'devextreme-angular';
 import { DxListModule } from 'devextreme-angular/ui/list';
 import { DxButtonTypes } from 'devextreme-angular/ui/button';
@@ -32,16 +32,9 @@ export class CalendarListComponent implements OnInit {
   }
 }
 
-@NgModule({
-  imports: [
-    DxListModule,
-    DxCheckBoxModule,
-    DxButtonModule,
-    HttpClientModule,
-    CommonModule,
-  ],
-  providers: [],
-  exports: [CalendarListComponent],
-  declarations: [CalendarListComponent],
-})
+@NgModule({ exports: [CalendarListComponent],
+    declarations: [CalendarListComponent], imports: [DxListModule,
+        DxCheckBoxModule,
+        DxButtonModule,
+        CommonModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class CalendarListModule { }

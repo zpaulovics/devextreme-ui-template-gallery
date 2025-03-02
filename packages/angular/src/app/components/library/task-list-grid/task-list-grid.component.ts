@@ -2,7 +2,7 @@ import {
   Component, NgModule, ViewChild, EventEmitter, Output, Input, SimpleChanges, OnChanges,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { Router } from '@angular/router';
 import {
   DxButtonModule,
@@ -110,22 +110,13 @@ export class TaskListGridComponent implements OnChanges {
   };
 }
 
-@NgModule({
-  imports: [
-    DxButtonModule,
-    DxDataGridModule,
-    DxDropDownButtonModule,
-    DxSelectBoxModule,
-    DxTextBoxModule,
-    DxToolbarModule,
-
-    StatusIndicatorModule,
-
-    HttpClientModule,
-    CommonModule,
-  ],
-  providers: [],
-  exports: [TaskListGridComponent],
-  declarations: [TaskListGridComponent],
-})
+@NgModule({ exports: [TaskListGridComponent],
+    declarations: [TaskListGridComponent], imports: [DxButtonModule,
+        DxDataGridModule,
+        DxDropDownButtonModule,
+        DxSelectBoxModule,
+        DxTextBoxModule,
+        DxToolbarModule,
+        StatusIndicatorModule,
+        CommonModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class TaskListModule { }
