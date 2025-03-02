@@ -18,7 +18,7 @@ import { DxButtonModule as DxButtonModule_1 } from 'devextreme-angular';
     templateUrl: './toolbar-analytics.component.html',
     styleUrls: ['./toolbar-analytics.component.scss'],
     standalone: true,
-    imports: [DxToolbarModule, DxiItemModule, NgIf, DxTabsModule, DxButtonModule_1, AsyncPipe]
+    imports: [DxToolbarModule, DxiItemModule, DxTabsModule, DxButtonModule_1, AsyncPipe]
 })
 
 export class ToolbarAnalyticsComponent {

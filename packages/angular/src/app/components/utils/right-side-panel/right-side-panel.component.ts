@@ -18,7 +18,7 @@ import {DataService, ScreenService} from 'src/app/services';
     styleUrls: ['./right-side-panel.component.scss'],
     providers: [DataService],
     standalone: true,
-    imports: [NgIf, DxButtonModule],
+    imports: [DxButtonModule],
 })
 export class RightSidePanelComponent {
   @Input() isOpened = false;

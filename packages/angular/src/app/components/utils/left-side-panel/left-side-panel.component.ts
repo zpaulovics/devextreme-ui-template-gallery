@@ -13,10 +13,9 @@ import {DxScrollViewModule} from "devextreme-angular/ui/scroll-view";
     styleUrls: ['./left-side-panel.component.scss'],
     standalone: true,
     imports: [
-        NgIf,
-        DxButtonModule,
-        DxScrollViewModule_1,
-    ],
+    DxButtonModule,
+    DxScrollViewModule_1
+],
 })
 export class LeftSidePanelComponent {
   isSmallScreen = false;

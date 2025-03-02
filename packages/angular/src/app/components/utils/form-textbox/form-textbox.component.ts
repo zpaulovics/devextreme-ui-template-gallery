@@ -14,11 +14,10 @@ import { DxiButtonModule } from 'devextreme-angular/ui/nested';
     styleUrls: ['form-textbox.component.scss'],
     standalone: true,
     imports: [
-        DxTextBoxModule,
-        DxValidatorModule,
-        NgIf,
-        DxiButtonModule,
-    ],
+    DxTextBoxModule,
+    DxValidatorModule,
+    DxiButtonModule
+],
 })
 export class FormTextboxComponent {
   @Input() isEditing = false;

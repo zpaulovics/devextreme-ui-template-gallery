@@ -32,20 +32,17 @@ import { TaskFormComponent as TaskFormComponent_1 } from '../../components/libra
     providers: [DataService],
     standalone: true,
     imports: [
-        DxToolbarModule,
-        DxTabsModule,
-        DxButtonModule_1,
-        NgIf,
-        NgSwitch,
-        NgSwitchCase,
-        TaskListGridComponent_1,
-        TaskListKanbanComponent_1,
-        TaskListGanttComponent_1,
-        DxLoadPanelModule,
-        FormPopupComponent,
-        TaskFormComponent_1,
-        AsyncPipe,
-    ],
+    DxToolbarModule,
+    DxTabsModule,
+    DxButtonModule_1,
+    TaskListGridComponent_1,
+    TaskListKanbanComponent_1,
+    TaskListGanttComponent_1,
+    DxLoadPanelModule,
+    FormPopupComponent,
+    TaskFormComponent_1,
+    AsyncPipe
+],
 })
 export class PlanningTaskListComponent implements OnInit {
   @ViewChild('planningDataGrid', { static: false }) dataGrid: TaskListGridComponent;

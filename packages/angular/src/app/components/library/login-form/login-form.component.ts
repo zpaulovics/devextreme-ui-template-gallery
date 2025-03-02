@@ -19,18 +19,17 @@ import { LoginOauthComponent } from '../login-oauth/login-oauth.component';
     styleUrls: ['./login-form.component.scss'],
     standalone: true,
     imports: [
-        DxFormModule,
-        DxiItemModule,
-        DxiValidationRuleModule,
-        DxoLabelModule,
-        DxoButtonOptionsModule,
-        DxTemplateModule,
-        NgIf,
-        DxLoadIndicatorModule,
-        RouterLink,
-        DxButtonModule_1,
-        LoginOauthComponent,
-    ],
+    DxFormModule,
+    DxiItemModule,
+    DxiValidationRuleModule,
+    DxoLabelModule,
+    DxoButtonOptionsModule,
+    DxTemplateModule,
+    DxLoadIndicatorModule,
+    RouterLink,
+    DxButtonModule_1,
+    LoginOauthComponent
+],
 })
 export class LoginFormComponent implements OnInit {
   @Input() resetLink = '/auth/reset-password';

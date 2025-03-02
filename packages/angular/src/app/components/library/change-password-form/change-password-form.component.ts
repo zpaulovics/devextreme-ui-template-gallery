@@ -14,10 +14,9 @@ import { Subscription } from 'rxjs';
     templateUrl: './change-password-form.component.html',
     standalone: true,
     imports: [
-        DxFormModule,
-        NgIf,
-        DxLoadIndicatorModule,
-    ],
+    DxFormModule,
+    DxLoadIndicatorModule
+],
 })
 export class ChangePasswordFormComponent implements OnInit, OnDestroy {
   loading = false;

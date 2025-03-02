@@ -15,10 +15,9 @@ import { ApplyPipe } from '../../../pipes/apply.pipe';
     styleUrls: ['./ticker-card.component.scss'],
     standalone: true,
     imports: [
-        NgIf,
-        ApplyPipe,
-        CurrencyPipe,
-    ],
+    ApplyPipe,
+    CurrencyPipe
+],
 })
 
 export class TickerCardComponent {

@@ -20,17 +20,16 @@ import { DxToolbarModule as DxToolbarModule_1 } from 'devextreme-angular/ui/tool
     styleUrls: ['./card-notes.component.scss'],
     standalone: true,
     imports: [
-        DxValidationGroupModule,
-        DxTextAreaModule,
-        DxValidatorModule,
-        DxiValidationRuleModule,
-        DxToolbarModule_1,
-        DxiItemModule,
-        DxScrollViewModule,
-        NgFor,
-        DxButtonModule,
-        DatePipe,
-    ],
+    DxValidationGroupModule,
+    DxTextAreaModule,
+    DxValidatorModule,
+    DxiValidationRuleModule,
+    DxToolbarModule_1,
+    DxiItemModule,
+    DxScrollViewModule,
+    DxButtonModule,
+    DatePipe
+],
 })
 export class CardNotesComponent {
   @Input() user: string;

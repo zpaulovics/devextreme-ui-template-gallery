@@ -12,7 +12,7 @@ import { CardMenuModule, CardMenuComponent } from '../card-menu/card-menu.compon
     templateUrl: './card-analytics.component.html',
     styleUrls: ['./card-analytics.component.scss'],
     standalone: true,
-    imports: [CardMenuComponent, NgIf],
+    imports: [CardMenuComponent],
 })
 
 export class CardAnalyticsComponent {

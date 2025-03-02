@@ -17,10 +17,9 @@ import { DxLoadPanelModule as DxLoadPanelModule_1 } from 'devextreme-angular/ui/
     styleUrls: ['./card-tasks.component.scss'],
     standalone: true,
     imports: [
-        NgIf,
-        DxDataGridModule,
-        DxLoadPanelModule_1,
-    ],
+    DxDataGridModule,
+    DxLoadPanelModule_1
+],
 })
 export class CardTasksComponent implements OnChanges {
   @ViewChild('dataGrid', { static: false }) component: DxDataGridComponent;

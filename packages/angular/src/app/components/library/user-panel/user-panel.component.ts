@@ -10,10 +10,9 @@ import { IUser } from '../../../services/auth.service';
     styleUrls: ['./user-panel.component.scss'],
     standalone: true,
     imports: [
-        NgIf,
-        DxDropDownButtonModule,
-        UserMenuSectionComponent,
-    ],
+    DxDropDownButtonModule,
+    UserMenuSectionComponent
+],
 })
 
 export class UserPanelComponent {

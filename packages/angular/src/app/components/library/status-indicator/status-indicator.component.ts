@@ -15,24 +15,26 @@ import { DxTextBoxModule as DxTextBoxModule_1 } from 'devextreme-angular';
       status
       status-indicator
       status-indicator-{{ dashValue }}">
-      <span *ngIf="!isField" class="status-indicator-{{ dashValue }}">{{ getValue(value) }}</span>
+    @if (!isField) {
+      <span class="status-indicator-{{ dashValue }}">{{ getValue(value) }}</span>
+    }
+    @if (isField) {
       <dx-text-box
-        *ngIf="isField"
         class="status-indicator-{{ dashValue }}"
         [inputAttr]="{class: 'status-input status-editor-input'}"
         [hoverStateEnabled]="false"
         [readOnly]="true"
         [value]="getValue(value)">
       </dx-text-box>
-    </div>
+    }
+  </div>
   `,
     styleUrls: ['./status-indicator.component.scss'],
     standalone: true,
     imports: [
-        NgClass,
-        NgIf,
-        DxTextBoxModule_1,
-    ],
+    NgClass,
+    DxTextBoxModule_1
+],
 })
 export class StatusIndicatorComponent implements OnInit {
   @Input() value: TaskStatus | TaskPriority;

@@ -27,20 +27,16 @@ type CardData = Record<string, any>;
     styleUrls: ['profile-card.component.scss'],
     standalone: true,
     imports: [
-        DxFormModule_1,
-        NgFor,
-        DxiItemModule,
-        NgIf,
-        DxoLabelModule,
-        DxiValidationRuleModule,
-        NgSwitch,
-        NgSwitchCase,
-        DxDateBoxModule,
-        StatusSelectBoxComponent,
-        PicturedItemSelectBoxComponent,
-        ApplyPipe,
-        AsyncPipe,
-    ],
+    DxFormModule_1,
+    DxiItemModule,
+    DxoLabelModule,
+    DxiValidationRuleModule,
+    DxDateBoxModule,
+    StatusSelectBoxComponent,
+    PicturedItemSelectBoxComponent,
+    ApplyPipe,
+    AsyncPipe
+],
 })
 export class ProfileCardComponent {
   @ViewChild('form', { static: true }) form: DxFormComponent;

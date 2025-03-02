@@ -40,18 +40,17 @@ import { PhonePipe } from '../../pipes/phone.pipe';
     providers: [DataService],
     standalone: true,
     imports: [
-        DxToolbarModule_1,
-        DxiItemModule,
-        DxButtonModule,
-        DxLoadPanelModule_1,
-        DxScrollViewModule,
-        NgIf,
-        ProfileCardComponent,
-        FormPhotoComponent,
-        ChangeProfilePasswordFormComponent,
-        AsyncPipe,
-        PhonePipe,
-    ],
+    DxToolbarModule_1,
+    DxiItemModule,
+    DxButtonModule,
+    DxLoadPanelModule_1,
+    DxScrollViewModule,
+    ProfileCardComponent,
+    FormPhotoComponent,
+    ChangeProfilePasswordFormComponent,
+    AsyncPipe,
+    PhonePipe
+],
 })
 export class UserProfileComponent {
   profileId = 22;

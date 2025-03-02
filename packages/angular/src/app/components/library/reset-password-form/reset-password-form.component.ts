@@ -16,16 +16,15 @@ const notificationText = 'We\'ve sent a link to reset your password. Check your 
     styleUrls: ['./reset-password-form.component.scss'],
     standalone: true,
     imports: [
-        DxFormModule,
-        DxiItemModule,
-        DxiValidationRuleModule,
-        DxoLabelModule,
-        DxoButtonOptionsModule,
-        DxTemplateModule,
-        NgIf,
-        DxLoadIndicatorModule,
-        RouterLink,
-    ],
+    DxFormModule,
+    DxiItemModule,
+    DxiValidationRuleModule,
+    DxoLabelModule,
+    DxoButtonOptionsModule,
+    DxTemplateModule,
+    DxLoadIndicatorModule,
+    RouterLink
+],
 })
 export class ResetPasswordFormComponent implements OnInit {
   @Input() signInLink = '/auth/login';

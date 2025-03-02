@@ -18,12 +18,10 @@ import { DxLoadPanelModule as DxLoadPanelModule_1 } from 'devextreme-angular/ui/
     styleUrls: ['./card-opportunities.component.scss'],
     standalone: true,
     imports: [
-        NgIf,
-        DxButtonModule,
-        NgFor,
-        OpportunityTileComponent,
-        DxLoadPanelModule_1,
-    ],
+    DxButtonModule,
+    OpportunityTileComponent,
+    DxLoadPanelModule_1
+],
 })
 export class CardOpportunitiesComponent implements OnChanges {
   @Input() openedOpportunities: Opportunity[];

@@ -38,19 +38,18 @@ import { DxLoadPanelModule as DxLoadPanelModule_1 } from 'devextreme-angular/ui/
     styleUrls: ['./task-form.component.scss'],
     standalone: true,
     imports: [
-        NgIf,
-        ToolbarFormComponent,
-        DxFormModule_1,
-        DxiItemModule,
-        DxTemplateModule,
-        FormTextboxComponent,
-        DxoColCountByScreenModule,
-        DxSelectBoxModule,
-        StatusIndicatorComponent,
-        FormDateboxComponent,
-        DxTextAreaModule,
-        DxLoadPanelModule_1,
-    ],
+    ToolbarFormComponent,
+    DxFormModule_1,
+    DxiItemModule,
+    DxTemplateModule,
+    FormTextboxComponent,
+    DxoColCountByScreenModule,
+    DxSelectBoxModule,
+    StatusIndicatorComponent,
+    FormDateboxComponent,
+    DxTextAreaModule,
+    DxLoadPanelModule_1
+],
 })
 export class TaskFormComponent implements OnInit {
   @Input() task: Task;

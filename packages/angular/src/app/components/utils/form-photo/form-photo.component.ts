@@ -11,10 +11,9 @@ import { DxFileUploaderModule as DxFileUploaderModule_1 } from 'devextreme-angul
     styleUrls: ['./form-photo.component.scss'],
     standalone: true,
     imports: [
-        NgStyle,
-        NgIf,
-        DxFileUploaderModule_1,
-    ],
+    NgStyle,
+    DxFileUploaderModule_1
+],
 })
 export class FormPhotoComponent implements OnInit {
   @Input() link: string;

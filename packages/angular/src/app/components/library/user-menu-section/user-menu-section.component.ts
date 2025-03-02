@@ -9,7 +9,7 @@ import { IUser } from '../../../services/auth.service';
     templateUrl: 'user-menu-section.component.html',
     styleUrls: ['./user-menu-section.component.scss'],
     standalone: true,
-    imports: [NgIf, DxListModule],
+    imports: [DxListModule],
 })
 
 export class UserMenuSectionComponent {
