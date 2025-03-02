@@ -1,13 +1,15 @@
 import { Component, NgModule, Input, ViewChild, ElementRef } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 
 import { DxListModule, DxListTypes } from 'devextreme-angular/ui/list';
 import { IUser } from '../../../services/auth.service';
 
 @Component({
-  selector: 'user-menu-section',
-  templateUrl: 'user-menu-section.component.html',
-  styleUrls: ['./user-menu-section.component.scss'],
+    selector: 'user-menu-section',
+    templateUrl: 'user-menu-section.component.html',
+    styleUrls: ['./user-menu-section.component.scss'],
+    standalone: true,
+    imports: [NgIf, DxListModule],
 })
 
 export class UserMenuSectionComponent {
@@ -30,11 +32,11 @@ export class UserMenuSectionComponent {
 }
 
 @NgModule({
-  imports: [
-    DxListModule,
-    CommonModule,
-  ],
-  declarations: [UserMenuSectionComponent],
-  exports: [UserMenuSectionComponent],
+    imports: [
+        DxListModule,
+        CommonModule,
+        UserMenuSectionComponent,
+    ],
+    exports: [UserMenuSectionComponent],
 })
 export class UserMenuSectionModule { }

@@ -1,7 +1,7 @@
 import {
   Component, Input, NgModule, OnChanges, SimpleChanges, ViewChild,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 import {
   DxDataGridComponent,
   DxDataGridModule,
@@ -9,11 +9,18 @@ import {
 } from 'devextreme-angular';
 import { DxDataGridTypes } from 'devextreme-angular/ui/data-grid';
 import { Task } from '../../../types/task';
+import { DxLoadPanelModule as DxLoadPanelModule_1 } from 'devextreme-angular/ui/load-panel';
 
 @Component({
-  selector: 'card-tasks',
-  templateUrl: './card-tasks.component.html',
-  styleUrls: ['./card-tasks.component.scss'],
+    selector: 'card-tasks',
+    templateUrl: './card-tasks.component.html',
+    styleUrls: ['./card-tasks.component.scss'],
+    standalone: true,
+    imports: [
+        NgIf,
+        DxDataGridModule,
+        DxLoadPanelModule_1,
+    ],
 })
 export class CardTasksComponent implements OnChanges {
   @ViewChild('dataGrid', { static: false }) component: DxDataGridComponent;
@@ -45,8 +52,7 @@ export class CardTasksComponent implements OnChanges {
 }
 
 @NgModule({
-  imports: [DxDataGridModule, DxLoadPanelModule, CommonModule],
-  declarations: [CardTasksComponent],
-  exports: [CardTasksComponent],
+    imports: [DxDataGridModule, DxLoadPanelModule, CommonModule, CardTasksComponent],
+    exports: [CardTasksComponent],
 })
 export class CardTasksModule { }

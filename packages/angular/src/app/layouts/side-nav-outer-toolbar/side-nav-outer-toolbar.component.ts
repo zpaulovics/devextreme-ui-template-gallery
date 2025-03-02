@@ -11,16 +11,27 @@ import { DxDrawerModule, DxDrawerTypes } from 'devextreme-angular/ui/drawer';
 import { DxScrollViewComponent } from 'devextreme-angular/ui/scroll-view';
 import { CommonModule } from '@angular/common';
 
-import { Router, RouterModule, NavigationEnd, Event } from '@angular/router';
+import { Router, RouterModule, NavigationEnd, Event, RouterOutlet } from '@angular/router';
 import { ScreenService, AppInfoService } from '../../services';
 import { SideNavigationMenuModule, AppHeaderModule, AppFooterModule } from '../../components';
 
 import { Subscription } from 'rxjs';
+import { AppHeaderComponent } from '../../components/library/app-header/app-header.component';
+import { SideNavigationMenuComponent } from '../../components/library/side-navigation-menu/side-navigation-menu.component';
+import { AppFooterComponent } from '../../components/library/app-footer/app-footer.component';
 
 @Component({
-  selector: 'app-side-nav-outer-toolbar',
-  templateUrl: './side-nav-outer-toolbar.component.html',
-  styleUrls: ['./side-nav-outer-toolbar.component.scss'],
+    selector: 'app-side-nav-outer-toolbar',
+    templateUrl: './side-nav-outer-toolbar.component.html',
+    styleUrls: ['./side-nav-outer-toolbar.component.scss'],
+    standalone: true,
+    imports: [
+        AppHeaderComponent,
+        DxDrawerModule,
+        SideNavigationMenuComponent,
+        AppFooterComponent,
+        RouterOutlet,
+    ],
 })
 export class SideNavOuterToolbarComponent implements OnInit, OnDestroy {
   @ViewChild(DxScrollViewComponent, { static: true }) scrollView!: DxScrollViewComponent;
@@ -115,15 +126,15 @@ export class SideNavOuterToolbarComponent implements OnInit, OnDestroy {
 }
 
 @NgModule({
-  imports: [
-    RouterModule,
-    SideNavigationMenuModule,
-    DxDrawerModule,
-    AppHeaderModule,
-    CommonModule,
-    AppFooterModule
-  ],
-  exports: [SideNavOuterToolbarComponent],
-  declarations: [SideNavOuterToolbarComponent],
+    imports: [
+        RouterModule,
+        SideNavigationMenuModule,
+        DxDrawerModule,
+        AppHeaderModule,
+        CommonModule,
+        AppFooterModule,
+        SideNavOuterToolbarComponent
+    ],
+    exports: [SideNavOuterToolbarComponent],
 })
 export class SideNavOuterToolbarModule { }

@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgFor, DatePipe } from '@angular/common';
 import {
   Component, Input, NgModule,
 } from '@angular/core';
@@ -13,11 +13,28 @@ import {
 } from 'devextreme-angular';
 import { Message, Messages } from 'src/app/types/messages';
 import { UserAvatarModule } from 'src/app/components/library/user-avatar/user-avatar.component';
+import { DxToolbarModule as DxToolbarModule_1 } from 'devextreme-angular/ui/toolbar';
+import { DxiItemModule } from 'devextreme-angular/ui/nested';
+import { UserAvatarComponent } from '../user-avatar/user-avatar.component';
 
 @Component({
-  selector: 'card-messages',
-  templateUrl: './card-messages.component.html',
-  styleUrls: ['./card-messages.component.scss'],
+    selector: 'card-messages',
+    templateUrl: './card-messages.component.html',
+    styleUrls: ['./card-messages.component.scss'],
+    standalone: true,
+    imports: [
+        DxValidationGroupModule,
+        DxTextBoxModule,
+        DxValidatorModule,
+        DxTextAreaModule,
+        DxToolbarModule_1,
+        DxiItemModule,
+        DxFileUploaderModule,
+        NgFor,
+        UserAvatarComponent,
+        DxButtonModule,
+        DatePipe,
+    ],
 })
 export class CardMessagesComponent {
   @Input() user: string;
@@ -55,18 +72,18 @@ export class CardMessagesComponent {
 }
 
 @NgModule({
-  imports: [
-    DxTextAreaModule,
-    DxTextBoxModule,
-    DxToolbarModule,
-    DxFileUploaderModule,
-    DxButtonModule,
-    DxValidationGroupModule,
-    DxValidatorModule,
-    UserAvatarModule,
-    CommonModule,
-  ],
-  declarations: [CardMessagesComponent],
-  exports: [CardMessagesComponent],
+    imports: [
+        DxTextAreaModule,
+        DxTextBoxModule,
+        DxToolbarModule,
+        DxFileUploaderModule,
+        DxButtonModule,
+        DxValidationGroupModule,
+        DxValidatorModule,
+        UserAvatarModule,
+        CommonModule,
+        CardMessagesComponent,
+    ],
+    exports: [CardMessagesComponent],
 })
 export class CardMessagesModule { }

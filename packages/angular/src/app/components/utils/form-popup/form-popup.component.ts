@@ -4,7 +4,7 @@ import {
   Input,
   ViewChild, Output, EventEmitter,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, AsyncPipe } from '@angular/common';
 import {
   DxButtonModule,
   DxToolbarModule,
@@ -14,11 +14,14 @@ import {
 } from 'devextreme-angular';
 import { ScreenService } from 'src/app/services';
 import { ApplyPipeModule } from 'src/app/pipes/apply.pipe';
+import { ApplyPipe } from '../../../pipes/apply.pipe';
 
 @Component({
-  selector: 'form-popup',
-  templateUrl: './form-popup.component.html',
-  styleUrls: ['./form-popup.component.scss']
+    selector: 'form-popup',
+    templateUrl: './form-popup.component.html',
+    styleUrls: ['./form-popup.component.scss'],
+    standalone: true,
+    imports: [DxPopupModule, DxButtonModule, DxValidationGroupModule, ApplyPipe, AsyncPipe]
 })
 
 export class FormPopupComponent {
@@ -71,15 +74,15 @@ export class FormPopupComponent {
 }
 
 @NgModule({
-  imports: [
-    ApplyPipeModule,
-    DxButtonModule,
-    DxToolbarModule,
-    DxPopupModule,
-    DxValidationGroupModule,
-    CommonModule,
-  ],
-  declarations: [FormPopupComponent],
-  exports: [FormPopupComponent],
+    imports: [
+        ApplyPipeModule,
+        DxButtonModule,
+        DxToolbarModule,
+        DxPopupModule,
+        DxValidationGroupModule,
+        CommonModule,
+        FormPopupComponent,
+    ],
+    exports: [FormPopupComponent],
 })
 export class FormPopupModule { }

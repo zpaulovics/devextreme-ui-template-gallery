@@ -5,15 +5,29 @@ import {
   Output,
   EventEmitter,
 } from '@angular/core';
-import { CardAnalyticsModule } from '../../library/card-analytics/card-analytics.component';
+import { CardAnalyticsModule, CardAnalyticsComponent } from '../../library/card-analytics/card-analytics.component';
 import { DxChartModule } from 'devextreme-angular/ui/chart';
 import { DxDropDownButtonModule } from 'devextreme-angular/ui/drop-down-button';
 import { Sale } from 'src/app/types/analytics';
+import { DxoArgumentAxisModule, DxoTooltipModule, DxoSeriesTemplateModule, DxoCommonSeriesSettingsModule, DxoPointModule, DxoLegendModule, DxoSizeModule } from 'devextreme-angular/ui/nested';
 
 @Component({
-  selector: 'sales-performance-card',
-  templateUrl: './sales-performance-card.component.html',
-  styleUrls: ['./sales-performance-card.component.scss'],
+    selector: 'sales-performance-card',
+    templateUrl: './sales-performance-card.component.html',
+    styleUrls: ['./sales-performance-card.component.scss'],
+    standalone: true,
+    imports: [
+        CardAnalyticsComponent,
+        DxDropDownButtonModule,
+        DxChartModule,
+        DxoArgumentAxisModule,
+        DxoTooltipModule,
+        DxoSeriesTemplateModule,
+        DxoCommonSeriesSettingsModule,
+        DxoPointModule,
+        DxoLegendModule,
+        DxoSizeModule,
+    ],
 })
 export class SalesPerformanceCardComponent {
   @Input() groupByPeriods: string[];
@@ -34,12 +48,12 @@ export class SalesPerformanceCardComponent {
 }
 
 @NgModule({
-  imports: [
-    CardAnalyticsModule,
-    DxChartModule,
-    DxDropDownButtonModule,
-  ],
-  declarations: [SalesPerformanceCardComponent],
-  exports: [SalesPerformanceCardComponent],
+    imports: [
+        CardAnalyticsModule,
+        DxChartModule,
+        DxDropDownButtonModule,
+        SalesPerformanceCardComponent,
+    ],
+    exports: [SalesPerformanceCardComponent],
 })
 export class SalesPerformanceCardModule { }

@@ -1,14 +1,20 @@
 import {
   Component, EventEmitter, Input, NgModule, Output,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 import { DxButtonModule } from 'devextreme-angular';
-import {ApplyPipeModule} from "../../../pipes/apply.pipe";
+import { ApplyPipeModule, ApplyPipe } from "../../../pipes/apply.pipe";
 
 @Component({
-  selector: 'scheduler-tooltip',
-  templateUrl: './scheduler-tooltip.component.html',
-  styleUrls: ['./scheduler-tooltip.component.scss'],
+    selector: 'scheduler-tooltip',
+    templateUrl: './scheduler-tooltip.component.html',
+    styleUrls: ['./scheduler-tooltip.component.scss'],
+    standalone: true,
+    imports: [
+        DxButtonModule,
+        NgIf,
+        ApplyPipe,
+    ],
 })
 export class SchedulerTooltipComponent {
   @Input() selectedAppointmentData: Record<string, any>;
@@ -37,12 +43,12 @@ export class SchedulerTooltipComponent {
 }
 
 @NgModule({
-  imports: [
-    ApplyPipeModule,
-    CommonModule,
-    DxButtonModule,
-  ],
-  declarations: [SchedulerTooltipComponent],
-  exports: [SchedulerTooltipComponent],
+    imports: [
+        ApplyPipeModule,
+        CommonModule,
+        DxButtonModule,
+        SchedulerTooltipComponent,
+    ],
+    exports: [SchedulerTooltipComponent],
 })
 export class SchedulerTooltipModule { }

@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgFor, DatePipe } from '@angular/common';
 import {
   Component, Input, NgModule, OnInit,
 } from '@angular/core';
@@ -11,11 +11,26 @@ import {
   DxScrollViewModule
 } from 'devextreme-angular';
 import { Notes, Note } from 'src/app/types/notes';
+import { DxiValidationRuleModule, DxiItemModule } from 'devextreme-angular/ui/nested';
+import { DxToolbarModule as DxToolbarModule_1 } from 'devextreme-angular/ui/toolbar';
 
 @Component({
-  selector: 'card-notes',
-  templateUrl: './card-notes.component.html',
-  styleUrls: ['./card-notes.component.scss'],
+    selector: 'card-notes',
+    templateUrl: './card-notes.component.html',
+    styleUrls: ['./card-notes.component.scss'],
+    standalone: true,
+    imports: [
+        DxValidationGroupModule,
+        DxTextAreaModule,
+        DxValidatorModule,
+        DxiValidationRuleModule,
+        DxToolbarModule_1,
+        DxiItemModule,
+        DxScrollViewModule,
+        NgFor,
+        DxButtonModule,
+        DatePipe,
+    ],
 })
 export class CardNotesComponent {
   @Input() user: string;
@@ -42,16 +57,16 @@ export class CardNotesComponent {
 }
 
 @NgModule({
-  imports: [
-    DxTextAreaModule,
-    DxToolbarModule,
-    DxButtonModule,
-    DxValidationGroupModule,
-    DxValidatorModule,
-    DxScrollViewModule,
-    CommonModule,
-  ],
-  declarations: [CardNotesComponent],
-  exports: [CardNotesComponent],
+    imports: [
+        DxTextAreaModule,
+        DxToolbarModule,
+        DxButtonModule,
+        DxValidationGroupModule,
+        DxValidatorModule,
+        DxScrollViewModule,
+        CommonModule,
+        CardNotesComponent,
+    ],
+    exports: [CardNotesComponent],
 })
 export class CardNotesModule { }

@@ -5,7 +5,8 @@ export function formatPhone(value) {
 }
 
 @Pipe({
-  name: 'phone',
+    name: 'phone',
+    standalone: true,
 })
 export class PhonePipe implements PipeTransform {
   transform(value: number): any {
@@ -14,9 +15,8 @@ export class PhonePipe implements PipeTransform {
 }
 
 @NgModule({
-  imports: [],
-  providers: [],
-  exports: [PhonePipe],
-  declarations: [PhonePipe],
+    imports: [PhonePipe],
+    providers: [],
+    exports: [PhonePipe],
 })
 export class PhonePipeModule { }

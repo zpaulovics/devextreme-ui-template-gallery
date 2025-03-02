@@ -2,7 +2,7 @@ import {
   ChangeDetectorRef,
   Component, NgModule,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgIf, AsyncPipe } from '@angular/common';
 import notify from 'devextreme/ui/notify';
 import {
   DxButtonModule,
@@ -26,11 +26,32 @@ import {
   FormPopupModule,
 } from 'src/app/components';
 import { DataService, ScreenService } from 'src/app/services';
+import { DxToolbarModule as DxToolbarModule_1 } from 'devextreme-angular/ui/toolbar';
+import { DxiItemModule } from 'devextreme-angular/ui/nested';
+import { DxLoadPanelModule as DxLoadPanelModule_1 } from 'devextreme-angular/ui/load-panel';
+import { ProfileCardComponent } from '../../components/library/profile-card/profile-card.component';
+import { FormPhotoComponent } from '../../components/utils/form-photo/form-photo.component';
+import { ChangeProfilePasswordFormComponent } from '../../components/library/change-profile-password-form/change-profile-password-form.component';
+import { PhonePipe } from '../../pipes/phone.pipe';
 
 @Component({
-  templateUrl: './user-profile.component.html',
-  styleUrls: ['./user-profile.component.scss'],
-  providers: [DataService],
+    templateUrl: './user-profile.component.html',
+    styleUrls: ['./user-profile.component.scss'],
+    providers: [DataService],
+    standalone: true,
+    imports: [
+        DxToolbarModule_1,
+        DxiItemModule,
+        DxButtonModule,
+        DxLoadPanelModule_1,
+        DxScrollViewModule,
+        NgIf,
+        ProfileCardComponent,
+        FormPhotoComponent,
+        ChangeProfilePasswordFormComponent,
+        AsyncPipe,
+        PhonePipe,
+    ],
 })
 export class UserProfileComponent {
   profileId = 22;
@@ -210,27 +231,27 @@ export class UserProfileComponent {
 }
 
 @NgModule({
-  imports: [
-    DxButtonModule,
-    DxDateBoxModule,
-    DxFormModule,
-    DxFileUploaderModule,
-    DxNumberBoxModule,
-    DxToolbarModule,
-    DxSelectBoxModule,
-    DxScrollViewModule,
-    DxLoadPanelModule,
-    DxTextBoxModule,
-    FormTextboxModule,
-    FormPhotoModule,
-    FormPopupModule,
-    ProfileCardModule,
-    ChangeProfilePasswordFormModule,
-    CommonModule,
-    PhonePipeModule,
-  ],
-  providers: [],
-  exports: [],
-  declarations: [UserProfileComponent],
+    imports: [
+        DxButtonModule,
+        DxDateBoxModule,
+        DxFormModule,
+        DxFileUploaderModule,
+        DxNumberBoxModule,
+        DxToolbarModule,
+        DxSelectBoxModule,
+        DxScrollViewModule,
+        DxLoadPanelModule,
+        DxTextBoxModule,
+        FormTextboxModule,
+        FormPhotoModule,
+        FormPopupModule,
+        ProfileCardModule,
+        ChangeProfilePasswordFormModule,
+        CommonModule,
+        PhonePipeModule,
+        UserProfileComponent,
+    ],
+    providers: [],
+    exports: [],
 })
 export class UserProfileListModule { }

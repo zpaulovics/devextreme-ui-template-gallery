@@ -1,13 +1,14 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgClass, NgIf } from '@angular/common';
 import {
   Component, Input, NgModule, OnInit,
 } from '@angular/core';
 import { TaskStatus, TaskPriority } from 'src/app/types/task';
 import { DxTextBoxModule } from 'devextreme-angular/ui/text-box';
+import { DxTextBoxModule as DxTextBoxModule_1 } from 'devextreme-angular';
 
 @Component({
-  selector: 'status-indicator',
-  template: `
+    selector: 'status-indicator',
+    template: `
   <div
     [ngClass]="{'input-with-bar': showBar }"
     class="
@@ -25,7 +26,13 @@ import { DxTextBoxModule } from 'devextreme-angular/ui/text-box';
       </dx-text-box>
     </div>
   `,
-  styleUrls: ['./status-indicator.component.scss'],
+    styleUrls: ['./status-indicator.component.scss'],
+    standalone: true,
+    imports: [
+        NgClass,
+        NgIf,
+        DxTextBoxModule_1,
+    ],
 })
 export class StatusIndicatorComponent implements OnInit {
   @Input() value: TaskStatus | TaskPriority;
@@ -49,11 +56,11 @@ export class StatusIndicatorComponent implements OnInit {
 }
 
 @NgModule({
-  imports: [
-    CommonModule,
-    DxTextBoxModule,
-  ],
-  declarations: [StatusIndicatorComponent],
-  exports: [StatusIndicatorComponent],
+    imports: [
+        CommonModule,
+        DxTextBoxModule,
+        StatusIndicatorComponent,
+    ],
+    exports: [StatusIndicatorComponent],
 })
 export class StatusIndicatorModule { }

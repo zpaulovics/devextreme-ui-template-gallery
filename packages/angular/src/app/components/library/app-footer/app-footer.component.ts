@@ -1,11 +1,12 @@
 import { Component, NgModule } from '@angular/core';
 
 @Component({
-  selector: 'app-footer',
-  template: `
+    selector: 'app-footer',
+    template: `
     <footer><ng-content></ng-content></footer>
   `,
-  styleUrls: ['./app-footer.component.scss'],
+    styleUrls: ['./app-footer.component.scss'],
+    standalone: true,
 })
 
 export class AppFooterComponent {
@@ -13,7 +14,7 @@ export class AppFooterComponent {
 }
 
 @NgModule({
-  declarations: [AppFooterComponent],
-  exports: [AppFooterComponent],
+    imports: [AppFooterComponent],
+    exports: [AppFooterComponent],
 })
 export class AppFooterModule { }

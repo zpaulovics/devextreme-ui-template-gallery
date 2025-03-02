@@ -2,9 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component, NgModule, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-card-auth',
-  templateUrl: './card-auth.component.html',
-  styleUrls: ['./card-auth.component.scss'],
+    selector: 'app-card-auth',
+    templateUrl: './card-auth.component.html',
+    styleUrls: ['./card-auth.component.scss'],
+    standalone: true,
 })
 export class CardAuthComponent {
   @Input()
@@ -15,10 +16,10 @@ export class CardAuthComponent {
 }
 
 @NgModule({
-  imports: [
-    CommonModule,
-  ],
-  declarations: [CardAuthComponent],
-  exports: [CardAuthComponent],
+    imports: [
+        CommonModule,
+        CardAuthComponent,
+    ],
+    exports: [CardAuthComponent],
 })
 export class CardAuthModule { }

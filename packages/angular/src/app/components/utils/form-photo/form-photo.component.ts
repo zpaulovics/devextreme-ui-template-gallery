@@ -1,13 +1,20 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgStyle, NgIf } from '@angular/common';
 import {
   Component, ElementRef, Input, NgModule, OnInit,
 } from '@angular/core';
 import { DxFileUploaderModule } from 'devextreme-angular/ui/file-uploader';
+import { DxFileUploaderModule as DxFileUploaderModule_1 } from 'devextreme-angular';
 
 @Component({
-  selector: 'form-photo',
-  templateUrl: './form-photo.component.html',
-  styleUrls: ['./form-photo.component.scss'],
+    selector: 'form-photo',
+    templateUrl: './form-photo.component.html',
+    styleUrls: ['./form-photo.component.scss'],
+    standalone: true,
+    imports: [
+        NgStyle,
+        NgIf,
+        DxFileUploaderModule_1,
+    ],
 })
 export class FormPhotoComponent implements OnInit {
   @Input() link: string;
@@ -28,11 +35,11 @@ export class FormPhotoComponent implements OnInit {
 }
 
 @NgModule({
-  imports: [
-    DxFileUploaderModule,
-    CommonModule
-  ],
-  declarations: [FormPhotoComponent],
-  exports: [FormPhotoComponent],
+    imports: [
+        DxFileUploaderModule,
+        CommonModule,
+        FormPhotoComponent
+    ],
+    exports: [FormPhotoComponent],
 })
 export class FormPhotoModule { }

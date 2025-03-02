@@ -1,7 +1,7 @@
 import {
   Component, NgModule, Input, OnInit,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 import {
   DxButtonModule,
   DxFormModule,
@@ -23,11 +23,34 @@ import { getSizeQualifier } from 'src/app/services/screen.service';
 import { DxButtonTypes } from 'devextreme-angular/ui/button';
 import { ScreenService } from '../../../services';
 import { ToolbarFormModule } from 'src/app/components/utils/toolbar-form/toolbar-form.component';
+import { ToolbarFormComponent } from '../../utils/toolbar-form/toolbar-form.component';
+import { DxFormModule as DxFormModule_1 } from 'devextreme-angular/ui/form';
+import { DxiItemModule, DxoColCountByScreenModule } from 'devextreme-angular/ui/nested';
+import { DxTemplateModule } from 'devextreme-angular/core';
+import { FormTextboxComponent } from '../../utils/form-textbox/form-textbox.component';
+import { StatusIndicatorComponent } from '../status-indicator/status-indicator.component';
+import { FormDateboxComponent } from '../../utils/form-datebox/form-datebox.component';
+import { DxLoadPanelModule as DxLoadPanelModule_1 } from 'devextreme-angular/ui/load-panel';
 
 @Component({
-  selector: 'task-form',
-  templateUrl: './task-form.component.html',
-  styleUrls: ['./task-form.component.scss'],
+    selector: 'task-form',
+    templateUrl: './task-form.component.html',
+    styleUrls: ['./task-form.component.scss'],
+    standalone: true,
+    imports: [
+        NgIf,
+        ToolbarFormComponent,
+        DxFormModule_1,
+        DxiItemModule,
+        DxTemplateModule,
+        FormTextboxComponent,
+        DxoColCountByScreenModule,
+        DxSelectBoxModule,
+        StatusIndicatorComponent,
+        FormDateboxComponent,
+        DxTextAreaModule,
+        DxLoadPanelModule_1,
+    ],
 })
 export class TaskFormComponent implements OnInit {
   @Input() task: Task;
@@ -71,24 +94,23 @@ export class TaskFormComponent implements OnInit {
 }
 
 @NgModule({
-  imports: [
-    DxButtonModule,
-    DxFormModule,
-    DxLoadPanelModule,
-    DxSelectBoxModule,
-    DxTextBoxModule,
-    DxTextAreaModule,
-    DxToolbarModule,
-    DxValidatorModule,
-
-    FormTextboxModule,
-    StatusIndicatorModule,
-    FormItemDateModule,
-    ToolbarFormModule,
-    CommonModule,
-  ],
-  providers: [],
-  exports: [TaskFormComponent],
-  declarations: [TaskFormComponent],
+    imports: [
+        DxButtonModule,
+        DxFormModule,
+        DxLoadPanelModule,
+        DxSelectBoxModule,
+        DxTextBoxModule,
+        DxTextAreaModule,
+        DxToolbarModule,
+        DxValidatorModule,
+        FormTextboxModule,
+        StatusIndicatorModule,
+        FormItemDateModule,
+        ToolbarFormModule,
+        CommonModule,
+        TaskFormComponent,
+    ],
+    providers: [],
+    exports: [TaskFormComponent],
 })
 export class TaskFormModule { }

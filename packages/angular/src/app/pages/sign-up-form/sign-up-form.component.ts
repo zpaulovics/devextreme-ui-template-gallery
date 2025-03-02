@@ -1,11 +1,15 @@
 import { Component, NgModule } from '@angular/core';
 
 import { CardAuthModule, CreateAccountFormModule } from 'src/app/components';
+import { CardAuthComponent } from '../../components/library/card-auth/card-auth.component';
+import { CreateAccountFormComponent } from '../../components/library/create-account-form/create-account-form.component';
 
 @Component({
-  selector: 'app-sign-up-form',
-  templateUrl: './sign-up-form.component.html',
-  styleUrls: ['./sign-up-form.component.scss']
+    selector: 'app-sign-up-form',
+    templateUrl: './sign-up-form.component.html',
+    styleUrls: ['./sign-up-form.component.scss'],
+    standalone: true,
+    imports: [CardAuthComponent, CreateAccountFormComponent]
 })
 export class AppSignUpComponent {
 
@@ -17,13 +21,13 @@ export class AppSignUpComponent {
 }
 
 @NgModule({
-  imports: [
-    CreateAccountFormModule,
-    CardAuthModule,
-  ],
-  providers: [],
-  exports: [AppSignUpComponent],
-  declarations: [AppSignUpComponent],
+    imports: [
+        CreateAccountFormModule,
+        CardAuthModule,
+        AppSignUpComponent,
+    ],
+    providers: [],
+    exports: [AppSignUpComponent],
 })
 export class AppSignUpComponentModule { }
 

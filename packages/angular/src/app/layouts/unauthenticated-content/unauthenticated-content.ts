@@ -1,22 +1,25 @@
 import { CommonModule } from '@angular/common';
 import { Component, NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { SingleCardModule } from 'src/app/layouts';
 import { Router } from '@angular/router';
+import { SingleCardComponent } from '../single-card/single-card.component';
 
 @Component({
-  selector: 'app-unauthenticated-content',
-  template: `
+    selector: 'app-unauthenticated-content',
+    template: `
     <app-single-card [title]="title" [description]="description">
       <router-outlet></router-outlet>
     </app-single-card>
   `,
-  styles: [`
+    styles: [`
     :host {
       width: 100%;
       height: 100%;
     }
   `],
+    standalone: true,
+    imports: [SingleCardComponent, RouterOutlet],
 })
 export class UnauthenticatedContentComponent {
   constructor(private router: Router) { }
@@ -41,12 +44,12 @@ export class UnauthenticatedContentComponent {
   }
 }
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule,
-    SingleCardModule,
-  ],
-  declarations: [UnauthenticatedContentComponent],
-  exports: [UnauthenticatedContentComponent],
+    imports: [
+        CommonModule,
+        RouterModule,
+        SingleCardModule,
+        UnauthenticatedContentComponent,
+    ],
+    exports: [UnauthenticatedContentComponent],
 })
 export class UnauthenticatedContentModule { }

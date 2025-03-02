@@ -21,11 +21,25 @@ import { Opportunities } from 'src/app/types/opportunities';
 import { ContactFormModule } from 'src/app/components/library/contact-form/contact-form.component';
 import { ContactCardsModule } from 'src/app/components/utils/contact-cards/contact-cards.component';
 import { DxToolbarModule } from 'devextreme-angular/ui/toolbar';
+import { DxiItemModule } from 'devextreme-angular/ui/nested';
+import { DxDropDownButtonModule as DxDropDownButtonModule_1 } from 'devextreme-angular/ui/drop-down-button';
+import { ContactFormComponent } from '../../components/library/contact-form/contact-form.component';
+import { ContactCardsComponent } from '../../components/utils/contact-cards/contact-cards.component';
 
 @Component({
-  templateUrl: './crm-contact-details.component.html',
-  styleUrls: ['./crm-contact-details.component.scss'],
-  providers: [DataService],
+    templateUrl: './crm-contact-details.component.html',
+    styleUrls: ['./crm-contact-details.component.scss'],
+    providers: [DataService],
+    standalone: true,
+    imports: [
+        DxScrollViewModule,
+        DxToolbarModule,
+        DxiItemModule,
+        DxButtonModule,
+        DxDropDownButtonModule_1,
+        ContactFormComponent,
+        ContactCardsComponent,
+    ],
 })
 export class CrmContactDetailsComponent implements OnInit {
   contactId = 12;
@@ -88,23 +102,20 @@ export class CrmContactDetailsComponent implements OnInit {
 }
 
 @NgModule({
-  imports: [
-    DxButtonModule,
-    DxDropDownButtonModule,
-    DxScrollViewModule,
-    DxToolbarModule,
-
-    ContactFormModule,
-    ContactCardsModule,
-
-    CardActivitiesModule,
-    CardNotesModule,
-    CardMessagesModule,
-
-    CommonModule,
-  ],
-  providers: [],
-  exports: [],
-  declarations: [CrmContactDetailsComponent],
+    imports: [
+        DxButtonModule,
+        DxDropDownButtonModule,
+        DxScrollViewModule,
+        DxToolbarModule,
+        ContactFormModule,
+        ContactCardsModule,
+        CardActivitiesModule,
+        CardNotesModule,
+        CardMessagesModule,
+        CommonModule,
+        CrmContactDetailsComponent,
+    ],
+    providers: [],
+    exports: [],
 })
 export class CrmContactDetailsModule { }

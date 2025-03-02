@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 import { Component, NgModule, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { ValidationCallbackData } from 'devextreme-angular/common';
@@ -10,8 +10,14 @@ import { AuthService } from '../../../services';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-change-password-form',
-  templateUrl: './change-password-form.component.html',
+    selector: 'app-change-password-form',
+    templateUrl: './change-password-form.component.html',
+    standalone: true,
+    imports: [
+        DxFormModule,
+        NgIf,
+        DxLoadIndicatorModule,
+    ],
 })
 export class ChangePasswordFormComponent implements OnInit, OnDestroy {
   loading = false;
@@ -52,13 +58,13 @@ export class ChangePasswordFormComponent implements OnInit, OnDestroy {
   }
 }
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule,
-    DxFormModule,
-    DxLoadIndicatorModule,
-  ],
-  declarations: [ChangePasswordFormComponent],
-  exports: [ChangePasswordFormComponent],
+    imports: [
+        CommonModule,
+        RouterModule,
+        DxFormModule,
+        DxLoadIndicatorModule,
+        ChangePasswordFormComponent,
+    ],
+    exports: [ChangePasswordFormComponent],
 })
 export class ChangePasswordFormModule { }

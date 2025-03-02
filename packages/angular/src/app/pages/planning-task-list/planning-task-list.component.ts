@@ -1,7 +1,7 @@
 import {
   Component, OnInit, NgModule, ViewChild,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgIf, NgSwitch, NgSwitchCase, AsyncPipe } from '@angular/common';
 import { DxButtonModule } from 'devextreme-angular/ui/button';
 import { DxDataGridModule } from 'devextreme-angular/ui/data-grid';
 import { DxTabsModule } from 'devextreme-angular/ui/tabs';
@@ -19,11 +19,33 @@ import { TaskListGridComponent, TaskListModule } from 'src/app/components/librar
 import { TaskListKanbanModule, TaskListKanbanComponent } from 'src/app/components/library/task-list-kanban/task-list-kanban.component';
 import { TaskListGanttComponent, TaskListGanttModule } from 'src/app/components/library/task-list-gantt/task-list-gantt.component';
 import { DxLoadPanelModule } from 'devextreme-angular/ui/load-panel';
+import { DxButtonModule as DxButtonModule_1 } from 'devextreme-angular';
+import { TaskListGridComponent as TaskListGridComponent_1 } from '../../components/library/task-list-grid/task-list-grid.component';
+import { TaskListKanbanComponent as TaskListKanbanComponent_1 } from '../../components/library/task-list-kanban/task-list-kanban.component';
+import { TaskListGanttComponent as TaskListGanttComponent_1 } from '../../components/library/task-list-gantt/task-list-gantt.component';
+import { FormPopupComponent } from '../../components/utils/form-popup/form-popup.component';
+import { TaskFormComponent as TaskFormComponent_1 } from '../../components/library/task-form/task-form.component';
 
 @Component({
-  templateUrl: './planning-task-list.component.html',
-  styleUrls: ['./planning-task-list.component.scss'],
-  providers: [DataService],
+    templateUrl: './planning-task-list.component.html',
+    styleUrls: ['./planning-task-list.component.scss'],
+    providers: [DataService],
+    standalone: true,
+    imports: [
+        DxToolbarModule,
+        DxTabsModule,
+        DxButtonModule_1,
+        NgIf,
+        NgSwitch,
+        NgSwitchCase,
+        TaskListGridComponent_1,
+        TaskListKanbanComponent_1,
+        TaskListGanttComponent_1,
+        DxLoadPanelModule,
+        FormPopupComponent,
+        TaskFormComponent_1,
+        AsyncPipe,
+    ],
 })
 export class PlanningTaskListComponent implements OnInit {
   @ViewChild('planningDataGrid', { static: false }) dataGrid: TaskListGridComponent;
@@ -107,23 +129,21 @@ export class PlanningTaskListComponent implements OnInit {
 }
 
 @NgModule({
-  imports: [
-    DxButtonModule,
-    DxDataGridModule,
-    DxTabsModule,
-    DxToolbarModule,
-    DxLoadPanelModule,
-    FormPopupModule,
-
-    TaskFormModule,
-    TaskListKanbanModule,
-    TaskListModule,
-    TaskListGanttModule,
-
-    CommonModule,
-  ],
-  providers: [],
-  exports: [],
-  declarations: [PlanningTaskListComponent],
+    imports: [
+        DxButtonModule,
+        DxDataGridModule,
+        DxTabsModule,
+        DxToolbarModule,
+        DxLoadPanelModule,
+        FormPopupModule,
+        TaskFormModule,
+        TaskListKanbanModule,
+        TaskListModule,
+        TaskListGanttModule,
+        CommonModule,
+        PlanningTaskListComponent,
+    ],
+    providers: [],
+    exports: [],
 })
 export class PlanningTaskListModule { }

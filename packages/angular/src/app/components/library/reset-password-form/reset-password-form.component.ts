@@ -1,17 +1,31 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 import { Component, NgModule, Input, OnInit } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { Router, RouterModule, RouterLink } from '@angular/router';
 import { DxFormModule } from 'devextreme-angular/ui/form';
 import { DxLoadIndicatorModule } from 'devextreme-angular/ui/load-indicator';
 import notify from 'devextreme/ui/notify';
 import { AuthService, IResponse } from 'src/app/services';
+import { DxiItemModule, DxiValidationRuleModule, DxoLabelModule, DxoButtonOptionsModule } from 'devextreme-angular/ui/nested';
+import { DxTemplateModule } from 'devextreme-angular/core';
 
 const notificationText = 'We\'ve sent a link to reset your password. Check your inbox.';
 
 @Component({
-  selector: 'reset-password-form',
-  templateUrl: './reset-password-form.component.html',
-  styleUrls: ['./reset-password-form.component.scss'],
+    selector: 'reset-password-form',
+    templateUrl: './reset-password-form.component.html',
+    styleUrls: ['./reset-password-form.component.scss'],
+    standalone: true,
+    imports: [
+        DxFormModule,
+        DxiItemModule,
+        DxiValidationRuleModule,
+        DxoLabelModule,
+        DxoButtonOptionsModule,
+        DxTemplateModule,
+        NgIf,
+        DxLoadIndicatorModule,
+        RouterLink,
+    ],
 })
 export class ResetPasswordFormComponent implements OnInit {
   @Input() signInLink = '/auth/login';
@@ -47,13 +61,13 @@ export class ResetPasswordFormComponent implements OnInit {
   }
 }
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule,
-    DxFormModule,
-    DxLoadIndicatorModule,
-  ],
-  declarations: [ResetPasswordFormComponent],
-  exports: [ResetPasswordFormComponent],
+    imports: [
+        CommonModule,
+        RouterModule,
+        DxFormModule,
+        DxLoadIndicatorModule,
+        ResetPasswordFormComponent,
+    ],
+    exports: [ResetPasswordFormComponent],
 })
 export class ResetPasswordFormModule { }
