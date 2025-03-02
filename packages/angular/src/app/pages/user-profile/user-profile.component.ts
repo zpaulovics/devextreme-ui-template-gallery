@@ -1,7 +1,4 @@
-import {
-  ChangeDetectorRef,
-  Component, NgModule,
-} from '@angular/core';
+import { ChangeDetectorRef, Component, NgModule, inject } from '@angular/core';
 import { CommonModule, NgIf, AsyncPipe } from '@angular/common';
 import notify from 'devextreme/ui/notify';
 import {
@@ -53,6 +50,10 @@ import { PhonePipe } from '../../pipes/phone.pipe';
 ],
 })
 export class UserProfileComponent {
+  private service = inject(DataService);
+  screen = inject(ScreenService);
+  private ref = inject(ChangeDetectorRef);
+
   profileId = 22;
 
   profileData: Record<string, any>;
@@ -75,7 +76,9 @@ export class UserProfileComponent {
 
   addressItems: Record<string, any>[] = this.getAddressItems();
 
-  constructor(private service: DataService, public screen: ScreenService, private ref: ChangeDetectorRef) {
+  constructor() {
+    const service = this.service;
+
     forkJoin([
       service.getSupervisors(),
       service.getProfile(this.profileId)

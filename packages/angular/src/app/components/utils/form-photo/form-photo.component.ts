@@ -1,7 +1,5 @@
 import { CommonModule, NgStyle, NgIf } from '@angular/common';
-import {
-  Component, ElementRef, Input, NgModule, OnInit,
-} from '@angular/core';
+import { Component, ElementRef, Input, NgModule, OnInit, inject } from '@angular/core';
 import { DxFileUploaderModule } from 'devextreme-angular/ui/file-uploader';
 import { DxFileUploaderModule as DxFileUploaderModule_1 } from 'devextreme-angular';
 
@@ -16,6 +14,8 @@ import { DxFileUploaderModule as DxFileUploaderModule_1 } from 'devextreme-angul
 ],
 })
 export class FormPhotoComponent implements OnInit {
+  private elRef = inject(ElementRef);
+
   @Input() link: string;
 
   @Input() editable = false;
@@ -25,8 +25,6 @@ export class FormPhotoComponent implements OnInit {
   imageUrl: string;
 
   hostRef = this.elRef.nativeElement;
-
-  constructor(private elRef:ElementRef) {}
 
   ngOnInit() {
     this.imageUrl = `url('data:image/png;base64,${this.link}')`;

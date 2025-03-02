@@ -1,6 +1,4 @@
-import {
-  Component, OnInit, NgModule,
-} from '@angular/core';
+import { Component, OnInit, NgModule, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { map, share } from 'rxjs/operators';
 import { Observable, forkJoin } from 'rxjs';
@@ -63,6 +61,8 @@ type DataLoader = (startDate: string, endDate: string) => Observable<Object>;
     ],
 })
 export class AnalyticsDashboardComponent implements OnInit {
+  private service = inject(DataService);
+
   analyticsPanelItems = analyticsPanelItems;
 
   opportunities: SalesOrOpportunitiesByCategory = null;
@@ -71,8 +71,6 @@ export class AnalyticsDashboardComponent implements OnInit {
   salesByCategory: SalesByStateAndCity = null;
 
   isLoading: boolean = true;
-
-  constructor(private service: DataService) {}
 
   selectionChange(dates: Dates) {
     this.loadData(dates.startDate, dates.endDate);

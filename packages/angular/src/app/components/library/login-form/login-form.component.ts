@@ -1,5 +1,5 @@
 import { CommonModule, NgIf } from '@angular/common';
-import { Component, NgModule, Input, OnInit } from '@angular/core';
+import { Component, NgModule, Input, OnInit, inject } from '@angular/core';
 import { Router, RouterModule, RouterLink } from '@angular/router';
 
 import { LoginOauthModule } from 'src/app/components/library/login-oauth/login-oauth.component';
@@ -32,6 +32,10 @@ import { LoginOauthComponent } from '../login-oauth/login-oauth.component';
 ],
 })
 export class LoginFormComponent implements OnInit {
+  private authService = inject(AuthService);
+  private router = inject(Router);
+  private themeService = inject(ThemeService);
+
   @Input() resetLink = '/auth/reset-password';
   @Input() createAccountLink = '/auth/create-account';
 
@@ -61,7 +65,7 @@ export class LoginFormComponent implements OnInit {
     // }]
   }
 
-  constructor(private authService: AuthService, private router: Router, private themeService: ThemeService) {
+  constructor() {
     this.themeService.isDark.subscribe((value: boolean) => {
       this.btnStylingMode = value ? 'outlined' : 'contained';
     });

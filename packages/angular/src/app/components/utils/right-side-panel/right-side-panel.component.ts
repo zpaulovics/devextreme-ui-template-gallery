@@ -1,10 +1,4 @@
-import {
-  Component,
-  NgModule,
-  Output,
-  Input,
-  EventEmitter, HostBinding,
-} from '@angular/core';
+import { Component, NgModule, Output, Input, EventEmitter, HostBinding, inject } from '@angular/core';
 import { CommonModule, NgIf } from '@angular/common';
 import {
   DxButtonModule,
@@ -21,6 +15,8 @@ import {DataService, ScreenService} from 'src/app/services';
     imports: [DxButtonModule],
 })
 export class RightSidePanelComponent {
+  protected screen = inject(ScreenService);
+
   @Input() isOpened = false;
 
   @Input() showOpenButton = true;
@@ -37,7 +33,9 @@ export class RightSidePanelComponent {
 
   isLarge = this.screen.sizes['screen-large'];
 
-  constructor(protected screen: ScreenService) {
+  constructor() {
+    const screen = this.screen;
+
     screen.screenChanged.subscribe(({isLarge, isXLarge}) => {
       this.isLarge = isLarge || isXLarge;
     });

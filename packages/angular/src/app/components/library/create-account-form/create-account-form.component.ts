@@ -1,5 +1,5 @@
 import { CommonModule, NgIf } from '@angular/common';
-import { Component, NgModule, Input, OnInit } from '@angular/core';
+import { Component, NgModule, Input, OnInit, inject } from '@angular/core';
 import { Router, RouterModule, RouterLink } from '@angular/router';
 
 import { LoginOauthModule } from 'src/app/components/library/login-oauth/login-oauth.component';
@@ -30,6 +30,9 @@ import { LoginOauthComponent } from '../login-oauth/login-oauth.component';
 ],
 })
 export class CreateAccountFormComponent implements OnInit {
+  private authService = inject(AuthService);
+  private router = inject(Router);
+
   @Input() redirectLink = '/auth/login';
   @Input() buttonLink = '/auth/login';
   loading = false;
@@ -37,8 +40,6 @@ export class CreateAccountFormComponent implements OnInit {
   defaultAuthData: IResponse;
 
   formData: any = {};
-
-  constructor(private authService: AuthService, private router: Router) { }
 
   async onSubmit(e: Event) {
     e.preventDefault();

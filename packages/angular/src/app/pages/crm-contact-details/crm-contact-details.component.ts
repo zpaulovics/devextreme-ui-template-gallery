@@ -1,6 +1,4 @@
-import {
-  Component, OnInit, NgModule,
-} from '@angular/core';
+import { Component, OnInit, NgModule, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   DxButtonModule,
@@ -42,6 +40,8 @@ import { ContactCardsComponent } from '../../components/utils/contact-cards/cont
     ],
 })
 export class CrmContactDetailsComponent implements OnInit {
+  private service = inject(DataService);
+
   contactId = 12;
 
   contactData: Contact;
@@ -57,9 +57,6 @@ export class CrmContactDetailsComponent implements OnInit {
   contactName = 'Loading...';
 
   isLoading = false;
-
-  constructor(private service: DataService) {
-  }
 
   ngOnInit(): void {
     this.loadData();

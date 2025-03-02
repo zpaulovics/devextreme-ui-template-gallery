@@ -1,6 +1,4 @@
-import {
-  Component, EventEmitter, Input, NgModule, Output,
-} from '@angular/core';
+import { Component, EventEmitter, Input, NgModule, Output, inject } from '@angular/core';
 import { CommonModule, LowerCasePipe } from '@angular/common';
 import { DxSelectBoxModule, DxTextBoxModule } from 'devextreme-angular';
 import { EditorStyle } from 'devextreme-angular/common';
@@ -24,6 +22,8 @@ import { ContactStatusComponent } from '../../utils/contact-status/contact-statu
     ],
 })
 export class StatusSelectBoxComponent {
+  private theme = inject(ThemeService);
+
   @Input() value: string;
 
   @Input() label = '';
@@ -39,8 +39,6 @@ export class StatusSelectBoxComponent {
   @Input() classList;
 
   @Output() valueChange = new EventEmitter<string>();
-
-  constructor(private theme: ThemeService) {}
 
 }
 

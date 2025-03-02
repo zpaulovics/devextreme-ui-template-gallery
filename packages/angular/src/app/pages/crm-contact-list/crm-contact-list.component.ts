@@ -1,6 +1,4 @@
-import {
-  Component, ViewChild, NgModule,
-} from '@angular/core';
+import { Component, ViewChild, NgModule, inject } from '@angular/core';
 import {
   DxButtonModule,
   DxDataGridModule,
@@ -68,6 +66,8 @@ type FilterContactStatus = ContactStatus | 'All';
     ],
 })
 export class CrmContactListComponent {
+  private service = inject(DataService);
+
   @ViewChild(DxDataGridComponent, { static: true }) dataGrid: DxDataGridComponent;
 
   @ViewChild(ContactNewFormComponent, { static: false }) contactNewForm: ContactNewFormComponent;
@@ -91,8 +91,6 @@ export class CrmContactListComponent {
         })
     }),
   });
-
-  constructor(private service: DataService) {}
 
   addContact() {
     this.isAddContactPopupOpened = true;

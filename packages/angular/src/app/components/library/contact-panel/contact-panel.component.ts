@@ -1,15 +1,4 @@
-import {
-  Component,
-  OnInit,
-  OnChanges,
-  OnDestroy,
-  NgModule,
-  Output,
-  Input,
-  SimpleChanges,
-  EventEmitter,
-  AfterViewChecked,
-} from '@angular/core';
+import { Component, OnInit, OnChanges, OnDestroy, NgModule, Output, Input, SimpleChanges, EventEmitter, AfterViewChecked, inject } from '@angular/core';
 import { CommonModule, NgClass, NgIf, NgFor, CurrencyPipe } from '@angular/common';
 import { Router } from '@angular/router';
 import {
@@ -66,6 +55,10 @@ import { DxLoadPanelModule as DxLoadPanelModule_1 } from 'devextreme-angular/ui/
 ],
 })
 export class ContactPanelComponent implements OnInit, OnChanges, AfterViewChecked, OnDestroy {
+  private screen = inject(ScreenService);
+  private service = inject(DataService);
+  private router = inject(Router);
+
   @Input() isOpened = false;
 
   @Input() userId: number;
@@ -90,7 +83,7 @@ export class ContactPanelComponent implements OnInit, OnChanges, AfterViewChecke
 
   userPanelSubscriptions: Subscription[] = [];
 
-  constructor(private screen: ScreenService, private service: DataService, private router: Router) {
+  constructor() {
     this.userPanelSubscriptions.push(
       this.screen.changed.subscribe(this.calculatePin),
       this

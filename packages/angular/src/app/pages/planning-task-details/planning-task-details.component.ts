@@ -1,6 +1,4 @@
-import {
-  Component, OnInit, NgModule
-} from '@angular/core';
+import { Component, OnInit, NgModule, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   DxButtonModule,
@@ -46,6 +44,8 @@ import { CardMessagesComponent } from '../../components/library/card-messages/ca
     ],
 })
 export class PlanningTaskDetailsComponent implements OnInit {
+  private service = inject(DataService);
+
   task: Task;
 
   taskId = 1;
@@ -53,9 +53,6 @@ export class PlanningTaskDetailsComponent implements OnInit {
   taskName = 'Loading...';
 
   isLoading = false;
-
-  constructor(private service: DataService) {
-  }
 
   loadData = () => {
     this.service.getTask(this.taskId).subscribe((data) => {

@@ -1,6 +1,4 @@
-import {
-  Component, NgModule, Input, Output, EventEmitter, OnInit,
-} from '@angular/core';
+import { Component, NgModule, Input, Output, EventEmitter, OnInit, inject } from '@angular/core';
 import { CommonModule, NgIf } from '@angular/common';
 
 import { DxButtonModule } from 'devextreme-angular/ui/button';
@@ -26,6 +24,8 @@ import { DxButtonModule as DxButtonModule_1 } from 'devextreme-angular';
 })
 
 export class AppHeaderComponent implements OnInit {
+  private authService = inject(AuthService);
+
   @Output()
   menuToggle = new EventEmitter<boolean>();
 
@@ -45,8 +45,6 @@ export class AppHeaderComponent implements OnInit {
       this.authService.logOut();
     },
   }];
-
-  constructor(private authService: AuthService) { }
 
   ngOnInit() {
     this.authService.getUser().then((e) => this.user = e.data);
