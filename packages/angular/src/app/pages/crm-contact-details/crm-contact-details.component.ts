@@ -28,7 +28,6 @@ import { ContactCardsComponent } from '../../components/utils/contact-cards/cont
     templateUrl: './crm-contact-details.component.html',
     styleUrls: ['./crm-contact-details.component.scss'],
     providers: [DataService],
-    standalone: true,
     imports: [
         DxScrollViewModule,
         DxToolbarModule,
@@ -37,7 +36,7 @@ import { ContactCardsComponent } from '../../components/utils/contact-cards/cont
         DxDropDownButtonModule_1,
         ContactFormComponent,
         ContactCardsComponent,
-    ],
+    ]
 })
 export class CrmContactDetailsComponent implements OnInit {
   private service = inject(DataService);

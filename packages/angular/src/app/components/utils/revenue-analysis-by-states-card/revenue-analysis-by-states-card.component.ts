@@ -14,13 +14,12 @@ import { DxiColumnModule } from 'devextreme-angular/ui/nested';
     selector: 'revenue-analysis-by-states-card',
     templateUrl: './revenue-analysis-by-states-card.component.html',
     styleUrls: ['./revenue-analysis-by-states-card.component.scss'],
-    standalone: true,
     imports: [
         CardAnalyticsComponent,
         DxDataGridModule_1,
         DxiColumnModule,
         DxBulletModule,
-    ],
+    ]
 })
 export class RevenueAnalysisByStatesCardComponent {
   @Input() data: SalesByStateAndCity;

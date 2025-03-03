@@ -11,8 +11,7 @@ import {DataService, ScreenService} from 'src/app/services';
     templateUrl: './right-side-panel.component.html',
     styleUrls: ['./right-side-panel.component.scss'],
     providers: [DataService],
-    standalone: true,
-    imports: [DxButtonModule],
+    imports: [DxButtonModule]
 })
 export class RightSidePanelComponent {
   protected screen = inject(ScreenService);

@@ -10,8 +10,7 @@ import { SalesByState } from 'src/app/types/analytics';
 @Component({
     selector: 'revenue-snapshot-by-states-card',
     templateUrl: './revenue-snapshot-by-states-card.component.html',
-    standalone: true,
-    imports: [CardAnalyticsComponent, DxPieChartModule],
+    imports: [CardAnalyticsComponent, DxPieChartModule]
 })
 export class RevenueSnapshotByStatesCardComponent {
   @Input() data: SalesByState;

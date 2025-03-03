@@ -8,7 +8,6 @@ import { CreateAccountFormComponent } from '../../components/library/create-acco
     selector: 'app-sign-up-form',
     templateUrl: './sign-up-form.component.html',
     styleUrls: ['./sign-up-form.component.scss'],
-    standalone: true,
     imports: [CardAuthComponent, CreateAccountFormComponent]
 })
 export class AppSignUpComponent {

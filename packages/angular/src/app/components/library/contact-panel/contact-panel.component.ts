@@ -36,23 +36,22 @@ import { DxLoadPanelModule as DxLoadPanelModule_1 } from 'devextreme-angular/ui/
     templateUrl: './contact-panel.component.html',
     styleUrls: ['./contact-panel.component.scss'],
     providers: [DataService],
-    standalone: true,
     imports: [
-    NgClass,
-    DxToolbarModule_1,
-    DxAccordionModule,
-    ContactStatusComponent,
-    DxButtonModule,
-    DxScrollViewModule,
-    DxValidationGroupModule,
-    DxFormModule_1,
-    DxoColCountByScreenModule,
-    FormPhotoComponent,
-    FormTextboxComponent,
-    CardActivitiesComponent,
-    DxLoadPanelModule_1,
-    CurrencyPipe
-],
+        NgClass,
+        DxToolbarModule_1,
+        DxAccordionModule,
+        ContactStatusComponent,
+        DxButtonModule,
+        DxScrollViewModule,
+        DxValidationGroupModule,
+        DxFormModule_1,
+        DxoColCountByScreenModule,
+        FormPhotoComponent,
+        FormTextboxComponent,
+        CardActivitiesComponent,
+        DxLoadPanelModule_1,
+        CurrencyPipe
+    ]
 })
 export class ContactPanelComponent implements OnInit, OnChanges, AfterViewChecked, OnDestroy {
   private screen = inject(ScreenService);

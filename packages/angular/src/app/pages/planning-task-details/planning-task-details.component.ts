@@ -28,7 +28,6 @@ import { CardMessagesComponent } from '../../components/library/card-messages/ca
     templateUrl: './planning-task-details.component.html',
     styleUrls: ['./planning-task-details.component.scss'],
     providers: [DataService],
-    standalone: true,
     imports: [
         DxScrollViewModule,
         DxToolbarModule,
@@ -41,7 +40,7 @@ import { CardMessagesComponent } from '../../components/library/card-messages/ca
         CardActivitiesComponent,
         CardNotesComponent,
         CardMessagesComponent,
-    ],
+    ]
 })
 export class PlanningTaskDetailsComponent implements OnInit {
   private service = inject(DataService);

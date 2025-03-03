@@ -7,8 +7,7 @@ import { navigation } from '../../../app-navigation';
     selector: 'side-navigation-menu',
     templateUrl: './side-navigation-menu.component.html',
     styleUrls: ['./side-navigation-menu.component.scss'],
-    standalone: true,
-    imports: [DxTreeViewModule],
+    imports: [DxTreeViewModule]
 })
 export class SideNavigationMenuComponent implements AfterViewInit, OnDestroy {
   private elementRef = inject(ElementRef);

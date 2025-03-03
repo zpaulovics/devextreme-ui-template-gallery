@@ -12,11 +12,10 @@ import { Subscription } from 'rxjs';
 @Component({
     selector: 'app-change-password-form',
     templateUrl: './change-password-form.component.html',
-    standalone: true,
     imports: [
-    DxFormModule,
-    DxLoadIndicatorModule
-],
+        DxFormModule,
+        DxLoadIndicatorModule
+    ]
 })
 export class ChangePasswordFormComponent implements OnInit, OnDestroy {
   private authService = inject(AuthService);

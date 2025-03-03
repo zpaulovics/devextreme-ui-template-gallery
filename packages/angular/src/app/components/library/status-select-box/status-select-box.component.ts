@@ -12,14 +12,13 @@ import { ContactStatusComponent } from '../../utils/contact-status/contact-statu
     selector: 'status-select-box',
     templateUrl: 'status-select-box.component.html',
     styleUrls: ['./status-select-box.component.scss'],
-    standalone: true,
     imports: [
         DxSelectBoxModule,
         DxTemplateModule,
         ContactStatusComponent,
         DxTextBoxModule,
         LowerCasePipe,
-    ],
+    ]
 })
 export class StatusSelectBoxComponent {
   private theme = inject(ThemeService);

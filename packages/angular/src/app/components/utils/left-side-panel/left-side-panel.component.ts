@@ -8,11 +8,10 @@ import {DxScrollViewModule} from "devextreme-angular/ui/scroll-view";
     selector: 'left-side-panel',
     templateUrl: './left-side-panel.component.html',
     styleUrls: ['./left-side-panel.component.scss'],
-    standalone: true,
     imports: [
-    DxButtonModule,
-    DxScrollViewModule_1
-],
+        DxButtonModule,
+        DxScrollViewModule_1
+    ]
 })
 export class LeftSidePanelComponent {
   protected screen = inject(ScreenService);

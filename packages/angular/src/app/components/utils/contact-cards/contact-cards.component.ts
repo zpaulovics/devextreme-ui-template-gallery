@@ -29,7 +29,6 @@ import { CardMessagesComponent } from '../../library/card-messages/card-messages
     selector: 'contact-cards',
     templateUrl: './contact-cards.component.html',
     styleUrls: ['./contact-cards.component.scss'],
-    standalone: true,
     imports: [
         DxTabPanelModule,
         CardTasksComponent,
@@ -37,7 +36,7 @@ import { CardMessagesComponent } from '../../library/card-messages/card-messages
         CardOpportunitiesComponent,
         CardNotesComponent,
         CardMessagesComponent,
-    ],
+    ]
 })
 export class ContactCardsComponent {
     @Input() tasks: Task[];

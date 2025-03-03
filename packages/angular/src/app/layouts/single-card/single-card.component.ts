@@ -8,8 +8,7 @@ import { DxScrollViewModule as DxScrollViewModule_1 } from 'devextreme-angular';
     selector: 'app-single-card',
     templateUrl: './single-card.component.html',
     styleUrls: ['./single-card.component.scss'],
-    standalone: true,
-    imports: [DxScrollViewModule_1, CardAuthComponent],
+    imports: [DxScrollViewModule_1, CardAuthComponent]
 })
 export class SingleCardComponent {
   @Input()

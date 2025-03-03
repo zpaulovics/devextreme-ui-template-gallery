@@ -7,11 +7,10 @@ import { DxFileUploaderModule as DxFileUploaderModule_1 } from 'devextreme-angul
     selector: 'form-photo',
     templateUrl: './form-photo.component.html',
     styleUrls: ['./form-photo.component.scss'],
-    standalone: true,
     imports: [
-    NgStyle,
-    DxFileUploaderModule_1
-],
+        NgStyle,
+        DxFileUploaderModule_1
+    ]
 })
 export class FormPhotoComponent implements OnInit {
   private elRef = inject(ElementRef);

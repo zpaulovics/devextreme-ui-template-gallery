@@ -13,11 +13,10 @@ import { ApplyPipe } from '../../../pipes/apply.pipe';
     selector: 'ticker-card',
     templateUrl: './ticker-card.component.html',
     styleUrls: ['./ticker-card.component.scss'],
-    standalone: true,
     imports: [
-    ApplyPipe,
-    CurrencyPipe
-],
+        ApplyPipe,
+        CurrencyPipe
+    ]
 })
 
 export class TickerCardComponent {

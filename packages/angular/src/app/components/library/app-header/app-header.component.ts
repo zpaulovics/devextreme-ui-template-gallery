@@ -14,13 +14,12 @@ import { DxButtonModule as DxButtonModule_1 } from 'devextreme-angular';
     selector: 'app-header',
     templateUrl: 'app-header.component.html',
     styleUrls: ['./app-header.component.scss'],
-    standalone: true,
     imports: [
-    DxToolbarModule,
-    ThemeSwitcherComponent,
-    DxButtonModule_1,
-    UserPanelComponent
-],
+        DxToolbarModule,
+        ThemeSwitcherComponent,
+        DxButtonModule_1,
+        UserPanelComponent
+    ]
 })
 
 export class AppHeaderComponent implements OnInit {

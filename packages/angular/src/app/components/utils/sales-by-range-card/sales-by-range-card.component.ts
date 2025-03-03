@@ -13,7 +13,6 @@ import { SalesOrOpportunitiesByCategory } from 'src/app/types/analytics';
     selector: 'sales-by-range-card',
     templateUrl: './sales-by-range-card.component.html',
     styleUrls: ['./sales-by-range-card.component.scss'],
-    standalone: true,
     imports: [
         CardAnalyticsComponent,
         DxPieChartModule,
@@ -30,7 +29,7 @@ import { SalesOrOpportunitiesByCategory } from 'src/app/types/analytics';
         DxoSeriesTemplateModule,
         DxoValueAxisModule,
         DxoFormatModule,
-    ],
+    ]
 })
 export class SalesByRangeCardComponent {
   @Input() data: SalesOrOpportunitiesByCategory;

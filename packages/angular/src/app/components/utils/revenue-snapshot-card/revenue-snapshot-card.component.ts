@@ -11,7 +11,6 @@ import { DxiSeriesModule, DxoLabelModule, DxoFontModule, DxoLegendModule, DxoMar
 @Component({
     selector: 'revenue-snapshot-card',
     templateUrl: './revenue-snapshot-card.component.html',
-    standalone: true,
     imports: [
         CardAnalyticsComponent,
         DxPieChartModule,
@@ -21,7 +20,7 @@ import { DxiSeriesModule, DxoLabelModule, DxoFontModule, DxoLegendModule, DxoMar
         DxoLegendModule,
         DxoMarginModule,
         DxoSizeModule,
-    ],
+    ]
 })
 export class RevenueSnapshotCardComponent {
   @Input() data: SalesByStateAndCity;

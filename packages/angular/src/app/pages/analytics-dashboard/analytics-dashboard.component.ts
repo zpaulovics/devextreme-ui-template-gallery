@@ -45,7 +45,6 @@ type DataLoader = (startDate: string, endDate: string) => Observable<Object>;
     templateUrl: './analytics-dashboard.component.html',
     styleUrls: ['./analytics-dashboard.component.scss'],
     providers: [DataService],
-    standalone: true,
     imports: [
         DxScrollViewModule_1,
         ToolbarAnalyticsComponent,
@@ -58,7 +57,7 @@ type DataLoader = (startDate: string, endDate: string) => Observable<Object>;
         RevenueAnalysisCardComponent,
         RevenueSnapshotCardComponent,
         DxLoadPanelModule,
-    ],
+    ]
 })
 export class AnalyticsDashboardComponent implements OnInit {
   private service = inject(DataService);
@@ -114,30 +113,30 @@ export class AnalyticsDashboardComponent implements OnInit {
   }
 }
 
-@NgModule({
-    imports: [
-        DxScrollViewModule,
-        DxDataGridModule,
-        DxBulletModule,
-        DxFunnelModule,
-        DxPieChartModule,
-        DxChartModule,
-        CardAnalyticsModule,
-        ToolbarAnalyticsModule,
-        DxLoadPanelModule,
-        ApplyPipeModule,
-        ConversionCardModule,
-        RevenueAnalysisCardModule,
-        RevenueCardModule,
-        RevenueSnapshotCardModule,
-        OpportunitiesTickerModule,
-        RevenueTotalTickerModule,
-        ConversionTickerModule,
-        LeadsTickerModule,
-        CommonModule,
-        AnalyticsDashboardComponent,
-    ],
-    providers: [],
-    exports: [],
-})
-export class AnalyticsDashboardModule { }
+// @NgModule({
+//     imports: [
+//         DxScrollViewModule,
+//         DxDataGridModule,
+//         DxBulletModule,
+//         DxFunnelModule,
+//         DxPieChartModule,
+//         DxChartModule,
+//         CardAnalyticsModule,
+//         ToolbarAnalyticsModule,
+//         DxLoadPanelModule,
+//         ApplyPipeModule,
+//         ConversionCardModule,
+//         RevenueAnalysisCardModule,
+//         RevenueCardModule,
+//         RevenueSnapshotCardModule,
+//         OpportunitiesTickerModule,
+//         RevenueTotalTickerModule,
+//         ConversionTickerModule,
+//         LeadsTickerModule,
+//         CommonModule,
+//         AnalyticsDashboardComponent,
+//     ],
+//     providers: [],
+//     exports: [],
+// })
+// export class AnalyticsDashboardModule { }

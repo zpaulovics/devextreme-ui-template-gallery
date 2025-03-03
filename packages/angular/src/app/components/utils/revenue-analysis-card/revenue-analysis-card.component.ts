@@ -15,7 +15,6 @@ import { DxTemplateModule } from 'devextreme-angular/core';
     selector: 'revenue-analysis-card',
     templateUrl: './revenue-analysis-card.component.html',
     styleUrls: ['./revenue-analysis-card.component.scss'],
-    standalone: true,
     imports: [
         CardAnalyticsComponent,
         DxDataGridModule_1,
@@ -24,7 +23,7 @@ import { DxTemplateModule } from 'devextreme-angular/core';
         DxBulletModule,
         DxoTooltipModule,
         DxoSizeModule,
-    ],
+    ]
 })
 export class RevenueAnalysisCardComponent {
   @Input() data: SalesByState;

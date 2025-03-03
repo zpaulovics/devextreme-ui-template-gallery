@@ -9,11 +9,10 @@ import { ApplyPipeModule, ApplyPipe } from "../../../pipes/apply.pipe";
     selector: 'scheduler-tooltip',
     templateUrl: './scheduler-tooltip.component.html',
     styleUrls: ['./scheduler-tooltip.component.scss'],
-    standalone: true,
     imports: [
-    DxButtonModule,
-    ApplyPipe
-],
+        DxButtonModule,
+        ApplyPipe
+    ]
 })
 export class SchedulerTooltipComponent {
   @Input() selectedAppointmentData: Record<string, any>;

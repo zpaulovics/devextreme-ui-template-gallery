@@ -30,7 +30,6 @@ import { RevenueSnapshotByStatesCardComponent } from '../../components/utils/rev
     templateUrl: './analytics-geography.component.html',
     styleUrls: ['./analytics-geography.component.scss'],
     providers: [DataService],
-    standalone: true,
     imports: [
         DxScrollViewModule_1,
         ToolbarAnalyticsComponent,
@@ -38,7 +37,7 @@ import { RevenueSnapshotByStatesCardComponent } from '../../components/utils/rev
         RevenueAnalysisByStatesCardComponent,
         RevenueSnapshotByStatesCardComponent,
         DxLoadPanelModule,
-    ],
+    ]
 })
 export class AnalyticsGeographyComponent implements OnInit, OnDestroy {
   private service = inject(DataService);

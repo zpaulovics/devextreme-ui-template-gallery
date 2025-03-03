@@ -22,12 +22,11 @@ import { ContactStatusModule } from 'src/app/components/utils/contact-status/con
     selector: 'password-text-box',
     templateUrl: 'password-text-box.component.html',
     styles: [],
-    standalone: true,
     imports: [
         DxTextBoxModule,
         DxSelectBoxModule,
         DxValidatorModule,
-    ],
+    ]
 })
 export class PasswordTextBoxComponent {
   @ViewChild('validator', { static: true }) validator: DxValidatorComponent;

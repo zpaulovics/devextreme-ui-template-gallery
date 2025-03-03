@@ -15,7 +15,6 @@ import { DxoArgumentAxisModule, DxoTooltipModule, DxoSeriesTemplateModule, DxoCo
     selector: 'sales-performance-card',
     templateUrl: './sales-performance-card.component.html',
     styleUrls: ['./sales-performance-card.component.scss'],
-    standalone: true,
     imports: [
         CardAnalyticsComponent,
         DxDropDownButtonModule,
@@ -27,7 +26,7 @@ import { DxoArgumentAxisModule, DxoTooltipModule, DxoSeriesTemplateModule, DxoCo
         DxoPointModule,
         DxoLegendModule,
         DxoSizeModule,
-    ],
+    ]
 })
 export class SalesPerformanceCardComponent {
   @Input() groupByPeriods: string[];

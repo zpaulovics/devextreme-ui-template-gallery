@@ -53,8 +53,7 @@ import { DxFileUploaderModule as DxFileUploaderModule_1 } from 'devextreme-angul
       }
     }
   `],
-    standalone: true,
-    imports: [NgClass, DxFileUploaderModule_1],
+    imports: [NgClass, DxFileUploaderModule_1]
 })
 export class FormPhotoUploaderComponent { 
   isDropZoneActive = false;

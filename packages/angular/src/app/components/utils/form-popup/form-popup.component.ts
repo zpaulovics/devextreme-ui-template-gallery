@@ -15,7 +15,6 @@ import { ApplyPipe } from '../../../pipes/apply.pipe';
     selector: 'form-popup',
     templateUrl: './form-popup.component.html',
     styleUrls: ['./form-popup.component.scss'],
-    standalone: true,
     imports: [DxPopupModule, DxButtonModule, DxValidationGroupModule, ApplyPipe, AsyncPipe]
 })
 

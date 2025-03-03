@@ -17,14 +17,13 @@ import { AppFooterComponent } from '../../components/library/app-footer/app-foot
     selector: 'app-side-nav-outer-toolbar',
     templateUrl: './side-nav-outer-toolbar.component.html',
     styleUrls: ['./side-nav-outer-toolbar.component.scss'],
-    standalone: true,
     imports: [
         AppHeaderComponent,
         DxDrawerModule,
         SideNavigationMenuComponent,
         AppFooterComponent,
         RouterOutlet,
-    ],
+    ]
 })
 export class SideNavOuterToolbarComponent implements OnInit, OnDestroy {
   private screen = inject(ScreenService);

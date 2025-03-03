@@ -32,7 +32,6 @@ import { StatusIndicatorComponent } from '../status-indicator/status-indicator.c
     selector: 'task-list-grid',
     templateUrl: './task-list-grid.component.html',
     styleUrls: ['./task-list-grid.component.scss'],
-    standalone: true,
     imports: [
         DxDataGridModule,
         DxoPagingModule,
@@ -48,7 +47,7 @@ import { StatusIndicatorComponent } from '../status-indicator/status-indicator.c
         DxTemplateModule,
         StatusIndicatorComponent,
         DxSelectBoxModule,
-    ],
+    ]
 })
 export class TaskListGridComponent implements OnChanges {
   private router = inject(Router);

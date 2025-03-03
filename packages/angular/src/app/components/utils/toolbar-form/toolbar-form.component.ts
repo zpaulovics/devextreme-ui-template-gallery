@@ -11,12 +11,11 @@ import { DxButtonModule as DxButtonModule_1 } from 'devextreme-angular';
     selector: 'toolbar-form',
     templateUrl: './toolbar-form.component.html',
     styleUrls: ['./toolbar-form.component.scss'],
-    standalone: true,
     imports: [
         DxToolbarModule,
         DxiItemModule,
         DxButtonModule_1,
-    ],
+    ]
 })
 export class ToolbarFormComponent {
   @Input() isEditing: boolean;

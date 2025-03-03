@@ -8,11 +8,10 @@ import { IUser } from '../../../services/auth.service';
     selector: 'user-panel',
     templateUrl: 'user-panel.component.html',
     styleUrls: ['./user-panel.component.scss'],
-    standalone: true,
     imports: [
-    DxDropDownButtonModule,
-    UserMenuSectionComponent
-],
+        DxDropDownButtonModule,
+        UserMenuSectionComponent
+    ]
 })
 
 export class UserPanelComponent {

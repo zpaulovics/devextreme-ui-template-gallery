@@ -13,8 +13,7 @@ import { Sale } from 'src/app/types/analytics';
     selector: 'sales-range-card',
     templateUrl: './sales-range-card.component.html',
     styleUrls: ['./sales-range-card.component.scss'],
-    standalone: true,
-    imports: [CardAnalyticsComponent, DxRangeSelectorModule],
+    imports: [CardAnalyticsComponent, DxRangeSelectorModule]
 })
 export class SalesRangeCardComponent {
   @Input() data: Sale[];

@@ -13,8 +13,7 @@ import { MapLayerElement } from 'devextreme/viz/vector_map';
     selector: 'sales-map-card',
     templateUrl: './sales-map-card.component.html',
     styleUrls: ['./sales-map-card.component.scss'],
-    standalone: true,
-    imports: [CardAnalyticsComponent, DxVectorMapModule],
+    imports: [CardAnalyticsComponent, DxVectorMapModule]
 })
 export class SalesMapCardComponent {
   @Input() data: any;

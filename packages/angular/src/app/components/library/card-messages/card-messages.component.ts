@@ -21,19 +21,18 @@ import { UserAvatarComponent } from '../user-avatar/user-avatar.component';
     selector: 'card-messages',
     templateUrl: './card-messages.component.html',
     styleUrls: ['./card-messages.component.scss'],
-    standalone: true,
     imports: [
-    DxValidationGroupModule,
-    DxTextBoxModule,
-    DxValidatorModule,
-    DxTextAreaModule,
-    DxToolbarModule_1,
-    DxiItemModule,
-    DxFileUploaderModule,
-    UserAvatarComponent,
-    DxButtonModule,
-    DatePipe
-],
+        DxValidationGroupModule,
+        DxTextBoxModule,
+        DxValidatorModule,
+        DxTextAreaModule,
+        DxToolbarModule_1,
+        DxiItemModule,
+        DxFileUploaderModule,
+        UserAvatarComponent,
+        DxButtonModule,
+        DatePipe
+    ]
 })
 export class CardMessagesComponent {
   @Input() user: string;

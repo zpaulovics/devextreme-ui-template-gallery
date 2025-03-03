@@ -10,8 +10,7 @@ import { Sales } from 'src/app/types/analytics';
 @Component({
     selector: 'revenue-card',
     templateUrl: './revenue-card.component.html',
-    standalone: true,
-    imports: [CardAnalyticsComponent, DxChartModule],
+    imports: [CardAnalyticsComponent, DxChartModule]
 })
 export class RevenueCardComponent {
   @Input() data: Sales;

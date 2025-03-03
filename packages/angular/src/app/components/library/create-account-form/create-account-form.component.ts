@@ -16,18 +16,17 @@ import { LoginOauthComponent } from '../login-oauth/login-oauth.component';
     selector: 'app-create-account-form',
     templateUrl: './create-account-form.component.html',
     styleUrls: ['./create-account-form.component.scss'],
-    standalone: true,
     imports: [
-    DxFormModule,
-    DxiItemModule,
-    DxiValidationRuleModule,
-    DxoLabelModule,
-    RouterLink,
-    DxoButtonOptionsModule,
-    DxTemplateModule,
-    DxLoadIndicatorModule,
-    LoginOauthComponent
-],
+        DxFormModule,
+        DxiItemModule,
+        DxiValidationRuleModule,
+        DxoLabelModule,
+        RouterLink,
+        DxoButtonOptionsModule,
+        DxTemplateModule,
+        DxLoadIndicatorModule,
+        LoginOauthComponent
+    ]
 })
 export class CreateAccountFormComponent implements OnInit {
   private authService = inject(AuthService);

@@ -14,17 +14,16 @@ const notificationText = 'We\'ve sent a link to reset your password. Check your 
     selector: 'reset-password-form',
     templateUrl: './reset-password-form.component.html',
     styleUrls: ['./reset-password-form.component.scss'],
-    standalone: true,
     imports: [
-    DxFormModule,
-    DxiItemModule,
-    DxiValidationRuleModule,
-    DxoLabelModule,
-    DxoButtonOptionsModule,
-    DxTemplateModule,
-    DxLoadIndicatorModule,
-    RouterLink
-],
+        DxFormModule,
+        DxiItemModule,
+        DxiValidationRuleModule,
+        DxoLabelModule,
+        DxoButtonOptionsModule,
+        DxTemplateModule,
+        DxLoadIndicatorModule,
+        RouterLink
+    ]
 })
 export class ResetPasswordFormComponent implements OnInit {
   private authService = inject(AuthService);

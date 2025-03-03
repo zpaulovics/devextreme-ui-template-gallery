@@ -8,8 +8,7 @@ import { TickerCardComponent } from '../../library/ticker-card/ticker-card.compo
 @Component({
     selector: 'leads-ticker',
     templateUrl: 'leads-ticker.component.html',
-    standalone: true,
-    imports: [TickerCardComponent],
+    imports: [TickerCardComponent]
 })
 
 export class LeadsTickerComponent {

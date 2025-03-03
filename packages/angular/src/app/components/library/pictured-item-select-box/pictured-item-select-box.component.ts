@@ -10,12 +10,11 @@ import { DxTemplateModule } from 'devextreme-angular/core';
     selector: 'pictured-item-select-box',
     templateUrl: 'pictured-item-select-box.component.html',
     styleUrls: ['./pictured-item-select-box.component.scss'],
-    standalone: true,
     imports: [
         DxSelectBoxModule,
         DxTemplateModule,
         DxTextBoxModule,
-    ],
+    ]
 })
 export class PicturedItemSelectBoxComponent {
   @Input() value: Record<string, unknown>;

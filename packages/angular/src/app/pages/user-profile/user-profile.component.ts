@@ -35,19 +35,18 @@ import { PhonePipe } from '../../pipes/phone.pipe';
     templateUrl: './user-profile.component.html',
     styleUrls: ['./user-profile.component.scss'],
     providers: [DataService],
-    standalone: true,
     imports: [
-    DxToolbarModule_1,
-    DxiItemModule,
-    DxButtonModule,
-    DxLoadPanelModule_1,
-    DxScrollViewModule,
-    ProfileCardComponent,
-    FormPhotoComponent,
-    ChangeProfilePasswordFormComponent,
-    AsyncPipe,
-    PhonePipe
-],
+        DxToolbarModule_1,
+        DxiItemModule,
+        DxButtonModule,
+        DxLoadPanelModule_1,
+        DxScrollViewModule,
+        ProfileCardComponent,
+        FormPhotoComponent,
+        ChangeProfilePasswordFormComponent,
+        AsyncPipe,
+        PhonePipe
+    ]
 })
 export class UserProfileComponent {
   private service = inject(DataService);

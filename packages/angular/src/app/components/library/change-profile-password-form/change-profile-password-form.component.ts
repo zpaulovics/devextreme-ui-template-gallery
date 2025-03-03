@@ -19,7 +19,6 @@ import { PasswordTextBoxComponent as PasswordTextBoxComponent_1 } from '../passw
     selector: 'change-profile-password-form',
     templateUrl: './change-profile-password-form.component.html',
     styleUrls: ['./change-profile-password-form.component.scss'],
-    standalone: true,
     imports: [FormPopupComponent_1, DxFormModule, DxiItemModule, DxoLabelModule, PasswordTextBoxComponent_1]
 })
 export class ChangeProfilePasswordFormComponent {

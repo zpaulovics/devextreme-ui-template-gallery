@@ -18,8 +18,7 @@ import { SingleCardComponent } from '../single-card/single-card.component';
       height: 100%;
     }
   `],
-    standalone: true,
-    imports: [SingleCardComponent, RouterOutlet],
+    imports: [SingleCardComponent, RouterOutlet]
 })
 export class UnauthenticatedContentComponent {
   private router = inject(Router);

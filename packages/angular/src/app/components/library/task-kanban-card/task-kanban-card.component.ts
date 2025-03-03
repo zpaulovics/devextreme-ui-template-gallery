@@ -12,13 +12,12 @@ import { UserAvatarComponent } from '../user-avatar/user-avatar.component';
     selector: 'task-kanban-card',
     templateUrl: './task-kanban-card.component.html',
     styleUrls: ['./task-kanban-card.component.scss'],
-    standalone: true,
     imports: [
         DxButtonModule,
         UserAvatarComponent,
         LowerCasePipe,
         DatePipe,
-    ],
+    ]
 })
 export class TaskKanbanCardComponent {
   private router = inject(Router);

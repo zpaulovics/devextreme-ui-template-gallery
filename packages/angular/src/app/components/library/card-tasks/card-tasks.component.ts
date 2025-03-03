@@ -15,11 +15,10 @@ import { DxLoadPanelModule as DxLoadPanelModule_1 } from 'devextreme-angular/ui/
     selector: 'card-tasks',
     templateUrl: './card-tasks.component.html',
     styleUrls: ['./card-tasks.component.scss'],
-    standalone: true,
     imports: [
-    DxDataGridModule,
-    DxLoadPanelModule_1
-],
+        DxDataGridModule,
+        DxLoadPanelModule_1
+    ]
 })
 export class CardTasksComponent implements OnChanges {
   @ViewChild('dataGrid', { static: false }) component: DxDataGridComponent;

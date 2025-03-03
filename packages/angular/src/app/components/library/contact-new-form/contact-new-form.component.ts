@@ -24,7 +24,6 @@ import { FormTextboxComponent } from '../../utils/form-textbox/form-textbox.comp
     selector: 'contact-new-form',
     templateUrl: './contact-new-form.component.html',
     providers: [],
-    standalone: true,
     imports: [
         DxFormModule_1,
         DxiItemModule,
@@ -32,7 +31,7 @@ import { FormTextboxComponent } from '../../utils/form-textbox/form-textbox.comp
         DxTemplateModule,
         FormPhotoUploaderComponent,
         FormTextboxComponent,
-    ],
+    ]
 })
 
 export class ContactNewFormComponent {

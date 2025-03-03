@@ -7,7 +7,6 @@ import { DxButtonModule as DxButtonModule_1 } from 'devextreme-angular';
     selector: 'app-login-oauth',
     templateUrl: './login-oauth.component.html',
     styleUrls: ['./login-oauth.component.scss'],
-    standalone: true,
     imports: [DxButtonModule_1]
 })
 export class LoginOauthComponent {

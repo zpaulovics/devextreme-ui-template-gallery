@@ -30,11 +30,10 @@ import { DxTextBoxModule as DxTextBoxModule_1 } from 'devextreme-angular';
   </div>
   `,
     styleUrls: ['./status-indicator.component.scss'],
-    standalone: true,
     imports: [
-    NgClass,
-    DxTextBoxModule_1
-],
+        NgClass,
+        DxTextBoxModule_1
+    ]
 })
 export class StatusIndicatorComponent implements OnInit {
   @Input() value: TaskStatus | TaskPriority;

@@ -10,8 +10,7 @@ import { CardAnalyticsComponent } from '../../library/card-analytics/card-analyt
 @Component({
     selector: 'conversion-card',
     templateUrl: 'conversion-card.component.html',
-    standalone: true,
-    imports: [CardAnalyticsComponent, DxFunnelModule],
+    imports: [CardAnalyticsComponent, DxFunnelModule]
 })
 export class ConversionCardComponent {
   @Input() data: SalesOrOpportunitiesByCategory;

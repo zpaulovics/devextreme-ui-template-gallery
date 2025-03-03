@@ -10,8 +10,7 @@ import { ContactStatus } from 'src/app/types/contact';
   <span class="status status-{{ value | lowercase }}">{{ showText ? value : '' }}</span>
 `,
     styleUrls: ['./contact-status.component.scss'],
-    standalone: true,
-    imports: [LowerCasePipe],
+    imports: [LowerCasePipe]
 })
 export class ContactStatusComponent {
   @Input() value: ContactStatus;

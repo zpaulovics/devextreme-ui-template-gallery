@@ -12,14 +12,13 @@ import { Activity } from 'src/app/types/activities';
     selector: 'card-activities',
     templateUrl: './card-activities.component.html',
     styleUrls: ['./card-activities.component.scss'],
-    standalone: true,
     imports: [
-    NgClass,
-    DxListModule,
-    DxLoadPanelModule,
-    CardMenuComponent,
-    DatePipe
-],
+        NgClass,
+        DxListModule,
+        DxLoadPanelModule,
+        CardMenuComponent,
+        DatePipe
+    ]
 })
 export class CardActivitiesComponent {
   @Input() activities: Activity[];

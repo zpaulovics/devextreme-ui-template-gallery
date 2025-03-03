@@ -5,7 +5,6 @@ import { DxDropDownButtonModule } from 'devextreme-angular/ui/drop-down-button';
     selector: 'card-menu',
     templateUrl: './card-menu.component.html',
     styleUrls: ['./card-menu.component.scss'],
-    standalone: true,
     imports: [DxDropDownButtonModule]
 })
 export class CardMenuComponent {

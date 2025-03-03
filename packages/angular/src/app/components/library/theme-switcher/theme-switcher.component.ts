@@ -14,8 +14,7 @@ import { ThemeService } from 'src/app/services';
     ></dx-button>
 `,
     styleUrls: [],
-    standalone: true,
-    imports: [DxButtonModule],
+    imports: [DxButtonModule]
 })
 export class ThemeSwitcherComponent {
   themeService = inject(ThemeService);

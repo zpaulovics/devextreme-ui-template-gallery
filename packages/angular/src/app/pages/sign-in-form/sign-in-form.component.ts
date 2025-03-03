@@ -9,7 +9,6 @@ import { LoginFormComponent } from '../../components/library/login-form/login-fo
     selector: 'app-sign-in-form',
     templateUrl: './sign-in-form.component.html',
     styleUrls: ['./sign-in-form.component.scss'],
-    standalone: true,
     imports: [CardAuthComponent, LoginFormComponent]
 })
 export class AppSignInComponent {

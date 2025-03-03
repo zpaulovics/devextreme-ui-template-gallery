@@ -9,8 +9,7 @@ import notify from 'devextreme/ui/notify';
     selector: 'opportunity-tile',
     templateUrl: 'opportunity-tile.component.html',
     styleUrls: ['./opportunity-tile.component.scss'],
-    standalone: true,
-    imports: [CurrencyPipe],
+    imports: [CurrencyPipe]
 })
 
 export class OpportunityTileComponent {

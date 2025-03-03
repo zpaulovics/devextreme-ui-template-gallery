@@ -40,7 +40,6 @@ type FilterContactStatus = ContactStatus | 'All';
     templateUrl: './crm-contact-list.component.html',
     styleUrls: ['./crm-contact-list.component.scss'],
     providers: [DataService],
-    standalone: true,
     imports: [
         DxDataGridModule,
         DxoLoadPanelModule,
@@ -63,7 +62,7 @@ type FilterContactStatus = ContactStatus | 'All';
         ContactPanelComponent,
         FormPopupComponent,
         ContactNewFormComponent_1,
-    ],
+    ]
 })
 export class CrmContactListComponent {
   private service = inject(DataService);

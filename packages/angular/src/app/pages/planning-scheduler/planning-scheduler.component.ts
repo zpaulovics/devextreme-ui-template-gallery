@@ -29,22 +29,21 @@ type SelectedAppointment = { data: Record<string, any>, target: any };
     templateUrl: './planning-scheduler.component.html',
     styleUrls: ['./planning-scheduler.component.scss'],
     providers: [DataService],
-    standalone: true,
     imports: [
-    LeftSidePanelComponent,
-    DxButtonModule,
-    DxCalendarModule,
-    CalendarListComponent,
-    DxSchedulerModule,
-    DxTooltipModule,
-    SchedulerTooltipComponent,
-    DxSpeedDialActionModule,
-    RightSidePanelComponent,
-    AgendaComponent,
-    ApplyPipe,
-    AsyncPipe,
-    DatePipe
-],
+        LeftSidePanelComponent,
+        DxButtonModule,
+        DxCalendarModule,
+        CalendarListComponent,
+        DxSchedulerModule,
+        DxTooltipModule,
+        SchedulerTooltipComponent,
+        DxSpeedDialActionModule,
+        RightSidePanelComponent,
+        AgendaComponent,
+        ApplyPipe,
+        AsyncPipe,
+        DatePipe
+    ]
 })
 export class PlanningSchedulerComponent implements OnInit {
   private service = inject(DataService);

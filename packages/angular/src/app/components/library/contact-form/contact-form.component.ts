@@ -36,22 +36,21 @@ import { DxLoadPanelModule as DxLoadPanelModule_1 } from 'devextreme-angular/ui/
     selector: 'contact-form',
     templateUrl: './contact-form.component.html',
     styleUrls: ['./contact-form.component.scss'],
-    standalone: true,
     imports: [
-    DxValidationGroupModule,
-    ToolbarFormComponent,
-    DxFormModule_1,
-    DxiItemModule,
-    DxoColCountByScreenModule,
-    DxTemplateModule,
-    FormPhotoComponent,
-    StatusSelectBoxComponent,
-    FormTextboxComponent,
-    DxNumberBoxModule,
-    DxValidatorModule,
-    DxButtonModule,
-    DxLoadPanelModule_1
-],
+        DxValidationGroupModule,
+        ToolbarFormComponent,
+        DxFormModule_1,
+        DxiItemModule,
+        DxoColCountByScreenModule,
+        DxTemplateModule,
+        FormPhotoComponent,
+        StatusSelectBoxComponent,
+        FormTextboxComponent,
+        DxNumberBoxModule,
+        DxValidatorModule,
+        DxButtonModule,
+        DxLoadPanelModule_1
+    ]
 })
 export class ContactFormComponent {
   @Input() contactData: Contact;

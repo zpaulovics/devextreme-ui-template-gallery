@@ -25,8 +25,7 @@ import { ApplyPipeModule, ApplyPipe } from "../../../pipes/apply.pipe";
     </div>
 `,
     styleUrls: ['./agenda-list-item.component.scss'],
-    standalone: true,
-    imports: [ApplyPipe],
+    imports: [ApplyPipe]
 })
 export class AgendaListItemComponent {
   @Input() appointment: Record<string, any> = {};

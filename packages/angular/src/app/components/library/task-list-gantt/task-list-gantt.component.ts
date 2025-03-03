@@ -12,8 +12,7 @@ import 'jspdf-autotable';
     selector: 'task-list-gantt',
     templateUrl: './task-list-gantt.component.html',
     styleUrls: ['./task-list-gantt.component.scss'],
-    standalone: true,
-    imports: [DxGanttModule],
+    imports: [DxGanttModule]
 })
 export class TaskListGanttComponent {
   private router = inject(Router);

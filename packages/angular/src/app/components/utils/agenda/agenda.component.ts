@@ -28,12 +28,11 @@ export type AgendaItem = { startDate: Date };
   </dx-list>
 `,
     styleUrls: ['./agenda.component.scss'],
-    standalone: true,
     imports: [
         DxListModule,
         DxTemplateModule,
         AgendaListItemComponent,
-    ],
+    ]
 })
 export class AgendaComponent {
   @Input() items: AgendaItem[];

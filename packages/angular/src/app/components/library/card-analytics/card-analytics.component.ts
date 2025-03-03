@@ -11,8 +11,7 @@ import { CardMenuModule, CardMenuComponent } from '../card-menu/card-menu.compon
     selector: 'card-analytics',
     templateUrl: './card-analytics.component.html',
     styleUrls: ['./card-analytics.component.scss'],
-    standalone: true,
-    imports: [CardMenuComponent],
+    imports: [CardMenuComponent]
 })
 
 export class CardAnalyticsComponent {

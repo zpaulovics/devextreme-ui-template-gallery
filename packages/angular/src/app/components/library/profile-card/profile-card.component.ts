@@ -25,18 +25,17 @@ type CardData = Record<string, any>;
     selector: 'profile-card',
     templateUrl: './profile-card.component.html',
     styleUrls: ['profile-card.component.scss'],
-    standalone: true,
     imports: [
-    DxFormModule_1,
-    DxiItemModule,
-    DxoLabelModule,
-    DxiValidationRuleModule,
-    DxDateBoxModule,
-    StatusSelectBoxComponent,
-    PicturedItemSelectBoxComponent,
-    ApplyPipe,
-    AsyncPipe
-],
+        DxFormModule_1,
+        DxiItemModule,
+        DxoLabelModule,
+        DxiValidationRuleModule,
+        DxDateBoxModule,
+        StatusSelectBoxComponent,
+        PicturedItemSelectBoxComponent,
+        ApplyPipe,
+        AsyncPipe
+    ]
 })
 export class ProfileCardComponent {
   screen = inject(ScreenService);

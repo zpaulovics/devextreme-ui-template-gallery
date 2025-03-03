@@ -34,20 +34,19 @@ import { DxLoadPanelModule as DxLoadPanelModule_1 } from 'devextreme-angular/ui/
     selector: 'task-form',
     templateUrl: './task-form.component.html',
     styleUrls: ['./task-form.component.scss'],
-    standalone: true,
     imports: [
-    ToolbarFormComponent,
-    DxFormModule_1,
-    DxiItemModule,
-    DxTemplateModule,
-    FormTextboxComponent,
-    DxoColCountByScreenModule,
-    DxSelectBoxModule,
-    StatusIndicatorComponent,
-    FormDateboxComponent,
-    DxTextAreaModule,
-    DxLoadPanelModule_1
-],
+        ToolbarFormComponent,
+        DxFormModule_1,
+        DxiItemModule,
+        DxTemplateModule,
+        FormTextboxComponent,
+        DxoColCountByScreenModule,
+        DxSelectBoxModule,
+        StatusIndicatorComponent,
+        FormDateboxComponent,
+        DxTextAreaModule,
+        DxLoadPanelModule_1
+    ]
 })
 export class TaskFormComponent implements OnInit {
   protected screen = inject(ScreenService);

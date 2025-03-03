@@ -33,7 +33,6 @@ import { SalesPerformanceCardComponent } from '../../components/utils/sales-perf
     templateUrl: './analytics-sales-report.component.html',
     styleUrls: ['./analytics-sales-report.component.scss'],
     providers: [DataService],
-    standalone: true,
     imports: [
         DxScrollViewModule_1,
         ToolbarAnalyticsComponent,
@@ -41,7 +40,7 @@ import { SalesPerformanceCardComponent } from '../../components/utils/sales-perf
         SalesByRangeCardComponent,
         SalesPerformanceCardComponent,
         DxLoadPanelModule,
-    ],
+    ]
 })
 export class AnalyticsSalesReportComponent implements OnInit {
   private service = inject(DataService);

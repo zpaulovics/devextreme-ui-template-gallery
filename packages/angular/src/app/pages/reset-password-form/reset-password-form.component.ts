@@ -9,7 +9,6 @@ import { ResetPasswordFormComponent } from '../../components/library/reset-passw
     selector: 'app-reset-password-form',
     templateUrl: './reset-password-form.component.html',
     styleUrls: ['./reset-password-form.component.scss'],
-    standalone: true,
     imports: [CardAuthComponent, ResetPasswordFormComponent]
 })
 export class AppResetPasswordComponent {

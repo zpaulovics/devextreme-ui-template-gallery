@@ -8,8 +8,7 @@ import { IUser } from '../../../services/auth.service';
     selector: 'user-menu-section',
     templateUrl: 'user-menu-section.component.html',
     styleUrls: ['./user-menu-section.component.scss'],
-    standalone: true,
-    imports: [DxListModule],
+    imports: [DxListModule]
 })
 
 export class UserMenuSectionComponent {
