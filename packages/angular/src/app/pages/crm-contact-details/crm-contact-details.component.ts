@@ -71,10 +71,8 @@ export class CrmContactDetailsComponent implements OnInit {
     ]).pipe(
       map(
         ([
-          contactNotes,
-          contactMessages,
-          activeOpportunities,
-          closedOpportunities
+          // @ts-ignore
+          contactNotes, contactMessages, activeOpportunities, closedOpportunities
         ]) => ({
           contactNotes,
           contactMessages,

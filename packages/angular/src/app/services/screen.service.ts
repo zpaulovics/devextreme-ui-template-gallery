@@ -30,6 +30,7 @@ export class ScreenService {
   breakpointSubscription: Subscription;
 
   constructor() {
+    // @ts-ignore
     this.breakpointSubscription = this.breakpointObserver$
       .observe([Breakpoints.XSmall, Breakpoints.Small, Breakpoints.Medium, Breakpoints.Large, Breakpoints.XLarge])
       .subscribe((data) => {

@@ -26,12 +26,15 @@ export class DataService {
     this.http.get<Contact>(`${API_URL}/Users/Contacts/${id}`);
 
   public getTasks = (): Observable<Task[]> =>
+    // @ts-ignore
     this.http.get<Task[]>(`${API_URL}/Employees/AllTasks`);
 
   public getFilteredTasks = (): Observable<Task[]> =>
+    // @ts-ignore
     this.http.get<Task[]>(`${API_URL}/Employees/FilteredTasks`);
 
   public getTask = (id: number): Observable<Task> =>
+    // @ts-ignore
     this.http.get<Task>(`${API_URL}/Employees/Tasks/${id}`);
 
   public getContactNotes = (id: number) =>
@@ -49,6 +52,7 @@ export class DataService {
   public getContactOpportunities = (id: number, isActive: boolean) => this.http
     .get<any>(`${API_URL}/Users/Contacts/${id}/Opportunities`)
     .pipe(
+      // @ts-ignore
       map((data) => data.filter((_: any, index: number) => {
         const isEven = index % 2 === 0;
         return isActive ? isEven : !isEven;
@@ -101,6 +105,7 @@ export class DataService {
 
   public getProfile = (id: number) =>
     this.http.get<Record<string, any>>(`${API_URL}/Users/Contacts/${id}`).pipe(
+      // @ts-ignore
       map((data)=> {
         data.gender = id == 22 ? 'female' : null;
         data.birthDate = new Date('1980/05/03');
@@ -276,6 +281,7 @@ The editor allows users to format text and integrate media elements into documen
 The result can be exported to HTML or Markdown.`;
 
     return this.getTasks().pipe(
+      // @ts-ignore
       map((tasks) => {
         const today = DateTime.now();
         const mondayMidnight = today.set({

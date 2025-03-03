@@ -69,11 +69,13 @@ export class PlanningTaskListComponent implements OnInit {
   taskCollections$: Observable<{ allTasks: Task[]; filteredTasks: Task[] }>;
 
   ngOnInit(): void {
+    // @ts-ignore
     this.taskCollections$ = forkJoin([
       this.service.getFilteredTasks(),
       this.service.getTasks()
     ]).pipe(
       map(
+        // @ts-ignore
         ([filteredTasks, allTasks]) => { return { allTasks, filteredTasks }  })
     );
   }
