@@ -61,7 +61,7 @@
     "packages/*"
   ],
   "dependencies": {
-    "@angular/cli": "^18.2.14",
+    "@angular/cli": "^19.2.0",
     "devextreme": "24.2.5",
     "devextreme-dist": "24.2.5",
     "typescipt": "^1.0.0"

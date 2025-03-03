@@ -113,30 +113,30 @@ export class AnalyticsDashboardComponent implements OnInit {
   }
 }
 
-// @NgModule({
-//     imports: [
-//         DxScrollViewModule,
-//         DxDataGridModule,
-//         DxBulletModule,
-//         DxFunnelModule,
-//         DxPieChartModule,
-//         DxChartModule,
-//         CardAnalyticsModule,
-//         ToolbarAnalyticsModule,
-//         DxLoadPanelModule,
-//         ApplyPipeModule,
-//         ConversionCardModule,
-//         RevenueAnalysisCardModule,
-//         RevenueCardModule,
-//         RevenueSnapshotCardModule,
-//         OpportunitiesTickerModule,
-//         RevenueTotalTickerModule,
-//         ConversionTickerModule,
-//         LeadsTickerModule,
-//         CommonModule,
-//         AnalyticsDashboardComponent,
-//     ],
-//     providers: [],
-//     exports: [],
-// })
-// export class AnalyticsDashboardModule { }
+@NgModule({
+    imports: [
+        DxScrollViewModule,
+        DxDataGridModule,
+        DxBulletModule,
+        DxFunnelModule,
+        DxPieChartModule,
+        DxChartModule,
+        CardAnalyticsModule,
+        ToolbarAnalyticsModule,
+        DxLoadPanelModule,
+        ApplyPipeModule,
+        ConversionCardModule,
+        RevenueAnalysisCardModule,
+        RevenueCardModule,
+        RevenueSnapshotCardModule,
+        OpportunitiesTickerModule,
+        RevenueTotalTickerModule,
+        ConversionTickerModule,
+        LeadsTickerModule,
+        CommonModule,
+        AnalyticsDashboardComponent,
+    ],
+    providers: [],
+    exports: [],
+})
+export class AnalyticsDashboardModule { }

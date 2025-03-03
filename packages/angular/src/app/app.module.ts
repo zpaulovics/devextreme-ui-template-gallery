@@ -25,6 +25,8 @@ import { AnalyticsSalesReportModule } from './pages/analytics-sales-report/analy
 import { AnalyticsGeographyModule } from './pages/analytics-geography/analytics-geography.component';
 import { ThemeService } from './services';
 
+import { RouterOutlet } from '@angular/router';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +52,7 @@ import { ThemeService } from './services';
     AnalyticsGeographyModule,
 
     AppRoutingModule,
+    RouterOutlet
   ],
   providers: [AuthService, ScreenService, AppInfoService, ThemeService],
   bootstrap: [AppComponent],
