@@ -11,23 +11,22 @@
   [columnAutoWidth]="true"
   [showBorders]="true"
 >
-  <dxo-paging [pageSize]="15"></dxo-paging>
-  <dxo-pager [visible]="true" [showPageSizeSelector]="true"></dxo-pager>
-  <dxo-editing mode="row" [allowUpdating]="true"> </dxo-editing>
-  <dxo-selection
-    selectAllMode="allPages"
+  <dxo-paging [pageSize]="15" />
+  <dxo-pager [visible]="true" [showPageSizeSelector]="true" />
+  <dxo-editing mode="row" [allowUpdating]="true" />
+  <dxo-selection selectAllMode="allPages"
     showCheckBoxesMode="always"
     mode="multiple"
-  ></dxo-selection>
-  <dxo-scrolling mode="virtual"></dxo-scrolling>
-  <dxo-sorting mode="multiple"></dxo-sorting>
-  <dxo-header-filter [visible]="true"></dxo-header-filter>
+   />
+  <dxo-scrolling mode="virtual" />
+  <dxo-sorting mode="multiple" />
+  <dxo-header-filter [visible]="true" />
 
   <dxi-column dataField="text" caption="Subject" [hidingPriority]="7">
-    <dxi-validation-rule type="required"></dxi-validation-rule>
+    <dxi-validation-rule type="required" />
   </dxi-column>
   <dxi-column dataField="company" caption="Company" [hidingPriority]="6">
-    <dxi-validation-rule type="required"></dxi-validation-rule>
+    <dxi-validation-rule type="required" />
   </dxi-column>
   <dxi-column
     dataField="priority"
@@ -36,8 +35,8 @@
     cellTemplate="cellPriority"
     editCellTemplate="editCellPriority"
   >
-    <dxo-lookup [dataSource]="priorityList"></dxo-lookup>
-    <dxi-validation-rule type="required"></dxi-validation-rule>
+    <dxo-lookup [dataSource]="priorityList" />
+    <dxi-validation-rule type="required" />
   </dxi-column>
   <dxi-column
     dataField="startDate"
@@ -45,7 +44,7 @@
     dataType="date"
     [hidingPriority]="2"
   >
-    <dxi-validation-rule type="required"></dxi-validation-rule>
+    <dxi-validation-rule type="required" />
   </dxi-column>
   <dxi-column
     dataField="dueDate"
@@ -54,10 +53,10 @@
     sortOrder="asc"
     [hidingPriority]="1"
   >
-    <dxi-validation-rule type="required"></dxi-validation-rule>
+    <dxi-validation-rule type="required" />
   </dxi-column>
   <dxi-column dataField="owner" caption="Owner" [hidingPriority]="5">
-    <dxi-validation-rule type="required"></dxi-validation-rule>
+    <dxi-validation-rule type="required" />
   </dxi-column>
   <dxi-column
     dataField="status"
@@ -67,8 +66,8 @@
     cellTemplate="cellStatus"
     editCellTemplate="editCellStatus"
   >
-    <dxo-lookup [dataSource]="statusList"></dxo-lookup>
-    <dxi-validation-rule type="required"></dxi-validation-rule>
+    <dxo-lookup [dataSource]="statusList" />
+    <dxi-validation-rule type="required" />
   </dxi-column>
 
   <div *dxTemplate="let cellInfo of 'cellPriority'">

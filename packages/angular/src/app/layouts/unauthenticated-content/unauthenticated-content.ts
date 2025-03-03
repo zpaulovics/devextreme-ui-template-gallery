@@ -9,7 +9,7 @@ import { SingleCardComponent } from '../single-card/single-card.component';
     selector: 'app-unauthenticated-content',
     template: `
     <app-single-card [title]="title" [description]="description">
-      <router-outlet></router-outlet>
+      <router-outlet />
     </app-single-card>
   `,
     styles: [`

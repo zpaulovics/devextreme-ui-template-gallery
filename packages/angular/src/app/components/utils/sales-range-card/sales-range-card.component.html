@@ -9,17 +9,16 @@
       tickInterval="month"
       valueType="datetime"
     >
-      <dxo-minor-tick [visible]="false"></dxo-minor-tick>
-      <dxo-marker [visible]="false"></dxo-marker>
-      <dxo-label format="MMM yyyy"></dxo-label>
+      <dxo-minor-tick [visible]="false" />
+      <dxo-marker [visible]="false" />
+      <dxo-label format="MMM yyyy" />
     </dxo-scale>
-    <dxo-size [height]="90"></dxo-size>
+    <dxo-size [height]="90" />
 
-    <dxo-loading-indicator [show]="true"></dxo-loading-indicator>
+    <dxo-loading-indicator [show]="true" />
 
     <dxo-chart>
-      <dxi-series type="line" argumentField="date" valueField="total">
-      </dxi-series>
+      <dxi-series type="line" argumentField="date" valueField="total" />
     </dxo-chart>
   </dx-range-selector>
 </card-analytics>
