@@ -27,9 +27,10 @@ import { ApplyPipeModule } from 'src/app/pipes/apply.pipe';
 import { Sale, SalesOrOpportunitiesByCategory } from 'src/app/types/analytics';
 
 @Component({
-  templateUrl: './analytics-sales-report.component.html',
-  styleUrls: ['./analytics-sales-report.component.scss'],
-  providers: [DataService],
+    templateUrl: './analytics-sales-report.component.html',
+    styleUrls: ['./analytics-sales-report.component.scss'],
+    providers: [DataService],
+    standalone: false
 })
 export class AnalyticsSalesReportComponent implements OnInit {
   groupByPeriods = ['Day', 'Month'];
