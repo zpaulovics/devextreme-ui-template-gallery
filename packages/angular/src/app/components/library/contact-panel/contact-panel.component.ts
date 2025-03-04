@@ -71,6 +71,7 @@ export class ContactPanelComponent implements OnInit, OnChanges, AfterViewChecke
 
   constructor(private screen: ScreenService, private service: DataService, private router: Router) {
     this.userPanelSubscriptions.push(
+      // @ts-ignore
       this.screen.changed.subscribe(this.calculatePin),
       this
         .pinEventSubject

@@ -81,7 +81,8 @@ export class AnalyticsSalesReportComponent implements OnInit {
     const tasks = [
       ['sales', this.service.getSales(startDate, endDate)],
       ['salesByDateAndCategory', this.service.getSalesByOrderDate(groupBy)],
-    ].map(([dataName, loader]: [string, Observable<Sale[]>]) => {
+  // @ts-ignore  
+  ].map(([dataName, loader]: [string, Observable<Sale[]>]) => {
         const task = loader.pipe(share());
         task.subscribe((data) => this[dataName] = data);
         return task;

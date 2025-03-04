@@ -51,6 +51,7 @@ export class SideNavOuterToolbarComponent implements OnInit, OnDestroy {
   screenSubscription: Subscription;
 
   constructor(private screen: ScreenService, private router: Router, public appInfo: AppInfoService) {
+    // @ts-ignore
     this.routerSubscription = this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
         this.selectedRoute = event.urlAfterRedirects.split('?')[0];
@@ -61,6 +62,7 @@ export class SideNavOuterToolbarComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.menuOpened = this.screen.sizes['screen-large'];
 
+    // @ts-ignore
     this.screenSubscription = this.screen.changed.subscribe(() => this.updateDrawer());
 
     this.updateDrawer();

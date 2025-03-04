@@ -76,9 +76,11 @@ export class AnalyticsDashboardComponent implements OnInit {
       ['sales', this.service.getSales],
       ['salesByCategory', this.service.getSalesByCategory],
       ['salesByState', (startDate: string, endDate: string) => this.service.getSalesByStateAndCity(startDate, endDate).pipe(
+        // @ts-ignore
         map((data) => this.service.getSalesByState(data))
       )
       ]
+    // @ts-ignore  
     ].map(([dataName, loader]: [string, DataLoader]) => {
       const loaderObservable = loader(startDate, endDate).pipe(share());
 

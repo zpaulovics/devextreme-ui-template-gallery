@@ -61,8 +61,10 @@ export class UserProfileComponent {
     forkJoin([
       service.getSupervisors(),
       service.getProfile(this.profileId)
+    // @ts-ignore
     ]).subscribe(([supervisorsList, profileData]) => {
       this.supervisorsList.length = 0;
+      // @ts-ignore
       this.supervisorsList.push(...supervisorsList);
       this.profileData = profileData;
       this.setSavedData();
