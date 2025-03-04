@@ -1,7 +1,7 @@
 import {
   Component, Input, NgModule, OnChanges, SimpleChanges,
 } from '@angular/core';
-import { CommonModule, NgIf, NgFor } from '@angular/common';
+
 import {
   DxButtonModule,
   DxLoadPanelModule,
@@ -16,7 +16,7 @@ import { DxLoadPanelModule as DxLoadPanelModule_1 } from 'devextreme-angular/ui/
     selector: 'card-opportunities',
     templateUrl: './card-opportunities.component.html',
     styleUrls: ['./card-opportunities.component.scss'],
-    imports: [NgIf, DxButtonModule, NgFor, OpportunityTileComponent, DxLoadPanelModule_1]
+    imports: [DxButtonModule, OpportunityTileComponent, DxLoadPanelModule_1]
 })
 export class CardOpportunitiesComponent implements OnChanges {
   @Input() openedOpportunities: Opportunity[];

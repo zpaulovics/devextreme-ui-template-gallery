@@ -1,4 +1,4 @@
-import { CommonModule, NgFor, DatePipe } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import {
   Component, Input, NgModule,
 } from '@angular/core';
@@ -21,7 +21,7 @@ import { UserAvatarComponent } from '../user-avatar/user-avatar.component';
     selector: 'card-messages',
     templateUrl: './card-messages.component.html',
     styleUrls: ['./card-messages.component.scss'],
-    imports: [DxValidationGroupModule, DxTextBoxModule, DxValidatorModule, DxTextAreaModule, DxToolbarModule_1, DxiItemModule, DxFileUploaderModule, NgFor, UserAvatarComponent, DxButtonModule, DatePipe]
+    imports: [DxValidationGroupModule, DxTextBoxModule, DxValidatorModule, DxTextAreaModule, DxToolbarModule_1, DxiItemModule, DxFileUploaderModule, UserAvatarComponent, DxButtonModule, DatePipe]
 })
 export class CardMessagesComponent {
   @Input() user: string;

@@ -16,7 +16,7 @@ import { exportDataGrid as exportDataGridToXLSX } from 'devextreme/excel_exporte
 import { Contact, contactStatusList, ContactStatus, } from 'src/app/types/contact';
 import { DxDropDownButtonTypes, DxDropDownButtonModule as DxDropDownButtonModule_1 } from 'devextreme-angular/ui/drop-down-button';
 import DataSource from 'devextreme/data/data_source';
-import { CommonModule } from '@angular/common';
+
 import { DataService } from 'src/app/services';
 import { Workbook } from 'exceljs';
 import { saveAs } from 'file-saver-es';

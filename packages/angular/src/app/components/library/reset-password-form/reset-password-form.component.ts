@@ -1,4 +1,4 @@
-import { CommonModule, NgIf } from '@angular/common';
+
 import { Component, NgModule, Input, OnInit } from '@angular/core';
 import { Router, RouterModule, RouterLink } from '@angular/router';
 import { DxFormModule } from 'devextreme-angular/ui/form';
@@ -14,7 +14,7 @@ const notificationText = 'We\'ve sent a link to reset your password. Check your 
     selector: 'reset-password-form',
     templateUrl: './reset-password-form.component.html',
     styleUrls: ['./reset-password-form.component.scss'],
-    imports: [DxFormModule, DxiItemModule, DxiValidationRuleModule, DxoLabelModule, DxoButtonOptionsModule, DxTemplateModule, NgIf, DxLoadIndicatorModule, RouterLink]
+    imports: [DxFormModule, DxiItemModule, DxiValidationRuleModule, DxoLabelModule, DxoButtonOptionsModule, DxTemplateModule, DxLoadIndicatorModule, RouterLink]
 })
 export class ResetPasswordFormComponent implements OnInit {
   @Input() signInLink = '/auth/login';

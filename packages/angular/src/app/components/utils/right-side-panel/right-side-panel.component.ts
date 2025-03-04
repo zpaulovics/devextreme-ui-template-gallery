@@ -5,7 +5,7 @@ import {
   Input,
   EventEmitter, HostBinding,
 } from '@angular/core';
-import { CommonModule, NgIf } from '@angular/common';
+
 import {
   DxButtonModule,
 } from 'devextreme-angular';
@@ -17,7 +17,7 @@ import {DataService, ScreenService} from 'src/app/services';
     templateUrl: './right-side-panel.component.html',
     styleUrls: ['./right-side-panel.component.scss'],
     providers: [DataService],
-    imports: [NgIf, DxButtonModule]
+    imports: [DxButtonModule]
 })
 export class RightSidePanelComponent {
   @Input() isOpened = false;

@@ -1,7 +1,7 @@
 import {
   Component, EventEmitter, Input, NgModule, Output,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { DxSelectBoxModule, DxTextBoxModule } from 'devextreme-angular';
 
 import { DxTemplateModule } from 'devextreme-angular/core';

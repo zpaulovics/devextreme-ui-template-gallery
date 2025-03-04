@@ -9,7 +9,7 @@ import {
 import { DxTreeViewTypes } from 'devextreme-angular/ui/tree-view';
 import { DxDrawerModule, DxDrawerTypes } from 'devextreme-angular/ui/drawer';
 import { DxScrollViewComponent } from 'devextreme-angular/ui/scroll-view';
-import { CommonModule } from '@angular/common';
+
 
 import { Router, RouterModule, NavigationEnd, Event, RouterOutlet } from '@angular/router';
 import { ScreenService, AppInfoService } from '../../services';

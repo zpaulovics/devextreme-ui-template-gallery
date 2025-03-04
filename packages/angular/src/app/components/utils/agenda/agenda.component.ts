@@ -1,7 +1,7 @@
 import {
   Component, EventEmitter, Input, NgModule, Output,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { DxListModule, DxListTypes } from 'devextreme-angular/ui/list';
 import { Task } from 'src/app/types/task';
 import { AgendaListItemComponent } from "./agenda-list-item.component";

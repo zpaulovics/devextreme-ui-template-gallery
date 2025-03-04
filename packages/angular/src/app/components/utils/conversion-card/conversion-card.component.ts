@@ -1,7 +1,7 @@
 import {
   Component, NgModule, Input,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 
 import { DxFunnelModule } from 'devextreme-angular/ui/funnel';
 import { SalesOrOpportunitiesByCategory } from 'src/app/types/analytics';

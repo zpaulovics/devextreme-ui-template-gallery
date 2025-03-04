@@ -6,7 +6,7 @@ import {
   Output, 
   ViewChild,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import {
   DxSelectBoxModule,
   DxTextBoxModule,

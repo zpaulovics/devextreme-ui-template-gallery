@@ -1,4 +1,4 @@
-import { CommonModule, NgClass, NgIf, DatePipe } from '@angular/common';
+import { CommonModule, NgClass, DatePipe } from '@angular/common';
 import {
   Component, NgModule, Input, SimpleChanges, OnInit, OnChanges,
 } from '@angular/core';
@@ -12,7 +12,7 @@ import { Activity } from 'src/app/types/activities';
     selector: 'card-activities',
     templateUrl: './card-activities.component.html',
     styleUrls: ['./card-activities.component.scss'],
-    imports: [NgClass, NgIf, DxListModule, DxLoadPanelModule, CardMenuComponent, DatePipe]
+    imports: [NgClass, DxListModule, DxLoadPanelModule, CardMenuComponent, DatePipe]
 })
 export class CardActivitiesComponent {
   @Input() activities: Activity[];

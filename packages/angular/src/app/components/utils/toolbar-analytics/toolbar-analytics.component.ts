@@ -1,5 +1,5 @@
 import { Component, NgModule, Input, Output, EventEmitter } from '@angular/core';
-import { CommonModule, NgIf, AsyncPipe } from '@angular/common';
+import { CommonModule, AsyncPipe } from '@angular/common';
 
 import { ScreenService } from 'src/app/services';
 
@@ -17,7 +17,7 @@ import { DxButtonModule as DxButtonModule_1 } from 'devextreme-angular';
     selector: 'toolbar-analytics',
     templateUrl: './toolbar-analytics.component.html',
     styleUrls: ['./toolbar-analytics.component.scss'],
-    imports: [DxToolbarModule, DxiItemModule, NgIf, DxTabsModule, DxButtonModule_1, AsyncPipe]
+    imports: [DxToolbarModule, DxiItemModule, DxTabsModule, DxButtonModule_1, AsyncPipe]
 })
 
 export class ToolbarAnalyticsComponent {

@@ -9,7 +9,7 @@ import {
 } from 'devextreme-angular';
 
 import { DxCalendarTypes } from 'devextreme-angular/ui/calendar';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
     selector: 'form-item-date',

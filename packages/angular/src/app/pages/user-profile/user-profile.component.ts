@@ -2,7 +2,7 @@ import {
   ChangeDetectorRef,
   Component, NgModule,
 } from '@angular/core';
-import { CommonModule, NgIf, AsyncPipe } from '@angular/common';
+import { CommonModule, AsyncPipe } from '@angular/common';
 import notify from 'devextreme/ui/notify';
 import {
   DxButtonModule,
@@ -32,7 +32,7 @@ import { PhonePipe } from '../../pipes/phone.pipe';
     templateUrl: './user-profile.component.html',
     styleUrls: ['./user-profile.component.scss'],
     providers: [DataService],
-    imports: [DxToolbarModule_1, DxiItemModule, DxButtonModule, DxLoadPanelModule_1, DxScrollViewModule, NgIf, ProfileCardComponent, FormPhotoComponent, ChangeProfilePasswordFormComponent, AsyncPipe, PhonePipe]
+    imports: [DxToolbarModule_1, DxiItemModule, DxButtonModule, DxLoadPanelModule_1, DxScrollViewModule, ProfileCardComponent, FormPhotoComponent, ChangeProfilePasswordFormComponent, AsyncPipe, PhonePipe]
 })
 export class UserProfileComponent {
   profileId = 22;

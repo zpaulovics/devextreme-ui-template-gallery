@@ -31,7 +31,7 @@ type SelectedAppointment = { data: Record<string, any>, target: any };
     templateUrl: './planning-scheduler.component.html',
     styleUrls: ['./planning-scheduler.component.scss'],
     providers: [DataService],
-    imports: [LeftSidePanelComponent, DxButtonModule, DxCalendarModule, CalendarListComponent, DxSchedulerModule, NgIf, DxTooltipModule, SchedulerTooltipComponent, DxSpeedDialActionModule, RightSidePanelComponent, AgendaComponent, ApplyPipe, AsyncPipe, DatePipe]
+    imports: [LeftSidePanelComponent, DxButtonModule, DxCalendarModule, CalendarListComponent, DxSchedulerModule, DxTooltipModule, SchedulerTooltipComponent, DxSpeedDialActionModule, RightSidePanelComponent, AgendaComponent, ApplyPipe, AsyncPipe, DatePipe]
 })
 export class PlanningSchedulerComponent implements OnInit {
   @ViewChild('schedulerRef', { static: false }) schedulerRef: DxSchedulerComponent;

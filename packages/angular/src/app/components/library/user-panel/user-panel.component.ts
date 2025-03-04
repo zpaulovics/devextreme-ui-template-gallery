@@ -1,5 +1,5 @@
 import { Component, NgModule, Input, ViewChild } from '@angular/core';
-import { CommonModule, NgIf } from '@angular/common';
+
 
 import { DxDropDownButtonModule } from 'devextreme-angular/ui/drop-down-button';
 import { UserMenuSectionComponent } from '../user-menu-section/user-menu-section.component';
@@ -8,7 +8,7 @@ import { IUser } from '../../../services/auth.service';
     selector: 'user-panel',
     templateUrl: 'user-panel.component.html',
     styleUrls: ['./user-panel.component.scss'],
-    imports: [NgIf, DxDropDownButtonModule, UserMenuSectionComponent]
+    imports: [DxDropDownButtonModule, UserMenuSectionComponent]
 })
 
 export class UserPanelComponent {

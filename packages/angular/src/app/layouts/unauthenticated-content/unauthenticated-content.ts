@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 

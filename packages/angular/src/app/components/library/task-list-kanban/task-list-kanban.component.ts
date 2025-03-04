@@ -1,7 +1,7 @@
 import {
   Component, NgModule, Input, SimpleChanges, OnChanges, ViewChild, Output, EventEmitter,
 } from '@angular/core';
-import { CommonModule, NgFor } from '@angular/common';
+
 import { DxButtonModule } from 'devextreme-angular/ui/button';
 import { DxScrollViewModule } from 'devextreme-angular/ui/scroll-view';
 import { DxSortableModule, DxSortableComponent } from 'devextreme-angular/ui/sortable';
@@ -25,7 +25,7 @@ type Board = {
     selector: 'task-list-kanban',
     templateUrl: './task-list-kanban.component.html',
     styleUrls: ['./task-list-kanban.component.scss'],
-    imports: [DxScrollViewModule_1, DxSortableModule, NgFor, CardMenuComponent, TaskKanbanCardComponent, DxButtonModule_1]
+    imports: [DxScrollViewModule_1, DxSortableModule, CardMenuComponent, TaskKanbanCardComponent, DxButtonModule_1]
 })
 export class TaskListKanbanComponent implements OnChanges {
   @ViewChild(DxSortableComponent, { static: false }) sortable: DxSortableComponent;

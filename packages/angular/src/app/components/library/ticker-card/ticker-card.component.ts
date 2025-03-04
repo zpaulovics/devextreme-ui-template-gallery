@@ -1,4 +1,4 @@
-import { CommonModule, NgIf, CurrencyPipe } from '@angular/common';
+import { CommonModule, CurrencyPipe } from '@angular/common';
 import {
   Component,
   NgModule,
@@ -13,7 +13,7 @@ import { ApplyPipe } from '../../../pipes/apply.pipe';
     selector: 'ticker-card',
     templateUrl: './ticker-card.component.html',
     styleUrls: ['./ticker-card.component.scss'],
-    imports: [NgIf, ApplyPipe, CurrencyPipe]
+    imports: [ApplyPipe, CurrencyPipe]
 })
 
 export class TickerCardComponent {

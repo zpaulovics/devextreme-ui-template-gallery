@@ -1,4 +1,4 @@
-import { CommonModule, NgIf } from '@angular/common';
+
 import { Component, NgModule, Input, OnInit } from '@angular/core';
 import { Router, RouterModule, RouterLink } from '@angular/router';
 
@@ -16,7 +16,7 @@ import { LoginOauthComponent } from '../login-oauth/login-oauth.component';
     selector: 'app-create-account-form',
     templateUrl: './create-account-form.component.html',
     styleUrls: ['./create-account-form.component.scss'],
-    imports: [DxFormModule, DxiItemModule, DxiValidationRuleModule, DxoLabelModule, RouterLink, DxoButtonOptionsModule, DxTemplateModule, NgIf, DxLoadIndicatorModule, LoginOauthComponent]
+    imports: [DxFormModule, DxiItemModule, DxiValidationRuleModule, DxoLabelModule, RouterLink, DxoButtonOptionsModule, DxTemplateModule, DxLoadIndicatorModule, LoginOauthComponent]
 })
 export class CreateAccountFormComponent implements OnInit {
   @Input() redirectLink = '/auth/login';

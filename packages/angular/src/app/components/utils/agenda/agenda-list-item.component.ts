@@ -1,7 +1,7 @@
 import {
   Component, Input, NgModule,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { DxListModule } from 'devextreme-angular/ui/list';
 import { Duration } from 'luxon';
 import { ApplyPipe } from "../../../pipes/apply.pipe";

@@ -1,4 +1,4 @@
-import { CommonModule, NgIf } from '@angular/common';
+
 import {
   Component,
   NgModule,
@@ -11,7 +11,7 @@ import { CardMenuComponent } from '../card-menu/card-menu.component';
     selector: 'card-analytics',
     templateUrl: './card-analytics.component.html',
     styleUrls: ['./card-analytics.component.scss'],
-    imports: [CardMenuComponent, NgIf]
+    imports: [CardMenuComponent]
 })
 
 export class CardAnalyticsComponent {

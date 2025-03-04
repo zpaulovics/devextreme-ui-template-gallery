@@ -1,7 +1,7 @@
 import {
   Component, OnInit, NgModule,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import {
   DxButtonModule,
   DxDropDownButtonModule,

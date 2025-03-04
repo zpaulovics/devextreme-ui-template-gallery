@@ -10,7 +10,7 @@ import { DxBulletModule } from 'devextreme-angular/ui/bullet';
 import { DxScrollViewModule } from 'devextreme-angular/ui/scroll-view';
 import { DxLoadPanelModule } from 'devextreme-angular/ui/load-panel'
 
-import { CommonModule } from '@angular/common';
+
 import { Subscription } from 'rxjs';
 
 import { DataService } from 'src/app/services';

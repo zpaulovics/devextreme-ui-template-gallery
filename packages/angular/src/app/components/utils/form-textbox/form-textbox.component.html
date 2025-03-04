@@ -8,12 +8,13 @@
   [elementAttr]="{ class: 'form-editor' }"
   [inputAttr]="{ class: 'form-editor-input' }"
   (onValueChanged)="valueChanged($event)"
->
+  >
   <dx-validator [validationRules]="validators"></dx-validator>
-  <dxi-button
-    *ngIf="icon"
-    name="icon"
-    location="before"
-    [options]="{ icon: icon, elementAttr: { class: 'form-editor-icon' }, stylingMode: 'text' }"
-  ></dxi-button>
+  @if (icon) {
+    <dxi-button
+      name="icon"
+      location="before"
+      [options]="{ icon: icon, elementAttr: { class: 'form-editor-icon' }, stylingMode: 'text' }"
+    ></dxi-button>
+  }
 </dx-text-box>

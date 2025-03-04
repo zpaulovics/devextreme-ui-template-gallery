@@ -1,4 +1,4 @@
-import { CommonModule, NgFor, DatePipe } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import {
   Component, Input, NgModule, OnInit,
 } from '@angular/core';
@@ -18,7 +18,7 @@ import { DxToolbarModule as DxToolbarModule_1 } from 'devextreme-angular/ui/tool
     selector: 'card-notes',
     templateUrl: './card-notes.component.html',
     styleUrls: ['./card-notes.component.scss'],
-    imports: [DxValidationGroupModule, DxTextAreaModule, DxValidatorModule, DxiValidationRuleModule, DxToolbarModule_1, DxiItemModule, DxScrollViewModule, NgFor, DxButtonModule, DatePipe]
+    imports: [DxValidationGroupModule, DxTextAreaModule, DxValidatorModule, DxiValidationRuleModule, DxToolbarModule_1, DxiItemModule, DxScrollViewModule, DxButtonModule, DatePipe]
 })
 export class CardNotesComponent {
   @Input() user: string;

@@ -1,4 +1,4 @@
-import { CommonModule, NgStyle, NgIf } from '@angular/common';
+import { CommonModule, NgStyle } from '@angular/common';
 import {
   Component, ElementRef, Input, NgModule, OnInit,
 } from '@angular/core';
@@ -9,7 +9,7 @@ import { DxFileUploaderModule as DxFileUploaderModule_1 } from 'devextreme-angul
     selector: 'form-photo',
     templateUrl: './form-photo.component.html',
     styleUrls: ['./form-photo.component.scss'],
-    imports: [NgStyle, NgIf, DxFileUploaderModule_1]
+    imports: [NgStyle, DxFileUploaderModule_1]
 })
 export class FormPhotoComponent implements OnInit {
   @Input() link: string;

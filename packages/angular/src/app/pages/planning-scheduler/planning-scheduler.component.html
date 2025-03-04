@@ -41,23 +41,23 @@
         (onAppointmentClick)="onAppointmentClick($event)"
         (onAppointmentTooltipShowing)="onAppointmentTooltipShowing($event)"
         (onCellClick)="onCellClick($event)"
-      >
+        >
         <dxi-resource
           fieldExpr="calendarId"
           label="Calendar"
           [dataSource]="resourcesList"
-        >
+          >
         </dxi-resource>
         <dxi-view type="day"></dxi-view>
         <dxi-view type="workWeek"></dxi-view>
         <dxi-view type="month"></dxi-view>
         <dxi-view type="agenda"></dxi-view>
       </dx-scheduler>
-      <dx-tooltip
-        #tooltipRef
-        *ngIf="selectedAppointment"
-        showEvent="click"
-        [target]="selectedAppointment?.target"
+      @if (selectedAppointment) {
+        <dx-tooltip
+          #tooltipRef
+          showEvent="click"
+          [target]="selectedAppointment?.target"
         [position]="
           getTooltipPosition
             | apply
@@ -65,13 +65,14 @@
               : isRightPanelOpen
               : (screen.screenChanged | async)?.isSmall
         "
-      >
-        <scheduler-tooltip
-          [selectedAppointmentData]="selectedAppointment?.data"
-          (clickEditAppointment)="editSelectedAppointment()"
-          (clickDeleteAppointment)="deleteSelectedAppointment($event)"
-        ></scheduler-tooltip>
-      </dx-tooltip>
+          >
+          <scheduler-tooltip
+            [selectedAppointmentData]="selectedAppointment?.data"
+            (clickEditAppointment)="editSelectedAppointment()"
+            (clickDeleteAppointment)="deleteSelectedAppointment($event)"
+          ></scheduler-tooltip>
+        </dx-tooltip>
+      }
       <dx-speed-dial-action
         icon="add"
         [visible]="(screen.screenChanged | async)?.isXSmall"
@@ -87,7 +88,7 @@
         selectedAppointment?.data.startDate || currentDate | date: 'EE, MMMM d'
       "
       (openedChange)="toggleRightPanelOpen($event)"
-    >
+      >
       <agenda
         [items]="agendaItems"
         [resources]="resourcesList"

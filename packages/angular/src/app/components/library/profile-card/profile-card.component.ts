@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, NgModule, Output, ViewChild} from '@angular/core';
-import { CommonModule, NgFor, NgIf, NgSwitch, NgSwitchCase, AsyncPipe } from '@angular/common';
+import { CommonModule, AsyncPipe } from '@angular/common';
 import {
   DxButtonModule, DxDateBoxModule, DxFormComponent, DxFormModule, DxNumberBoxModule, DxSelectBoxModule,
   DxTextBoxModule, DxToolbarModule,
@@ -25,7 +25,7 @@ type CardData = Record<string, any>;
     selector: 'profile-card',
     templateUrl: './profile-card.component.html',
     styleUrls: ['profile-card.component.scss'],
-    imports: [DxFormModule_1, NgFor, DxiItemModule, NgIf, DxoLabelModule, DxiValidationRuleModule, NgSwitch, NgSwitchCase, DxDateBoxModule, StatusSelectBoxComponent, PicturedItemSelectBoxComponent, ApplyPipe, AsyncPipe]
+    imports: [DxFormModule_1, DxiItemModule, DxoLabelModule, DxiValidationRuleModule, DxDateBoxModule, StatusSelectBoxComponent, PicturedItemSelectBoxComponent, ApplyPipe, AsyncPipe]
 })
 export class ProfileCardComponent {
   @ViewChild('form', { static: true }) form: DxFormComponent;

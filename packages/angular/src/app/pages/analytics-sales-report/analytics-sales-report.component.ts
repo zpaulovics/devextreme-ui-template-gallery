@@ -1,7 +1,7 @@
 import {
   Component, OnInit, NgModule,
 } from '@angular/core';
-import { CommonModule, formatDate } from '@angular/common';
+import { formatDate } from '@angular/common';
 
 import { Observable, forkJoin } from 'rxjs';
 import { share } from 'rxjs/operators';

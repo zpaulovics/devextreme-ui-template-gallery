@@ -1,4 +1,4 @@
-import { CommonModule, NgIf } from '@angular/common';
+
 import { Component, NgModule, Input, OnInit } from '@angular/core';
 import { Router, RouterModule, RouterLink } from '@angular/router';
 
@@ -17,7 +17,7 @@ import { LoginOauthComponent } from '../login-oauth/login-oauth.component';
     selector: 'app-login-form',
     templateUrl: './login-form.component.html',
     styleUrls: ['./login-form.component.scss'],
-    imports: [DxFormModule, DxiItemModule, DxiValidationRuleModule, DxoLabelModule, DxoButtonOptionsModule, DxTemplateModule, NgIf, DxLoadIndicatorModule, RouterLink, DxButtonModule_1, LoginOauthComponent]
+    imports: [DxFormModule, DxiItemModule, DxiValidationRuleModule, DxoLabelModule, DxoButtonOptionsModule, DxTemplateModule, DxLoadIndicatorModule, RouterLink, DxButtonModule_1, LoginOauthComponent]
 })
 export class LoginFormComponent implements OnInit {
   @Input() resetLink = '/auth/reset-password';

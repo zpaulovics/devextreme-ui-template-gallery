@@ -1,7 +1,7 @@
 import {
   Component, NgModule, Input, ViewChild,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { Router } from '@angular/router';
 import { DxGanttModule, DxGanttComponent } from 'devextreme-angular/ui/gantt';
 import { exportGantt as exportGanttToPdf } from 'devextreme/pdf_exporter';

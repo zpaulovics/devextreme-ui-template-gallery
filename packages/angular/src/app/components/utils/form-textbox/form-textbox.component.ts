@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, NgModule, Output} from '@angular/core';
-import { CommonModule, NgIf } from '@angular/common';
+
 import {
   DxButtonModule,
   DxTextBoxModule,
@@ -12,7 +12,7 @@ import { DxiButtonModule } from 'devextreme-angular/ui/nested';
     selector: 'form-textbox',
     templateUrl: './form-textbox.component.html',
     styleUrls: ['form-textbox.component.scss'],
-    imports: [DxTextBoxModule, DxValidatorModule, NgIf, DxiButtonModule]
+    imports: [DxTextBoxModule, DxValidatorModule, DxiButtonModule]
 })
 export class FormTextboxComponent {
   @Input() isEditing = false;

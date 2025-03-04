@@ -10,7 +10,7 @@ import {
   EventEmitter,
   AfterViewChecked,
 } from '@angular/core';
-import { CommonModule, NgClass, NgIf, NgFor, CurrencyPipe } from '@angular/common';
+import { CommonModule, NgClass, CurrencyPipe } from '@angular/common';
 import { Router } from '@angular/router';
 import {
   DxAccordionModule,
@@ -42,7 +42,7 @@ import { DxLoadPanelModule as DxLoadPanelModule_1 } from 'devextreme-angular/ui/
     templateUrl: './contact-panel.component.html',
     styleUrls: ['./contact-panel.component.scss'],
     providers: [DataService],
-    imports: [NgClass, NgIf, DxToolbarModule_1, DxAccordionModule, ContactStatusComponent, DxButtonModule, DxScrollViewModule, DxValidationGroupModule, DxFormModule_1, DxoColCountByScreenModule, FormPhotoComponent, FormTextboxComponent, NgFor, CardActivitiesComponent, DxLoadPanelModule_1, CurrencyPipe]
+    imports: [NgClass, DxToolbarModule_1, DxAccordionModule, ContactStatusComponent, DxButtonModule, DxScrollViewModule, DxValidationGroupModule, DxFormModule_1, DxoColCountByScreenModule, FormPhotoComponent, FormTextboxComponent, CardActivitiesComponent, DxLoadPanelModule_1, CurrencyPipe]
 })
 export class ContactPanelComponent implements OnInit, OnChanges, AfterViewChecked, OnDestroy {
   @Input() isOpened = false;

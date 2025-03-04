@@ -1,4 +1,4 @@
-import { CommonModule, NgIf } from '@angular/common';
+
 import { Component, NgModule, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { ValidationCallbackData } from 'devextreme-angular/common';
@@ -12,7 +12,7 @@ import { Subscription } from 'rxjs';
 @Component({
     selector: 'app-change-password-form',
     templateUrl: './change-password-form.component.html',
-    imports: [DxFormModule, NgIf, DxLoadIndicatorModule]
+    imports: [DxFormModule, DxLoadIndicatorModule]
 })
 export class ChangePasswordFormComponent implements OnInit, OnDestroy {
   loading = false;

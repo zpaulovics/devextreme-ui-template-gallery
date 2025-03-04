@@ -1,4 +1,4 @@
-import { CommonModule, NgClass, NgIf } from '@angular/common';
+import { CommonModule, NgClass } from '@angular/common';
 import {
   Component, Input, NgModule, OnInit,
 } from '@angular/core';
@@ -15,19 +15,22 @@ import { DxTextBoxModule as DxTextBoxModule_1 } from 'devextreme-angular';
       status
       status-indicator
       status-indicator-{{ dashValue }}">
-      <span *ngIf="!isField" class="status-indicator-{{ dashValue }}">{{ getValue(value) }}</span>
+    @if (!isField) {
+      <span class="status-indicator-{{ dashValue }}">{{ getValue(value) }}</span>
+    }
+    @if (isField) {
       <dx-text-box
-        *ngIf="isField"
         class="status-indicator-{{ dashValue }}"
         [inputAttr]="{class: 'status-input status-editor-input'}"
         [hoverStateEnabled]="false"
         [readOnly]="true"
         [value]="getValue(value)">
       </dx-text-box>
-    </div>
+    }
+  </div>
   `,
     styleUrls: ['./status-indicator.component.scss'],
-    imports: [NgClass, NgIf, DxTextBoxModule_1]
+    imports: [NgClass, DxTextBoxModule_1]
 })
 export class StatusIndicatorComponent implements OnInit {
   @Input() value: TaskStatus | TaskPriority;

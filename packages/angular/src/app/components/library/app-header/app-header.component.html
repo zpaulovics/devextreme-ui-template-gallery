@@ -1,24 +1,26 @@
 <header>
   <dx-toolbar class="header-toolbar">
-    <dxi-item
-      *ngIf="menuToggleEnabled"
-      location="before"
-      widget="dxButton"
-      cssClass="menu-button"
+    @if (menuToggleEnabled) {
+      <dxi-item
+        location="before"
+        widget="dxButton"
+        cssClass="menu-button"
       [options]="{
         icon: 'menu',
         stylingMode: 'text',
         onClick: toggleMenu
       }"
-    >
-    </dxi-item>
-    <dxi-item
-      location="before"
-      cssClass="header-title"
-      *ngIf="title"
-      [text]="title"
-    >
-    </dxi-item>
+        >
+      </dxi-item>
+    }
+    @if (title) {
+      <dxi-item
+        location="before"
+        cssClass="header-title"
+        [text]="title"
+        >
+      </dxi-item>
+    }
 
     <dxi-item
       location="after"
@@ -31,7 +33,7 @@
         placeholder: 'Search',
         width: 180
       }"
-    >
+      >
     </dxi-item>
     <dxi-item location="after" locateInMenu="never">
       <ng-container *dxTemplate>
@@ -45,7 +47,7 @@
           <dx-button
             icon="belloutline"
             stylingMode="text"
-          >
+            >
           </dx-button>
           <div class="dx-badge"> 4 </div>
         </div>

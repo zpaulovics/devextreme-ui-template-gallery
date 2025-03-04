@@ -1,7 +1,7 @@
 import {
   Component, EventEmitter, Input, NgModule, Output,
 } from '@angular/core';
-import { CommonModule, NgIf } from '@angular/common';
+
 import { DxButtonModule } from 'devextreme-angular';
 import { ApplyPipe } from "../../../pipes/apply.pipe";
 
@@ -9,7 +9,7 @@ import { ApplyPipe } from "../../../pipes/apply.pipe";
     selector: 'scheduler-tooltip',
     templateUrl: './scheduler-tooltip.component.html',
     styleUrls: ['./scheduler-tooltip.component.scss'],
-    imports: [DxButtonModule, NgIf, ApplyPipe]
+    imports: [DxButtonModule, ApplyPipe]
 })
 export class SchedulerTooltipComponent {
   @Input() selectedAppointmentData: Record<string, any>;

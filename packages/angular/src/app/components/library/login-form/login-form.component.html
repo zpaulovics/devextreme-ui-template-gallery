@@ -4,7 +4,7 @@
     [disabled]="loading"
     [showColonAfterLabel]="true"
     [showRequiredMark]="false"
-  >
+    >
     <dxi-item
       dataField="email"
       editorType="dxTextBox"
@@ -14,7 +14,7 @@
         mode: 'email',
         value: defaultAuthData?.data?.email
       }"
-    >
+      >
       <dxi-validation-rule
         type="required"
         message="Email is required"
@@ -30,7 +30,7 @@
       dataField="password"
       editorType="dxTextBox"
       [editorOptions]="passwordEditorOptions"
-    >
+      >
       <dxi-validation-rule
         type="required"
         message="Password is required"
@@ -45,7 +45,7 @@
         text: 'Remember me',
         elementAttr: { class: 'form-text' }
       }"
-    >
+      >
       <dxo-label [visible]="false"></dxo-label>
     </dxi-item>
 
@@ -56,20 +56,21 @@
         cssClass="btn-sign-in"
         [useSubmitBehavior]="true"
         [template]="'signInTemplate'"
-      >
+        >
       </dxo-button-options>
     </dxi-item>
 
     <ng-container *dxTemplate="let item of 'signInTemplate'">
       <span class="dx-button-text">
-        <ng-container *ngIf="loading; else notLoading">
+        @if (loading) {
           <dx-load-indicator
             width="24px"
             height="24px"
             [visible]="true"
           ></dx-load-indicator>
-        </ng-container>
-        <ng-template #notLoading>Sign In</ng-template>
+        } @else {
+          Sign In
+        }
       </span>
     </ng-container>
   </dx-form>
@@ -84,7 +85,7 @@
     [stylingMode]="btnStylingMode"
     width="100%"
     (onClick)="onCreateAccountClick()"
-  >
+    >
   </dx-button>
 
   <app-login-oauth></app-login-oauth>

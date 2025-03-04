@@ -5,7 +5,7 @@
         label="Subject"
         stylingMode="filled"
         [(value)]="messageTitle"
-      >
+        >
         <dx-validator>
           <dxi-validation-rule type="required"></dxi-validation-rule>
         </dx-validator>
@@ -15,7 +15,7 @@
         stylingMode="filled"
         [(value)]="messageText"
         [height]="150"
-      >
+        >
         <dx-validator>
           <dxi-validation-rule type="required"></dxi-validation-rule>
         </dx-validator>
@@ -27,7 +27,7 @@
             labelText=""
             [showFileList]="false"
             selectButtonText="Attach file"
-          >
+            >
           </dx-file-uploader>
         </dxi-item>
         <dxi-item
@@ -39,29 +39,31 @@
             type: 'default',
             onClick: send
           }"
-        >
+          >
         </dxi-item>
       </dx-toolbar>
     </div>
     <div class="messages-content">
       <div class="message-list">
-        <div class="message-container" *ngFor="let data of items">
-          <user-avatar
-            [dataLetters]="getAvatarText(data.manager)"
-          ></user-avatar>
-          <div class="message dx-card">
-            <div class="message-title">
-              <div>
-                <div class="subject">{{ data.subject }}</div>
-                <div>{{ data.date | date: 'MM/dd/y' }} - {{ data.manager }}</div>
+        @for (data of items; track data) {
+          <div class="message-container">
+            <user-avatar
+              [dataLetters]="getAvatarText(data.manager)"
+            ></user-avatar>
+            <div class="message dx-card">
+              <div class="message-title">
+                <div>
+                  <div class="subject">{{ data.subject }}</div>
+                  <div>{{ data.date | date: 'MM/dd/y' }} - {{ data.manager }}</div>
+                </div>
+                <div>
+                  <dx-button icon="overflow" stylingMode="text"></dx-button>
+                </div>
               </div>
-              <div>
-                <dx-button icon="overflow" stylingMode="text"></dx-button>
-              </div>
+              <div class="message-text">{{ getText(data) }}</div>
             </div>
-            <div class="message-text">{{ getText(data) }}</div>
           </div>
-        </div>
+        }
       </div>
     </div>
   </div>

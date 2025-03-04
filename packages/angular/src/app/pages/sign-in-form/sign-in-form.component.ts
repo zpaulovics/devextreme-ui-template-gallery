@@ -1,5 +1,5 @@
 import { Component, NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 
 
 import { CardAuthComponent } from '../../components/library/card-auth/card-auth.component';

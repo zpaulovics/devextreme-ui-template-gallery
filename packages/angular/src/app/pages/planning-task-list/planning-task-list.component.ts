@@ -30,7 +30,7 @@ import { TaskFormComponent as TaskFormComponent_1 } from '../../components/libra
     templateUrl: './planning-task-list.component.html',
     styleUrls: ['./planning-task-list.component.scss'],
     providers: [DataService],
-    imports: [DxToolbarModule, DxTabsModule, DxButtonModule_1, NgIf, NgSwitch, NgSwitchCase, TaskListGridComponent_1, TaskListKanbanComponent_1, TaskListGanttComponent_1, DxLoadPanelModule, FormPopupComponent, TaskFormComponent_1, AsyncPipe]
+    imports: [DxToolbarModule, DxTabsModule, DxButtonModule_1, TaskListGridComponent_1, TaskListKanbanComponent_1, TaskListGanttComponent_1, DxLoadPanelModule, FormPopupComponent, TaskFormComponent_1, AsyncPipe]
 })
 export class PlanningTaskListComponent implements OnInit {
   @ViewChild('planningDataGrid', { static: false }) dataGrid: TaskListGridComponent;

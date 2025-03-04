@@ -1,7 +1,7 @@
 import {
   Component, NgModule, Input, Output, EventEmitter, OnInit,
 } from '@angular/core';
-import { CommonModule, NgIf } from '@angular/common';
+
 
 import { DxButtonModule } from 'devextreme-angular/ui/button';
 import { DxToolbarModule } from 'devextreme-angular/ui/toolbar';
@@ -16,7 +16,7 @@ import { DxButtonModule as DxButtonModule_1 } from 'devextreme-angular';
     selector: 'app-header',
     templateUrl: 'app-header.component.html',
     styleUrls: ['./app-header.component.scss'],
-    imports: [DxToolbarModule, NgIf, ThemeSwitcherComponent, DxButtonModule_1, UserPanelComponent]
+    imports: [DxToolbarModule, ThemeSwitcherComponent, DxButtonModule_1, UserPanelComponent]
 })
 
 export class AppHeaderComponent implements OnInit {

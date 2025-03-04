@@ -1,7 +1,7 @@
 import {
   Component, Input, NgModule, Output, EventEmitter
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { DxToolbarModule } from 'devextreme-angular/ui/toolbar';
 import { DxButtonModule } from 'devextreme-angular/ui/button';
 import { DxiItemModule } from 'devextreme-angular/ui/nested';

@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import {Component, EventEmitter, Input, NgModule, Output, ViewChild} from '@angular/core';
 import { DxFormModule } from 'devextreme-angular/ui/form';
 import { DxLoadIndicatorModule } from 'devextreme-angular/ui/load-indicator';

@@ -1,7 +1,7 @@
 import {
   Component, NgModule, Input, OnInit,
 } from '@angular/core';
-import { CommonModule, NgIf } from '@angular/common';
+
 import {
   DxButtonModule,
   DxFormModule,
@@ -32,7 +32,7 @@ import { DxLoadPanelModule as DxLoadPanelModule_1 } from 'devextreme-angular/ui/
     selector: 'task-form',
     templateUrl: './task-form.component.html',
     styleUrls: ['./task-form.component.scss'],
-    imports: [NgIf, ToolbarFormComponent, DxFormModule_1, DxiItemModule, DxTemplateModule, FormTextboxComponent, DxoColCountByScreenModule, DxSelectBoxModule, StatusIndicatorComponent, FormDateboxComponent, DxTextAreaModule, DxLoadPanelModule_1]
+    imports: [ToolbarFormComponent, DxFormModule_1, DxiItemModule, DxTemplateModule, FormTextboxComponent, DxoColCountByScreenModule, DxSelectBoxModule, StatusIndicatorComponent, FormDateboxComponent, DxTextAreaModule, DxLoadPanelModule_1]
 })
 export class TaskFormComponent implements OnInit {
   @Input() task: Task;
