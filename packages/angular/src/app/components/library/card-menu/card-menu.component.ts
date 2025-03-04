@@ -5,7 +5,7 @@ import { DxDropDownButtonModule } from 'devextreme-angular/ui/drop-down-button';
     selector: 'card-menu',
     templateUrl: './card-menu.component.html',
     styleUrls: ['./card-menu.component.scss'],
-    standalone: false
+    imports: [DxDropDownButtonModule]
 })
 export class CardMenuComponent {
   @Input() items: Array<{ text: string }>;
@@ -15,8 +15,7 @@ export class CardMenuComponent {
 }
 
 @NgModule({
-  imports: [DxDropDownButtonModule],
-  declarations: [CardMenuComponent],
-  exports: [CardMenuComponent],
+    imports: [DxDropDownButtonModule, CardMenuComponent],
+    exports: [CardMenuComponent],
 })
 export class CardMenuModule { }

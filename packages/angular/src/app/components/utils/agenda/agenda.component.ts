@@ -4,7 +4,8 @@ import {
 import { CommonModule } from '@angular/common';
 import { DxListModule, DxListTypes } from 'devextreme-angular/ui/list';
 import { Task } from 'src/app/types/task';
-import { AgendaListItemModule } from "./agenda-list-item.component";
+import { AgendaListItemModule, AgendaListItemComponent } from "./agenda-list-item.component";
+import { DxTemplateModule } from 'devextreme-angular/core';
 
 export type AgendaItem = { startDate: Date };
 
@@ -27,7 +28,7 @@ export type AgendaItem = { startDate: Date };
   </dx-list>
 `,
     styleUrls: ['./agenda.component.scss'],
-    standalone: false
+    imports: [DxListModule, DxTemplateModule, AgendaListItemComponent]
 })
 export class AgendaComponent {
   @Input() items: AgendaItem[];
@@ -43,12 +44,12 @@ export class AgendaComponent {
 }
 
 @NgModule({
-  imports: [
-    CommonModule,
-    DxListModule,
-    AgendaListItemModule,
-  ],
-  declarations: [AgendaComponent],
-  exports: [AgendaComponent],
+    imports: [
+        CommonModule,
+        DxListModule,
+        AgendaListItemModule,
+        AgendaComponent,
+    ],
+    exports: [AgendaComponent],
 })
 export class AgendaModule { }

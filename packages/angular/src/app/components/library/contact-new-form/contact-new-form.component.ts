@@ -14,12 +14,17 @@ import {
 } from 'src/app/components';
 import { newContact } from 'src/app/types/contact';
 import { getSizeQualifier } from 'src/app/services/screen.service';
+import { DxFormModule as DxFormModule_1 } from 'devextreme-angular/ui/form';
+import { DxiItemModule, DxoColCountByScreenModule } from 'devextreme-angular/ui/nested';
+import { DxTemplateModule } from 'devextreme-angular/core';
+import { FormPhotoUploaderComponent } from '../../utils/form-photo-uploader/form-photo-uploader.component';
+import { FormTextboxComponent } from '../../utils/form-textbox/form-textbox.component';
 
 @Component({
     selector: 'contact-new-form',
     templateUrl: './contact-new-form.component.html',
     providers: [],
-    standalone: false
+    imports: [DxFormModule_1, DxiItemModule, DxoColCountByScreenModule, DxTemplateModule, FormPhotoUploaderComponent, FormTextboxComponent]
 })
 
 export class ContactNewFormComponent {
@@ -31,17 +36,15 @@ export class ContactNewFormComponent {
 }
 
 @NgModule({
-  imports: [
-    DxTextBoxModule,
-    DxFormModule,
-    DxValidatorModule,
-
-    FormTextboxModule,
-    FormPhotoUploaderModule,
-
-    CommonModule,
-  ],
-  declarations: [ContactNewFormComponent],
-  exports: [ContactNewFormComponent],
+    imports: [
+        DxTextBoxModule,
+        DxFormModule,
+        DxValidatorModule,
+        FormTextboxModule,
+        FormPhotoUploaderModule,
+        CommonModule,
+        ContactNewFormComponent,
+    ],
+    exports: [ContactNewFormComponent],
 })
 export class ContactNewFormModule { }

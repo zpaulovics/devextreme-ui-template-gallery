@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgIf, CurrencyPipe } from '@angular/common';
 import {
   Component,
   NgModule,
@@ -7,12 +7,13 @@ import {
 import { CardAnalyticsModule } from '../card-analytics/card-analytics.component';
 import { Sales, SalesOrOpportunitiesByCategory } from '../../../types/analytics';
 import { ApplyPipeModule } from "src/app/pipes/apply.pipe";
+import { ApplyPipe } from '../../../pipes/apply.pipe';
 
 @Component({
     selector: 'ticker-card',
     templateUrl: './ticker-card.component.html',
     styleUrls: ['./ticker-card.component.scss'],
-    standalone: false
+    imports: [NgIf, ApplyPipe, CurrencyPipe]
 })
 
 export class TickerCardComponent {
@@ -42,13 +43,12 @@ export class TickerCardComponent {
 }
 
 @NgModule({
-  imports: [
-    CardAnalyticsModule,
-    ApplyPipeModule,
-
-    CommonModule,
-  ],
-  declarations: [TickerCardComponent],
-  exports: [TickerCardComponent],
+    imports: [
+        CardAnalyticsModule,
+        ApplyPipeModule,
+        CommonModule,
+        TickerCardComponent,
+    ],
+    exports: [TickerCardComponent],
 })
 export class TickerCardModule { }

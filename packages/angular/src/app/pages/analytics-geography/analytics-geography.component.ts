@@ -22,12 +22,17 @@ import { RevenueSnapshotByStatesCardModule } from 'src/app/components/utils/reve
 
 import { analyticsPanelItems, Dates } from 'src/app/types/resource';
 import { SalesByState, SalesByStateAndCity } from 'src/app/types/analytics';
+import { DxScrollViewModule as DxScrollViewModule_1 } from 'devextreme-angular';
+import { ToolbarAnalyticsComponent } from '../../components/utils/toolbar-analytics/toolbar-analytics.component';
+import { SalesMapCardComponent } from '../../components/utils/sales-map-card/sales-map-card.component';
+import { RevenueAnalysisByStatesCardComponent } from '../../components/utils/revenue-analysis-by-states-card/revenue-analysis-by-states-card.component';
+import { RevenueSnapshotByStatesCardComponent } from '../../components/utils/revenue-snapshot-by-states-card/revenue-snapshot-by-states-card.component';
 
 @Component({
     templateUrl: './analytics-geography.component.html',
     styleUrls: ['./analytics-geography.component.scss'],
     providers: [DataService],
-    standalone: false
+    imports: [DxScrollViewModule_1, ToolbarAnalyticsComponent, SalesMapCardComponent, RevenueAnalysisByStatesCardComponent, RevenueSnapshotByStatesCardComponent, DxLoadPanelModule]
 })
 export class AnalyticsGeographyComponent implements OnInit, OnDestroy {
   analyticsPanelItems = analyticsPanelItems;
@@ -97,23 +102,23 @@ export class AnalyticsGeographyComponent implements OnInit, OnDestroy {
 }
 
 @NgModule({
-  imports: [
-    DxScrollViewModule,
-    DxDataGridModule,
-    DxBulletModule,
-    DxPieChartModule,
-    DxVectorMapModule,
-    DxChartModule,
-    CardAnalyticsModule,
-    ToolbarAnalyticsModule,
-    DxLoadPanelModule,
-    RevenueAnalysisByStatesCardModule,
-    SalesMapCardModule,
-    RevenueSnapshotByStatesCardModule,
-    CommonModule,
-  ],
-  providers: [],
-  exports: [],
-  declarations: [AnalyticsGeographyComponent],
+    imports: [
+        DxScrollViewModule,
+        DxDataGridModule,
+        DxBulletModule,
+        DxPieChartModule,
+        DxVectorMapModule,
+        DxChartModule,
+        CardAnalyticsModule,
+        ToolbarAnalyticsModule,
+        DxLoadPanelModule,
+        RevenueAnalysisByStatesCardModule,
+        SalesMapCardModule,
+        RevenueSnapshotByStatesCardModule,
+        CommonModule,
+        AnalyticsGeographyComponent,
+    ],
+    providers: [],
+    exports: [],
 })
 export class AnalyticsGeographyModule { }

@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, NgModule, Output, ViewChild} from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgFor, NgIf, NgSwitch, NgSwitchCase, AsyncPipe } from '@angular/common';
 import {
   DxButtonModule, DxDateBoxModule, DxFormComponent, DxFormModule, DxNumberBoxModule, DxSelectBoxModule,
   DxTextBoxModule, DxToolbarModule,
@@ -13,6 +13,11 @@ import { PicturedItemSelectBoxModule } from 'src/app/components/library/pictured
 import { ScreenService } from 'src/app/services';
 import { StatusSelectBoxModule } from 'src/app/components/library/status-select-box/status-select-box.component';
 import { getSizeQualifier } from 'src/app/services/screen.service';
+import { DxFormModule as DxFormModule_1 } from 'devextreme-angular/ui/form';
+import { DxiItemModule, DxoLabelModule, DxiValidationRuleModule } from 'devextreme-angular/ui/nested';
+import { StatusSelectBoxComponent } from '../status-select-box/status-select-box.component';
+import { PicturedItemSelectBoxComponent } from '../pictured-item-select-box/pictured-item-select-box.component';
+import { ApplyPipe } from '../../../pipes/apply.pipe';
 
 type CardData = Record<string, any>;
 
@@ -20,7 +25,7 @@ type CardData = Record<string, any>;
     selector: 'profile-card',
     templateUrl: './profile-card.component.html',
     styleUrls: ['profile-card.component.scss'],
-    standalone: false
+    imports: [DxFormModule_1, NgFor, DxiItemModule, NgIf, DxoLabelModule, DxiValidationRuleModule, NgSwitch, NgSwitchCase, DxDateBoxModule, StatusSelectBoxComponent, PicturedItemSelectBoxComponent, ApplyPipe, AsyncPipe]
 })
 export class ProfileCardComponent {
   @ViewChild('form', { static: true }) form: DxFormComponent;
@@ -61,24 +66,24 @@ export class ProfileCardComponent {
 }
 
 @NgModule({
-  imports: [
-    ApplyPipeModule,
-    DxButtonModule,
-    DxDateBoxModule,
-    DxFormModule,
-    DxNumberBoxModule,
-    DxToolbarModule,
-    DxSelectBoxModule,
-    DxScrollViewModule,
-    DxTextBoxModule,
-    FormTextboxModule,
-    FormPhotoModule,
-    DxValidatorModule,
-    CommonModule,
-    PicturedItemSelectBoxModule,
-    StatusSelectBoxModule,
-  ],
-  declarations: [ProfileCardComponent],
-  exports: [ProfileCardComponent],
+    imports: [
+        ApplyPipeModule,
+        DxButtonModule,
+        DxDateBoxModule,
+        DxFormModule,
+        DxNumberBoxModule,
+        DxToolbarModule,
+        DxSelectBoxModule,
+        DxScrollViewModule,
+        DxTextBoxModule,
+        FormTextboxModule,
+        FormPhotoModule,
+        DxValidatorModule,
+        CommonModule,
+        PicturedItemSelectBoxModule,
+        StatusSelectBoxModule,
+        ProfileCardComponent,
+    ],
+    exports: [ProfileCardComponent],
 })
 export class ProfileCardModule { }

@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 import {
   Component,
   NgModule,
@@ -6,12 +6,12 @@ import {
 } from '@angular/core';
 import { DxLoadPanelModule } from 'devextreme-angular/ui/load-panel';
 import { PositionConfig } from 'devextreme/animation/position';
-import { CardMenuModule } from '../card-menu/card-menu.component';
+import { CardMenuModule, CardMenuComponent } from '../card-menu/card-menu.component';
 @Component({
     selector: 'card-analytics',
     templateUrl: './card-analytics.component.html',
     styleUrls: ['./card-analytics.component.scss'],
-    standalone: false
+    imports: [CardMenuComponent, NgIf]
 })
 
 export class CardAnalyticsComponent {
@@ -31,13 +31,12 @@ export class CardAnalyticsComponent {
 }
 
 @NgModule({
-  imports: [
-    DxLoadPanelModule,
-    CardMenuModule,
-
-    CommonModule,
-  ],
-  declarations: [CardAnalyticsComponent],
-  exports: [CardAnalyticsComponent],
+    imports: [
+        DxLoadPanelModule,
+        CardMenuModule,
+        CommonModule,
+        CardAnalyticsComponent,
+    ],
+    exports: [CardAnalyticsComponent],
 })
 export class CardAnalyticsModule { }

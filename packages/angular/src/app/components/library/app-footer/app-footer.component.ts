@@ -5,8 +5,7 @@ import { Component, NgModule } from '@angular/core';
     template: `
     <footer><ng-content></ng-content></footer>
   `,
-    styleUrls: ['./app-footer.component.scss'],
-    standalone: false
+    styleUrls: ['./app-footer.component.scss']
 })
 
 export class AppFooterComponent {
@@ -14,7 +13,7 @@ export class AppFooterComponent {
 }
 
 @NgModule({
-  declarations: [AppFooterComponent],
-  exports: [AppFooterComponent],
+    imports: [AppFooterComponent],
+    exports: [AppFooterComponent],
 })
 export class AppFooterModule { }

@@ -22,7 +22,7 @@ import { ContactStatusModule } from 'src/app/components/utils/contact-status/con
     selector: 'password-text-box',
     templateUrl: 'password-text-box.component.html',
     styles: [],
-    standalone: false
+    imports: [DxTextBoxModule, DxSelectBoxModule, DxValidatorModule]
 })
 export class PasswordTextBoxComponent {
   @ViewChild('validator', { static: true }) validator: DxValidatorComponent;
@@ -60,14 +60,15 @@ export class PasswordTextBoxComponent {
 }
 
 @NgModule({
-  imports: [
-    ApplyPipeModule,
-    DxSelectBoxModule,
-    DxTextBoxModule,
-    ContactStatusModule,
-    DxValidatorModule,
-    CommonModule],
-  declarations: [PasswordTextBoxComponent],
-  exports: [PasswordTextBoxComponent],
+    imports: [
+        ApplyPipeModule,
+        DxSelectBoxModule,
+        DxTextBoxModule,
+        ContactStatusModule,
+        DxValidatorModule,
+        CommonModule,
+        PasswordTextBoxComponent
+    ],
+    exports: [PasswordTextBoxComponent],
 })
 export class PasswordTextBoxModule {}

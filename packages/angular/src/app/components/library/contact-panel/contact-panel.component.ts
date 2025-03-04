@@ -10,7 +10,7 @@ import {
   EventEmitter,
   AfterViewChecked,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgClass, NgIf, NgFor, CurrencyPipe } from '@angular/common';
 import { Router } from '@angular/router';
 import {
   DxAccordionModule,
@@ -33,13 +33,21 @@ import {
 import { ScreenService, DataService } from 'src/app/services';
 import { distinctUntilChanged, Subject, Subscription} from 'rxjs';
 import { Contact } from 'src/app/types/contact';
+import { DxToolbarModule as DxToolbarModule_1 } from 'devextreme-angular/ui/toolbar';
+import { ContactStatusComponent } from '../../utils/contact-status/contact-status.component';
+import { DxFormModule as DxFormModule_1 } from 'devextreme-angular/ui/form';
+import { DxoColCountByScreenModule } from 'devextreme-angular/ui/nested';
+import { FormPhotoComponent } from '../../utils/form-photo/form-photo.component';
+import { FormTextboxComponent } from '../../utils/form-textbox/form-textbox.component';
+import { CardActivitiesComponent } from '../card-activities/card-activities.component';
+import { DxLoadPanelModule as DxLoadPanelModule_1 } from 'devextreme-angular/ui/load-panel';
 
 @Component({
     selector: 'contact-panel',
     templateUrl: './contact-panel.component.html',
     styleUrls: ['./contact-panel.component.scss'],
     providers: [DataService],
-    standalone: false
+    imports: [NgClass, NgIf, DxToolbarModule_1, DxAccordionModule, ContactStatusComponent, DxButtonModule, DxScrollViewModule, DxValidationGroupModule, DxFormModule_1, DxoColCountByScreenModule, FormPhotoComponent, FormTextboxComponent, NgFor, CardActivitiesComponent, DxLoadPanelModule_1, CurrencyPipe]
 })
 export class ContactPanelComponent implements OnInit, OnChanges, AfterViewChecked, OnDestroy {
   @Input() isOpened = false;
@@ -145,24 +153,23 @@ export class ContactPanelComponent implements OnInit, OnChanges, AfterViewChecke
 }
 
 @NgModule({
-  imports: [
-    DxAccordionModule,
-    DxButtonModule,
-    DxDropDownButtonModule,
-    DxToolbarModule,
-    DxLoadPanelModule,
-    DxScrollViewModule,
-    DxFormModule,
-    DxValidatorModule,
-    DxValidationGroupModule,
-
-    FormTextboxModule,
-    FormPhotoModule,
-    CardActivitiesModule,
-    ContactStatusModule,
-    CommonModule,
-  ],
-  declarations: [ContactPanelComponent],
-  exports: [ContactPanelComponent],
+    imports: [
+        DxAccordionModule,
+        DxButtonModule,
+        DxDropDownButtonModule,
+        DxToolbarModule,
+        DxLoadPanelModule,
+        DxScrollViewModule,
+        DxFormModule,
+        DxValidatorModule,
+        DxValidationGroupModule,
+        FormTextboxModule,
+        FormPhotoModule,
+        CardActivitiesModule,
+        ContactStatusModule,
+        CommonModule,
+        ContactPanelComponent,
+    ],
+    exports: [ContactPanelComponent],
 })
 export class ContactPanelModule { }

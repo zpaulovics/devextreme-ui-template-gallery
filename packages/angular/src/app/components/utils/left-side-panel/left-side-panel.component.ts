@@ -2,10 +2,8 @@ import {
   Component,
   NgModule,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {
-  DxButtonModule,
-} from 'devextreme-angular';
+import { CommonModule, NgIf } from '@angular/common';
+import { DxButtonModule, DxScrollViewModule as DxScrollViewModule_1 } from 'devextreme-angular';
 import { ScreenService } from 'src/app/services';
 import {DxScrollViewModule} from "devextreme-angular/ui/scroll-view";
 
@@ -13,7 +11,7 @@ import {DxScrollViewModule} from "devextreme-angular/ui/scroll-view";
     selector: 'left-side-panel',
     templateUrl: './left-side-panel.component.html',
     styleUrls: ['./left-side-panel.component.scss'],
-    standalone: false
+    imports: [NgIf, DxButtonModule, DxScrollViewModule_1]
 })
 export class LeftSidePanelComponent {
   isSmallScreen = false;
@@ -35,12 +33,12 @@ export class LeftSidePanelComponent {
 }
 
 @NgModule({
-  imports: [
-    DxButtonModule,
-    DxScrollViewModule,
-    CommonModule,
-  ],
-  declarations: [LeftSidePanelComponent],
-  exports: [LeftSidePanelComponent],
+    imports: [
+        DxButtonModule,
+        DxScrollViewModule,
+        CommonModule,
+        LeftSidePanelComponent,
+    ],
+    exports: [LeftSidePanelComponent],
 })
 export class LeftSidePanelModule { }

@@ -11,7 +11,7 @@ import { DxButtonTypes } from 'devextreme-angular/ui/button';
     selector: 'calendar-list',
     templateUrl: './calendar-list.component.html',
     styleUrls: ['./calendar-list.component.scss'],
-    standalone: false
+    imports: [DxListModule, DxCheckBoxModule]
 })
 export class CalendarListComponent implements OnInit {
   @Input() dataSource: Record<string, any>[];
@@ -34,8 +34,8 @@ export class CalendarListComponent implements OnInit {
 }
 
 @NgModule({ exports: [CalendarListComponent],
-    declarations: [CalendarListComponent], imports: [DxListModule,
+    imports: [DxListModule,
         DxCheckBoxModule,
         DxButtonModule,
-        CommonModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
+        CommonModule, CalendarListComponent], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class CalendarListModule { }

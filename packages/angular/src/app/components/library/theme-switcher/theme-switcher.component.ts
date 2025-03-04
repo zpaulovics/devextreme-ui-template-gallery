@@ -16,7 +16,7 @@ import { ThemeService } from 'src/app/services';
     ></dx-button>
 `,
     styleUrls: [],
-    standalone: false
+    imports: [DxButtonModule]
 })
 export class ThemeSwitcherComponent {
   constructor(public themeService: ThemeService) {}
@@ -27,8 +27,7 @@ export class ThemeSwitcherComponent {
 }
 
 @NgModule({
-  imports: [CommonModule, DxButtonModule],
-  declarations: [ThemeSwitcherComponent],
-  exports: [ThemeSwitcherComponent],
+    imports: [CommonModule, DxButtonModule, ThemeSwitcherComponent],
+    exports: [ThemeSwitcherComponent],
 })
 export class ThemeSwitcherModule { }

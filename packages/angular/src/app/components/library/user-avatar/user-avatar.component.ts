@@ -5,8 +5,7 @@ import {
 @Component({
     selector: 'user-avatar',
     templateUrl: './user-avatar.component.html',
-    styleUrls: ['./user-avatar.component.scss'],
-    standalone: false
+    styleUrls: ['./user-avatar.component.scss']
 })
 
 export class UserAvatarComponent {
@@ -14,7 +13,7 @@ export class UserAvatarComponent {
 }
 
 @NgModule({
-  declarations: [UserAvatarComponent],
-  exports: [UserAvatarComponent],
+    imports: [UserAvatarComponent],
+    exports: [UserAvatarComponent],
 })
 export class UserAvatarModule { }

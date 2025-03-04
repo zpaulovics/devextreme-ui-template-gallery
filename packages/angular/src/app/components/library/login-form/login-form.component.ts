@@ -1,6 +1,6 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 import { Component, NgModule, Input, OnInit } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { Router, RouterModule, RouterLink } from '@angular/router';
 
 import { LoginOauthModule } from 'src/app/components/library/login-oauth/login-oauth.component';
 import { DxFormModule } from 'devextreme-angular/ui/form';
@@ -8,12 +8,16 @@ import { DxLoadIndicatorModule } from 'devextreme-angular/ui/load-indicator';
 import { DxButtonModule, DxButtonTypes } from 'devextreme-angular/ui/button';
 import notify from 'devextreme/ui/notify';
 import { AuthService, IResponse, ThemeService } from 'src/app/services';
+import { DxiItemModule, DxiValidationRuleModule, DxoLabelModule, DxoButtonOptionsModule } from 'devextreme-angular/ui/nested';
+import { DxTemplateModule } from 'devextreme-angular/core';
+import { DxButtonModule as DxButtonModule_1 } from 'devextreme-angular';
+import { LoginOauthComponent } from '../login-oauth/login-oauth.component';
 
 @Component({
     selector: 'app-login-form',
     templateUrl: './login-form.component.html',
     styleUrls: ['./login-form.component.scss'],
-    standalone: false
+    imports: [DxFormModule, DxiItemModule, DxiValidationRuleModule, DxoLabelModule, DxoButtonOptionsModule, DxTemplateModule, NgIf, DxLoadIndicatorModule, RouterLink, DxButtonModule_1, LoginOauthComponent]
 })
 export class LoginFormComponent implements OnInit {
   @Input() resetLink = '/auth/reset-password';
@@ -77,15 +81,15 @@ export class LoginFormComponent implements OnInit {
   }
 }
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule,
-    LoginOauthModule,
-    DxFormModule,
-    DxLoadIndicatorModule,
-    DxButtonModule
-  ],
-  declarations: [LoginFormComponent],
-  exports: [LoginFormComponent],
+    imports: [
+        CommonModule,
+        RouterModule,
+        LoginOauthModule,
+        DxFormModule,
+        DxLoadIndicatorModule,
+        DxButtonModule,
+        LoginFormComponent
+    ],
+    exports: [LoginFormComponent],
 })
 export class LoginFormModule { }

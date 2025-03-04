@@ -1,9 +1,6 @@
 import { NgModule, Pipe, PipeTransform } from '@angular/core';
 
-@Pipe({
-    name: 'apply',
-    standalone: false
-})
+@Pipe({ name: 'apply' })
 export class ApplyPipe implements PipeTransform {
   transform(value: Object | ((...args: any[]) => any), arg1, ...args: any[]): any {
    return typeof value === 'function' ? value(arg1, ...args) :
@@ -12,9 +9,8 @@ export class ApplyPipe implements PipeTransform {
 }
 
 @NgModule({
-  imports: [],
-  providers: [],
-  exports: [ApplyPipe],
-  declarations: [ApplyPipe],
+    imports: [ApplyPipe],
+    providers: [],
+    exports: [ApplyPipe],
 })
 export class ApplyPipeModule { }

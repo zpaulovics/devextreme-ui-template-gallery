@@ -4,11 +4,12 @@ import {
 import { CommonModule } from '@angular/common';
 import { SalesOrOpportunitiesByCategory } from 'src/app/types/analytics';
 import { TickerCardModule } from 'src/app/components/library/ticker-card/ticker-card.component';
+import { TickerCardComponent } from '../../library/ticker-card/ticker-card.component';
 
 @Component({
     selector: 'opportunities-ticker',
     templateUrl: 'opportunities-ticker.component.html',
-    standalone: false
+    imports: [TickerCardComponent]
 })
 
 export class OpportunitiesTickerComponent {
@@ -16,11 +17,11 @@ export class OpportunitiesTickerComponent {
 }
 
 @NgModule({
-  imports: [
-    CommonModule,
-    TickerCardModule,
-  ],
-  declarations: [OpportunitiesTickerComponent],
-  exports: [OpportunitiesTickerComponent],
+    imports: [
+        CommonModule,
+        TickerCardModule,
+        OpportunitiesTickerComponent,
+    ],
+    exports: [OpportunitiesTickerComponent],
 })
 export class OpportunitiesTickerModule { }

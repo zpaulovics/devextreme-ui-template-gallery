@@ -14,7 +14,7 @@ import 'jspdf-autotable';
     selector: 'task-list-gantt',
     templateUrl: './task-list-gantt.component.html',
     styleUrls: ['./task-list-gantt.component.scss'],
-    standalone: false
+    imports: [DxGanttModule]
 })
 export class TaskListGanttComponent {
   @ViewChild(DxGanttComponent, { static: false }) gantt: DxGanttComponent;
@@ -43,13 +43,12 @@ export class TaskListGanttComponent {
 }
 
 @NgModule({
-  imports: [
-    DxGanttModule,
-
-    CommonModule,
-  ],
-  providers: [],
-  exports: [TaskListGanttComponent],
-  declarations: [TaskListGanttComponent],
+    imports: [
+        DxGanttModule,
+        CommonModule,
+        TaskListGanttComponent,
+    ],
+    providers: [],
+    exports: [TaskListGanttComponent],
 })
 export class TaskListGanttModule { }

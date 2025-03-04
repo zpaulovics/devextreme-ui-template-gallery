@@ -4,10 +4,7 @@ export function formatPhone(value) {
   return String(value).replace(/(\d{3})(\d{3})(\d{4})/, '+1($1)$2-$3');
 }
 
-@Pipe({
-    name: 'phone',
-    standalone: false
-})
+@Pipe({ name: 'phone' })
 export class PhonePipe implements PipeTransform {
   transform(value: number): any {
    return formatPhone(value);
@@ -15,9 +12,8 @@ export class PhonePipe implements PipeTransform {
 }
 
 @NgModule({
-  imports: [],
-  providers: [],
-  exports: [PhonePipe],
-  declarations: [PhonePipe],
+    imports: [PhonePipe],
+    providers: [],
+    exports: [PhonePipe],
 })
 export class PhonePipeModule { }

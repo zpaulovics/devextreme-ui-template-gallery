@@ -17,7 +17,7 @@ import { navigation } from '../../../app-navigation';
     selector: 'side-navigation-menu',
     templateUrl: './side-navigation-menu.component.html',
     styleUrls: ['./side-navigation-menu.component.scss'],
-    standalone: false
+    imports: [DxTreeViewModule]
 })
 export class SideNavigationMenuComponent implements AfterViewInit, OnDestroy {
   @ViewChild(DxTreeViewComponent, { static: true })
@@ -104,8 +104,7 @@ export class SideNavigationMenuComponent implements AfterViewInit, OnDestroy {
 }
 
 @NgModule({
-  imports: [DxTreeViewModule],
-  declarations: [SideNavigationMenuComponent],
-  exports: [SideNavigationMenuComponent],
+    imports: [DxTreeViewModule, SideNavigationMenuComponent],
+    exports: [SideNavigationMenuComponent],
 })
 export class SideNavigationMenuModule { }

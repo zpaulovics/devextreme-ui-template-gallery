@@ -25,12 +25,17 @@ import { SalesRangeCardModule } from 'src/app/components/utils/sales-range-card/
 import { analyticsPanelItems } from 'src/app/types/resource';
 import { ApplyPipeModule } from 'src/app/pipes/apply.pipe';
 import { Sale, SalesOrOpportunitiesByCategory } from 'src/app/types/analytics';
+import { DxScrollViewModule as DxScrollViewModule_1 } from 'devextreme-angular';
+import { ToolbarAnalyticsComponent } from '../../components/utils/toolbar-analytics/toolbar-analytics.component';
+import { SalesRangeCardComponent } from '../../components/utils/sales-range-card/sales-range-card.component';
+import { SalesByRangeCardComponent } from '../../components/utils/sales-by-range-card/sales-by-range-card.component';
+import { SalesPerformanceCardComponent } from '../../components/utils/sales-performance-card/sales-performance-card.component';
 
 @Component({
     templateUrl: './analytics-sales-report.component.html',
     styleUrls: ['./analytics-sales-report.component.scss'],
     providers: [DataService],
-    standalone: false
+    imports: [DxScrollViewModule_1, ToolbarAnalyticsComponent, SalesRangeCardComponent, SalesByRangeCardComponent, SalesPerformanceCardComponent, DxLoadPanelModule]
 })
 export class AnalyticsSalesReportComponent implements OnInit {
   groupByPeriods = ['Day', 'Month'];
@@ -94,25 +99,25 @@ export class AnalyticsSalesReportComponent implements OnInit {
 }
 
 @NgModule({
-  imports: [
-    DxScrollViewModule,
-    DxLoadPanelModule,
-    DxButtonModule,
-    DxToolbarModule,
-    DxPieChartModule,
-    DxChartModule,
-    DxDropDownButtonModule,
-    DxRangeSelectorModule,
-    CardAnalyticsModule,
-    ToolbarAnalyticsModule,
-    ApplyPipeModule,
-    CommonModule,
-    SalesByRangeCardModule,
-    SalesPerformanceCardModule,
-    SalesRangeCardModule,
-  ],
-  providers: [],
-  exports: [],
-  declarations: [AnalyticsSalesReportComponent],
+    imports: [
+        DxScrollViewModule,
+        DxLoadPanelModule,
+        DxButtonModule,
+        DxToolbarModule,
+        DxPieChartModule,
+        DxChartModule,
+        DxDropDownButtonModule,
+        DxRangeSelectorModule,
+        CardAnalyticsModule,
+        ToolbarAnalyticsModule,
+        ApplyPipeModule,
+        CommonModule,
+        SalesByRangeCardModule,
+        SalesPerformanceCardModule,
+        SalesRangeCardModule,
+        AnalyticsSalesReportComponent,
+    ],
+    providers: [],
+    exports: [],
 })
 export class AnalyticsSalesReportModule { }

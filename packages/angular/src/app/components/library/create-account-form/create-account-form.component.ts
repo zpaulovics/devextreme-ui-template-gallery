@@ -1,6 +1,6 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 import { Component, NgModule, Input, OnInit } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { Router, RouterModule, RouterLink } from '@angular/router';
 
 import { LoginOauthModule } from 'src/app/components/library/login-oauth/login-oauth.component';
 import { ValidationCallbackData } from 'devextreme-angular/common';
@@ -8,12 +8,15 @@ import { DxFormModule } from 'devextreme-angular/ui/form';
 import { DxLoadIndicatorModule } from 'devextreme-angular/ui/load-indicator';
 import notify from 'devextreme/ui/notify';
 import { AuthService, IResponse } from 'src/app/services';
+import { DxiItemModule, DxiValidationRuleModule, DxoLabelModule, DxoButtonOptionsModule } from 'devextreme-angular/ui/nested';
+import { DxTemplateModule } from 'devextreme-angular/core';
+import { LoginOauthComponent } from '../login-oauth/login-oauth.component';
 
 @Component({
     selector: 'app-create-account-form',
     templateUrl: './create-account-form.component.html',
     styleUrls: ['./create-account-form.component.scss'],
-    standalone: false
+    imports: [DxFormModule, DxiItemModule, DxiValidationRuleModule, DxoLabelModule, RouterLink, DxoButtonOptionsModule, DxTemplateModule, NgIf, DxLoadIndicatorModule, LoginOauthComponent]
 })
 export class CreateAccountFormComponent implements OnInit {
   @Input() redirectLink = '/auth/login';
@@ -48,14 +51,14 @@ export class CreateAccountFormComponent implements OnInit {
   }
 }
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule,
-    LoginOauthModule,
-    DxFormModule,
-    DxLoadIndicatorModule,
-  ],
-  declarations: [CreateAccountFormComponent],
-  exports: [CreateAccountFormComponent],
+    imports: [
+        CommonModule,
+        RouterModule,
+        LoginOauthModule,
+        DxFormModule,
+        DxLoadIndicatorModule,
+        CreateAccountFormComponent,
+    ],
+    exports: [CreateAccountFormComponent],
 })
 export class CreateAccountFormModule { }

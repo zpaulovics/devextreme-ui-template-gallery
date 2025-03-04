@@ -1,7 +1,7 @@
 import {
   Component, Input, NgModule,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, LowerCasePipe } from '@angular/common';
 import { ContactStatus } from 'src/app/types/contact';
 
 @Component({
@@ -10,7 +10,7 @@ import { ContactStatus } from 'src/app/types/contact';
   <span class="status status-{{ value | lowercase }}">{{ showText ? value : '' }}</span>
 `,
     styleUrls: ['./contact-status.component.scss'],
-    standalone: false
+    imports: [LowerCasePipe]
 })
 export class ContactStatusComponent {
   @Input() value: ContactStatus;
@@ -19,8 +19,7 @@ export class ContactStatusComponent {
 }
 
 @NgModule({
-  imports: [CommonModule],
-  declarations: [ContactStatusComponent],
-  exports: [ContactStatusComponent],
+    imports: [CommonModule, ContactStatusComponent],
+    exports: [ContactStatusComponent],
 })
 export class ContactStatusModule { }

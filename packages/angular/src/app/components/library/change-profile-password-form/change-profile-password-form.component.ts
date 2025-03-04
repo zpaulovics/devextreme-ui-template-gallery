@@ -11,12 +11,15 @@ import {
 } from 'src/app/components/library/password-text-box/password-text-box.component';
 
 import { ValidationRule } from 'devextreme-angular/common';
+import { FormPopupComponent as FormPopupComponent_1 } from '../../utils/form-popup/form-popup.component';
+import { DxiItemModule, DxoLabelModule } from 'devextreme-angular/ui/nested';
+import { PasswordTextBoxComponent as PasswordTextBoxComponent_1 } from '../password-text-box/password-text-box.component';
 
 @Component({
     selector: 'change-profile-password-form',
     templateUrl: './change-profile-password-form.component.html',
     styleUrls: ['./change-profile-password-form.component.scss'],
-    standalone: false
+    imports: [FormPopupComponent_1, DxFormModule, DxiItemModule, DxoLabelModule, PasswordTextBoxComponent_1]
 })
 export class ChangeProfilePasswordFormComponent {
   @ViewChild(FormPopupComponent, { static: true }) formPopup;
@@ -65,14 +68,14 @@ export class ChangeProfilePasswordFormComponent {
 }
 
 @NgModule({
-  imports: [
-    CommonModule,
-    DxFormModule,
-    DxLoadIndicatorModule,
-    PasswordTextBoxModule,
-    FormPopupModule,
-  ],
-  declarations: [ChangeProfilePasswordFormComponent],
-  exports: [ChangeProfilePasswordFormComponent],
+    imports: [
+        CommonModule,
+        DxFormModule,
+        DxLoadIndicatorModule,
+        PasswordTextBoxModule,
+        FormPopupModule,
+        ChangeProfilePasswordFormComponent,
+    ],
+    exports: [ChangeProfilePasswordFormComponent],
 })
 export class ChangeProfilePasswordFormModule { }

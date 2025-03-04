@@ -26,12 +26,15 @@ import { jsPDF } from 'jspdf';
 import { taskPriorityList, taskStatusList } from 'src/app/types/task';
 import { Task } from 'src/app/types/task';
 import 'jspdf-autotable';
+import { DxoPagingModule, DxoPagerModule, DxoEditingModule, DxoSelectionModule, DxoScrollingModule, DxoSortingModule, DxoHeaderFilterModule, DxiColumnModule, DxiValidationRuleModule, DxoLookupModule } from 'devextreme-angular/ui/nested';
+import { DxTemplateModule } from 'devextreme-angular/core';
+import { StatusIndicatorComponent } from '../status-indicator/status-indicator.component';
 
 @Component({
     selector: 'task-list-grid',
     templateUrl: './task-list-grid.component.html',
     styleUrls: ['./task-list-grid.component.scss'],
-    standalone: false
+    imports: [DxDataGridModule, DxoPagingModule, DxoPagerModule, DxoEditingModule, DxoSelectionModule, DxoScrollingModule, DxoSortingModule, DxoHeaderFilterModule, DxiColumnModule, DxiValidationRuleModule, DxoLookupModule, DxTemplateModule, StatusIndicatorComponent, DxSelectBoxModule]
 })
 export class TaskListGridComponent implements OnChanges {
   @ViewChild(DxDataGridComponent, { static: false }) grid: DxDataGridComponent;
@@ -112,12 +115,12 @@ export class TaskListGridComponent implements OnChanges {
 }
 
 @NgModule({ exports: [TaskListGridComponent],
-    declarations: [TaskListGridComponent], imports: [DxButtonModule,
+    imports: [DxButtonModule,
         DxDataGridModule,
         DxDropDownButtonModule,
         DxSelectBoxModule,
         DxTextBoxModule,
         DxToolbarModule,
         StatusIndicatorModule,
-        CommonModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
+        CommonModule, TaskListGridComponent], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class TaskListModule { }

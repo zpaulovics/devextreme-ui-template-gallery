@@ -3,7 +3,7 @@ import {
   NgModule,
   Input,
 } from '@angular/core';
-import { CardAnalyticsModule } from '../../library/card-analytics/card-analytics.component';
+import { CardAnalyticsModule, CardAnalyticsComponent } from '../../library/card-analytics/card-analytics.component';
 import { DxVectorMapModule, DxVectorMapTypes } from 'devextreme-angular/ui/vector-map';
 
 import * as mapsData from 'devextreme-dist/js/vectormap-data/usa.js';
@@ -13,7 +13,7 @@ import { MapLayerElement } from 'devextreme/viz/vector_map';
     selector: 'sales-map-card',
     templateUrl: './sales-map-card.component.html',
     styleUrls: ['./sales-map-card.component.scss'],
-    standalone: false
+    imports: [CardAnalyticsComponent, DxVectorMapModule]
 })
 export class SalesMapCardComponent {
   @Input() data: any;
@@ -38,11 +38,11 @@ export class SalesMapCardComponent {
 }
 
 @NgModule({
-  imports: [
-    CardAnalyticsModule,
-    DxVectorMapModule,
-  ],
-  declarations: [SalesMapCardComponent],
-  exports: [SalesMapCardComponent],
+    imports: [
+        CardAnalyticsModule,
+        DxVectorMapModule,
+        SalesMapCardComponent,
+    ],
+    exports: [SalesMapCardComponent],
 })
 export class SalesMapCardModule { }
