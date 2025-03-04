@@ -1,6 +1,4 @@
-import {
-  Component, NgModule, Input, Output, EventEmitter, OnInit,
-} from '@angular/core';
+import { Component, NgModule, Input, Output, EventEmitter, OnInit, inject } from '@angular/core';
 
 
 import { DxButtonModule } from 'devextreme-angular/ui/button';
@@ -20,6 +18,8 @@ import { DxButtonModule as DxButtonModule_1 } from 'devextreme-angular';
 })
 
 export class AppHeaderComponent implements OnInit {
+  private authService = inject(AuthService);
+
   @Output()
   menuToggle = new EventEmitter<boolean>();
 
@@ -40,7 +40,10 @@ export class AppHeaderComponent implements OnInit {
     },
   }];
 
-  constructor(private authService: AuthService) { }
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() { }
 
   ngOnInit() {
     this.authService.getUser().then((e) => this.user = e.data);

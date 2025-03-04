@@ -1,5 +1,5 @@
 
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule, inject } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 
 import { Router } from '@angular/router';
@@ -21,7 +21,12 @@ import { SingleCardComponent } from '../single-card/single-card.component';
     imports: [SingleCardComponent, RouterOutlet]
 })
 export class UnauthenticatedContentComponent {
-  constructor(private router: Router) { }
+  private router = inject(Router);
+
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() { }
 
   get description() {
     const path = this.router.url.split('/').at(-1);

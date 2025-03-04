@@ -1,6 +1,4 @@
-import {
-  Component, OnInit, NgModule, ViewChild
-} from '@angular/core';
+import { Component, OnInit, NgModule, ViewChild, inject } from '@angular/core';
 import DataSource from 'devextreme/data/data_source';
 import { CommonModule, NgIf, AsyncPipe, DatePipe } from '@angular/common';
 import {
@@ -34,6 +32,9 @@ type SelectedAppointment = { data: Record<string, any>, target: any };
     imports: [LeftSidePanelComponent, DxButtonModule, DxCalendarModule, CalendarListComponent, DxSchedulerModule, DxTooltipModule, SchedulerTooltipComponent, DxSpeedDialActionModule, RightSidePanelComponent, AgendaComponent, ApplyPipe, AsyncPipe, DatePipe]
 })
 export class PlanningSchedulerComponent implements OnInit {
+  private service = inject(DataService);
+  protected screen = inject(ScreenService);
+
   @ViewChild('schedulerRef', { static: false }) schedulerRef: DxSchedulerComponent;
 
   @ViewChild('tooltipRef', { static: false }) tooltipRef: DxTooltipComponent;
@@ -57,7 +58,12 @@ export class PlanningSchedulerComponent implements OnInit {
 
   schedulerCurrentDate: Date = this.currentDate;
 
-  constructor(private service: DataService, protected screen: ScreenService) {
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {
+    const screen = this.screen;
+
     this.service.getDefaultListDS().subscribe(
    (data) => {
      this.listDataSource = data;

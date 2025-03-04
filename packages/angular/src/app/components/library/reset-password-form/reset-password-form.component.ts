@@ -1,5 +1,5 @@
 
-import { Component, NgModule, Input, OnInit } from '@angular/core';
+import { Component, NgModule, Input, OnInit, inject } from '@angular/core';
 import { Router, RouterModule, RouterLink } from '@angular/router';
 import { DxFormModule } from 'devextreme-angular/ui/form';
 import { DxLoadIndicatorModule } from 'devextreme-angular/ui/load-indicator';
@@ -17,6 +17,9 @@ const notificationText = 'We\'ve sent a link to reset your password. Check your 
     imports: [DxFormModule, DxiItemModule, DxiValidationRuleModule, DxoLabelModule, DxoButtonOptionsModule, DxTemplateModule, DxLoadIndicatorModule, RouterLink]
 })
 export class ResetPasswordFormComponent implements OnInit {
+  private authService = inject(AuthService);
+  private router = inject(Router);
+
   @Input() signInLink = '/auth/login';
 
   @Input() buttonLink = '/auth/login';
@@ -27,7 +30,10 @@ export class ResetPasswordFormComponent implements OnInit {
 
   formData: any = {};
 
-  constructor(private authService: AuthService, private router: Router) { }
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() { }
 
   async onSubmit(e: Event) {
     e.preventDefault();

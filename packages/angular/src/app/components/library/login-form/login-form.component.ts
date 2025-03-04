@@ -1,5 +1,5 @@
 
-import { Component, NgModule, Input, OnInit } from '@angular/core';
+import { Component, NgModule, Input, OnInit, inject } from '@angular/core';
 import { Router, RouterModule, RouterLink } from '@angular/router';
 
 
@@ -20,6 +20,10 @@ import { LoginOauthComponent } from '../login-oauth/login-oauth.component';
     imports: [DxFormModule, DxiItemModule, DxiValidationRuleModule, DxoLabelModule, DxoButtonOptionsModule, DxTemplateModule, DxLoadIndicatorModule, RouterLink, DxButtonModule_1, LoginOauthComponent]
 })
 export class LoginFormComponent implements OnInit {
+  private authService = inject(AuthService);
+  private router = inject(Router);
+  private themeService = inject(ThemeService);
+
   @Input() resetLink = '/auth/reset-password';
   @Input() createAccountLink = '/auth/create-account';
 
@@ -49,7 +53,10 @@ export class LoginFormComponent implements OnInit {
     // }]
   }
 
-  constructor(private authService: AuthService, private router: Router, private themeService: ThemeService) {
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {
     this.themeService.isDark.subscribe((value: boolean) => {
       this.btnStylingMode = value ? 'outlined' : 'contained';
     });

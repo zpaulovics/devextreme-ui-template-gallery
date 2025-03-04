@@ -1,6 +1,4 @@
-import {
-  Component, OnInit, NgModule,
-} from '@angular/core';
+import { Component, OnInit, NgModule, inject } from '@angular/core';
 
 import { map, share } from 'rxjs/operators';
 import { Observable, forkJoin } from 'rxjs';
@@ -50,6 +48,8 @@ type DataLoader = (startDate: string, endDate: string) => Observable<Object>;
     imports: [DxScrollViewModule_1, ToolbarAnalyticsComponent, OpportunitiesTickerComponent, RevenueTotalTickerComponent, ConversionTickerComponent, LeadsTickerComponent, RevenueCardComponent, ConversionCardComponent, RevenueAnalysisCardComponent, RevenueSnapshotCardComponent, DxLoadPanelModule]
 })
 export class AnalyticsDashboardComponent implements OnInit {
+  private service = inject(DataService);
+
   analyticsPanelItems = analyticsPanelItems;
 
   opportunities: SalesOrOpportunitiesByCategory = null;
@@ -59,7 +59,10 @@ export class AnalyticsDashboardComponent implements OnInit {
 
   isLoading: boolean = true;
 
-  constructor(private service: DataService) {}
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {}
 
   selectionChange(dates: Dates) {
     this.loadData(dates.startDate, dates.endDate);

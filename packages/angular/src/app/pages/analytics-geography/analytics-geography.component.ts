@@ -1,6 +1,4 @@
-import {
-  Component, OnInit, NgModule, OnDestroy,
-} from '@angular/core';
+import { Component, OnInit, NgModule, OnDestroy, inject } from '@angular/core';
 
 import { DxPieChartModule } from 'devextreme-angular/ui/pie-chart';
 import { DxChartModule } from 'devextreme-angular/ui/chart';
@@ -35,6 +33,8 @@ import { RevenueSnapshotByStatesCardComponent } from '../../components/utils/rev
     imports: [DxScrollViewModule_1, ToolbarAnalyticsComponent, SalesMapCardComponent, RevenueAnalysisByStatesCardComponent, RevenueSnapshotByStatesCardComponent, DxLoadPanelModule]
 })
 export class AnalyticsGeographyComponent implements OnInit, OnDestroy {
+  private service = inject(DataService);
+
   analyticsPanelItems = analyticsPanelItems;
 
   salesByStateAndCity: SalesByStateAndCity;
@@ -47,7 +47,10 @@ export class AnalyticsGeographyComponent implements OnInit, OnDestroy {
 
   isLoading = false;
 
-  constructor(private service: DataService) {
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {
   }
 
   ngOnInit(): void {

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, NgModule, Output, ViewChild} from '@angular/core';
+import { Component, EventEmitter, Input, NgModule, Output, ViewChild, inject } from '@angular/core';
 import { CommonModule, AsyncPipe } from '@angular/common';
 import {
   DxButtonModule, DxDateBoxModule, DxFormComponent, DxFormModule, DxNumberBoxModule, DxSelectBoxModule,
@@ -28,6 +28,8 @@ type CardData = Record<string, any>;
     imports: [DxFormModule_1, DxiItemModule, DxoLabelModule, DxiValidationRuleModule, DxDateBoxModule, StatusSelectBoxComponent, PicturedItemSelectBoxComponent, ApplyPipe, AsyncPipe]
 })
 export class ProfileCardComponent {
+  screen = inject(ScreenService);
+
   @ViewChild('form', { static: true }) form: DxFormComponent;
 
   @Input() items: Record<string, any>[] = [];
@@ -44,7 +46,10 @@ export class ProfileCardComponent {
 
   assign = Object.assign;
 
-  constructor(public screen: ScreenService) {}
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {}
 
   onFieldChange(fieldName?, value?) {
     const {isValid} = this.form.instance.validate();

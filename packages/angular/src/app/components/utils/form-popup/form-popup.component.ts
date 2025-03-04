@@ -1,9 +1,4 @@
-import {
-  Component,
-  NgModule,
-  Input,
-  ViewChild, Output, EventEmitter,
-} from '@angular/core';
+import { Component, NgModule, Input, ViewChild, Output, EventEmitter, inject } from '@angular/core';
 import { CommonModule, AsyncPipe } from '@angular/common';
 import {
   DxButtonModule,
@@ -24,6 +19,8 @@ import { ApplyPipe } from '../../../pipes/apply.pipe';
 })
 
 export class FormPopupComponent {
+  protected screen = inject(ScreenService);
+
   @ViewChild('validationGroup', { static: true }) validationGroup: DxValidationGroupComponent;
 
   @Input() titleText = '';
@@ -42,7 +39,10 @@ export class FormPopupComponent {
 
   @Output() visibleChange = new EventEmitter<boolean>();
 
-  constructor(protected screen: ScreenService) { }
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() { }
 
   isValid() {
     return this.validationGroup.instance.validate().isValid;

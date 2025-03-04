@@ -1,6 +1,4 @@
-import {
-  Component, NgModule, ViewChild, EventEmitter, Output, Input, SimpleChanges, OnChanges,
-} from '@angular/core';
+import { Component, NgModule, ViewChild, EventEmitter, Output, Input, SimpleChanges, OnChanges, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -35,6 +33,8 @@ import { StatusIndicatorComponent } from '../status-indicator/status-indicator.c
     imports: [DxDataGridModule, DxoPagingModule, DxoPagerModule, DxoEditingModule, DxoSelectionModule, DxoScrollingModule, DxoSortingModule, DxoHeaderFilterModule, DxiColumnModule, DxiValidationRuleModule, DxoLookupModule, DxTemplateModule, StatusIndicatorComponent, DxSelectBoxModule]
 })
 export class TaskListGridComponent implements OnChanges {
+  private router = inject(Router);
+
   @ViewChild(DxDataGridComponent, { static: false }) grid: DxDataGridComponent;
 
   @Input() dataSource: Task[];
@@ -51,7 +51,10 @@ export class TaskListGridComponent implements OnChanges {
 
   useNavigation = true;
 
-  constructor(private router: Router) {
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {
   }
 
   refresh() {

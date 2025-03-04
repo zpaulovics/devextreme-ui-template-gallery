@@ -1,6 +1,4 @@
-import {
-  Component, NgModule, Input, OnInit,
-} from '@angular/core';
+import { Component, NgModule, Input, OnInit, inject } from '@angular/core';
 
 import {
   DxButtonModule,
@@ -35,6 +33,8 @@ import { DxLoadPanelModule as DxLoadPanelModule_1 } from 'devextreme-angular/ui/
     imports: [ToolbarFormComponent, DxFormModule_1, DxiItemModule, DxTemplateModule, FormTextboxComponent, DxoColCountByScreenModule, DxSelectBoxModule, StatusIndicatorComponent, FormDateboxComponent, DxTextAreaModule, DxLoadPanelModule_1]
 })
 export class TaskFormComponent implements OnInit {
+  protected screen = inject(ScreenService);
+
   @Input() task: Task;
 
   @Input() isLoading: boolean = false;
@@ -51,7 +51,10 @@ export class TaskFormComponent implements OnInit {
 
   getSizeQualifier = getSizeQualifier;
 
-  constructor(protected screen: ScreenService) {}
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {}
 
   ngOnInit() {
     this.isEditing = this.isCreateMode;

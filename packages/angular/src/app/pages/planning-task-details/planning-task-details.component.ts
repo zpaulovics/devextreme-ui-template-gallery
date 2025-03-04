@@ -1,6 +1,4 @@
-import {
-  Component, OnInit, NgModule
-} from '@angular/core';
+import { Component, OnInit, NgModule, inject } from '@angular/core';
 
 import {
   DxButtonModule,
@@ -28,6 +26,8 @@ import { CardMessagesComponent } from '../../components/library/card-messages/ca
     imports: [DxScrollViewModule, DxToolbarModule, DxiItemModule, DxButtonModule, DxDropDownButtonModule_1, DxValidationGroupModule, TaskFormComponent, DxTabPanelModule, CardActivitiesComponent, CardNotesComponent, CardMessagesComponent]
 })
 export class PlanningTaskDetailsComponent implements OnInit {
+  private service = inject(DataService);
+
   task: Task;
 
   taskId = 1;
@@ -36,7 +36,10 @@ export class PlanningTaskDetailsComponent implements OnInit {
 
   isLoading = false;
 
-  constructor(private service: DataService) {
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {
   }
 
   loadData = () => {

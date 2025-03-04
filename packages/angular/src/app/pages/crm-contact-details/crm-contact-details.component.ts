@@ -1,6 +1,4 @@
-import {
-  Component, OnInit, NgModule,
-} from '@angular/core';
+import { Component, OnInit, NgModule, inject } from '@angular/core';
 
 import {
   DxButtonModule,
@@ -29,6 +27,8 @@ import { ContactCardsComponent } from '../../components/utils/contact-cards/cont
     imports: [DxScrollViewModule, DxToolbarModule, DxiItemModule, DxButtonModule, DxDropDownButtonModule_1, ContactFormComponent, ContactCardsComponent]
 })
 export class CrmContactDetailsComponent implements OnInit {
+  private service = inject(DataService);
+
   contactId = 12;
 
   contactData: Contact;
@@ -45,7 +45,10 @@ export class CrmContactDetailsComponent implements OnInit {
 
   isLoading = false;
 
-  constructor(private service: DataService) {
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {
   }
 
   ngOnInit(): void {

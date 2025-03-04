@@ -1,6 +1,4 @@
-import {
-  Component, OnInit, NgModule,
-} from '@angular/core';
+import { Component, OnInit, NgModule, inject } from '@angular/core';
 import { formatDate } from '@angular/common';
 
 import { Observable, forkJoin } from 'rxjs';
@@ -38,6 +36,8 @@ import { SalesPerformanceCardComponent } from '../../components/utils/sales-perf
     imports: [DxScrollViewModule_1, ToolbarAnalyticsComponent, SalesRangeCardComponent, SalesByRangeCardComponent, SalesPerformanceCardComponent, DxLoadPanelModule]
 })
 export class AnalyticsSalesReportComponent implements OnInit {
+  private service = inject(DataService);
+
   groupByPeriods = ['Day', 'Month'];
 
   visualRange: unknown = {};
@@ -48,7 +48,10 @@ export class AnalyticsSalesReportComponent implements OnInit {
   salesByCategory: SalesOrOpportunitiesByCategory = null;
   salesByDateAndCategory: Sale[] = null;
 
-  constructor(private service: DataService) {}
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {}
 
   onRangeChanged = ({value: dates}) => {
     const [startDate, endDate] = dates.map((date) => formatDate(date, 'YYYY-MM-dd', 'en'));

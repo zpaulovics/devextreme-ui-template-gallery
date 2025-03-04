@@ -1,6 +1,4 @@
-import {
-  Component, OnInit, NgModule, ViewChild,
-} from '@angular/core';
+import { Component, OnInit, NgModule, ViewChild, inject } from '@angular/core';
 import { CommonModule, NgIf, NgSwitch, NgSwitchCase, AsyncPipe } from '@angular/common';
 import { DxButtonModule } from 'devextreme-angular/ui/button';
 import { DxDataGridModule } from 'devextreme-angular/ui/data-grid';
@@ -33,6 +31,9 @@ import { TaskFormComponent as TaskFormComponent_1 } from '../../components/libra
     imports: [DxToolbarModule, DxTabsModule, DxButtonModule_1, TaskListGridComponent_1, TaskListKanbanComponent_1, TaskListGanttComponent_1, DxLoadPanelModule, FormPopupComponent, TaskFormComponent_1, AsyncPipe]
 })
 export class PlanningTaskListComponent implements OnInit {
+  private service = inject(DataService);
+  protected screen = inject(ScreenService);
+
   @ViewChild('planningDataGrid', { static: false }) dataGrid: TaskListGridComponent;
 
   @ViewChild('planningGantt', { static: false }) gantt: TaskListGanttComponent;
@@ -55,7 +56,10 @@ export class PlanningTaskListComponent implements OnInit {
 
   taskCollections$: Observable<{ allTasks: Task[]; filteredTasks: Task[] }>;
 
-  constructor(private service: DataService, protected screen: ScreenService) {
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {
   }
 
   ngOnInit(): void {

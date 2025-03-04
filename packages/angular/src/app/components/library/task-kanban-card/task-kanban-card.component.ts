@@ -1,6 +1,4 @@
-import {
-  Component, Input, NgModule,
-} from '@angular/core';
+import { Component, Input, NgModule, inject } from '@angular/core';
 import { CommonModule, LowerCasePipe, DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
 import { DxButtonModule, DxToastModule } from 'devextreme-angular';
@@ -17,9 +15,14 @@ import { UserAvatarComponent } from '../user-avatar/user-avatar.component';
     imports: [DxButtonModule, UserAvatarComponent, LowerCasePipe, DatePipe]
 })
 export class TaskKanbanCardComponent {
+  private router = inject(Router);
+
   @Input() task: Task;
 
-  constructor(private router: Router) {
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {
   }
 
   getAvatarText = (name: string) => name.split(' ').map((name) => name[0]).join('');

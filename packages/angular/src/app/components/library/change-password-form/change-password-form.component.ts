@@ -1,5 +1,5 @@
 
-import { Component, NgModule, OnInit, OnDestroy } from '@angular/core';
+import { Component, NgModule, OnInit, OnDestroy, inject } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { ValidationCallbackData } from 'devextreme-angular/common';
 import { DxFormModule } from 'devextreme-angular/ui/form';
@@ -15,6 +15,10 @@ import { Subscription } from 'rxjs';
     imports: [DxFormModule, DxLoadIndicatorModule]
 })
 export class ChangePasswordFormComponent implements OnInit, OnDestroy {
+  private authService = inject(AuthService);
+  private router = inject(Router);
+  private route = inject(ActivatedRoute);
+
   loading = false;
 
   formData: any = {};
@@ -23,7 +27,10 @@ export class ChangePasswordFormComponent implements OnInit, OnDestroy {
 
   paramMapSubscription: Subscription;
 
-  constructor(private authService: AuthService, private router: Router, private route: ActivatedRoute) { }
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() { }
 
   ngOnInit() {
     // @ts-ignore

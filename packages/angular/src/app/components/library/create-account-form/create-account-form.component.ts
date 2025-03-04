@@ -1,5 +1,5 @@
 
-import { Component, NgModule, Input, OnInit } from '@angular/core';
+import { Component, NgModule, Input, OnInit, inject } from '@angular/core';
 import { Router, RouterModule, RouterLink } from '@angular/router';
 
 
@@ -19,6 +19,9 @@ import { LoginOauthComponent } from '../login-oauth/login-oauth.component';
     imports: [DxFormModule, DxiItemModule, DxiValidationRuleModule, DxoLabelModule, RouterLink, DxoButtonOptionsModule, DxTemplateModule, DxLoadIndicatorModule, LoginOauthComponent]
 })
 export class CreateAccountFormComponent implements OnInit {
+  private authService = inject(AuthService);
+  private router = inject(Router);
+
   @Input() redirectLink = '/auth/login';
   @Input() buttonLink = '/auth/login';
   loading = false;
@@ -27,7 +30,10 @@ export class CreateAccountFormComponent implements OnInit {
 
   formData: any = {};
 
-  constructor(private authService: AuthService, private router: Router) { }
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() { }
 
   async onSubmit(e: Event) {
     e.preventDefault();

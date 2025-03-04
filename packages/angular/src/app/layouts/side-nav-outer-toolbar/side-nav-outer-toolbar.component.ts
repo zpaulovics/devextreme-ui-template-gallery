@@ -1,11 +1,4 @@
-import {
-  Component,
-  OnInit,
-  OnDestroy,
-  NgModule,
-  Input,
-  ViewChild,
-} from '@angular/core';
+import { Component, OnInit, OnDestroy, NgModule, Input, ViewChild, inject } from '@angular/core';
 import { DxTreeViewTypes } from 'devextreme-angular/ui/tree-view';
 import { DxDrawerModule, DxDrawerTypes } from 'devextreme-angular/ui/drawer';
 import { DxScrollViewComponent } from 'devextreme-angular/ui/scroll-view';
@@ -27,6 +20,10 @@ import { AppFooterComponent } from '../../components/library/app-footer/app-foot
     imports: [AppHeaderComponent, DxDrawerModule, SideNavigationMenuComponent, AppFooterComponent, RouterOutlet]
 })
 export class SideNavOuterToolbarComponent implements OnInit, OnDestroy {
+  private screen = inject(ScreenService);
+  private router = inject(Router);
+  appInfo = inject(AppInfoService);
+
   @ViewChild(DxScrollViewComponent, { static: true }) scrollView!: DxScrollViewComponent;
 
   @Input()
@@ -50,7 +47,10 @@ export class SideNavOuterToolbarComponent implements OnInit, OnDestroy {
 
   screenSubscription: Subscription;
 
-  constructor(private screen: ScreenService, private router: Router, public appInfo: AppInfoService) {
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {
     // @ts-ignore
     this.routerSubscription = this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {

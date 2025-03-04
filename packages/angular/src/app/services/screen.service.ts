@@ -1,4 +1,4 @@
-import { Output, Injectable, EventEmitter } from '@angular/core';
+import { Output, Injectable, EventEmitter, inject } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
 
 import { ReplaySubject, Subscription } from 'rxjs';
@@ -20,6 +20,8 @@ export function getSizeQualifier(width: number) {
 
 @Injectable()
 export class ScreenService {
+  private breakpointObserver$ = inject(BreakpointObserver);
+
   @Output() changed = new EventEmitter();
   @Output() xSmallScreenChanged = new ReplaySubject<boolean>();
   @Output() smallScreenChanged = new ReplaySubject<boolean>();
@@ -27,7 +29,10 @@ export class ScreenService {
 
   breakpointSubscription: Subscription;
 
-  constructor(private breakpointObserver$: BreakpointObserver) {
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {
     // @ts-ignore
     this.breakpointSubscription = this.breakpointObserver$
       .observe([Breakpoints.XSmall, Breakpoints.Small, Breakpoints.Medium, Breakpoints.Large, Breakpoints.XLarge])

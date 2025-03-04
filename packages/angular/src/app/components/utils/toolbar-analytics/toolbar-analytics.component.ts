@@ -1,4 +1,4 @@
-import { Component, NgModule, Input, Output, EventEmitter } from '@angular/core';
+import { Component, NgModule, Input, Output, EventEmitter, inject } from '@angular/core';
 import { CommonModule, AsyncPipe } from '@angular/common';
 
 import { ScreenService } from 'src/app/services';
@@ -21,6 +21,8 @@ import { DxButtonModule as DxButtonModule_1 } from 'devextreme-angular';
 })
 
 export class ToolbarAnalyticsComponent {
+  protected screen = inject(ScreenService);
+
   @Input() selectedItems: Array<number>;
 
   @Input() titleText: string;
@@ -29,7 +31,10 @@ export class ToolbarAnalyticsComponent {
 
   @Output() selectionChanged = new EventEmitter<Dates>();
 
-  constructor(protected screen: ScreenService) { }
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() { }
 
   selectionChange(e: DxTabsTypes.SelectionChangedEvent) {
     const dates = e.addedItems[0].value.split('/');
