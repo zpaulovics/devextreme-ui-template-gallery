@@ -67,8 +67,4 @@ export class FormPhotoUploaderComponent {
   }
 }
 
-@NgModule({
-    imports: [CommonModule, DxFileUploaderModule, FormPhotoUploaderComponent],
-    exports: [FormPhotoUploaderComponent],
-})
-export class FormPhotoUploaderModule { }
+

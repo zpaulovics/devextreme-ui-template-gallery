@@ -37,14 +37,4 @@ export class ToolbarFormComponent {
   }
 }
 
-@NgModule({
-    imports: [
-        DxToolbarModule,
-        DxButtonModule,
-        CommonModule,
-        ToolbarFormComponent,
-    ],
-    providers: [],
-    exports: [ToolbarFormComponent],
-})
-export class ToolbarFormModule { }
+

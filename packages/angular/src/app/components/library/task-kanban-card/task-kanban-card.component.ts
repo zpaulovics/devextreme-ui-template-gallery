@@ -7,7 +7,7 @@ import { DxButtonModule, DxToastModule } from 'devextreme-angular';
 import notify from 'devextreme/ui/notify';
 
 import { Task } from 'src/app/types/task';
-import { UserAvatarModule } from 'src/app/components/library/user-avatar/user-avatar.component';
+
 import { UserAvatarComponent } from '../user-avatar/user-avatar.component';
 
 @Component({
@@ -34,15 +34,4 @@ export class TaskKanbanCardComponent {
   };
 }
 
-@NgModule({
-    imports: [
-        DxButtonModule,
-        DxToastModule,
-        CommonModule,
-        UserAvatarModule,
-        TaskKanbanCardComponent,
-    ],
-    providers: [],
-    exports: [TaskKanbanCardComponent],
-})
-export class TaskKanbanCardModule { }
+

@@ -9,15 +9,10 @@ import {
   DxValidationGroupModule,
   DxScrollViewModule,
 } from 'devextreme-angular';
-import {
-  CardActivitiesModule,
-  CardNotesModule,
-  CardMessagesModule,
-  StatusIndicatorModule,
-} from 'src/app/components';
+
 import { Task } from 'src/app/types/task';
 import { DataService } from 'src/app/services';
-import { TaskFormModule } from 'src/app/components/library/task-form/task-form.component';
+
 import { DxToolbarModule } from 'devextreme-angular/ui/toolbar';
 import { DxiItemModule } from 'devextreme-angular/ui/nested';
 import { DxDropDownButtonModule as DxDropDownButtonModule_1 } from 'devextreme-angular/ui/drop-down-button';
@@ -62,23 +57,4 @@ export class PlanningTaskDetailsComponent implements OnInit {
   }
 }
 
-@NgModule({
-    imports: [
-        DxButtonModule,
-        DxDropDownButtonModule,
-        DxTabPanelModule,
-        DxValidationGroupModule,
-        DxToolbarModule,
-        CardActivitiesModule,
-        CardNotesModule,
-        CardMessagesModule,
-        TaskFormModule,
-        StatusIndicatorModule,
-        DxScrollViewModule,
-        CommonModule,
-        PlanningTaskDetailsComponent,
-    ],
-    providers: [],
-    exports: [],
-})
-export class PlanningTaskDetailsModule { }
+

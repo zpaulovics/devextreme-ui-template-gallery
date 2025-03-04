@@ -3,7 +3,7 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DxSelectBoxModule, DxTextBoxModule } from 'devextreme-angular';
-import { ApplyPipeModule } from 'src/app/pipes/apply.pipe';
+
 import { DxTemplateModule } from 'devextreme-angular/core';
 
 @Component({
@@ -22,14 +22,4 @@ export class PicturedItemSelectBoxComponent {
   @Output() valueChange = new EventEmitter<string>();
 }
 
-@NgModule({
-    imports: [
-        ApplyPipeModule,
-        DxSelectBoxModule,
-        DxTextBoxModule,
-        CommonModule,
-        PicturedItemSelectBoxComponent
-    ],
-    exports: [PicturedItemSelectBoxComponent],
-})
-export class PicturedItemSelectBoxModule {}
+

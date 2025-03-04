@@ -8,7 +8,7 @@ import {
 } from 'devextreme-angular';
 import notify from 'devextreme/ui/notify';
 import { Opportunity } from 'src/app/types/opportunities';
-import { OpportunityTileModule } from 'src/app/components/utils/opportunity-tile/opportunity-tile.component';
+
 import { OpportunityTileComponent } from '../../utils/opportunity-tile/opportunity-tile.component';
 import { DxLoadPanelModule as DxLoadPanelModule_1 } from 'devextreme-angular/ui/load-panel';
 
@@ -33,14 +33,4 @@ export class CardOpportunitiesComponent implements OnChanges {
   }
 }
 
-@NgModule({
-    imports: [
-        DxButtonModule,
-        DxLoadPanelModule,
-        OpportunityTileModule,
-        CommonModule,
-        CardOpportunitiesComponent,
-    ],
-    exports: [CardOpportunitiesComponent],
-})
-export class CardOpportunitiesModule { }
+

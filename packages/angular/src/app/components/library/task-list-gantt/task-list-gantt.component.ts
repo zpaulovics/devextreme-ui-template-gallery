@@ -42,13 +42,4 @@ export class TaskListGanttComponent {
   };
 }
 
-@NgModule({
-    imports: [
-        DxGanttModule,
-        CommonModule,
-        TaskListGanttComponent,
-    ],
-    providers: [],
-    exports: [TaskListGanttComponent],
-})
-export class TaskListGanttModule { }
+

@@ -13,16 +13,11 @@ import {
   DxValidatorModule,
   DxValidationGroupModule,
 } from 'devextreme-angular';
-import {
-  ContactStatusModule,
-  FormTextboxModule,
-  FormPhotoModule,
-  StatusSelectBoxModule,
-} from 'src/app/components';
+
 import { Contact } from 'src/app/types/contact';
 import { ValidationRule } from 'devextreme-angular/common';
 import { DxButtonTypes } from 'devextreme-angular/ui/button';
-import { ToolbarFormModule } from 'src/app/components/utils/toolbar-form/toolbar-form.component';
+
 import { ToolbarFormComponent } from '../../utils/toolbar-form/toolbar-form.component';
 import { DxFormModule as DxFormModule_1 } from 'devextreme-angular/ui/form';
 import { DxiItemModule, DxoColCountByScreenModule } from 'devextreme-angular/ui/nested';
@@ -66,25 +61,4 @@ export class ContactFormComponent {
   }
 }
 
-@NgModule({
-    imports: [
-        DxFormModule,
-        DxSelectBoxModule,
-        DxButtonModule,
-        DxTextBoxModule,
-        DxNumberBoxModule,
-        DxLoadPanelModule,
-        DxValidationGroupModule,
-        FormTextboxModule,
-        ContactStatusModule,
-        FormPhotoModule,
-        DxValidatorModule,
-        ToolbarFormModule,
-        CommonModule,
-        StatusSelectBoxModule,
-        ContactFormComponent,
-    ],
-    providers: [],
-    exports: [ContactFormComponent],
-})
-export class ContactFormModule { }
+

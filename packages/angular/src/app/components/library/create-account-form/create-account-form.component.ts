@@ -2,7 +2,7 @@ import { CommonModule, NgIf } from '@angular/common';
 import { Component, NgModule, Input, OnInit } from '@angular/core';
 import { Router, RouterModule, RouterLink } from '@angular/router';
 
-import { LoginOauthModule } from 'src/app/components/library/login-oauth/login-oauth.component';
+
 import { ValidationCallbackData } from 'devextreme-angular/common';
 import { DxFormModule } from 'devextreme-angular/ui/form';
 import { DxLoadIndicatorModule } from 'devextreme-angular/ui/load-indicator';
@@ -50,15 +50,4 @@ export class CreateAccountFormComponent implements OnInit {
     this.defaultAuthData = await this.authService.getUser();
   }
 }
-@NgModule({
-    imports: [
-        CommonModule,
-        RouterModule,
-        LoginOauthModule,
-        DxFormModule,
-        DxLoadIndicatorModule,
-        CreateAccountFormComponent,
-    ],
-    exports: [CreateAccountFormComponent],
-})
-export class CreateAccountFormModule { }
+

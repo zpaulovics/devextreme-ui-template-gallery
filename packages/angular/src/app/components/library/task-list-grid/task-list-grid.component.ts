@@ -15,9 +15,7 @@ import {
 } from 'devextreme-angular';
 import { DxDataGridTypes } from 'devextreme-angular/ui/data-grid';
 import { DxTabsTypes } from 'devextreme-angular/ui/tabs';
-import {
-  StatusIndicatorModule,
-} from 'src/app/components';
+
 import { exportDataGrid as exportToPdf } from 'devextreme/pdf_exporter';
 import { exportDataGrid as exportToXLSX } from 'devextreme/excel_exporter';
 import { Workbook } from 'exceljs';
@@ -116,11 +114,10 @@ export class TaskListGridComponent implements OnChanges {
 
 @NgModule({ exports: [TaskListGridComponent],
     imports: [DxButtonModule,
-        DxDataGridModule,
-        DxDropDownButtonModule,
-        DxSelectBoxModule,
-        DxTextBoxModule,
-        DxToolbarModule,
-        StatusIndicatorModule,
-        CommonModule, TaskListGridComponent], providers: [provideHttpClient(withInterceptorsFromDi())] })
+    DxDataGridModule,
+    DxDropDownButtonModule,
+    DxSelectBoxModule,
+    DxTextBoxModule,
+    DxToolbarModule,
+    CommonModule, TaskListGridComponent], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class TaskListModule { }

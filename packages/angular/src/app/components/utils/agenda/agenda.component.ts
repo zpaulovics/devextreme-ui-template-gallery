@@ -4,7 +4,7 @@ import {
 import { CommonModule } from '@angular/common';
 import { DxListModule, DxListTypes } from 'devextreme-angular/ui/list';
 import { Task } from 'src/app/types/task';
-import { AgendaListItemModule, AgendaListItemComponent } from "./agenda-list-item.component";
+import { AgendaListItemComponent } from "./agenda-list-item.component";
 import { DxTemplateModule } from 'devextreme-angular/core';
 
 export type AgendaItem = { startDate: Date };
@@ -43,13 +43,4 @@ export class AgendaComponent {
   }
 }
 
-@NgModule({
-    imports: [
-        CommonModule,
-        DxListModule,
-        AgendaListItemModule,
-        AgendaComponent,
-    ],
-    exports: [AgendaComponent],
-})
-export class AgendaModule { }
+

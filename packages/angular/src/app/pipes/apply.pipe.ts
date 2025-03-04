@@ -8,9 +8,4 @@ export class ApplyPipe implements PipeTransform {
   }
 }
 
-@NgModule({
-    imports: [ApplyPipe],
-    providers: [],
-    exports: [ApplyPipe],
-})
-export class ApplyPipeModule { }
+

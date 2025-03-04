@@ -4,7 +4,7 @@ import {
 import { CommonModule } from '@angular/common';
 import { DxListModule } from 'devextreme-angular/ui/list';
 import { Duration } from 'luxon';
-import { ApplyPipeModule, ApplyPipe } from "../../../pipes/apply.pipe";
+import { ApplyPipe } from "../../../pipes/apply.pipe";
 
 @Component({
     selector: 'agenda-list-item',
@@ -47,13 +47,4 @@ export class AgendaListItemComponent {
   };
 }
 
-@NgModule({
-    imports: [
-        CommonModule,
-        DxListModule,
-        ApplyPipeModule,
-        AgendaListItemComponent,
-    ],
-    exports: [AgendaListItemComponent],
-})
-export class AgendaListItemModule {}
+

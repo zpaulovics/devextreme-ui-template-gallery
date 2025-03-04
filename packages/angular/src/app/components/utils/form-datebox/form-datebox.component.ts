@@ -48,15 +48,4 @@ export class FormDateboxComponent {
   };
 }
 
-@NgModule({
-    imports: [
-        DxCalendarModule,
-        DxDropDownButtonModule,
-        DxDateBoxModule,
-        CommonModule,
-        FormDateboxComponent,
-    ],
-    providers: [],
-    exports: [FormDateboxComponent],
-})
-export class FormItemDateModule { }
+

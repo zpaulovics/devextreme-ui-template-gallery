@@ -5,7 +5,7 @@ import { CommonModule, LowerCasePipe } from '@angular/common';
 import { DxSelectBoxModule, DxTextBoxModule } from 'devextreme-angular';
 import { EditorStyle } from 'devextreme-angular/common';
 import { contactStatusList } from 'src/app/types/contact';
-import { ContactStatusModule } from 'src/app/components/utils/contact-status/contact-status.component';
+
 import { ThemeService } from 'src/app/services/theme.service';
 import { DxTemplateModule } from 'devextreme-angular/core';
 import { ContactStatusComponent } from '../../utils/contact-status/contact-status.component';
@@ -37,14 +37,4 @@ export class StatusSelectBoxComponent {
 
 }
 
-@NgModule({
-    imports: [
-        DxSelectBoxModule,
-        DxTextBoxModule,
-        ContactStatusModule,
-        CommonModule,
-        StatusSelectBoxComponent
-    ],
-    exports: [StatusSelectBoxComponent],
-})
-export class StatusSelectBoxModule {}
+

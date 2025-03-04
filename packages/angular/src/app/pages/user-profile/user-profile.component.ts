@@ -17,14 +17,8 @@ import {
   DxScrollViewModule,
 } from 'devextreme-angular';
 import { forkJoin } from 'rxjs';
-import { PhonePipeModule } from 'src/app/pipes/phone.pipe';
-import {
-  FormPhotoModule,
-  FormTextboxModule,
-  ChangeProfilePasswordFormModule,
-  ProfileCardModule,
-  FormPopupModule,
-} from 'src/app/components';
+
+
 import { DataService, ScreenService } from 'src/app/services';
 import { DxToolbarModule as DxToolbarModule_1 } from 'devextreme-angular/ui/toolbar';
 import { DxiItemModule } from 'devextreme-angular/ui/nested';
@@ -217,28 +211,4 @@ export class UserProfileComponent {
 
 }
 
-@NgModule({
-    imports: [
-        DxButtonModule,
-        DxDateBoxModule,
-        DxFormModule,
-        DxFileUploaderModule,
-        DxNumberBoxModule,
-        DxToolbarModule,
-        DxSelectBoxModule,
-        DxScrollViewModule,
-        DxLoadPanelModule,
-        DxTextBoxModule,
-        FormTextboxModule,
-        FormPhotoModule,
-        FormPopupModule,
-        ProfileCardModule,
-        ChangeProfilePasswordFormModule,
-        CommonModule,
-        PhonePipeModule,
-        UserProfileComponent,
-    ],
-    providers: [],
-    exports: [],
-})
-export class UserProfileListModule { }
+

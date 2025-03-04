@@ -49,14 +49,4 @@ export class ResetPasswordFormComponent implements OnInit {
     this.defaultAuthData = await this.authService.getUser();
   }
 }
-@NgModule({
-    imports: [
-        CommonModule,
-        RouterModule,
-        DxFormModule,
-        DxLoadIndicatorModule,
-        ResetPasswordFormComponent,
-    ],
-    exports: [ResetPasswordFormComponent],
-})
-export class ResetPasswordFormModule { }
+

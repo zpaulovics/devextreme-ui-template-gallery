@@ -32,13 +32,4 @@ export class LeftSidePanelComponent {
   };
 }
 
-@NgModule({
-    imports: [
-        DxButtonModule,
-        DxScrollViewModule,
-        CommonModule,
-        LeftSidePanelComponent,
-    ],
-    exports: [LeftSidePanelComponent],
-})
-export class LeftSidePanelModule { }
+

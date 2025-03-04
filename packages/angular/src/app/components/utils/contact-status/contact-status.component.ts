@@ -18,8 +18,4 @@ export class ContactStatusComponent {
   @Input() showText = true;
 }
 
-@NgModule({
-    imports: [CommonModule, ContactStatusComponent],
-    exports: [ContactStatusComponent],
-})
-export class ContactStatusModule { }
+

@@ -50,12 +50,4 @@ export class StatusIndicatorComponent implements OnInit {
     (value?.replace(/ /g, '-') || '');
 }
 
-@NgModule({
-    imports: [
-        CommonModule,
-        DxTextBoxModule,
-        StatusIndicatorComponent,
-    ],
-    exports: [StatusIndicatorComponent],
-})
-export class StatusIndicatorModule { }
+

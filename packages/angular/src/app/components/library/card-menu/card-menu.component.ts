@@ -14,8 +14,4 @@ export class CardMenuComponent {
   constructor() { }
 }
 
-@NgModule({
-    imports: [DxDropDownButtonModule, CardMenuComponent],
-    exports: [CardMenuComponent],
-})
-export class CardMenuModule { }
+

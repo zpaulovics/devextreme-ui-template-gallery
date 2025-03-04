@@ -9,10 +9,10 @@ import { DxSortableModule, DxSortableComponent } from 'devextreme-angular/ui/sor
 import notify from 'devextreme/ui/notify';
 import { DxSortableTypes } from 'devextreme-angular/ui/sortable';
 
-import { CardMenuModule } from 'src/app/components';
+
 import { Task } from 'src/app/types/task';
 import { TaskStatus, taskStatusList } from 'src/app/types/task';
-import { TaskKanbanCardModule, TaskKanbanCardComponent } from '../task-kanban-card/task-kanban-card.component';
+import { TaskKanbanCardComponent } from '../task-kanban-card/task-kanban-card.component';
 import { DxScrollViewModule as DxScrollViewModule_1, DxButtonModule as DxButtonModule_1 } from 'devextreme-angular';
 import { CardMenuComponent } from '../card-menu/card-menu.component';
 
@@ -99,17 +99,4 @@ export class TaskListKanbanComponent implements OnChanges {
   }
 }
 
-@NgModule({
-    imports: [
-        DxButtonModule,
-        DxScrollViewModule,
-        DxSortableModule,
-        TaskKanbanCardModule,
-        CardMenuModule,
-        CommonModule,
-        TaskListKanbanComponent,
-    ],
-    providers: [],
-    exports: [TaskListKanbanComponent],
-})
-export class TaskListKanbanModule { }
+

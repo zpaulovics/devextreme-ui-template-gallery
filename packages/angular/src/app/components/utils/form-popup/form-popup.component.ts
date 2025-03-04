@@ -13,7 +13,7 @@ import {
   DxValidationGroupComponent,
 } from 'devextreme-angular';
 import { ScreenService } from 'src/app/services';
-import { ApplyPipeModule } from 'src/app/pipes/apply.pipe';
+
 import { ApplyPipe } from '../../../pipes/apply.pipe';
 
 @Component({
@@ -72,16 +72,4 @@ export class FormPopupComponent {
   }
 }
 
-@NgModule({
-    imports: [
-        ApplyPipeModule,
-        DxButtonModule,
-        DxToolbarModule,
-        DxPopupModule,
-        DxValidationGroupModule,
-        CommonModule,
-        FormPopupComponent,
-    ],
-    exports: [FormPopupComponent],
-})
-export class FormPopupModule { }
+

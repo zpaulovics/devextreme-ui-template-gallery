@@ -14,8 +14,8 @@ import {
   DxValidatorModule
 } from 'devextreme-angular';
 import { ValidationRule, EditorStyle } from 'devextreme-angular/common';
-import { ApplyPipeModule } from 'src/app/pipes/apply.pipe';
-import { ContactStatusModule } from 'src/app/components/utils/contact-status/contact-status.component';
+
+
 
 
 @Component({
@@ -59,16 +59,4 @@ export class PasswordTextBoxComponent {
   }
 }
 
-@NgModule({
-    imports: [
-        ApplyPipeModule,
-        DxSelectBoxModule,
-        DxTextBoxModule,
-        ContactStatusModule,
-        DxValidatorModule,
-        CommonModule,
-        PasswordTextBoxComponent
-    ],
-    exports: [PasswordTextBoxComponent],
-})
-export class PasswordTextBoxModule {}
+

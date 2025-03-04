@@ -14,21 +14,21 @@ import { DxLoadPanelModule } from 'devextreme-angular/ui/load-panel';
 import { DxScrollViewModule } from 'devextreme-angular/ui/scroll-view';
 
 import { DataService } from 'src/app/services';
-import { CardAnalyticsModule } from 'src/app/components/library/card-analytics/card-analytics.component';
-import { ToolbarAnalyticsModule } from 'src/app/components/utils/toolbar-analytics/toolbar-analytics.component';
-import { ConversionCardModule } from 'src/app/components/utils/conversion-card/conversion-card.component';
-import { RevenueCardModule } from 'src/app/components/utils/revenue-card/revenue-card.component';
-import { RevenueAnalysisCardModule } from 'src/app/components/utils/revenue-analysis-card/revenue-analysis-card.component';
-import { RevenueSnapshotCardModule } from 'src/app/components/utils/revenue-snapshot-card/revenue-snapshot-card.component';
-import { OpportunitiesTickerModule } from 'src/app/components/utils/opportunities-ticker/opportunities-ticker.component';
-import { RevenueTotalTickerModule } from 'src/app/components/utils/revenue-total-ticker/revenue-total-ticker.component';
-import { ConversionTickerModule } from 'src/app/components/utils/conversion-ticker/conversion-ticker.component';
-import { LeadsTickerModule } from 'src/app/components/utils/leads-ticker/leads-ticker.component';
+
+
+
+
+
+
+
+
+
+
 import { analyticsPanelItems, Dates } from 'src/app/types/resource';
 import {
   Sales, SalesByState, SalesByStateAndCity, SalesOrOpportunitiesByCategory,
 } from 'src/app/types/analytics';
-import { ApplyPipeModule } from 'src/app/pipes/apply.pipe';
+
 import { DxScrollViewModule as DxScrollViewModule_1 } from 'devextreme-angular';
 import { ToolbarAnalyticsComponent } from '../../components/utils/toolbar-analytics/toolbar-analytics.component';
 import { OpportunitiesTickerComponent } from '../../components/utils/opportunities-ticker/opportunities-ticker.component';
@@ -101,30 +101,4 @@ export class AnalyticsDashboardComponent implements OnInit {
   }
 }
 
-@NgModule({
-    imports: [
-        DxScrollViewModule,
-        DxDataGridModule,
-        DxBulletModule,
-        DxFunnelModule,
-        DxPieChartModule,
-        DxChartModule,
-        CardAnalyticsModule,
-        ToolbarAnalyticsModule,
-        DxLoadPanelModule,
-        ApplyPipeModule,
-        ConversionCardModule,
-        RevenueAnalysisCardModule,
-        RevenueCardModule,
-        RevenueSnapshotCardModule,
-        OpportunitiesTickerModule,
-        RevenueTotalTickerModule,
-        ConversionTickerModule,
-        LeadsTickerModule,
-        CommonModule,
-        AnalyticsDashboardComponent,
-    ],
-    providers: [],
-    exports: [],
-})
-export class AnalyticsDashboardModule { }
+

@@ -30,12 +30,4 @@ export class UserMenuSectionComponent {
   }
 }
 
-@NgModule({
-    imports: [
-        DxListModule,
-        CommonModule,
-        UserMenuSectionComponent,
-    ],
-    exports: [UserMenuSectionComponent],
-})
-export class UserMenuSectionModule { }
+

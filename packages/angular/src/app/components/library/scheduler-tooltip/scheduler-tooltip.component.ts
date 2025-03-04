@@ -3,7 +3,7 @@ import {
 } from '@angular/core';
 import { CommonModule, NgIf } from '@angular/common';
 import { DxButtonModule } from 'devextreme-angular';
-import { ApplyPipeModule, ApplyPipe } from "../../../pipes/apply.pipe";
+import { ApplyPipe } from "../../../pipes/apply.pipe";
 
 @Component({
     selector: 'scheduler-tooltip',
@@ -37,13 +37,4 @@ export class SchedulerTooltipComponent {
   }
 }
 
-@NgModule({
-    imports: [
-        ApplyPipeModule,
-        CommonModule,
-        DxButtonModule,
-        SchedulerTooltipComponent,
-    ],
-    exports: [SchedulerTooltipComponent],
-})
-export class SchedulerTooltipModule { }
+

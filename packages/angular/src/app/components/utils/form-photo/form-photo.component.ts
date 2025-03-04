@@ -29,12 +29,4 @@ export class FormPhotoComponent implements OnInit {
   }
 }
 
-@NgModule({
-    imports: [
-        DxFileUploaderModule,
-        CommonModule,
-        FormPhotoComponent
-    ],
-    exports: [FormPhotoComponent],
-})
-export class FormPhotoModule { }
+

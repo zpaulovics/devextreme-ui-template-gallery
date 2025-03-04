@@ -46,8 +46,4 @@ export class CardTasksComponent implements OnChanges {
   }
 }
 
-@NgModule({
-    imports: [DxDataGridModule, DxLoadPanelModule, CommonModule, CardTasksComponent],
-    exports: [CardTasksComponent],
-})
-export class CardTasksModule { }
+

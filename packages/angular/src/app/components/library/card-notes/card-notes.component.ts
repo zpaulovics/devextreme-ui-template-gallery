@@ -44,17 +44,4 @@ export class CardNotesComponent {
   };
 }
 
-@NgModule({
-    imports: [
-        DxTextAreaModule,
-        DxToolbarModule,
-        DxButtonModule,
-        DxValidationGroupModule,
-        DxValidatorModule,
-        DxScrollViewModule,
-        CommonModule,
-        CardNotesComponent,
-    ],
-    exports: [CardNotesComponent],
-})
-export class CardNotesModule { }
+

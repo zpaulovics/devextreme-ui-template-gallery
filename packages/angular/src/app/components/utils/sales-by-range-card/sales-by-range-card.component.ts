@@ -3,7 +3,7 @@ import {
   NgModule,
   Input,
 } from '@angular/core';
-import { CardAnalyticsModule, CardAnalyticsComponent } from '../../library/card-analytics/card-analytics.component';
+import { CardAnalyticsComponent } from '../../library/card-analytics/card-analytics.component';
 import { DxPieChartModule } from 'devextreme-angular/ui/pie-chart';
 import { DxChartModule } from 'devextreme-angular/ui/chart';
 import { DxoValueAxisModule, DxiSeriesModule, DxoLabelModule, DxoFontModule, DxoLegendModule, DxoMarginModule, DxoSizeModule, DxoCommonAxisSettingsModule, DxoTickModule, DxoCommonSeriesSettingsModule, DxoSeriesTemplateModule, DxoFormatModule } from 'devextreme-angular/ui/nested';
@@ -23,14 +23,4 @@ export class SalesByRangeCardComponent {
   }
 }
 
-@NgModule({
-    imports: [
-        CardAnalyticsModule,
-        DxPieChartModule,
-        DxChartModule,
-        DxoValueAxisModule,
-        SalesByRangeCardComponent,
-    ],
-    exports: [SalesByRangeCardComponent],
-})
-export class SalesByRangeCardModule { }
+

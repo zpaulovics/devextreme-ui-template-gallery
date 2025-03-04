@@ -20,8 +20,3 @@ export class OpportunityTileComponent {
   }
 }
 
-@NgModule({
-    imports: [CommonModule, OpportunityTileComponent],
-    exports: [OpportunityTileComponent],
-})
-export class OpportunityTileModule { }

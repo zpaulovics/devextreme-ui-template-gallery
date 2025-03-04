@@ -12,10 +12,7 @@ import {
 import { DxDataGridTypes } from 'devextreme-angular/ui/data-grid';
 import { exportDataGrid as exportDataGridToPdf } from 'devextreme/pdf_exporter';
 import { exportDataGrid as exportDataGridToXLSX } from 'devextreme/excel_exporter';
-import {
-  CardActivitiesModule,
-  ContactStatusModule,
-} from 'src/app/components';
+
 import { Contact, contactStatusList, ContactStatus, } from 'src/app/types/contact';
 import { DxDropDownButtonTypes, DxDropDownButtonModule as DxDropDownButtonModule_1 } from 'devextreme-angular/ui/drop-down-button';
 import DataSource from 'devextreme/data/data_source';
@@ -26,9 +23,9 @@ import { saveAs } from 'file-saver-es';
 import { jsPDF } from 'jspdf';
 import notify from "devextreme/ui/notify";
 import { formatPhone } from 'src/app/pipes/phone.pipe';
-import { FormPopupModule } from 'src/app/components';
-import { ContactPanelModule } from 'src/app/components/library/contact-panel/contact-panel.component';
-import { ContactNewFormComponent, ContactNewFormModule } from 'src/app/components/library/contact-new-form/contact-new-form.component';
+
+
+import { ContactNewFormComponent } from 'src/app/components/library/contact-new-form/contact-new-form.component';
 import { DxoLoadPanelModule, DxoScrollingModule, DxoSelectionModule, DxoSortingModule, DxoHeaderFilterModule, DxoColumnChooserModule, DxoSearchPanelModule, DxoExportModule, DxoToolbarModule, DxiItemModule, DxiColumnModule } from 'devextreme-angular/ui/nested';
 import { DxTemplateModule } from 'devextreme-angular/core';
 import { ContactStatusComponent } from '../../components/utils/contact-status/contact-status.component';
@@ -144,22 +141,4 @@ export class CrmContactListComponent {
   };
 }
 
-@NgModule({
-    imports: [
-        DxButtonModule,
-        DxDataGridModule,
-        DxDropDownButtonModule,
-        DxSelectBoxModule,
-        DxTextBoxModule,
-        ContactPanelModule,
-        ContactNewFormModule,
-        FormPopupModule,
-        CardActivitiesModule,
-        ContactStatusModule,
-        CommonModule,
-        CrmContactListComponent,
-    ],
-    providers: [],
-    exports: [],
-})
-export class CrmContactListModule { }
+

@@ -37,14 +37,4 @@ export class FormTextboxComponent {
 
 }
 
-@NgModule({
-    imports: [
-        DxButtonModule,
-        DxTextBoxModule,
-        DxValidatorModule,
-        CommonModule,
-        FormTextboxComponent,
-    ],
-    exports: [FormTextboxComponent],
-})
-export class FormTextboxModule { }
+

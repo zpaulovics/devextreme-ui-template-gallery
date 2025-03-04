@@ -12,7 +12,7 @@ import {
   DxValidatorModule,
 } from 'devextreme-angular';
 import { Message, Messages } from 'src/app/types/messages';
-import { UserAvatarModule } from 'src/app/components/library/user-avatar/user-avatar.component';
+
 import { DxToolbarModule as DxToolbarModule_1 } from 'devextreme-angular/ui/toolbar';
 import { DxiItemModule } from 'devextreme-angular/ui/nested';
 import { UserAvatarComponent } from '../user-avatar/user-avatar.component';
@@ -58,19 +58,4 @@ export class CardMessagesComponent {
   };
 }
 
-@NgModule({
-    imports: [
-        DxTextAreaModule,
-        DxTextBoxModule,
-        DxToolbarModule,
-        DxFileUploaderModule,
-        DxButtonModule,
-        DxValidationGroupModule,
-        DxValidatorModule,
-        UserAvatarModule,
-        CommonModule,
-        CardMessagesComponent,
-    ],
-    exports: [CardMessagesComponent],
-})
-export class CardMessagesModule { }
+

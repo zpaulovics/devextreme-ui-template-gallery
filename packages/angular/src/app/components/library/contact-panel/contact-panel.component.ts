@@ -24,12 +24,7 @@ import {
   DxValidationGroupModule,
 } from 'devextreme-angular';
 import { DxButtonTypes } from 'devextreme-angular/ui/button';
-import {
-  FormTextboxModule,
-  FormPhotoModule,
-  CardActivitiesModule,
-  ContactStatusModule,
-} from 'src/app/components';
+
 import { ScreenService, DataService } from 'src/app/services';
 import { distinctUntilChanged, Subject, Subscription} from 'rxjs';
 import { Contact } from 'src/app/types/contact';
@@ -152,24 +147,4 @@ export class ContactPanelComponent implements OnInit, OnChanges, AfterViewChecke
   };
 }
 
-@NgModule({
-    imports: [
-        DxAccordionModule,
-        DxButtonModule,
-        DxDropDownButtonModule,
-        DxToolbarModule,
-        DxLoadPanelModule,
-        DxScrollViewModule,
-        DxFormModule,
-        DxValidatorModule,
-        DxValidationGroupModule,
-        FormTextboxModule,
-        FormPhotoModule,
-        CardActivitiesModule,
-        ContactStatusModule,
-        CommonModule,
-        ContactPanelComponent,
-    ],
-    exports: [ContactPanelComponent],
-})
-export class ContactPanelModule { }
+

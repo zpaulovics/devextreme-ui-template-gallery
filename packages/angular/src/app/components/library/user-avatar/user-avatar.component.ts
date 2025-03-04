@@ -12,8 +12,4 @@ export class UserAvatarComponent {
   @Input() dataLetters: string | null;
 }
 
-@NgModule({
-    imports: [UserAvatarComponent],
-    exports: [UserAvatarComponent],
-})
-export class UserAvatarModule { }
+

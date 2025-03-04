@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
 
 import { Router, RouterModule, NavigationEnd, Event, RouterOutlet } from '@angular/router';
 import { ScreenService, AppInfoService } from '../../services';
-import { SideNavigationMenuModule, AppHeaderModule, AppFooterModule } from '../../components';
+
 
 import { Subscription } from 'rxjs';
 import { AppHeaderComponent } from '../../components/library/app-header/app-header.component';
@@ -118,16 +118,4 @@ export class SideNavOuterToolbarComponent implements OnInit, OnDestroy {
   }
 }
 
-@NgModule({
-    imports: [
-        RouterModule,
-        SideNavigationMenuModule,
-        DxDrawerModule,
-        AppHeaderModule,
-        CommonModule,
-        AppFooterModule,
-        SideNavOuterToolbarComponent
-    ],
-    exports: [SideNavOuterToolbarComponent],
-})
-export class SideNavOuterToolbarModule { }
+

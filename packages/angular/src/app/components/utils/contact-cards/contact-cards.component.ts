@@ -7,13 +7,7 @@ import {
   DxTabPanelModule,
   DxDataGridModule,
 } from 'devextreme-angular';
-import {
-  CardNotesModule,
-  CardMessagesModule,
-  CardActivitiesModule,
-  CardOpportunitiesModule,
-  CardTasksModule,
-} from 'src/app/components';
+
 import { Activity } from 'src/app/types/activities';
 import { Messages } from 'src/app/types/messages';
 import { Notes } from 'src/app/types/notes';
@@ -49,20 +43,4 @@ export class ContactCardsComponent {
     @Input() isLoading: boolean;
 }
 
-@NgModule({
-    imports: [
-        DxButtonModule,
-        DxTabPanelModule,
-        DxDataGridModule,
-        CardNotesModule,
-        CardMessagesModule,
-        CardActivitiesModule,
-        CardOpportunitiesModule,
-        CardTasksModule,
-        CommonModule,
-        ContactCardsComponent,
-    ],
-    providers: [],
-    exports: [ContactCardsComponent],
-})
-export class ContactCardsModule { }
+

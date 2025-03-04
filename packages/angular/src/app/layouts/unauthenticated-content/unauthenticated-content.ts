@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
-import { SingleCardModule } from 'src/app/layouts';
+
 import { Router } from '@angular/router';
 import { SingleCardComponent } from '../single-card/single-card.component';
 
@@ -42,13 +42,4 @@ export class UnauthenticatedContentComponent {
     }
   }
 }
-@NgModule({
-    imports: [
-        CommonModule,
-        RouterModule,
-        SingleCardModule,
-        UnauthenticatedContentComponent,
-    ],
-    exports: [UnauthenticatedContentComponent],
-})
-export class UnauthenticatedContentModule { }
+

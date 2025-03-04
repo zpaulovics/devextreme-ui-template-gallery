@@ -49,12 +49,4 @@ export class RightSidePanelComponent {
   };
 }
 
-@NgModule({
-    imports: [
-        DxButtonModule,
-        CommonModule,
-        RightSidePanelComponent,
-    ],
-    exports: [RightSidePanelComponent],
-})
-export class RightSidePanelModule { }
+

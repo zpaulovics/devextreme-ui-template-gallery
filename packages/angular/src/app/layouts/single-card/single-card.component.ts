@@ -1,7 +1,7 @@
 import { Component, NgModule, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DxScrollViewModule } from 'devextreme-angular/ui/scroll-view';
-import { CardAuthModule, CardAuthComponent } from '../../components/library/card-auth/card-auth.component'
+import { CardAuthComponent } from '../../components/library/card-auth/card-auth.component'
 import { DxScrollViewModule as DxScrollViewModule_1 } from 'devextreme-angular';
 
 @Component({
@@ -20,10 +20,4 @@ export class SingleCardComponent {
   constructor() { }
 }
 
-@NgModule({
-    imports: [CommonModule, DxScrollViewModule, CardAuthModule, SingleCardComponent],
-    exports: [SingleCardComponent],
-})
-export class SingleCardModule {
 
-}

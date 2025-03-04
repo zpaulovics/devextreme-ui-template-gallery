@@ -12,8 +12,4 @@ export class AppFooterComponent {
 
 }
 
-@NgModule({
-    imports: [AppFooterComponent],
-    exports: [AppFooterComponent],
-})
-export class AppFooterModule { }
+

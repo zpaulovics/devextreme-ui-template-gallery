@@ -11,9 +11,4 @@ export class PhonePipe implements PipeTransform {
   }
 }
 
-@NgModule({
-    imports: [PhonePipe],
-    providers: [],
-    exports: [PhonePipe],
-})
-export class PhonePipeModule { }
+

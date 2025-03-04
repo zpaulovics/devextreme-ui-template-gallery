@@ -12,17 +12,13 @@ import {
   DxToolbarModule,
   DxValidatorModule,
 } from 'devextreme-angular';
-import {
-  StatusIndicatorModule,
-  FormItemDateModule,
-  FormTextboxModule,
-} from 'src/app/components';
+
 import { taskPriorityList, taskStatusList } from 'src/app/types/task';
 import { Task } from 'src/app/types/task';
 import { getSizeQualifier } from 'src/app/services/screen.service';
 import { DxButtonTypes } from 'devextreme-angular/ui/button';
 import { ScreenService } from '../../../services';
-import { ToolbarFormModule } from 'src/app/components/utils/toolbar-form/toolbar-form.component';
+
 import { ToolbarFormComponent } from '../../utils/toolbar-form/toolbar-form.component';
 import { DxFormModule as DxFormModule_1 } from 'devextreme-angular/ui/form';
 import { DxiItemModule, DxoColCountByScreenModule } from 'devextreme-angular/ui/nested';
@@ -79,24 +75,4 @@ export class TaskFormComponent implements OnInit {
   getNewTaskData = ()=> ({ ...this.task });
 }
 
-@NgModule({
-    imports: [
-        DxButtonModule,
-        DxFormModule,
-        DxLoadPanelModule,
-        DxSelectBoxModule,
-        DxTextBoxModule,
-        DxTextAreaModule,
-        DxToolbarModule,
-        DxValidatorModule,
-        FormTextboxModule,
-        StatusIndicatorModule,
-        FormItemDateModule,
-        ToolbarFormModule,
-        CommonModule,
-        TaskFormComponent,
-    ],
-    providers: [],
-    exports: [TaskFormComponent],
-})
-export class TaskFormModule { }
+

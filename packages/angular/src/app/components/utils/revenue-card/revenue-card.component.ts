@@ -3,7 +3,7 @@ import {
   NgModule,
   Input,
 } from '@angular/core';
-import { CardAnalyticsModule, CardAnalyticsComponent } from '../../library/card-analytics/card-analytics.component';
+import { CardAnalyticsComponent } from '../../library/card-analytics/card-analytics.component';
 import { DxChartModule } from 'devextreme-angular/ui/chart';
 import { Sales } from 'src/app/types/analytics';
 
@@ -16,12 +16,4 @@ export class RevenueCardComponent {
   @Input() data: Sales;
 }
 
-@NgModule({
-    imports: [
-        CardAnalyticsModule,
-        DxChartModule,
-        RevenueCardComponent,
-    ],
-    exports: [RevenueCardComponent],
-})
-export class RevenueCardModule { }
+

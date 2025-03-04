@@ -6,12 +6,12 @@ import {
   DxValidatorModule,
   DxScrollViewModule
 } from 'devextreme-angular';
-import { FormTextboxModule } from 'src/app/components/utils/form-textbox/form-textbox.component';
-import { FormPhotoModule } from 'src/app/components/utils/form-photo/form-photo.component';
-import { ApplyPipeModule } from 'src/app/pipes/apply.pipe';
-import { PicturedItemSelectBoxModule } from 'src/app/components/library/pictured-item-select-box/pictured-item-select-box.component';
+
+
+
+
 import { ScreenService } from 'src/app/services';
-import { StatusSelectBoxModule } from 'src/app/components/library/status-select-box/status-select-box.component';
+
 import { getSizeQualifier } from 'src/app/services/screen.service';
 import { DxFormModule as DxFormModule_1 } from 'devextreme-angular/ui/form';
 import { DxiItemModule, DxoLabelModule, DxiValidationRuleModule } from 'devextreme-angular/ui/nested';
@@ -65,25 +65,4 @@ export class ProfileCardComponent {
   }
 }
 
-@NgModule({
-    imports: [
-        ApplyPipeModule,
-        DxButtonModule,
-        DxDateBoxModule,
-        DxFormModule,
-        DxNumberBoxModule,
-        DxToolbarModule,
-        DxSelectBoxModule,
-        DxScrollViewModule,
-        DxTextBoxModule,
-        FormTextboxModule,
-        FormPhotoModule,
-        DxValidatorModule,
-        CommonModule,
-        PicturedItemSelectBoxModule,
-        StatusSelectBoxModule,
-        ProfileCardComponent,
-    ],
-    exports: [ProfileCardComponent],
-})
-export class ProfileCardModule { }
+

@@ -3,7 +3,7 @@ import {
   NgModule,
   Input,
 } from '@angular/core';
-import { CardAnalyticsModule, CardAnalyticsComponent } from '../../library/card-analytics/card-analytics.component';
+import { CardAnalyticsComponent } from '../../library/card-analytics/card-analytics.component';
 import { DxDataGridModule } from 'devextreme-angular/ui/data-grid';
 import { DxBulletModule } from 'devextreme-angular/ui/bullet';
 import { SalesByState } from 'src/app/types/analytics';
@@ -21,13 +21,3 @@ export class RevenueAnalysisCardComponent {
   @Input() data: SalesByState;
 }
 
-@NgModule({
-    imports: [
-        CardAnalyticsModule,
-        DxDataGridModule,
-        DxBulletModule,
-        RevenueAnalysisCardComponent,
-    ],
-    exports: [RevenueAnalysisCardComponent],
-})
-export class RevenueAnalysisCardModule { }

@@ -5,7 +5,7 @@ import {
   Output,
   EventEmitter,
 } from '@angular/core';
-import { CardAnalyticsModule, CardAnalyticsComponent } from '../../library/card-analytics/card-analytics.component';
+import { CardAnalyticsComponent } from '../../library/card-analytics/card-analytics.component';
 import { DxRangeSelectorModule } from 'devextreme-angular/ui/range-selector';
 import { Sale } from 'src/app/types/analytics';
 
@@ -30,12 +30,4 @@ export class SalesRangeCardComponent {
   }
 }
 
-@NgModule({
-    imports: [
-        CardAnalyticsModule,
-        DxRangeSelectorModule,
-        SalesRangeCardComponent,
-    ],
-    exports: [SalesRangeCardComponent],
-})
-export class SalesRangeCardModule { }
+

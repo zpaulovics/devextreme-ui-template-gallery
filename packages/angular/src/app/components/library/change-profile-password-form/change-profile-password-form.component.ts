@@ -2,13 +2,10 @@ import { CommonModule } from '@angular/common';
 import {Component, EventEmitter, Input, NgModule, Output, ViewChild} from '@angular/core';
 import { DxFormModule } from 'devextreme-angular/ui/form';
 import { DxLoadIndicatorModule } from 'devextreme-angular/ui/load-indicator';
-import {FormPopupComponent, FormPopupModule} from 'src/app/components/utils/form-popup/form-popup.component';
+import { FormPopupComponent } from 'src/app/components/utils/form-popup/form-popup.component';
 import notify from 'devextreme/ui/notify';
 
-import {
-  PasswordTextBoxComponent,
-  PasswordTextBoxModule,
-} from 'src/app/components/library/password-text-box/password-text-box.component';
+import { PasswordTextBoxComponent } from 'src/app/components/library/password-text-box/password-text-box.component';
 
 import { ValidationRule } from 'devextreme-angular/common';
 import { FormPopupComponent as FormPopupComponent_1 } from '../../utils/form-popup/form-popup.component';
@@ -67,15 +64,4 @@ export class ChangeProfilePasswordFormComponent {
   }
 }
 
-@NgModule({
-    imports: [
-        CommonModule,
-        DxFormModule,
-        DxLoadIndicatorModule,
-        PasswordTextBoxModule,
-        FormPopupModule,
-        ChangeProfilePasswordFormComponent,
-    ],
-    exports: [ChangeProfilePasswordFormComponent],
-})
-export class ChangeProfilePasswordFormModule { }
+

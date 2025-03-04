@@ -38,14 +38,4 @@ export class ToolbarAnalyticsComponent {
   }
 }
 
-@NgModule({
-    imports: [
-        CommonModule,
-        DxButtonModule,
-        DxTabsModule,
-        DxToolbarModule,
-        ToolbarAnalyticsComponent
-    ],
-    exports: [ToolbarAnalyticsComponent],
-})
-export class ToolbarAnalyticsModule { }
+

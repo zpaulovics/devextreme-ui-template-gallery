@@ -6,9 +6,9 @@ import { CommonModule, NgIf } from '@angular/common';
 import { DxButtonModule } from 'devextreme-angular/ui/button';
 import { DxToolbarModule } from 'devextreme-angular/ui/toolbar';
 
-import { UserPanelModule, UserPanelComponent } from '../user-panel/user-panel.component';
+import { UserPanelComponent } from '../user-panel/user-panel.component';
 import { AuthService, IUser } from 'src/app/services';
-import { ThemeSwitcherModule } from 'src/app/components/library/theme-switcher/theme-switcher.component';
+
 import { ThemeSwitcherComponent } from '../theme-switcher/theme-switcher.component';
 import { DxButtonModule as DxButtonModule_1 } from 'devextreme-angular';
 
@@ -51,15 +51,4 @@ export class AppHeaderComponent implements OnInit {
   };
 }
 
-@NgModule({
-    imports: [
-        CommonModule,
-        DxButtonModule,
-        DxToolbarModule,
-        ThemeSwitcherModule,
-        UserPanelModule,
-        AppHeaderComponent,
-    ],
-    exports: [AppHeaderComponent],
-})
-export class AppHeaderModule { }
+

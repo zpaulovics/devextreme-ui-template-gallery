@@ -103,8 +103,4 @@ export class SideNavigationMenuComponent implements AfterViewInit, OnDestroy {
   }
 }
 
-@NgModule({
-    imports: [DxTreeViewModule, SideNavigationMenuComponent],
-    exports: [SideNavigationMenuComponent],
-})
-export class SideNavigationMenuModule { }
+

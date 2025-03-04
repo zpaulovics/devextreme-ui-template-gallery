@@ -21,11 +21,4 @@ export class LoginOauthComponent {
 
 }
 
-@NgModule({
-    imports: [
-        DxButtonModule,
-        LoginOauthComponent
-    ],
-    exports: [LoginOauthComponent],
-})
-export class LoginOauthModule { }
+

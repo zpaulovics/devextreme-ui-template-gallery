@@ -14,11 +14,4 @@ export class CardAuthComponent {
   description!: string;
 }
 
-@NgModule({
-    imports: [
-        CommonModule,
-        CardAuthComponent,
-    ],
-    exports: [CardAuthComponent],
-})
-export class CardAuthModule { }
+

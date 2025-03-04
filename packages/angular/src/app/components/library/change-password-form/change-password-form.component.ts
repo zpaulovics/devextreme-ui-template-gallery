@@ -52,14 +52,4 @@ export class ChangePasswordFormComponent implements OnInit, OnDestroy {
     this.paramMapSubscription.unsubscribe();
   }
 }
-@NgModule({
-    imports: [
-        CommonModule,
-        RouterModule,
-        DxFormModule,
-        DxLoadIndicatorModule,
-        ChangePasswordFormComponent,
-    ],
-    exports: [ChangePasswordFormComponent],
-})
-export class ChangePasswordFormModule { }
+

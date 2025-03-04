@@ -8,10 +8,7 @@ import {
   DxFormModule,
   DxValidatorModule,
 } from 'devextreme-angular';
-import {
-  FormTextboxModule,
-  FormPhotoUploaderModule,
-} from 'src/app/components';
+
 import { newContact } from 'src/app/types/contact';
 import { getSizeQualifier } from 'src/app/services/screen.service';
 import { DxFormModule as DxFormModule_1 } from 'devextreme-angular/ui/form';
@@ -35,16 +32,4 @@ export class ContactNewFormComponent {
   getNewContactData = ()=> ({ ...this.newUser })
 }
 
-@NgModule({
-    imports: [
-        DxTextBoxModule,
-        DxFormModule,
-        DxValidatorModule,
-        FormTextboxModule,
-        FormPhotoUploaderModule,
-        CommonModule,
-        ContactNewFormComponent,
-    ],
-    exports: [ContactNewFormComponent],
-})
-export class ContactNewFormModule { }
+

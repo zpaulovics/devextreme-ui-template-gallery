@@ -26,8 +26,4 @@ export class ThemeSwitcherComponent {
   }
 }
 
-@NgModule({
-    imports: [CommonModule, DxButtonModule, ThemeSwitcherComponent],
-    exports: [ThemeSwitcherComponent],
-})
-export class ThemeSwitcherModule { }
+

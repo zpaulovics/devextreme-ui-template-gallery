@@ -17,13 +17,13 @@ import { DxLoadPanelModule } from 'devextreme-angular/ui/load-panel';
 import { DxDropDownButtonTypes } from 'devextreme-angular/ui/drop-down-button';
 
 import { DataService } from 'src/app/services';
-import { CardAnalyticsModule } from 'src/app/components/library/card-analytics/card-analytics.component';
-import { ToolbarAnalyticsModule } from 'src/app/components/utils/toolbar-analytics/toolbar-analytics.component';
-import { SalesByRangeCardModule } from 'src/app/components/utils/sales-by-range-card/sales-by-range-card.component';
-import { SalesPerformanceCardModule } from 'src/app/components/utils/sales-performance-card/sales-performance-card.component';
-import { SalesRangeCardModule } from 'src/app/components/utils/sales-range-card/sales-range-card.component';
+
+
+
+
+
 import { analyticsPanelItems } from 'src/app/types/resource';
-import { ApplyPipeModule } from 'src/app/pipes/apply.pipe';
+
 import { Sale, SalesOrOpportunitiesByCategory } from 'src/app/types/analytics';
 import { DxScrollViewModule as DxScrollViewModule_1 } from 'devextreme-angular';
 import { ToolbarAnalyticsComponent } from '../../components/utils/toolbar-analytics/toolbar-analytics.component';
@@ -98,26 +98,4 @@ export class AnalyticsSalesReportComponent implements OnInit {
   }
 }
 
-@NgModule({
-    imports: [
-        DxScrollViewModule,
-        DxLoadPanelModule,
-        DxButtonModule,
-        DxToolbarModule,
-        DxPieChartModule,
-        DxChartModule,
-        DxDropDownButtonModule,
-        DxRangeSelectorModule,
-        CardAnalyticsModule,
-        ToolbarAnalyticsModule,
-        ApplyPipeModule,
-        CommonModule,
-        SalesByRangeCardModule,
-        SalesPerformanceCardModule,
-        SalesRangeCardModule,
-        AnalyticsSalesReportComponent,
-    ],
-    providers: [],
-    exports: [],
-})
-export class AnalyticsSalesReportModule { }
+

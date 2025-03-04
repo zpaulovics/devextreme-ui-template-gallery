@@ -7,19 +7,15 @@ import {
   DxDropDownButtonModule,
   DxScrollViewModule,
 } from 'devextreme-angular';
-import {
-  CardActivitiesModule,
-  CardNotesModule,
-  CardMessagesModule,
-} from 'src/app/components';
+
 import { DataService } from 'src/app/services';
 import { forkJoin, map } from 'rxjs';
 import { Contact } from 'src/app/types/contact';
 import { Messages } from 'src/app/types/messages';
 import { Notes } from 'src/app/types/notes';
 import { Opportunities } from 'src/app/types/opportunities';
-import { ContactFormModule } from 'src/app/components/library/contact-form/contact-form.component';
-import { ContactCardsModule } from 'src/app/components/utils/contact-cards/contact-cards.component';
+
+
 import { DxToolbarModule } from 'devextreme-angular/ui/toolbar';
 import { DxiItemModule } from 'devextreme-angular/ui/nested';
 import { DxDropDownButtonModule as DxDropDownButtonModule_1 } from 'devextreme-angular/ui/drop-down-button';
@@ -92,21 +88,4 @@ export class CrmContactDetailsComponent implements OnInit {
   };
 }
 
-@NgModule({
-    imports: [
-        DxButtonModule,
-        DxDropDownButtonModule,
-        DxScrollViewModule,
-        DxToolbarModule,
-        ContactFormModule,
-        ContactCardsModule,
-        CardActivitiesModule,
-        CardNotesModule,
-        CardMessagesModule,
-        CommonModule,
-        CrmContactDetailsComponent,
-    ],
-    providers: [],
-    exports: [],
-})
-export class CrmContactDetailsModule { }
+
