@@ -1,11 +1,12 @@
 import { Component, HostBinding, OnDestroy, } from '@angular/core';
 import { AppInfoService, AuthService, ScreenService, ThemeService } from './services';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
-    standalone: false
+    imports: [RouterOutlet]
 })
 export class AppComponent implements OnDestroy {
   @HostBinding('class') get getClass() {
