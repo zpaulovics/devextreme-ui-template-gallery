@@ -16,39 +16,37 @@
         [visible]="true"
         [customizeText]="customizeSaleText"
       >
-        <dxo-font color="#757575" [size]="15"></dxo-font>
+        <dxo-font color="#757575" [size]="15" />
       </dxo-label>
     </dxi-series>
 
     <dxo-legend>
-      <dxo-margin [top]="70"></dxo-margin>
+      <dxo-margin [top]="70" />
     </dxo-legend>
 
-    <dxo-size [height]="270"></dxo-size>
+    <dxo-size [height]="270" />
 
-    <dxo-legend [visible]="false"></dxo-legend>
+    <dxo-legend [visible]="false" />
   </dx-pie-chart>
 
   <dx-chart class="sales-bars" [dataSource]="data" [rotated]="true">
     <dxo-common-axis-settings [visible]="false">
-      <dxo-tick [visible]="false"></dxo-tick>
+      <dxo-tick [visible]="false" />
     </dxo-common-axis-settings>
 
-    <dxo-legend [visible]="false"></dxo-legend>
+    <dxo-legend [visible]="false" />
 
-    <dxo-common-series-settings
-      argumentField="name"
+    <dxo-common-series-settings argumentField="name"
       valueField="value"
       type="bar"
       [ignoreEmptyPoints]="true"
-    >
-    </dxo-common-series-settings>
+     />
 
-    <dxo-series-template nameField="name"> </dxo-series-template>
+    <dxo-series-template nameField="name" />
 
     <dxo-value-axis>
       <dxo-label>
-        <dxo-format type="largeNumber"></dxo-format>
+        <dxo-format type="largeNumber" />
       </dxo-label>
     </dxo-value-axis>
   </dx-chart>

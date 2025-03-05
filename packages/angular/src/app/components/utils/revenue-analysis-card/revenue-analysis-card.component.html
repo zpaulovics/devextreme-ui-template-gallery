@@ -4,39 +4,33 @@
     [height]="290"
     [loadPanel]="{ enabled: false }"
   >
-    <dxi-column caption="State" dataField="stateName"> </dxi-column>
+    <dxi-column caption="State" dataField="stateName" />
 
-    <dxi-column
-      alignment="left"
+    <dxi-column alignment="left"
       caption="Sales"
       dataField="total"
       dataType="number"
       format="currency"
       sortOrder="desc"
       [hidingPriority]="2"
-    >
-    </dxi-column>
+     />
 
-    <dxi-column
-      alignment="left"
+    <dxi-column alignment="left"
       caption="% Sold"
       dataField="percentage"
       name="percentN"
       format="percent"
       [hidingPriority]="1"
-    >
-    </dxi-column>
+     />
 
-    <dxi-column
-      alignment="left"
+    <dxi-column alignment="left"
       caption="Percentage"
       dataField="percentage"
       name="percentB"
       cellTemplate="salesBullet"
       cssClass="sales-bullet"
       [width]="200"
-    >
-    </dxi-column>
+     />
 
     <div *dxTemplate="let cellInfo of 'salesBullet'">
       <dx-bullet

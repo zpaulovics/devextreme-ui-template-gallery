@@ -12,8 +12,7 @@ import { DxCalendarTypes } from 'devextreme-angular/ui/calendar';
 @Component({
     selector: 'form-item-date',
     template: `
-    <dx-date-box
-      [(value)]="value"
+    <dx-date-box [(value)]="value"
       [readOnly]="!isEditing"
       [label]="label"
       [elementAttr]="{class: 'form-editor'}"
@@ -22,7 +21,7 @@ import { DxCalendarTypes } from 'devextreme-angular/ui/calendar';
       placeholder="MM/dd/y"
       displayFormat="MM/dd/y"
       pickerType="calendar"
-  ></dx-date-box>`,
+   />`,
     imports: [DxDateBoxModule]
 })
 export class FormDateboxComponent {

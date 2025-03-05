@@ -17,8 +17,7 @@ import { DxFileUploaderModule as DxFileUploaderModule_1 } from 'devextreme-angul
     >
       <span>Drag and drop a photo here or click the area to select it from a folder</span>
     </div>
-    <dx-file-uploader
-      dialogTrigger="#uploader"
+    <dx-file-uploader dialogTrigger="#uploader"
       dropZone="#uploader"
       [multiple]="false"
       accept="image/*"
@@ -27,8 +26,7 @@ import { DxFileUploaderModule as DxFileUploaderModule_1 } from 'devextreme-angul
       [visible]="false"
       (onDropZoneEnter)="onDropZoneEnter($event)"
       (onDropZoneLeave)="onDropZoneLeave($event)"
-    >
-    </dx-file-uploader>
+     />
 `,
     styles: [`
     #uploader {
