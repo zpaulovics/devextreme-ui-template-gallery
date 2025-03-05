@@ -1,8 +1,4 @@
-import {
-  Component,
-  NgModule,
-  Input,
-} from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CardAnalyticsComponent } from '../../library/card-analytics/card-analytics.component';
 import { DxPieChartModule } from 'devextreme-angular/ui/pie-chart';
 import { SalesByStateAndCity } from 'src/app/types/analytics';
@@ -20,5 +16,3 @@ export class RevenueSnapshotCardComponent {
     return arg.percentText;
   }
 }
-
-

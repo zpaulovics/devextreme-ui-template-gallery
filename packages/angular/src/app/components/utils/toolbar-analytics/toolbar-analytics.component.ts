@@ -1,12 +1,10 @@
-import { Component, NgModule, Input, Output, EventEmitter, inject } from '@angular/core';
-import { CommonModule, AsyncPipe } from '@angular/common';
+import { Component, Input, Output, EventEmitter, inject } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
 
 import { ScreenService } from 'src/app/services';
 
-import { DxButtonModule } from 'devextreme-angular/ui/button';
 import { DxTabsModule } from 'devextreme-angular/ui/tabs';
 import { DxToolbarModule } from 'devextreme-angular/ui/toolbar';
-
 import { DxTabsTypes } from 'devextreme-angular/ui/tabs';
 
 import { Dates, PanelItem } from 'src/app/types/resource';
@@ -42,5 +40,3 @@ export class ToolbarAnalyticsComponent {
     this.selectionChanged.emit({ startDate: dates[0], endDate: dates[1] });
   }
 }
-
-

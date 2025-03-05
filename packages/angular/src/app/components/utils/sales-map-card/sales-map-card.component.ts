@@ -1,8 +1,4 @@
-import {
-  Component,
-  NgModule,
-  Input,
-} from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CardAnalyticsComponent } from '../../library/card-analytics/card-analytics.component';
 import { DxVectorMapModule, DxVectorMapTypes } from 'devextreme-angular/ui/vector-map';
 
@@ -36,5 +32,3 @@ export class SalesMapCardComponent {
     }
   }
 }
-
-

@@ -1,12 +1,6 @@
-import {
-  Component, NgModule, Input,
-} from '@angular/core';
+import { Component, Input } from '@angular/core';
 
-import {
-  DxButtonModule,
-  DxTabPanelModule,
-  DxDataGridModule,
-} from 'devextreme-angular';
+import { DxTabPanelModule } from 'devextreme-angular';
 
 import { Activity } from 'src/app/types/activities';
 import { Messages } from 'src/app/types/messages';
@@ -42,5 +36,3 @@ export class ContactCardsComponent {
 
     @Input() isLoading: boolean;
 }
-
-

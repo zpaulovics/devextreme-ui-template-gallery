@@ -1,8 +1,7 @@
-import { Component, NgModule, Input, ViewChild, Output, EventEmitter, inject } from '@angular/core';
-import { CommonModule, AsyncPipe } from '@angular/common';
+import { Component, Input, ViewChild, Output, EventEmitter, inject } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
 import {
   DxButtonModule,
-  DxToolbarModule,
   DxPopupModule,
   DxValidationGroupModule,
   DxValidationGroupComponent,
@@ -71,5 +70,3 @@ export class FormPopupComponent {
     };
   }
 }
-
-

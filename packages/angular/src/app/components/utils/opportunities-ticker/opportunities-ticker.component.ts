@@ -1,5 +1,5 @@
 import {
-  Component, NgModule, Input,
+  Component, Input,
 } from '@angular/core';
 
 import { SalesOrOpportunitiesByCategory } from 'src/app/types/analytics';
@@ -15,5 +15,3 @@ import { TickerCardComponent } from '../../library/ticker-card/ticker-card.compo
 export class OpportunitiesTickerComponent {
   @Input() data: SalesOrOpportunitiesByCategory = null;
 }
-
-

@@ -1,7 +1,7 @@
 import {
-  Component, Input, NgModule,
+  Component, Input,
 } from '@angular/core';
-import { CommonModule, LowerCasePipe } from '@angular/common';
+import { LowerCasePipe } from '@angular/common';
 import { ContactStatus } from 'src/app/types/contact';
 
 @Component({
@@ -17,5 +17,3 @@ export class ContactStatusComponent {
 
   @Input() showText = true;
 }
-
-

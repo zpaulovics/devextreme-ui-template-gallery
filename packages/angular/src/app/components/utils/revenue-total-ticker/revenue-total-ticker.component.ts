@@ -1,9 +1,5 @@
-import {
-  Component, NgModule, Input,
-} from '@angular/core';
-
+import { Component, Input } from '@angular/core';
 import { Sales } from 'src/app/types/analytics';
-
 import { TickerCardComponent } from '../../library/ticker-card/ticker-card.component';
 
 @Component({
@@ -15,4 +11,3 @@ import { TickerCardComponent } from '../../library/ticker-card/ticker-card.compo
 export class RevenueTotalTickerComponent {
   @Input() data: Sales = null;
 }
-

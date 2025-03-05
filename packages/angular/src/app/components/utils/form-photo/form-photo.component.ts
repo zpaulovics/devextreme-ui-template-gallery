@@ -1,6 +1,5 @@
-import { CommonModule, NgStyle } from '@angular/common';
-import { Component, ElementRef, Input, NgModule, OnInit, inject } from '@angular/core';
-import { DxFileUploaderModule } from 'devextreme-angular/ui/file-uploader';
+import { NgStyle } from '@angular/common';
+import { Component, ElementRef, Input, OnInit, inject } from '@angular/core';
 import { DxFileUploaderModule as DxFileUploaderModule_1 } from 'devextreme-angular';
 
 @Component({
@@ -31,5 +30,3 @@ export class FormPhotoComponent implements OnInit {
     this.imageUrl = `url('data:image/png;base64,${this.link}')`;
   }
 }
-
-

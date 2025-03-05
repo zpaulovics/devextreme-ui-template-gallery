@@ -1,8 +1,4 @@
-import {
-  Component,
-  NgModule,
-  Input,
-} from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CardAnalyticsComponent } from '../../library/card-analytics/card-analytics.component';
 import { DxChartModule } from 'devextreme-angular/ui/chart';
 import { Sales } from 'src/app/types/analytics';
@@ -15,5 +11,3 @@ import { Sales } from 'src/app/types/analytics';
 export class RevenueCardComponent {
   @Input() data: Sales;
 }
-
-

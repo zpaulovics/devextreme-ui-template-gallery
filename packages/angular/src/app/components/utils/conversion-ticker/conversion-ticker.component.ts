@@ -1,7 +1,6 @@
 import {
-  Component, NgModule,
+  Component,
 } from '@angular/core';
-
 
 import { TickerCardComponent } from '../../library/ticker-card/ticker-card.component';
 
@@ -13,4 +12,3 @@ import { TickerCardComponent } from '../../library/ticker-card/ticker-card.compo
 
 export class ConversionTickerComponent {
 }
-

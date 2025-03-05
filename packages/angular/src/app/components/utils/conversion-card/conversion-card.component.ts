@@ -1,7 +1,6 @@
 import {
-  Component, NgModule, Input,
+  Component, Input,
 } from '@angular/core';
-
 
 import { DxFunnelModule } from 'devextreme-angular/ui/funnel';
 import { SalesOrOpportunitiesByCategory } from 'src/app/types/analytics';
@@ -19,5 +18,3 @@ export class ConversionCardComponent {
     return `$${arg.valueText}`;
   }
 }
-
-

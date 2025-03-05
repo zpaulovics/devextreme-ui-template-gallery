@@ -1,8 +1,7 @@
-import { CommonModule, NgClass } from '@angular/common';
+import { NgClass } from '@angular/common';
 import {
-  Component, NgModule,
+  Component,
 } from '@angular/core';
-import { DxFileUploaderModule } from 'devextreme-angular/ui/file-uploader';
 import { DxFileUploaderModule as DxFileUploaderModule_1 } from 'devextreme-angular';
 
 @Component({
@@ -66,5 +65,3 @@ export class FormPhotoUploaderComponent {
     if (e.dropZoneElement.id === 'uploader') { this.isDropZoneActive = false; }
   }
 }
-
-

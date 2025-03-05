@@ -1,5 +1,5 @@
 import {
-  Component, EventEmitter, Input, NgModule, Output,
+  Component, EventEmitter, Input, Output,
 } from '@angular/core';
 
 import { DxListModule, DxListTypes } from 'devextreme-angular/ui/list';
@@ -42,5 +42,3 @@ export class AgendaComponent {
     this.clickAppointment.emit({itemData, element});
   }
 }
-
-

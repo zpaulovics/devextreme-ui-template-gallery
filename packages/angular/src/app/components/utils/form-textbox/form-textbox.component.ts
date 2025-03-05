@@ -1,7 +1,6 @@
-import {Component, EventEmitter, Input, NgModule, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 import {
-  DxButtonModule,
   DxTextBoxModule,
   DxValidatorModule
 } from 'devextreme-angular';
@@ -36,5 +35,3 @@ export class FormTextboxComponent {
   }
 
 }
-
-

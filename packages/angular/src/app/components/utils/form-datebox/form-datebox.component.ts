@@ -1,9 +1,7 @@
 import {
-  Component, EventEmitter, Input, NgModule, Output, ViewChild,
+  Component, EventEmitter, Input, Output, ViewChild,
 } from '@angular/core';
 import {
-  DxCalendarModule,
-  DxDropDownButtonModule,
   DxDropDownButtonComponent,
   DxDateBoxModule,
 } from 'devextreme-angular';
@@ -47,5 +45,3 @@ export class FormDateboxComponent {
     this.dropDownButtonComponent.instance.close();
   };
 }
-
-

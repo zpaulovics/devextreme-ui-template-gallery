@@ -1,14 +1,13 @@
-import { Component, NgModule, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 
-import { DxButtonModule, DxScrollViewModule as DxScrollViewModule_1 } from 'devextreme-angular';
+import { DxButtonModule, DxScrollViewModule } from 'devextreme-angular';
 import { ScreenService } from 'src/app/services';
-import {DxScrollViewModule} from "devextreme-angular/ui/scroll-view";
 
 @Component({
     selector: 'left-side-panel',
     templateUrl: './left-side-panel.component.html',
     styleUrls: ['./left-side-panel.component.scss'],
-    imports: [DxButtonModule, DxScrollViewModule_1]
+    imports: [DxButtonModule, DxScrollViewModule]
 })
 export class LeftSidePanelComponent {
   protected screen = inject(ScreenService);
@@ -35,5 +34,3 @@ export class LeftSidePanelComponent {
     this.isOpened = !this.isOpened;
   };
 }
-
-

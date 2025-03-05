@@ -1,9 +1,8 @@
 import {
-  Component, Input, NgModule, Output, EventEmitter
+  Component, Input, Output, EventEmitter
 } from '@angular/core';
 
 import { DxToolbarModule } from 'devextreme-angular/ui/toolbar';
-import { DxButtonModule } from 'devextreme-angular/ui/button';
 import { DxiItemModule } from 'devextreme-angular/ui/nested';
 import { DxButtonModule as DxButtonModule_1 } from 'devextreme-angular';
 
@@ -36,5 +35,3 @@ export class ToolbarFormComponent {
     this.saveButtonClicked.emit(event);
   }
 }
-
-

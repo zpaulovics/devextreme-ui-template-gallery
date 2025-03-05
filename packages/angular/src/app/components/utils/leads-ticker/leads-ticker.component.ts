@@ -1,8 +1,4 @@
-import {
-  Component, NgModule,
-} from '@angular/core';
-
-
+import { Component } from '@angular/core';
 import { TickerCardComponent } from '../../library/ticker-card/ticker-card.component';
 
 @Component({
@@ -13,5 +9,3 @@ import { TickerCardComponent } from '../../library/ticker-card/ticker-card.compo
 
 export class LeadsTickerComponent {
 }
-
-

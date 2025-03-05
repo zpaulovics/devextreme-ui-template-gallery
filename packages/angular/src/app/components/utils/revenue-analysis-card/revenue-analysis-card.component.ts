@@ -1,10 +1,5 @@
-import {
-  Component,
-  NgModule,
-  Input,
-} from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CardAnalyticsComponent } from '../../library/card-analytics/card-analytics.component';
-import { DxDataGridModule } from 'devextreme-angular/ui/data-grid';
 import { DxBulletModule } from 'devextreme-angular/ui/bullet';
 import { SalesByState } from 'src/app/types/analytics';
 import { DxDataGridModule as DxDataGridModule_1 } from 'devextreme-angular';

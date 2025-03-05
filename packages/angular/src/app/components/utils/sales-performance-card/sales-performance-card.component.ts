@@ -1,9 +1,8 @@
 import {
   Component,
-  NgModule,
   Input,
   Output,
-  EventEmitter,
+  EventEmitter
 } from '@angular/core';
 import { CardAnalyticsComponent } from '../../library/card-analytics/card-analytics.component';
 import { DxChartModule } from 'devextreme-angular/ui/chart';
@@ -34,5 +33,3 @@ export class SalesPerformanceCardComponent {
     this.performancePeriodChanged.emit(event);
   }
 }
-
-

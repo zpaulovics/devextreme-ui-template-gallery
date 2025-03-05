@@ -1,6 +1,5 @@
 import {
   Component,
-  NgModule,
   Input,
   Output,
   EventEmitter,
@@ -29,5 +28,3 @@ export class SalesRangeCardComponent {
     this.visualRangeChange.emit(this.visualRange);
   }
 }
-
-

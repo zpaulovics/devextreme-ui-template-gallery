@@ -1,7 +1,5 @@
-import {
-  Component, NgModule, Input,
-} from '@angular/core';
-import { CommonModule, CurrencyPipe } from '@angular/common';
+import { Component, Input } from '@angular/core';
+import { CurrencyPipe } from '@angular/common';
 import { Opportunity } from 'src/app/types/opportunities';
 import notify from 'devextreme/ui/notify';
 
@@ -19,4 +17,3 @@ export class OpportunityTileComponent {
     notify('Click opportunity event');
   }
 }
-
