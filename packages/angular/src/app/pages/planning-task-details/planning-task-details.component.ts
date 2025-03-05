@@ -1,8 +1,7 @@
-import { Component, OnInit, NgModule, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 
 import {
   DxButtonModule,
-  DxDropDownButtonModule,
   DxTabPanelModule,
   DxValidationGroupModule,
   DxScrollViewModule,
@@ -59,5 +58,3 @@ export class PlanningTaskDetailsComponent implements OnInit {
     this.loadData();
   }
 }
-
-

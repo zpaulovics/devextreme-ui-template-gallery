@@ -1,5 +1,4 @@
-import { Component, NgModule } from '@angular/core';
-
+import { Component } from '@angular/core';
 
 import { CardAuthComponent } from '../../components/library/card-auth/card-auth.component';
 import { CreateAccountFormComponent } from '../../components/library/create-account-form/create-account-form.component';
@@ -18,6 +17,3 @@ export class AppSignUpComponent {
 
   constructor() { }
 }
-
-
-

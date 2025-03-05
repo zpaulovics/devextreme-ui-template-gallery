@@ -1,8 +1,5 @@
 import themes from 'devextreme/ui/themes';
 import { enableProdMode, importProvidersFrom } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-
-
 import { environment } from './environments/environment';
 import { AuthService, ScreenService, AppInfoService, ThemeService } from './app/services';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';

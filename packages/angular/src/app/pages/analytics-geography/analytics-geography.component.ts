@@ -1,22 +1,8 @@
-import { Component, OnInit, NgModule, OnDestroy, inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject } from '@angular/core';
 
-import { DxPieChartModule } from 'devextreme-angular/ui/pie-chart';
-import { DxChartModule } from 'devextreme-angular/ui/chart';
-import { DxDataGridModule } from 'devextreme-angular/ui/data-grid';
-import { DxVectorMapModule } from 'devextreme-angular/ui/vector-map';
-import { DxBulletModule } from 'devextreme-angular/ui/bullet';
-import { DxScrollViewModule } from 'devextreme-angular/ui/scroll-view';
 import { DxLoadPanelModule } from 'devextreme-angular/ui/load-panel'
-
-
 import { Subscription } from 'rxjs';
-
 import { DataService } from 'src/app/services';
-
-
-
-
-
 
 import { analyticsPanelItems, Dates } from 'src/app/types/resource';
 import { SalesByState, SalesByStateAndCity } from 'src/app/types/analytics';
@@ -103,5 +89,3 @@ export class AnalyticsGeographyComponent implements OnInit, OnDestroy {
     });
   };
 }
-
-

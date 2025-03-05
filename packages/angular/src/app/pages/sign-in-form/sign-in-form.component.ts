@@ -1,7 +1,4 @@
-import { Component, NgModule } from '@angular/core';
-
-
-
+import { Component} from '@angular/core';
 import { CardAuthComponent } from '../../components/library/card-auth/card-auth.component';
 import { LoginFormComponent } from '../../components/library/login-form/login-form.component';
 
@@ -14,5 +11,3 @@ import { LoginFormComponent } from '../../components/library/login-form/login-fo
 export class AppSignInComponent {
   constructor() { }
 }
-
-

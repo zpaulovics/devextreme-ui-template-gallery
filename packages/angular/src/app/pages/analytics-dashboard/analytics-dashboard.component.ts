@@ -1,26 +1,11 @@
-import { Component, OnInit, NgModule, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 
 import { map, share } from 'rxjs/operators';
 import { Observable, forkJoin } from 'rxjs';
 
-import { DxPieChartModule } from 'devextreme-angular/ui/pie-chart';
-import { DxChartModule } from 'devextreme-angular/ui/chart';
-import { DxDataGridModule } from 'devextreme-angular/ui/data-grid';
-import { DxFunnelModule } from 'devextreme-angular/ui/funnel';
-import { DxBulletModule } from 'devextreme-angular/ui/bullet';
 import { DxLoadPanelModule } from 'devextreme-angular/ui/load-panel';
-import { DxScrollViewModule } from 'devextreme-angular/ui/scroll-view';
 
 import { DataService } from 'src/app/services';
-
-
-
-
-
-
-
-
-
 
 import { analyticsPanelItems, Dates } from 'src/app/types/resource';
 import {
@@ -105,5 +90,3 @@ export class AnalyticsDashboardComponent implements OnInit {
     this.loadData(startDate, endDate);
   }
 }
-
-

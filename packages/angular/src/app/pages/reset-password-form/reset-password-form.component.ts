@@ -1,6 +1,4 @@
-import { Component, NgModule } from '@angular/core';
-
-
+import { Component } from '@angular/core';
 
 import { CardAuthComponent } from '../../components/library/card-auth/card-auth.component';
 import { ResetPasswordFormComponent } from '../../components/library/reset-password-form/reset-password-form.component';
@@ -20,6 +18,3 @@ export class AppResetPasswordComponent {
   constructor() { }
 
 }
-
-
-

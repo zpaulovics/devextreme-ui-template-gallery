@@ -1,6 +1,6 @@
-import { Component, OnInit, NgModule, ViewChild, inject } from '@angular/core';
+import { Component, OnInit, ViewChild, inject } from '@angular/core';
 import DataSource from 'devextreme/data/data_source';
-import { CommonModule, NgIf, AsyncPipe, DatePipe } from '@angular/common';
+import { AsyncPipe, DatePipe } from '@angular/common';
 import {
   DxCalendarModule,
   DxButtonModule,
@@ -8,13 +8,10 @@ import {
   DxTooltipModule,
   DxSchedulerModule,
   DxSchedulerComponent,
-  DxSpeedDialActionModule,
+  DxSpeedDialActionModule
 } from "devextreme-angular";
 import { Task } from 'src/app/types/task';
 import { DataService, ScreenService } from 'src/app/services';
-import { CalendarListModule } from 'src/app/components/utils/calendar-list/calendar-list.component';
-
-
 import { AgendaItem, AgendaComponent } from "../../components/utils/agenda/agenda.component";
 import { ApplyPipe } from '../../pipes/apply.pipe';
 import { SchedulerTooltipComponent } from '../../components/library/scheduler-tooltip/scheduler-tooltip.component';
@@ -246,18 +243,18 @@ export class PlanningSchedulerComponent implements OnInit {
 
 }
 
-@NgModule({
-    imports: [
-    DxCalendarModule,
-    DxButtonModule,
-    DxSchedulerModule,
-    DxSpeedDialActionModule,
-    DxTooltipModule,
-    CommonModule,
-    CalendarListModule,
-    PlanningSchedulerComponent,
-],
-    providers: [],
-    exports: [],
-})
-export class PlanningSchedulerModule { }
+// @NgModule({
+//     imports: [
+//     DxCalendarModule,
+//     DxButtonModule,
+//     DxSchedulerModule,
+//     DxSpeedDialActionModule,
+//     DxTooltipModule,
+//     CommonModule,
+//     CalendarListModule,
+//     PlanningSchedulerComponent,
+// ],
+//     providers: [],
+//     exports: [],
+// })
+// export class PlanningSchedulerModule { }

@@ -1,9 +1,8 @@
-import { Component, ViewChild, NgModule, inject } from '@angular/core';
+import { Component, ViewChild, inject } from '@angular/core';
 import {
   DxButtonModule,
   DxDataGridModule,
   DxDataGridComponent,
-  DxDropDownButtonModule,
   DxSelectBoxModule,
   DxTextBoxModule,
 } from 'devextreme-angular';
@@ -21,7 +20,6 @@ import { saveAs } from 'file-saver-es';
 import { jsPDF } from 'jspdf';
 import notify from "devextreme/ui/notify";
 import { formatPhone } from 'src/app/pipes/phone.pipe';
-
 
 import { ContactNewFormComponent } from 'src/app/components/library/contact-new-form/contact-new-form.component';
 import { DxoLoadPanelModule, DxoScrollingModule, DxoSelectionModule, DxoSortingModule, DxoHeaderFilterModule, DxoColumnChooserModule, DxoSearchPanelModule, DxoExportModule, DxoToolbarModule, DxiItemModule, DxiColumnModule } from 'devextreme-angular/ui/nested';
@@ -143,5 +141,3 @@ export class CrmContactListComponent {
       'success');
   };
 }
-
-

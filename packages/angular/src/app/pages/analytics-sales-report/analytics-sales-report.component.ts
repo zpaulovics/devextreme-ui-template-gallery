@@ -1,25 +1,13 @@
-import { Component, OnInit, NgModule, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { formatDate } from '@angular/common';
 
 import { Observable, forkJoin } from 'rxjs';
 import { share } from 'rxjs/operators';
 
-import {DxScrollViewModule} from 'devextreme-angular/ui/scroll-view';
-import { DxToolbarModule } from 'devextreme-angular/ui/toolbar';
-import { DxPieChartModule } from 'devextreme-angular/ui/pie-chart';
-import { DxChartModule } from 'devextreme-angular/ui/chart';
-import { DxRangeSelectorModule } from 'devextreme-angular/ui/range-selector';
-import { DxButtonModule } from 'devextreme-angular/ui/button';
-import { DxDropDownButtonModule } from 'devextreme-angular/ui/drop-down-button';
 import { DxLoadPanelModule } from 'devextreme-angular/ui/load-panel';
 import { DxDropDownButtonTypes } from 'devextreme-angular/ui/drop-down-button';
 
 import { DataService } from 'src/app/services';
-
-
-
-
-
 import { analyticsPanelItems } from 'src/app/types/resource';
 
 import { Sale, SalesOrOpportunitiesByCategory } from 'src/app/types/analytics';
@@ -101,5 +89,3 @@ export class AnalyticsSalesReportComponent implements OnInit {
     this.loadData(this.groupByPeriods[1].toLowerCase());
   }
 }
-
-

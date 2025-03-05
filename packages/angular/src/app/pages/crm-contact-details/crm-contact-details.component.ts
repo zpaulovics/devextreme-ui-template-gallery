@@ -1,8 +1,7 @@
-import { Component, OnInit, NgModule, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 
 import {
   DxButtonModule,
-  DxDropDownButtonModule,
   DxScrollViewModule,
 } from 'devextreme-angular';
 
@@ -12,8 +11,6 @@ import { Contact } from 'src/app/types/contact';
 import { Messages } from 'src/app/types/messages';
 import { Notes } from 'src/app/types/notes';
 import { Opportunities } from 'src/app/types/opportunities';
-
-
 import { DxToolbarModule } from 'devextreme-angular/ui/toolbar';
 import { DxiItemModule } from 'devextreme-angular/ui/nested';
 import { DxDropDownButtonModule as DxDropDownButtonModule_1 } from 'devextreme-angular/ui/drop-down-button';
@@ -88,5 +85,3 @@ export class CrmContactDetailsComponent implements OnInit {
     this.loadData();
   };
 }
-
-

@@ -1,4 +1,4 @@
-import { NgModule, Pipe, PipeTransform } from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({ name: 'apply' })
 export class ApplyPipe implements PipeTransform {
@@ -7,5 +7,3 @@ export class ApplyPipe implements PipeTransform {
     value[arg1].apply(value, args);
   }
 }
-
-

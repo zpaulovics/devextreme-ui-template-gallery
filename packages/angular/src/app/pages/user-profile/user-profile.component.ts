@@ -1,20 +1,11 @@
-import { ChangeDetectorRef, Component, NgModule, inject } from '@angular/core';
-import { CommonModule, AsyncPipe } from '@angular/common';
+import { ChangeDetectorRef, Component, inject } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
 import notify from 'devextreme/ui/notify';
 import {
   DxButtonModule,
-  DxSelectBoxModule,
-  DxTextBoxModule,
-  DxToolbarModule,
-  DxFormModule,
-  DxNumberBoxModule,
-  DxDateBoxModule,
-  DxLoadPanelModule,
-  DxFileUploaderModule,
   DxScrollViewModule,
 } from 'devextreme-angular';
 import { forkJoin } from 'rxjs';
-
 
 import { DataService, ScreenService } from 'src/app/services';
 import { DxToolbarModule as DxToolbarModule_1 } from 'devextreme-angular/ui/toolbar';
@@ -218,5 +209,3 @@ export class UserProfileComponent {
   }
 
 }
-
-
