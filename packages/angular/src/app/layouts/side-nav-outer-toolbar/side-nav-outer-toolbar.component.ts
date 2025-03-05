@@ -1,10 +1,10 @@
-import { Component, OnInit, OnDestroy, NgModule, Input, ViewChild, inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, ViewChild, inject } from '@angular/core';
 import { DxTreeViewTypes } from 'devextreme-angular/ui/tree-view';
 import { DxDrawerModule, DxDrawerTypes } from 'devextreme-angular/ui/drawer';
 import { DxScrollViewComponent } from 'devextreme-angular/ui/scroll-view';
 
 
-import { Router, RouterModule, NavigationEnd, Event, RouterOutlet } from '@angular/router';
+import { Router, NavigationEnd, Event, RouterOutlet } from '@angular/router';
 import { ScreenService, AppInfoService } from '../../services';
 
 
@@ -119,5 +119,3 @@ export class SideNavOuterToolbarComponent implements OnInit, OnDestroy {
     }
   }
 }
-
-

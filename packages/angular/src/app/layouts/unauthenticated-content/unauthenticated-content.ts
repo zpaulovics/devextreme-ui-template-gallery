@@ -1,6 +1,6 @@
 
-import { Component, NgModule, inject } from '@angular/core';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 import { Router } from '@angular/router';
 import { SingleCardComponent } from '../single-card/single-card.component';
@@ -47,4 +47,3 @@ export class UnauthenticatedContentComponent {
     }
   }
 }
-
