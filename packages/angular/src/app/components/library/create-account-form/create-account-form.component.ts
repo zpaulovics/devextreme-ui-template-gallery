@@ -1,7 +1,6 @@
 
-import { Component, NgModule, Input, OnInit, inject } from '@angular/core';
-import { Router, RouterModule, RouterLink } from '@angular/router';
-
+import { Component, Input, OnInit, inject } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 
 import { ValidationCallbackData } from 'devextreme-angular/common';
 import { DxFormModule } from 'devextreme-angular/ui/form';
@@ -56,4 +55,3 @@ export class CreateAccountFormComponent implements OnInit {
     this.defaultAuthData = await this.authService.getUser();
   }
 }
-

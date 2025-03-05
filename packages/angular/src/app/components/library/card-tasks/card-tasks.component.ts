@@ -1,11 +1,10 @@
 import {
-  Component, Input, NgModule, OnChanges, SimpleChanges, ViewChild,
+  Component, Input, OnChanges, SimpleChanges, ViewChild,
 } from '@angular/core';
 
 import {
   DxDataGridComponent,
   DxDataGridModule,
-  DxLoadPanelModule,
 } from 'devextreme-angular';
 import { DxDataGridTypes } from 'devextreme-angular/ui/data-grid';
 import { Task } from '../../../types/task';
@@ -45,5 +44,3 @@ export class CardTasksComponent implements OnChanges {
     this.currentTasks.splice(toIndex, 0, e.itemData);
   }
 }
-
-

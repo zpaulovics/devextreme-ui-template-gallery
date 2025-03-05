@@ -1,12 +1,10 @@
 import {
-  Component, Input, NgModule, OnChanges, SimpleChanges,
+  Component, Input, OnChanges, SimpleChanges,
 } from '@angular/core';
 
 import {
   DxButtonModule,
-  DxLoadPanelModule,
 } from 'devextreme-angular';
-import notify from 'devextreme/ui/notify';
 import { Opportunity } from 'src/app/types/opportunities';
 
 import { OpportunityTileComponent } from '../../utils/opportunity-tile/opportunity-tile.component';
@@ -32,5 +30,3 @@ export class CardOpportunitiesComponent implements OnChanges {
     this.isLoading = isLoadActive || isLoadClosed;
   }
 }
-
-

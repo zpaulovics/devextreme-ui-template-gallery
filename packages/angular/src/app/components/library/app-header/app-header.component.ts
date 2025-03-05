@@ -1,7 +1,5 @@
-import { Component, NgModule, Input, Output, EventEmitter, OnInit, inject } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, inject } from '@angular/core';
 
-
-import { DxButtonModule } from 'devextreme-angular/ui/button';
 import { DxToolbarModule } from 'devextreme-angular/ui/toolbar';
 
 import { UserPanelComponent } from '../user-panel/user-panel.component';
@@ -53,5 +51,3 @@ export class AppHeaderComponent implements OnInit {
     this.menuToggle.emit();
   };
 }
-
-

@@ -1,17 +1,7 @@
-import { Component, EventEmitter, Input, NgModule, Output, ViewChild, inject } from '@angular/core';
-import { CommonModule, AsyncPipe } from '@angular/common';
-import {
-  DxButtonModule, DxDateBoxModule, DxFormComponent, DxFormModule, DxNumberBoxModule, DxSelectBoxModule,
-  DxTextBoxModule, DxToolbarModule,
-  DxValidatorModule,
-  DxScrollViewModule
-} from 'devextreme-angular';
-
-
-
-
+import { Component, EventEmitter, Input, Output, ViewChild, inject } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
+import { DxDateBoxModule, DxFormComponent } from 'devextreme-angular';
 import { ScreenService } from 'src/app/services';
-
 import { getSizeQualifier } from 'src/app/services/screen.service';
 import { DxFormModule as DxFormModule_1 } from 'devextreme-angular/ui/form';
 import { DxiItemModule, DxoLabelModule, DxiValidationRuleModule } from 'devextreme-angular/ui/nested';
@@ -69,5 +59,3 @@ export class ProfileCardComponent {
     return cardData[fieldName];
   }
 }
-
-

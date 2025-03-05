@@ -1,9 +1,8 @@
-import { CommonModule, NgClass } from '@angular/common';
+import { NgClass } from '@angular/common';
 import {
-  Component, Input, NgModule, OnInit,
+  Component, Input, OnInit,
 } from '@angular/core';
 import { TaskStatus, TaskPriority } from 'src/app/types/task';
-import { DxTextBoxModule } from 'devextreme-angular/ui/text-box';
 import { DxTextBoxModule as DxTextBoxModule_1 } from 'devextreme-angular';
 
 @Component({
@@ -52,5 +51,3 @@ export class StatusIndicatorComponent implements OnInit {
   spaceToDash = (value: TaskStatus) =>
     (value?.replace(/ /g, '-') || '');
 }
-
-

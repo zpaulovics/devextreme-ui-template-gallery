@@ -1,11 +1,10 @@
-import { Component, Input, NgModule, inject } from '@angular/core';
-import { CommonModule, LowerCasePipe, DatePipe } from '@angular/common';
+import { Component, Input, inject } from '@angular/core';
+import { LowerCasePipe, DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
-import { DxButtonModule, DxToastModule } from 'devextreme-angular';
+import { DxButtonModule } from 'devextreme-angular';
 import notify from 'devextreme/ui/notify';
 
 import { Task } from 'src/app/types/task';
-
 import { UserAvatarComponent } from '../user-avatar/user-avatar.component';
 
 @Component({
@@ -36,5 +35,3 @@ export class TaskKanbanCardComponent {
     this.router.navigate(['/planning-task-details']);
   };
 }
-
-

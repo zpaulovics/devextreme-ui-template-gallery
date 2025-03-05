@@ -1,15 +1,10 @@
 import {
-  Component, NgModule, Input,
+  Component, Input,
 } from '@angular/core';
 
 import {
   DxButtonModule,
-  DxFormModule,
-  DxLoadPanelModule,
   DxNumberBoxModule,
-  DxSelectBoxModule,
-  DxTextBoxModule,
-  DxToolbarModule,
   DxValidatorModule,
   DxValidationGroupModule,
 } from 'devextreme-angular';
@@ -60,5 +55,3 @@ export class ContactFormComponent {
     this.isEditing = false;
   }
 }
-
-

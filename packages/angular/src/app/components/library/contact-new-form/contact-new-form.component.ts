@@ -1,13 +1,6 @@
 import {
   Component,
-  NgModule,
 } from '@angular/core';
-
-import {
-  DxTextBoxModule,
-  DxFormModule,
-  DxValidatorModule,
-} from 'devextreme-angular';
 
 import { newContact } from 'src/app/types/contact';
 import { getSizeQualifier } from 'src/app/services/screen.service';
@@ -31,5 +24,3 @@ export class ContactNewFormComponent {
 
   getNewContactData = ()=> ({ ...this.newUser })
 }
-
-

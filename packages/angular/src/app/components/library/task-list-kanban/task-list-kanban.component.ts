@@ -1,15 +1,9 @@
 import {
-  Component, NgModule, Input, SimpleChanges, OnChanges, ViewChild, Output, EventEmitter,
+  Component, Input, SimpleChanges, OnChanges, ViewChild, Output, EventEmitter,
 } from '@angular/core';
 
-import { DxButtonModule } from 'devextreme-angular/ui/button';
-import { DxScrollViewModule } from 'devextreme-angular/ui/scroll-view';
 import { DxSortableModule, DxSortableComponent } from 'devextreme-angular/ui/sortable';
-
-import notify from 'devextreme/ui/notify';
 import { DxSortableTypes } from 'devextreme-angular/ui/sortable';
-
-
 import { Task } from 'src/app/types/task';
 import { TaskStatus, taskStatusList } from 'src/app/types/task';
 import { TaskKanbanCardComponent } from '../task-kanban-card/task-kanban-card.component';
@@ -98,5 +92,3 @@ export class TaskListKanbanComponent implements OnChanges {
     this.addTaskEvent.emit();
   }
 }
-
-

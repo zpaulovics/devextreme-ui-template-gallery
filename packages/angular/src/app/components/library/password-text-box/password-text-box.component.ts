@@ -2,7 +2,6 @@ import {
   Component,
   EventEmitter,
   Input,
-  NgModule,
   Output, 
   ViewChild,
 } from '@angular/core';
@@ -14,8 +13,6 @@ import {
   DxValidatorModule
 } from 'devextreme-angular';
 import { ValidationRule, EditorStyle } from 'devextreme-angular/common';
-
-
 
 
 @Component({
@@ -58,5 +55,3 @@ export class PasswordTextBoxComponent {
     this.validator?.instance.validate();
   }
 }
-
-

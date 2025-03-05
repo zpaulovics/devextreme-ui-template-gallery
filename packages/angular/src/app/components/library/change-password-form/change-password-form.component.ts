@@ -1,6 +1,6 @@
 
-import { Component, NgModule, OnInit, OnDestroy, inject } from '@angular/core';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { Component, OnInit, OnDestroy, inject } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ValidationCallbackData } from 'devextreme-angular/common';
 import { DxFormModule } from 'devextreme-angular/ui/form';
 import { DxLoadIndicatorModule } from 'devextreme-angular/ui/load-indicator';
@@ -60,4 +60,3 @@ export class ChangePasswordFormComponent implements OnInit, OnDestroy {
     this.paramMapSubscription.unsubscribe();
   }
 }
-

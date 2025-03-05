@@ -1,5 +1,5 @@
-import { Component, NgModule, inject } from '@angular/core';
-import { DxButtonModule, DxButtonTypes } from 'devextreme-angular/ui/button';
+import { Component, inject } from '@angular/core';
+import { DxButtonTypes } from 'devextreme-angular/ui/button';
 import { ThemeService } from '../../../services/theme.service';
 import { DxButtonModule as DxButtonModule_1 } from 'devextreme-angular';
 
@@ -25,5 +25,3 @@ export class LoginOauthComponent {
 
 
 }
-
-

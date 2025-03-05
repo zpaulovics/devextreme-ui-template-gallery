@@ -1,8 +1,7 @@
-import { CommonModule, NgClass, DatePipe } from '@angular/common';
+import { NgClass, DatePipe } from '@angular/common';
 import {
-  Component, NgModule, Input, SimpleChanges, OnInit, OnChanges,
+  Component, Input,
 } from '@angular/core';
-import { DxButtonModule } from 'devextreme-angular/ui/button';
 import { DxListModule } from 'devextreme-angular/ui/list';
 import { DxLoadPanelModule } from 'devextreme-angular/ui/load-panel';
 import { CardMenuComponent } from '../card-menu/card-menu.component';
@@ -26,5 +25,3 @@ export class CardActivitiesComponent {
     { text: 'Delete' },
   ];
 }
-
-

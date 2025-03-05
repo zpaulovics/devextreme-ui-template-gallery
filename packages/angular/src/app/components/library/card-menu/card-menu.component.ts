@@ -1,4 +1,4 @@
-import { Component, Input, NgModule } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { DxDropDownButtonModule } from 'devextreme-angular/ui/drop-down-button';
 
 @Component({
@@ -13,5 +13,3 @@ export class CardMenuComponent {
 
   constructor() { }
 }
-
-

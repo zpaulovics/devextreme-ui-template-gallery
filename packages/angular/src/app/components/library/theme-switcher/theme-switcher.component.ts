@@ -1,4 +1,4 @@
-import { Component, NgModule, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 
 import { DxButtonModule } from 'devextreme-angular';
 import { ThemeService } from 'src/app/services';
@@ -28,5 +28,3 @@ export class ThemeSwitcherComponent {
     this.themeService.switchTheme();
   }
 }
-
-

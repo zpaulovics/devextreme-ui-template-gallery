@@ -1,5 +1,5 @@
 
-import { Component, NgModule, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
     selector: 'app-card-auth',
@@ -13,5 +13,3 @@ export class CardAuthComponent {
   @Input()
   description!: string;
 }
-
-

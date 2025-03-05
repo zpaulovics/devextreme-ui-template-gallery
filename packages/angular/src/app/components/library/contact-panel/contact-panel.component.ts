@@ -1,15 +1,10 @@
-import { Component, OnInit, OnChanges, OnDestroy, NgModule, Output, Input, SimpleChanges, EventEmitter, AfterViewChecked, inject } from '@angular/core';
-import { CommonModule, NgClass, CurrencyPipe } from '@angular/common';
+import { Component, OnInit, OnChanges, OnDestroy, Output, Input, SimpleChanges, EventEmitter, AfterViewChecked, inject } from '@angular/core';
+import { NgClass, CurrencyPipe } from '@angular/common';
 import { Router } from '@angular/router';
 import {
   DxAccordionModule,
   DxButtonModule,
-  DxDropDownButtonModule,
-  DxToolbarModule,
-  DxLoadPanelModule,
   DxScrollViewModule,
-  DxFormModule,
-  DxValidatorModule,
   DxValidationGroupModule,
 } from 'devextreme-angular';
 import { DxButtonTypes } from 'devextreme-angular/ui/button';
@@ -143,5 +138,3 @@ export class ContactPanelComponent implements OnInit, OnChanges, AfterViewChecke
     this.router.navigate(['/crm-contact-details']);
   };
 }
-
-

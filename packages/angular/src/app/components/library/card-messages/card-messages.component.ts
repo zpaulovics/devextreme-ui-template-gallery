@@ -1,12 +1,11 @@
-import { CommonModule, DatePipe } from '@angular/common';
+import { DatePipe } from '@angular/common';
 import {
-  Component, Input, NgModule,
+  Component, Input,
 } from '@angular/core';
 import {
   DxTextAreaModule,
   DxTextBoxModule,
   DxButtonModule,
-  DxToolbarModule,
   DxFileUploaderModule,
   DxValidationGroupModule,
   DxValidatorModule,
@@ -57,5 +56,3 @@ export class CardMessagesComponent {
     e.validationGroup.reset();
   };
 }
-
-

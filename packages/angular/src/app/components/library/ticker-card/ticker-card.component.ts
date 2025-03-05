@@ -1,7 +1,6 @@
-import { CommonModule, CurrencyPipe } from '@angular/common';
+import { CurrencyPipe } from '@angular/common';
 import {
   Component,
-  NgModule,
   Input
 } from '@angular/core';
 
@@ -41,5 +40,3 @@ export class TickerCardComponent {
 
   getIconClass = () => this.tone || (this.percentage > 0 ? 'positive' : 'negative');
 }
-
-

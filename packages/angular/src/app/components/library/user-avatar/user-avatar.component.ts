@@ -1,6 +1,5 @@
 import {
-  Component, Input, NgModule
-} from '@angular/core';
+  Component, Input} from '@angular/core';
 
 @Component({
     selector: 'user-avatar',
@@ -11,5 +10,3 @@ import {
 export class UserAvatarComponent {
   @Input() dataLetters: string | null;
 }
-
-

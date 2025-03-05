@@ -1,4 +1,4 @@
-import { Component, NgModule, Input, ViewChild, inject } from '@angular/core';
+import { Component, Input, ViewChild, inject } from '@angular/core';
 
 import { Router } from '@angular/router';
 import { DxGanttModule, DxGanttComponent } from 'devextreme-angular/ui/gantt';
@@ -44,5 +44,3 @@ export class TaskListGanttComponent {
     this.router.navigate(['/planning-task-details']);
   };
 }
-
-

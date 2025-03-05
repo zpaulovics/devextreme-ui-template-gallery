@@ -1,5 +1,5 @@
 import {
-  Component, EventEmitter, Input, NgModule, Output,
+  Component, EventEmitter, Input, Output,
 } from '@angular/core';
 
 import { DxButtonModule } from 'devextreme-angular';
@@ -36,5 +36,3 @@ export class SchedulerTooltipComponent {
     return `${selectedAppointmentData.startDate.toLocaleString(undefined, dateOptions)} - ${selectedAppointmentData.endDate?.toLocaleTimeString(undefined, timeOptions)}`;
   }
 }
-
-

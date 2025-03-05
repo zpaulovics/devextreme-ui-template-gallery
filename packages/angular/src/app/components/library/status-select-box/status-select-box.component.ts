@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, NgModule, Output, inject } from '@angular/core';
-import { CommonModule, LowerCasePipe } from '@angular/common';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
+import { LowerCasePipe } from '@angular/common';
 import { DxSelectBoxModule, DxTextBoxModule } from 'devextreme-angular';
 import { EditorStyle } from 'devextreme-angular/common';
 import { contactStatusList } from 'src/app/types/contact';
@@ -39,5 +39,3 @@ export class StatusSelectBoxComponent {
   constructor() {}
 
 }
-
-

@@ -1,11 +1,10 @@
 
-import { Component, NgModule, Input, OnInit, inject } from '@angular/core';
-import { Router, RouterModule, RouterLink } from '@angular/router';
-
+import { Component, Input, OnInit, inject } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 
 import { DxFormModule } from 'devextreme-angular/ui/form';
 import { DxLoadIndicatorModule } from 'devextreme-angular/ui/load-indicator';
-import { DxButtonModule, DxButtonTypes } from 'devextreme-angular/ui/button';
+import { DxButtonTypes } from 'devextreme-angular/ui/button';
 import notify from 'devextreme/ui/notify';
 import { AuthService, IResponse, ThemeService } from 'src/app/services';
 import { DxiItemModule, DxiValidationRuleModule, DxoLabelModule, DxoButtonOptionsModule } from 'devextreme-angular/ui/nested';
@@ -87,4 +86,3 @@ export class LoginFormComponent implements OnInit {
     this.defaultAuthData = await this.authService.getUser();
   }
 }
-

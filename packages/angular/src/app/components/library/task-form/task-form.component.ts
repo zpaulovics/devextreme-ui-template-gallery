@@ -1,14 +1,8 @@
-import { Component, NgModule, Input, OnInit, inject } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 
 import {
-  DxButtonModule,
-  DxFormModule,
-  DxLoadPanelModule,
   DxSelectBoxModule,
-  DxTextBoxModule,
   DxTextAreaModule,
-  DxToolbarModule,
-  DxValidatorModule,
 } from 'devextreme-angular';
 
 import { taskPriorityList, taskStatusList } from 'src/app/types/task';
@@ -77,5 +71,3 @@ export class TaskFormComponent implements OnInit {
 
   getNewTaskData = ()=> ({ ...this.task });
 }
-
-

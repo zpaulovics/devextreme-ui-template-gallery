@@ -1,4 +1,4 @@
-import { Component, NgModule, Output, Input, EventEmitter, ViewChild, ElementRef, AfterViewInit, OnDestroy, inject } from '@angular/core';
+import { Component, Output, Input, EventEmitter, ViewChild, ElementRef, AfterViewInit, OnDestroy, inject } from '@angular/core';
 import { DxTreeViewModule, DxTreeViewComponent, DxTreeViewTypes } from 'devextreme-angular/ui/tree-view';
 import * as events from 'devextreme/events';
 import { navigation } from '../../../app-navigation';
@@ -97,5 +97,3 @@ export class SideNavigationMenuComponent implements AfterViewInit, OnDestroy {
     events.off(this.elementRef.nativeElement, 'dxclick');
   }
 }
-
-

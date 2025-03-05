@@ -1,6 +1,4 @@
-import { Component, NgModule, Input, ViewChild, ElementRef } from '@angular/core';
-
-
+import { Component, Input, ViewChild, ElementRef } from '@angular/core';
 import { DxListModule, DxListTypes } from 'devextreme-angular/ui/list';
 import { IUser } from '../../../services/auth.service';
 
@@ -29,5 +27,3 @@ export class UserMenuSectionComponent {
     e.itemData?.onClick();
   }
 }
-
-

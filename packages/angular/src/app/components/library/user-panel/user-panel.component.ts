@@ -1,6 +1,4 @@
-import { Component, NgModule, Input, ViewChild } from '@angular/core';
-
-
+import { Component, Input, ViewChild } from '@angular/core';
 import { DxDropDownButtonModule } from 'devextreme-angular/ui/drop-down-button';
 import { UserMenuSectionComponent } from '../user-menu-section/user-menu-section.component';
 import { IUser } from '../../../services/auth.service';
@@ -31,5 +29,3 @@ export class UserPanelComponent {
     });
   }
 }
-
-

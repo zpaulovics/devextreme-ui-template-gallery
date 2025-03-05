@@ -1,10 +1,8 @@
 
 import {
   Component,
-  NgModule,
   Input
 } from '@angular/core';
-import { DxLoadPanelModule } from 'devextreme-angular/ui/load-panel';
 import { PositionConfig } from 'devextreme/animation/position';
 import { CardMenuComponent } from '../card-menu/card-menu.component';
 @Component({
@@ -29,5 +27,3 @@ export class CardAnalyticsComponent {
 
   position: PositionConfig;
 }
-
-
