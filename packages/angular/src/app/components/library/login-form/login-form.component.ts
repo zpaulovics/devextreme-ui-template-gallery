@@ -1,20 +1,28 @@
-import { CommonModule } from '@angular/common';
-import { Component, NgModule, Input, OnInit } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
 
-import { LoginOauthModule } from 'src/app/components/library/login-oauth/login-oauth.component';
+import { Component, Input, OnInit, inject } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
+
 import { DxFormModule } from 'devextreme-angular/ui/form';
 import { DxLoadIndicatorModule } from 'devextreme-angular/ui/load-indicator';
-import { DxButtonModule, DxButtonTypes } from 'devextreme-angular/ui/button';
+import { DxButtonTypes } from 'devextreme-angular/ui/button';
 import notify from 'devextreme/ui/notify';
 import { AuthService, IResponse, ThemeService } from 'src/app/services';
+import { DxiItemModule, DxiValidationRuleModule, DxoLabelModule, DxoButtonOptionsModule } from 'devextreme-angular/ui/nested';
+import { DxTemplateModule } from 'devextreme-angular/core';
+import { DxButtonModule as DxButtonModule_1 } from 'devextreme-angular';
+import { LoginOauthComponent } from '../login-oauth/login-oauth.component';
 
 @Component({
-  selector: 'app-login-form',
-  templateUrl: './login-form.component.html',
-  styleUrls: ['./login-form.component.scss'],
+    selector: 'app-login-form',
+    templateUrl: './login-form.component.html',
+    styleUrls: ['./login-form.component.scss'],
+    imports: [DxFormModule, DxiItemModule, DxiValidationRuleModule, DxoLabelModule, DxoButtonOptionsModule, DxTemplateModule, DxLoadIndicatorModule, RouterLink, DxButtonModule_1, LoginOauthComponent]
 })
 export class LoginFormComponent implements OnInit {
+  private authService = inject(AuthService);
+  private router = inject(Router);
+  private themeService = inject(ThemeService);
+
   @Input() resetLink = '/auth/reset-password';
   @Input() createAccountLink = '/auth/create-account';
 
@@ -44,7 +52,10 @@ export class LoginFormComponent implements OnInit {
     // }]
   }
 
-  constructor(private authService: AuthService, private router: Router, private themeService: ThemeService) {
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {
     this.themeService.isDark.subscribe((value: boolean) => {
       this.btnStylingMode = value ? 'outlined' : 'contained';
     });
@@ -75,16 +86,3 @@ export class LoginFormComponent implements OnInit {
     this.defaultAuthData = await this.authService.getUser();
   }
 }
-@NgModule({
-  imports: [
-    CommonModule,
-    RouterModule,
-    LoginOauthModule,
-    DxFormModule,
-    DxLoadIndicatorModule,
-    DxButtonModule
-  ],
-  declarations: [LoginFormComponent],
-  exports: [LoginFormComponent],
-})
-export class LoginFormModule { }

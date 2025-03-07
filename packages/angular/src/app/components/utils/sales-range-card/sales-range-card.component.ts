@@ -1,18 +1,18 @@
 import {
   Component,
-  NgModule,
   Input,
   Output,
   EventEmitter,
 } from '@angular/core';
-import { CardAnalyticsModule } from '../../library/card-analytics/card-analytics.component';
+import { CardAnalyticsComponent } from '../../library/card-analytics/card-analytics.component';
 import { DxRangeSelectorModule } from 'devextreme-angular/ui/range-selector';
 import { Sale } from 'src/app/types/analytics';
 
 @Component({
-  selector: 'sales-range-card',
-  templateUrl: './sales-range-card.component.html',
-  styleUrls: ['./sales-range-card.component.scss'],
+    selector: 'sales-range-card',
+    templateUrl: './sales-range-card.component.html',
+    styleUrls: ['./sales-range-card.component.scss'],
+    imports: [CardAnalyticsComponent, DxRangeSelectorModule]
 })
 export class SalesRangeCardComponent {
   @Input() data: Sale[];
@@ -28,13 +28,3 @@ export class SalesRangeCardComponent {
     this.visualRangeChange.emit(this.visualRange);
   }
 }
-
-@NgModule({
-  imports: [
-    CardAnalyticsModule,
-    DxRangeSelectorModule,
-  ],
-  declarations: [SalesRangeCardComponent],
-  exports: [SalesRangeCardComponent],
-})
-export class SalesRangeCardModule { }

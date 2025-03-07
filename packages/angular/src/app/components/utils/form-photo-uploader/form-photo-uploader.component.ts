@@ -1,12 +1,12 @@
-import { CommonModule } from '@angular/common';
+import { NgClass } from '@angular/common';
 import {
-  Component, NgModule,
+  Component,
 } from '@angular/core';
-import { DxFileUploaderModule } from 'devextreme-angular/ui/file-uploader';
+import { DxFileUploaderModule as DxFileUploaderModule_1 } from 'devextreme-angular';
 
 @Component({
-  selector: 'form-photo-uploader',
-  template: `
+    selector: 'form-photo-uploader',
+    template: `
     <div 
       id="uploader"
       [ngClass]="
@@ -17,8 +17,7 @@ import { DxFileUploaderModule } from 'devextreme-angular/ui/file-uploader';
     >
       <span>Drag and drop a photo here or click the area to select it from a folder</span>
     </div>
-    <dx-file-uploader
-      dialogTrigger="#uploader"
+    <dx-file-uploader dialogTrigger="#uploader"
       dropZone="#uploader"
       [multiple]="false"
       accept="image/*"
@@ -27,10 +26,9 @@ import { DxFileUploaderModule } from 'devextreme-angular/ui/file-uploader';
       [visible]="false"
       (onDropZoneEnter)="onDropZoneEnter($event)"
       (onDropZoneLeave)="onDropZoneLeave($event)"
-    >
-    </dx-file-uploader>
+     />
 `,
-  styles: [`
+    styles: [`
     #uploader {
       background-color: var(--typography-bg);
       border-width: 1.5px;
@@ -52,6 +50,7 @@ import { DxFileUploaderModule } from 'devextreme-angular/ui/file-uploader';
       }
     }
   `],
+    imports: [NgClass, DxFileUploaderModule_1]
 })
 export class FormPhotoUploaderComponent { 
   isDropZoneActive = false;
@@ -64,10 +63,3 @@ export class FormPhotoUploaderComponent {
     if (e.dropZoneElement.id === 'uploader') { this.isDropZoneActive = false; }
   }
 }
-
-@NgModule({
-  imports: [CommonModule, DxFileUploaderModule],
-  declarations: [FormPhotoUploaderComponent],
-  exports: [FormPhotoUploaderComponent],
-})
-export class FormPhotoUploaderModule { }

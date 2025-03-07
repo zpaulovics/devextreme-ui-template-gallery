@@ -1,33 +1,31 @@
-import {
-  Component, OnInit, NgModule,
-} from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, inject } from '@angular/core';
+
 import {
   DxButtonModule,
-  DxDropDownButtonModule,
   DxScrollViewModule,
 } from 'devextreme-angular';
-import {
-  CardActivitiesModule,
-  CardNotesModule,
-  CardMessagesModule,
-} from 'src/app/components';
+
 import { DataService } from 'src/app/services';
 import { forkJoin, map } from 'rxjs';
 import { Contact } from 'src/app/types/contact';
 import { Messages } from 'src/app/types/messages';
 import { Notes } from 'src/app/types/notes';
 import { Opportunities } from 'src/app/types/opportunities';
-import { ContactFormModule } from 'src/app/components/library/contact-form/contact-form.component';
-import { ContactCardsModule } from 'src/app/components/utils/contact-cards/contact-cards.component';
 import { DxToolbarModule } from 'devextreme-angular/ui/toolbar';
+import { DxiItemModule } from 'devextreme-angular/ui/nested';
+import { DxDropDownButtonModule as DxDropDownButtonModule_1 } from 'devextreme-angular/ui/drop-down-button';
+import { ContactFormComponent } from '../../components/library/contact-form/contact-form.component';
+import { ContactCardsComponent } from '../../components/utils/contact-cards/contact-cards.component';
 
 @Component({
-  templateUrl: './crm-contact-details.component.html',
-  styleUrls: ['./crm-contact-details.component.scss'],
-  providers: [DataService],
+    templateUrl: './crm-contact-details.component.html',
+    styleUrls: ['./crm-contact-details.component.scss'],
+    providers: [DataService],
+    imports: [DxScrollViewModule, DxToolbarModule, DxiItemModule, DxButtonModule, DxDropDownButtonModule_1, ContactFormComponent, ContactCardsComponent]
 })
 export class CrmContactDetailsComponent implements OnInit {
+  private service = inject(DataService);
+
   contactId = 12;
 
   contactData: Contact;
@@ -44,7 +42,10 @@ export class CrmContactDetailsComponent implements OnInit {
 
   isLoading = false;
 
-  constructor(private service: DataService) {
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {
   }
 
   ngOnInit(): void {
@@ -60,10 +61,8 @@ export class CrmContactDetailsComponent implements OnInit {
     ]).pipe(
       map(
         ([
-          contactNotes,
-          contactMessages,
-          activeOpportunities,
-          closedOpportunities
+          // @ts-ignore
+          contactNotes, contactMessages, activeOpportunities, closedOpportunities
         ]) => ({
           contactNotes,
           contactMessages,
@@ -86,25 +85,3 @@ export class CrmContactDetailsComponent implements OnInit {
     this.loadData();
   };
 }
-
-@NgModule({
-  imports: [
-    DxButtonModule,
-    DxDropDownButtonModule,
-    DxScrollViewModule,
-    DxToolbarModule,
-
-    ContactFormModule,
-    ContactCardsModule,
-
-    CardActivitiesModule,
-    CardNotesModule,
-    CardMessagesModule,
-
-    CommonModule,
-  ],
-  providers: [],
-  exports: [],
-  declarations: [CrmContactDetailsComponent],
-})
-export class CrmContactDetailsModule { }

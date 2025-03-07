@@ -1,38 +1,32 @@
-import {
-  ChangeDetectorRef,
-  Component, NgModule,
-} from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { ChangeDetectorRef, Component, inject } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
 import notify from 'devextreme/ui/notify';
 import {
   DxButtonModule,
-  DxSelectBoxModule,
-  DxTextBoxModule,
-  DxToolbarModule,
-  DxFormModule,
-  DxNumberBoxModule,
-  DxDateBoxModule,
-  DxLoadPanelModule,
-  DxFileUploaderModule,
   DxScrollViewModule,
 } from 'devextreme-angular';
 import { forkJoin } from 'rxjs';
-import { PhonePipeModule } from 'src/app/pipes/phone.pipe';
-import {
-  FormPhotoModule,
-  FormTextboxModule,
-  ChangeProfilePasswordFormModule,
-  ProfileCardModule,
-  FormPopupModule,
-} from 'src/app/components';
+
 import { DataService, ScreenService } from 'src/app/services';
+import { DxToolbarModule as DxToolbarModule_1 } from 'devextreme-angular/ui/toolbar';
+import { DxiItemModule } from 'devextreme-angular/ui/nested';
+import { DxLoadPanelModule as DxLoadPanelModule_1 } from 'devextreme-angular/ui/load-panel';
+import { ProfileCardComponent } from '../../components/library/profile-card/profile-card.component';
+import { FormPhotoComponent } from '../../components/utils/form-photo/form-photo.component';
+import { ChangeProfilePasswordFormComponent } from '../../components/library/change-profile-password-form/change-profile-password-form.component';
+import { PhonePipe } from '../../pipes/phone.pipe';
 
 @Component({
-  templateUrl: './user-profile.component.html',
-  styleUrls: ['./user-profile.component.scss'],
-  providers: [DataService],
+    templateUrl: './user-profile.component.html',
+    styleUrls: ['./user-profile.component.scss'],
+    providers: [DataService],
+    imports: [DxToolbarModule_1, DxiItemModule, DxButtonModule, DxLoadPanelModule_1, DxScrollViewModule, ProfileCardComponent, FormPhotoComponent, ChangeProfilePasswordFormComponent, AsyncPipe, PhonePipe]
 })
 export class UserProfileComponent {
+  private service = inject(DataService);
+  screen = inject(ScreenService);
+  private ref = inject(ChangeDetectorRef);
+
   profileId = 22;
 
   profileData: Record<string, any>;
@@ -55,12 +49,19 @@ export class UserProfileComponent {
 
   addressItems: Record<string, any>[] = this.getAddressItems();
 
-  constructor(private service: DataService, public screen: ScreenService, private ref: ChangeDetectorRef) {
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {
+    const service = this.service;
+
     forkJoin([
       service.getSupervisors(),
       service.getProfile(this.profileId)
+    // @ts-ignore
     ]).subscribe(([supervisorsList, profileData]) => {
       this.supervisorsList.length = 0;
+      // @ts-ignore
       this.supervisorsList.push(...supervisorsList);
       this.profileData = profileData;
       this.setSavedData();
@@ -208,29 +209,3 @@ export class UserProfileComponent {
   }
 
 }
-
-@NgModule({
-  imports: [
-    DxButtonModule,
-    DxDateBoxModule,
-    DxFormModule,
-    DxFileUploaderModule,
-    DxNumberBoxModule,
-    DxToolbarModule,
-    DxSelectBoxModule,
-    DxScrollViewModule,
-    DxLoadPanelModule,
-    DxTextBoxModule,
-    FormTextboxModule,
-    FormPhotoModule,
-    FormPopupModule,
-    ProfileCardModule,
-    ChangeProfilePasswordFormModule,
-    CommonModule,
-    PhonePipeModule,
-  ],
-  providers: [],
-  exports: [],
-  declarations: [UserProfileComponent],
-})
-export class UserProfileListModule { }

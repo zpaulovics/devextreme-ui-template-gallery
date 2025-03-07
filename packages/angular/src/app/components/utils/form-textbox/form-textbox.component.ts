@@ -1,16 +1,17 @@
-import {Component, EventEmitter, Input, NgModule, Output} from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+
 import {
-  DxButtonModule,
   DxTextBoxModule,
   DxValidatorModule
 } from 'devextreme-angular';
 import { ValidationRule } from 'devextreme-angular/common';
+import { DxiButtonModule } from 'devextreme-angular/ui/nested';
 
 @Component({
-  selector: 'form-textbox',
-  templateUrl: './form-textbox.component.html',
-  styleUrls: ['form-textbox.component.scss'],
+    selector: 'form-textbox',
+    templateUrl: './form-textbox.component.html',
+    styleUrls: ['form-textbox.component.scss'],
+    imports: [DxTextBoxModule, DxValidatorModule, DxiButtonModule]
 })
 export class FormTextboxComponent {
   @Input() isEditing = false;
@@ -34,15 +35,3 @@ export class FormTextboxComponent {
   }
 
 }
-
-@NgModule({
-  imports: [
-    DxButtonModule,
-    DxTextBoxModule,
-    DxValidatorModule,
-    CommonModule,
-  ],
-  declarations: [FormTextboxComponent],
-  exports: [FormTextboxComponent],
-})
-export class FormTextboxModule { }

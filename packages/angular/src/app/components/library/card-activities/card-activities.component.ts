@@ -1,17 +1,17 @@
-import { CommonModule } from '@angular/common';
+import { NgClass, DatePipe } from '@angular/common';
 import {
-  Component, NgModule, Input, SimpleChanges, OnInit, OnChanges,
+  Component, Input,
 } from '@angular/core';
-import { DxButtonModule } from 'devextreme-angular/ui/button';
 import { DxListModule } from 'devextreme-angular/ui/list';
 import { DxLoadPanelModule } from 'devextreme-angular/ui/load-panel';
-import { CardMenuModule } from '../card-menu/card-menu.component';
+import { CardMenuComponent } from '../card-menu/card-menu.component';
 import { Activity } from 'src/app/types/activities';
 
 @Component({
-  selector: 'card-activities',
-  templateUrl: './card-activities.component.html',
-  styleUrls: ['./card-activities.component.scss'],
+    selector: 'card-activities',
+    templateUrl: './card-activities.component.html',
+    styleUrls: ['./card-activities.component.scss'],
+    imports: [NgClass, DxListModule, DxLoadPanelModule, CardMenuComponent, DatePipe]
 })
 export class CardActivitiesComponent {
   @Input() activities: Activity[];
@@ -25,17 +25,3 @@ export class CardActivitiesComponent {
     { text: 'Delete' },
   ];
 }
-
-@NgModule({
-  imports: [
-    DxListModule,
-    DxButtonModule,
-    DxLoadPanelModule,
-    CardMenuModule,
-
-    CommonModule,
-  ],
-  declarations: [CardActivitiesComponent],
-  exports: [CardActivitiesComponent],
-})
-export class CardActivitiesModule { }

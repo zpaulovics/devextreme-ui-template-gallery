@@ -1,31 +1,32 @@
-import {
-  Component, OnInit, NgModule
-} from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, inject } from '@angular/core';
+
 import {
   DxButtonModule,
-  DxDropDownButtonModule,
   DxTabPanelModule,
   DxValidationGroupModule,
   DxScrollViewModule,
 } from 'devextreme-angular';
-import {
-  CardActivitiesModule,
-  CardNotesModule,
-  CardMessagesModule,
-  StatusIndicatorModule,
-} from 'src/app/components';
+
 import { Task } from 'src/app/types/task';
 import { DataService } from 'src/app/services';
-import { TaskFormModule } from 'src/app/components/library/task-form/task-form.component';
+
 import { DxToolbarModule } from 'devextreme-angular/ui/toolbar';
+import { DxiItemModule } from 'devextreme-angular/ui/nested';
+import { DxDropDownButtonModule as DxDropDownButtonModule_1 } from 'devextreme-angular/ui/drop-down-button';
+import { TaskFormComponent } from '../../components/library/task-form/task-form.component';
+import { CardActivitiesComponent } from '../../components/library/card-activities/card-activities.component';
+import { CardNotesComponent } from '../../components/library/card-notes/card-notes.component';
+import { CardMessagesComponent } from '../../components/library/card-messages/card-messages.component';
 
 @Component({
-  templateUrl: './planning-task-details.component.html',
-  styleUrls: ['./planning-task-details.component.scss'],
-  providers: [DataService],
+    templateUrl: './planning-task-details.component.html',
+    styleUrls: ['./planning-task-details.component.scss'],
+    providers: [DataService],
+    imports: [DxScrollViewModule, DxToolbarModule, DxiItemModule, DxButtonModule, DxDropDownButtonModule_1, DxValidationGroupModule, TaskFormComponent, DxTabPanelModule, CardActivitiesComponent, CardNotesComponent, CardMessagesComponent]
 })
 export class PlanningTaskDetailsComponent implements OnInit {
+  private service = inject(DataService);
+
   task: Task;
 
   taskId = 1;
@@ -34,7 +35,10 @@ export class PlanningTaskDetailsComponent implements OnInit {
 
   isLoading = false;
 
-  constructor(private service: DataService) {
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {
   }
 
   loadData = () => {
@@ -54,25 +58,3 @@ export class PlanningTaskDetailsComponent implements OnInit {
     this.loadData();
   }
 }
-
-@NgModule({
-  imports: [
-    DxButtonModule,
-    DxDropDownButtonModule,
-    DxTabPanelModule,
-    DxValidationGroupModule,
-    DxToolbarModule,
-
-    CardActivitiesModule,
-    CardNotesModule,
-    CardMessagesModule,
-    TaskFormModule,
-    StatusIndicatorModule,
-    DxScrollViewModule,
-    CommonModule,
-  ],
-  providers: [],
-  exports: [],
-  declarations: [PlanningTaskDetailsComponent],
-})
-export class PlanningTaskDetailsModule { }

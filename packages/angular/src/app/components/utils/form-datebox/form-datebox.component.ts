@@ -1,21 +1,18 @@
 import {
-  Component, EventEmitter, Input, NgModule, Output, ViewChild,
+  Component, EventEmitter, Input, Output, ViewChild,
 } from '@angular/core';
 import {
-  DxCalendarModule,
-  DxDropDownButtonModule,
   DxDropDownButtonComponent,
   DxDateBoxModule,
 } from 'devextreme-angular';
 
 import { DxCalendarTypes } from 'devextreme-angular/ui/calendar';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
-  selector: 'form-item-date',
-  template: `
-    <dx-date-box
-      [(value)]="value"
+    selector: 'form-item-date',
+    template: `
+    <dx-date-box [(value)]="value"
       [readOnly]="!isEditing"
       [label]="label"
       [elementAttr]="{class: 'form-editor'}"
@@ -24,7 +21,8 @@ import { CommonModule } from '@angular/common';
       placeholder="MM/dd/y"
       displayFormat="MM/dd/y"
       pickerType="calendar"
-  ></dx-date-box>`,
+   />`,
+    imports: [DxDateBoxModule]
 })
 export class FormDateboxComponent {
   @ViewChild(DxDropDownButtonComponent) dropDownButtonComponent: DxDropDownButtonComponent;
@@ -46,16 +44,3 @@ export class FormDateboxComponent {
     this.dropDownButtonComponent.instance.close();
   };
 }
-
-@NgModule({
-  imports: [
-    DxCalendarModule,
-    DxDropDownButtonModule,
-    DxDateBoxModule,
-    CommonModule,
-  ],
-  providers: [],
-  exports: [FormDateboxComponent],
-  declarations: [FormDateboxComponent],
-})
-export class FormItemDateModule { }

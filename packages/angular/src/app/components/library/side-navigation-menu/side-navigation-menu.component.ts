@@ -1,24 +1,17 @@
-import {
-  Component,
-  NgModule,
-  Output,
-  Input,
-  EventEmitter,
-  ViewChild,
-  ElementRef,
-  AfterViewInit,
-  OnDestroy,
-} from '@angular/core';
+import { Component, Output, Input, EventEmitter, ViewChild, ElementRef, AfterViewInit, OnDestroy, inject } from '@angular/core';
 import { DxTreeViewModule, DxTreeViewComponent, DxTreeViewTypes } from 'devextreme-angular/ui/tree-view';
 import * as events from 'devextreme/events';
 import { navigation } from '../../../app-navigation';
 
 @Component({
-  selector: 'side-navigation-menu',
-  templateUrl: './side-navigation-menu.component.html',
-  styleUrls: ['./side-navigation-menu.component.scss'],
+    selector: 'side-navigation-menu',
+    templateUrl: './side-navigation-menu.component.html',
+    styleUrls: ['./side-navigation-menu.component.scss'],
+    imports: [DxTreeViewModule]
 })
 export class SideNavigationMenuComponent implements AfterViewInit, OnDestroy {
+  private elementRef = inject(ElementRef);
+
   @ViewChild(DxTreeViewComponent, { static: true })
   menu!: DxTreeViewComponent;
 
@@ -76,7 +69,10 @@ export class SideNavigationMenuComponent implements AfterViewInit, OnDestroy {
 
   private _compactMode = false;
 
-  constructor(private elementRef: ElementRef) { }
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() { }
 
   setSelectedItem() {
     if (!this.menu.instance) {
@@ -101,10 +97,3 @@ export class SideNavigationMenuComponent implements AfterViewInit, OnDestroy {
     events.off(this.elementRef.nativeElement, 'dxclick');
   }
 }
-
-@NgModule({
-  imports: [DxTreeViewModule],
-  declarations: [SideNavigationMenuComponent],
-  exports: [SideNavigationMenuComponent],
-})
-export class SideNavigationMenuModule { }

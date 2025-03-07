@@ -1,6 +1,6 @@
 <div class="panel" [ngClass]="{ pin: pinned, open: isOpened }">
   <div class="data-wrapper">
-    <ng-container *ngIf="!isLoading">
+    @if (!isLoading) {
       <dx-toolbar class="panel-toolbar">
         <dxi-item location="before">
           <span class="contact-name value">{{ formData.name }}</span>
@@ -17,12 +17,11 @@
         </dxi-item>
         <dxi-item location="after">
           <dx-button
-            icon="close" 
+            icon="close"
             stylingMode="text"
-            (onClick)="onClosePanel()"></dx-button>
+          (onClick)="onClosePanel()"></dx-button>
         </dxi-item>
       </dx-toolbar>
-
       <dx-scroll-view class="panel-scroll">
         <dx-validation-group>
           <div class="data-part border">
@@ -30,7 +29,7 @@
               class="plain-styled-form"
               labelMode="floating"
               [class.view-mode]="!isEditing"
-            >
+              >
               <dxi-item itemType="group" [colCount]="2" cssClass="photo-row">
                 <dxo-col-count-by-screen [xs]="2"></dxo-col-count-by-screen>
                 <dxi-item cssClass="photo-box">
@@ -38,7 +37,6 @@
                     <form-photo [link]="formData.image"></form-photo>
                   </div>
                 </dxi-item>
-
                 <dxi-item itemType="group">
                   <dxi-item cssClass="accent">
                     <div *dxTemplate>
@@ -49,7 +47,6 @@
                       ></form-textbox>
                     </div>
                   </dxi-item>
-
                   <dxi-item>
                     <div *dxTemplate>
                       <form-textbox
@@ -59,7 +56,6 @@
                       ></form-textbox>
                     </div>
                   </dxi-item>
-
                   <dxi-item cssClass="accent">
                     <div *dxTemplate>
                       <form-textbox
@@ -71,7 +67,6 @@
                   </dxi-item>
                 </dxi-item>
               </dxi-item>
-
               <dxi-item itemType="group" cssClass="contact-fields-group">
                 <dxi-item>
                   <div *dxTemplate>
@@ -80,7 +75,7 @@
                       mask="+1(000)000-0000"
                       [(value)]="formData.phone"
                       [isEditing]="isEditing"
-                    >
+                      >
                     </form-textbox>
                   </div>
                 </dxi-item>
@@ -101,14 +96,13 @@
                       [(value)]="formData.address"
                       [isEditing]="isEditing"
                       [validators]="[]"
-                    >
+                      >
                     </form-textbox>
                   </div>
                 </dxi-item>
               </dxi-item>
             </dx-form>
           </div>
-
           <div class="data-part data-part-toolbar border">
             <dx-toolbar>
               <dxi-item location="after" [visible]="!isEditing">
@@ -118,7 +112,7 @@
                   stylingMode="contained"
                   type="default"
                   (onClick)="toggleEdit()"
-                >
+                  >
                 </dx-button>
               </dxi-item>
               <dxi-item location="after" [visible]="!isEditing">
@@ -127,28 +121,28 @@
                   stylingMode="outlined"
                   type="normal"
                   (onClick)="navigateToDetails()"
-                >
+                  >
                 </dx-button>
               </dxi-item>
               <dxi-item
                 location="after"
                 locateInMenu="after"
                 [visible]="isEditing"
-              >
+                >
                 <dx-button
                   text="Save"
                   icon="save"
                   stylingMode="contained"
                   type="default"
                   (onClick)="onSaveClick($event)"
-                >
+                  >
                 </dx-button>
               </dxi-item>
               <dxi-item
                 location="after"
                 locateInMenu="after"
                 [visible]="isEditing"
-              >
+                >
                 <dx-button
                   text="Cancel"
                   stylingMode="outlined"
@@ -170,36 +164,34 @@
             </dx-toolbar>
           </div>
         </dx-validation-group>
-
         <div class="data-part">
           <dx-accordion [multiple]="true" [collapsible]="true">
             <div class="accordion-title" *dxTemplate="let t of 'title'">
               <span>{{ t.title }}</span>
             </div>
-
             <dxi-item title="Opportunities">
               <div *dxTemplate="let i of 'item'">
-                <div
-                  class="opportunities"
-                  *ngFor="let opportunity of formData.opportunities"
-                >
-                  <span class="value">{{ opportunity.name }} </span>
-                  <br />
-                  <span class="value black small">{{
-                    opportunity.price | currency: 'USD':'$':'1.0-0'
-                  }}</span>
-                  <br />
-                </div>
+                @for (opportunity of formData.opportunities; track opportunity) {
+                  <div
+                    class="opportunities"
+                    >
+                    <span class="value">{{ opportunity.name }} </span>
+                    <br />
+                    <span class="value black small">{{
+                      opportunity.price | currency: 'USD':'$':'1.0-0'
+                    }}</span>
+                    <br />
+                  </div>
+                }
               </div>
             </dxi-item>
-
             <dxi-item title="Activities">
               <card-activities [activities]="formData.activities"></card-activities>
             </dxi-item>
           </dx-accordion>
         </div>
       </dx-scroll-view>
-    </ng-container>
+    }
 
     <dx-load-panel
       container=".panel"

@@ -1,19 +1,25 @@
-import { CommonModule } from '@angular/common';
-import { Component, NgModule, Input, OnInit } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+
+import { Component, Input, OnInit, inject } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { DxFormModule } from 'devextreme-angular/ui/form';
 import { DxLoadIndicatorModule } from 'devextreme-angular/ui/load-indicator';
 import notify from 'devextreme/ui/notify';
 import { AuthService, IResponse } from 'src/app/services';
+import { DxiItemModule, DxiValidationRuleModule, DxoLabelModule, DxoButtonOptionsModule } from 'devextreme-angular/ui/nested';
+import { DxTemplateModule } from 'devextreme-angular/core';
 
 const notificationText = 'We\'ve sent a link to reset your password. Check your inbox.';
 
 @Component({
-  selector: 'reset-password-form',
-  templateUrl: './reset-password-form.component.html',
-  styleUrls: ['./reset-password-form.component.scss'],
+    selector: 'reset-password-form',
+    templateUrl: './reset-password-form.component.html',
+    styleUrls: ['./reset-password-form.component.scss'],
+    imports: [DxFormModule, DxiItemModule, DxiValidationRuleModule, DxoLabelModule, DxoButtonOptionsModule, DxTemplateModule, DxLoadIndicatorModule, RouterLink]
 })
 export class ResetPasswordFormComponent implements OnInit {
+  private authService = inject(AuthService);
+  private router = inject(Router);
+
   @Input() signInLink = '/auth/login';
 
   @Input() buttonLink = '/auth/login';
@@ -24,7 +30,10 @@ export class ResetPasswordFormComponent implements OnInit {
 
   formData: any = {};
 
-  constructor(private authService: AuthService, private router: Router) { }
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() { }
 
   async onSubmit(e: Event) {
     e.preventDefault();
@@ -46,14 +55,3 @@ export class ResetPasswordFormComponent implements OnInit {
     this.defaultAuthData = await this.authService.getUser();
   }
 }
-@NgModule({
-  imports: [
-    CommonModule,
-    RouterModule,
-    DxFormModule,
-    DxLoadIndicatorModule,
-  ],
-  declarations: [ResetPasswordFormComponent],
-  exports: [ResetPasswordFormComponent],
-})
-export class ResetPasswordFormModule { }

@@ -1,46 +1,38 @@
-import {
-  Component,
-  OnInit,
-  OnChanges,
-  OnDestroy,
-  NgModule,
-  Output,
-  Input,
-  SimpleChanges,
-  EventEmitter,
-  AfterViewChecked,
-} from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, OnChanges, OnDestroy, Output, Input, SimpleChanges, EventEmitter, AfterViewChecked, inject } from '@angular/core';
+import { NgClass, CurrencyPipe } from '@angular/common';
 import { Router } from '@angular/router';
 import {
   DxAccordionModule,
   DxButtonModule,
-  DxDropDownButtonModule,
-  DxToolbarModule,
-  DxLoadPanelModule,
   DxScrollViewModule,
-  DxFormModule,
-  DxValidatorModule,
   DxValidationGroupModule,
 } from 'devextreme-angular';
 import { DxButtonTypes } from 'devextreme-angular/ui/button';
-import {
-  FormTextboxModule,
-  FormPhotoModule,
-  CardActivitiesModule,
-  ContactStatusModule,
-} from 'src/app/components';
+
 import { ScreenService, DataService } from 'src/app/services';
 import { distinctUntilChanged, Subject, Subscription} from 'rxjs';
 import { Contact } from 'src/app/types/contact';
+import { DxToolbarModule as DxToolbarModule_1 } from 'devextreme-angular/ui/toolbar';
+import { ContactStatusComponent } from '../../utils/contact-status/contact-status.component';
+import { DxFormModule as DxFormModule_1 } from 'devextreme-angular/ui/form';
+import { DxoColCountByScreenModule } from 'devextreme-angular/ui/nested';
+import { FormPhotoComponent } from '../../utils/form-photo/form-photo.component';
+import { FormTextboxComponent } from '../../utils/form-textbox/form-textbox.component';
+import { CardActivitiesComponent } from '../card-activities/card-activities.component';
+import { DxLoadPanelModule as DxLoadPanelModule_1 } from 'devextreme-angular/ui/load-panel';
 
 @Component({
-  selector: 'contact-panel',
-  templateUrl: './contact-panel.component.html',
-  styleUrls: ['./contact-panel.component.scss'],
-  providers: [DataService],
+    selector: 'contact-panel',
+    templateUrl: './contact-panel.component.html',
+    styleUrls: ['./contact-panel.component.scss'],
+    providers: [DataService],
+    imports: [NgClass, DxToolbarModule_1, DxAccordionModule, ContactStatusComponent, DxButtonModule, DxScrollViewModule, DxValidationGroupModule, DxFormModule_1, DxoColCountByScreenModule, FormPhotoComponent, FormTextboxComponent, CardActivitiesComponent, DxLoadPanelModule_1, CurrencyPipe]
 })
 export class ContactPanelComponent implements OnInit, OnChanges, AfterViewChecked, OnDestroy {
+  private screen = inject(ScreenService);
+  private service = inject(DataService);
+  private router = inject(Router);
+
   @Input() isOpened = false;
 
   @Input() userId: number;
@@ -65,8 +57,12 @@ export class ContactPanelComponent implements OnInit, OnChanges, AfterViewChecke
 
   userPanelSubscriptions: Subscription[] = [];
 
-  constructor(private screen: ScreenService, private service: DataService, private router: Router) {
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {
     this.userPanelSubscriptions.push(
+      // @ts-ignore
       this.screen.changed.subscribe(this.calculatePin),
       this
         .pinEventSubject
@@ -142,26 +138,3 @@ export class ContactPanelComponent implements OnInit, OnChanges, AfterViewChecke
     this.router.navigate(['/crm-contact-details']);
   };
 }
-
-@NgModule({
-  imports: [
-    DxAccordionModule,
-    DxButtonModule,
-    DxDropDownButtonModule,
-    DxToolbarModule,
-    DxLoadPanelModule,
-    DxScrollViewModule,
-    DxFormModule,
-    DxValidatorModule,
-    DxValidationGroupModule,
-
-    FormTextboxModule,
-    FormPhotoModule,
-    CardActivitiesModule,
-    ContactStatusModule,
-    CommonModule,
-  ],
-  declarations: [ContactPanelComponent],
-  exports: [ContactPanelComponent],
-})
-export class ContactPanelModule { }

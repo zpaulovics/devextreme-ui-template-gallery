@@ -1,19 +1,20 @@
 import {
-  Component, Input, NgModule, OnChanges, SimpleChanges,
+  Component, Input, OnChanges, SimpleChanges,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import {
   DxButtonModule,
-  DxLoadPanelModule,
 } from 'devextreme-angular';
-import notify from 'devextreme/ui/notify';
 import { Opportunity } from 'src/app/types/opportunities';
-import { OpportunityTileModule } from 'src/app/components/utils/opportunity-tile/opportunity-tile.component';
+
+import { OpportunityTileComponent } from '../../utils/opportunity-tile/opportunity-tile.component';
+import { DxLoadPanelModule as DxLoadPanelModule_1 } from 'devextreme-angular/ui/load-panel';
 
 @Component({
-  selector: 'card-opportunities',
-  templateUrl: './card-opportunities.component.html',
-  styleUrls: ['./card-opportunities.component.scss'],
+    selector: 'card-opportunities',
+    templateUrl: './card-opportunities.component.html',
+    styleUrls: ['./card-opportunities.component.scss'],
+    imports: [DxButtonModule, OpportunityTileComponent, DxLoadPanelModule_1]
 })
 export class CardOpportunitiesComponent implements OnChanges {
   @Input() openedOpportunities: Opportunity[];
@@ -29,16 +30,3 @@ export class CardOpportunitiesComponent implements OnChanges {
     this.isLoading = isLoadActive || isLoadClosed;
   }
 }
-
-@NgModule({
-  imports: [
-    DxButtonModule,
-    DxLoadPanelModule,
-    OpportunityTileModule,
-
-    CommonModule,
-  ],
-  declarations: [CardOpportunitiesComponent],
-  exports: [CardOpportunitiesComponent],
-})
-export class CardOpportunitiesModule { }

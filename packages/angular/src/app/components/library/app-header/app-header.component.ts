@@ -1,22 +1,23 @@
-import {
-  Component, NgModule, Input, Output, EventEmitter, OnInit,
-} from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Input, Output, EventEmitter, OnInit, inject } from '@angular/core';
 
-import { DxButtonModule } from 'devextreme-angular/ui/button';
 import { DxToolbarModule } from 'devextreme-angular/ui/toolbar';
 
-import { UserPanelModule } from '../user-panel/user-panel.component';
+import { UserPanelComponent } from '../user-panel/user-panel.component';
 import { AuthService, IUser } from 'src/app/services';
-import { ThemeSwitcherModule } from 'src/app/components/library/theme-switcher/theme-switcher.component';
+
+import { ThemeSwitcherComponent } from '../theme-switcher/theme-switcher.component';
+import { DxButtonModule as DxButtonModule_1 } from 'devextreme-angular';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: 'app-header.component.html',
-  styleUrls: ['./app-header.component.scss'],
+    selector: 'app-header',
+    templateUrl: 'app-header.component.html',
+    styleUrls: ['./app-header.component.scss'],
+    imports: [DxToolbarModule, ThemeSwitcherComponent, DxButtonModule_1, UserPanelComponent]
 })
 
 export class AppHeaderComponent implements OnInit {
+  private authService = inject(AuthService);
+
   @Output()
   menuToggle = new EventEmitter<boolean>();
 
@@ -37,7 +38,10 @@ export class AppHeaderComponent implements OnInit {
     },
   }];
 
-  constructor(private authService: AuthService) { }
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() { }
 
   ngOnInit() {
     this.authService.getUser().then((e) => this.user = e.data);
@@ -47,16 +51,3 @@ export class AppHeaderComponent implements OnInit {
     this.menuToggle.emit();
   };
 }
-
-@NgModule({
-  imports: [
-    CommonModule,
-    DxButtonModule,
-    DxToolbarModule,
-    ThemeSwitcherModule,
-    UserPanelModule,
-  ],
-  declarations: [AppHeaderComponent],
-  exports: [AppHeaderComponent],
-})
-export class AppHeaderModule { }

@@ -1,18 +1,14 @@
 import {
-  Component, NgModule, Input, SimpleChanges, OnChanges, ViewChild, Output, EventEmitter,
+  Component, Input, SimpleChanges, OnChanges, ViewChild, Output, EventEmitter,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { DxButtonModule } from 'devextreme-angular/ui/button';
-import { DxScrollViewModule } from 'devextreme-angular/ui/scroll-view';
+
 import { DxSortableModule, DxSortableComponent } from 'devextreme-angular/ui/sortable';
-
-import notify from 'devextreme/ui/notify';
 import { DxSortableTypes } from 'devextreme-angular/ui/sortable';
-
-import { CardMenuModule } from 'src/app/components';
 import { Task } from 'src/app/types/task';
 import { TaskStatus, taskStatusList } from 'src/app/types/task';
-import { TaskKanbanCardModule } from '../task-kanban-card/task-kanban-card.component';
+import { TaskKanbanCardComponent } from '../task-kanban-card/task-kanban-card.component';
+import { DxScrollViewModule as DxScrollViewModule_1, DxButtonModule as DxButtonModule_1 } from 'devextreme-angular';
+import { CardMenuComponent } from '../card-menu/card-menu.component';
 
 type Board = {
   name: TaskStatus
@@ -20,9 +16,10 @@ type Board = {
 };
 
 @Component({
-  selector: 'task-list-kanban',
-  templateUrl: './task-list-kanban.component.html',
-  styleUrls: ['./task-list-kanban.component.scss'],
+    selector: 'task-list-kanban',
+    templateUrl: './task-list-kanban.component.html',
+    styleUrls: ['./task-list-kanban.component.scss'],
+    imports: [DxScrollViewModule_1, DxSortableModule, CardMenuComponent, TaskKanbanCardComponent, DxButtonModule_1]
 })
 export class TaskListKanbanComponent implements OnChanges {
   @ViewChild(DxSortableComponent, { static: false }) sortable: DxSortableComponent;
@@ -95,20 +92,3 @@ export class TaskListKanbanComponent implements OnChanges {
     this.addTaskEvent.emit();
   }
 }
-
-@NgModule({
-  imports: [
-    DxButtonModule,
-    DxScrollViewModule,
-    DxSortableModule,
-
-    TaskKanbanCardModule,
-    CardMenuModule,
-
-    CommonModule,
-  ],
-  providers: [],
-  exports: [TaskListKanbanComponent],
-  declarations: [TaskListKanbanComponent],
-})
-export class TaskListKanbanModule { }

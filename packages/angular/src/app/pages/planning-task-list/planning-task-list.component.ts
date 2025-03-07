@@ -1,7 +1,5 @@
-import {
-  Component, OnInit, NgModule, ViewChild,
-} from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, NgModule, ViewChild, inject } from '@angular/core';
+import { CommonModule, NgIf, NgSwitch, NgSwitchCase, AsyncPipe } from '@angular/common';
 import { DxButtonModule } from 'devextreme-angular/ui/button';
 import { DxDataGridModule } from 'devextreme-angular/ui/data-grid';
 import { DxTabsModule } from 'devextreme-angular/ui/tabs';
@@ -13,19 +11,29 @@ import { taskPanelItems } from 'src/app/types/resource';
 import { Task, newTask } from 'src/app/types/task';
 import { DataService, ScreenService } from 'src/app/services';
 import { forkJoin, map, Observable } from 'rxjs';
-import { TaskFormComponent, TaskFormModule } from 'src/app/components/library/task-form/task-form.component';
-import { FormPopupModule } from 'src/app/components/utils/form-popup/form-popup.component';
+import { TaskFormComponent } from 'src/app/components/library/task-form/task-form.component';
+
 import { TaskListGridComponent, TaskListModule } from 'src/app/components/library/task-list-grid/task-list-grid.component';
-import { TaskListKanbanModule, TaskListKanbanComponent } from 'src/app/components/library/task-list-kanban/task-list-kanban.component';
-import { TaskListGanttComponent, TaskListGanttModule } from 'src/app/components/library/task-list-gantt/task-list-gantt.component';
+import { TaskListKanbanComponent } from 'src/app/components/library/task-list-kanban/task-list-kanban.component';
+import { TaskListGanttComponent } from 'src/app/components/library/task-list-gantt/task-list-gantt.component';
 import { DxLoadPanelModule } from 'devextreme-angular/ui/load-panel';
+import { DxButtonModule as DxButtonModule_1 } from 'devextreme-angular';
+import { TaskListGridComponent as TaskListGridComponent_1 } from '../../components/library/task-list-grid/task-list-grid.component';
+import { TaskListKanbanComponent as TaskListKanbanComponent_1 } from '../../components/library/task-list-kanban/task-list-kanban.component';
+import { TaskListGanttComponent as TaskListGanttComponent_1 } from '../../components/library/task-list-gantt/task-list-gantt.component';
+import { FormPopupComponent } from '../../components/utils/form-popup/form-popup.component';
+import { TaskFormComponent as TaskFormComponent_1 } from '../../components/library/task-form/task-form.component';
 
 @Component({
-  templateUrl: './planning-task-list.component.html',
-  styleUrls: ['./planning-task-list.component.scss'],
-  providers: [DataService],
+    templateUrl: './planning-task-list.component.html',
+    styleUrls: ['./planning-task-list.component.scss'],
+    providers: [DataService],
+    imports: [DxToolbarModule, DxTabsModule, DxButtonModule_1, TaskListGridComponent_1, TaskListKanbanComponent_1, TaskListGanttComponent_1, DxLoadPanelModule, FormPopupComponent, TaskFormComponent_1, AsyncPipe]
 })
 export class PlanningTaskListComponent implements OnInit {
+  private service = inject(DataService);
+  protected screen = inject(ScreenService);
+
   @ViewChild('planningDataGrid', { static: false }) dataGrid: TaskListGridComponent;
 
   @ViewChild('planningGantt', { static: false }) gantt: TaskListGanttComponent;
@@ -48,7 +56,10 @@ export class PlanningTaskListComponent implements OnInit {
 
   taskCollections$: Observable<{ allTasks: Task[]; filteredTasks: Task[] }>;
 
-  constructor(private service: DataService, protected screen: ScreenService) {
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {
   }
 
   ngOnInit(): void {
@@ -107,23 +118,17 @@ export class PlanningTaskListComponent implements OnInit {
 }
 
 @NgModule({
-  imports: [
+    imports: [
     DxButtonModule,
     DxDataGridModule,
     DxTabsModule,
     DxToolbarModule,
     DxLoadPanelModule,
-    FormPopupModule,
-
-    TaskFormModule,
-    TaskListKanbanModule,
     TaskListModule,
-    TaskListGanttModule,
-
     CommonModule,
-  ],
-  providers: [],
-  exports: [],
-  declarations: [PlanningTaskListComponent],
+    PlanningTaskListComponent,
+],
+    providers: [],
+    exports: [],
 })
 export class PlanningTaskListModule { }

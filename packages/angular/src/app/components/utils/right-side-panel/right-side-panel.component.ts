@@ -1,11 +1,5 @@
-import {
-  Component,
-  NgModule,
-  Output,
-  Input,
-  EventEmitter, HostBinding,
-} from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, NgModule, Output, Input, EventEmitter, HostBinding, inject } from '@angular/core';
+
 import {
   DxButtonModule,
 } from 'devextreme-angular';
@@ -13,12 +7,15 @@ import { DxButtonTypes } from 'devextreme-angular/ui/button';
 import {DataService, ScreenService} from 'src/app/services';
 
 @Component({
-  selector: 'right-side-panel',
-  templateUrl: './right-side-panel.component.html',
-  styleUrls: ['./right-side-panel.component.scss'],
-  providers: [DataService],
+    selector: 'right-side-panel',
+    templateUrl: './right-side-panel.component.html',
+    styleUrls: ['./right-side-panel.component.scss'],
+    providers: [DataService],
+    imports: [DxButtonModule]
 })
 export class RightSidePanelComponent {
+  protected screen = inject(ScreenService);
+
   @Input() isOpened = false;
 
   @Input() showOpenButton = true;
@@ -35,7 +32,12 @@ export class RightSidePanelComponent {
 
   isLarge = this.screen.sizes['screen-large'];
 
-  constructor(protected screen: ScreenService) {
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {
+    const screen = this.screen;
+
     screen.screenChanged.subscribe(({isLarge, isXLarge}) => {
       this.isLarge = isLarge || isXLarge;
     });
@@ -48,12 +50,4 @@ export class RightSidePanelComponent {
   };
 }
 
-@NgModule({
-  imports: [
-    DxButtonModule,
-    CommonModule,
-  ],
-  declarations: [RightSidePanelComponent],
-  exports: [RightSidePanelComponent],
-})
-export class RightSidePanelModule { }
+

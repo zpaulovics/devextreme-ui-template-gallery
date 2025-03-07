@@ -1,27 +1,25 @@
-import {
-  Component,
-  NgModule,
-  Input,
-  ViewChild, Output, EventEmitter,
-} from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Input, ViewChild, Output, EventEmitter, inject } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
 import {
   DxButtonModule,
-  DxToolbarModule,
   DxPopupModule,
   DxValidationGroupModule,
   DxValidationGroupComponent,
 } from 'devextreme-angular';
 import { ScreenService } from 'src/app/services';
-import { ApplyPipeModule } from 'src/app/pipes/apply.pipe';
+
+import { ApplyPipe } from '../../../pipes/apply.pipe';
 
 @Component({
-  selector: 'form-popup',
-  templateUrl: './form-popup.component.html',
-  styleUrls: ['./form-popup.component.scss']
+    selector: 'form-popup',
+    templateUrl: './form-popup.component.html',
+    styleUrls: ['./form-popup.component.scss'],
+    imports: [DxPopupModule, DxButtonModule, DxValidationGroupModule, ApplyPipe, AsyncPipe]
 })
 
 export class FormPopupComponent {
+  protected screen = inject(ScreenService);
+
   @ViewChild('validationGroup', { static: true }) validationGroup: DxValidationGroupComponent;
 
   @Input() titleText = '';
@@ -40,7 +38,10 @@ export class FormPopupComponent {
 
   @Output() visibleChange = new EventEmitter<boolean>();
 
-  constructor(protected screen: ScreenService) { }
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() { }
 
   isValid() {
     return this.validationGroup.instance.validate().isValid;
@@ -69,17 +70,3 @@ export class FormPopupComponent {
     };
   }
 }
-
-@NgModule({
-  imports: [
-    ApplyPipeModule,
-    DxButtonModule,
-    DxToolbarModule,
-    DxPopupModule,
-    DxValidationGroupModule,
-    CommonModule,
-  ],
-  declarations: [FormPopupComponent],
-  exports: [FormPopupComponent],
-})
-export class FormPopupModule { }

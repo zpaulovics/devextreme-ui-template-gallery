@@ -1,27 +1,25 @@
-import {Component, EventEmitter, Input, NgModule, Output, ViewChild} from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {
-  DxButtonModule, DxDateBoxModule, DxFormComponent, DxFormModule, DxNumberBoxModule, DxSelectBoxModule,
-  DxTextBoxModule, DxToolbarModule,
-  DxValidatorModule,
-  DxScrollViewModule
-} from 'devextreme-angular';
-import { FormTextboxModule } from 'src/app/components/utils/form-textbox/form-textbox.component';
-import { FormPhotoModule } from 'src/app/components/utils/form-photo/form-photo.component';
-import { ApplyPipeModule } from 'src/app/pipes/apply.pipe';
-import { PicturedItemSelectBoxModule } from 'src/app/components/library/pictured-item-select-box/pictured-item-select-box.component';
+import { Component, EventEmitter, Input, Output, ViewChild, inject } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
+import { DxDateBoxModule, DxFormComponent } from 'devextreme-angular';
 import { ScreenService } from 'src/app/services';
-import { StatusSelectBoxModule } from 'src/app/components/library/status-select-box/status-select-box.component';
 import { getSizeQualifier } from 'src/app/services/screen.service';
+import { DxFormModule as DxFormModule_1 } from 'devextreme-angular/ui/form';
+import { DxiItemModule, DxoLabelModule, DxiValidationRuleModule } from 'devextreme-angular/ui/nested';
+import { StatusSelectBoxComponent } from '../status-select-box/status-select-box.component';
+import { PicturedItemSelectBoxComponent } from '../pictured-item-select-box/pictured-item-select-box.component';
+import { ApplyPipe } from '../../../pipes/apply.pipe';
 
 type CardData = Record<string, any>;
 
 @Component({
-  selector: 'profile-card',
-  templateUrl: './profile-card.component.html',
-  styleUrls: ['profile-card.component.scss'],
+    selector: 'profile-card',
+    templateUrl: './profile-card.component.html',
+    styleUrls: ['profile-card.component.scss'],
+    imports: [DxFormModule_1, DxiItemModule, DxoLabelModule, DxiValidationRuleModule, DxDateBoxModule, StatusSelectBoxComponent, PicturedItemSelectBoxComponent, ApplyPipe, AsyncPipe]
 })
 export class ProfileCardComponent {
+  screen = inject(ScreenService);
+
   @ViewChild('form', { static: true }) form: DxFormComponent;
 
   @Input() items: Record<string, any>[] = [];
@@ -38,7 +36,10 @@ export class ProfileCardComponent {
 
   assign = Object.assign;
 
-  constructor(public screen: ScreenService) {}
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {}
 
   onFieldChange(fieldName?, value?) {
     const {isValid} = this.form.instance.validate();
@@ -58,26 +59,3 @@ export class ProfileCardComponent {
     return cardData[fieldName];
   }
 }
-
-@NgModule({
-  imports: [
-    ApplyPipeModule,
-    DxButtonModule,
-    DxDateBoxModule,
-    DxFormModule,
-    DxNumberBoxModule,
-    DxToolbarModule,
-    DxSelectBoxModule,
-    DxScrollViewModule,
-    DxTextBoxModule,
-    FormTextboxModule,
-    FormPhotoModule,
-    DxValidatorModule,
-    CommonModule,
-    PicturedItemSelectBoxModule,
-    StatusSelectBoxModule,
-  ],
-  declarations: [ProfileCardComponent],
-  exports: [ProfileCardComponent],
-})
-export class ProfileCardModule { }

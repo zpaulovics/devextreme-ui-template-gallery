@@ -1,8 +1,6 @@
-import {
-  Component, OnInit, NgModule, ViewChild
-} from '@angular/core';
+import { Component, OnInit, ViewChild, inject } from '@angular/core';
 import DataSource from 'devextreme/data/data_source';
-import { CommonModule } from '@angular/common';
+import { AsyncPipe, DatePipe } from '@angular/common';
 import {
   DxCalendarModule,
   DxButtonModule,
@@ -10,26 +8,30 @@ import {
   DxTooltipModule,
   DxSchedulerModule,
   DxSchedulerComponent,
-  DxSpeedDialActionModule,
+  DxSpeedDialActionModule
 } from "devextreme-angular";
 import { Task } from 'src/app/types/task';
 import { DataService, ScreenService } from 'src/app/services';
-import { CalendarListModule } from 'src/app/components/utils/calendar-list/calendar-list.component';
-import { LeftSidePanelModule } from 'src/app/components/utils/left-side-panel/left-side-panel.component';
-import { RightSidePanelModule } from 'src/app/components/utils/right-side-panel/right-side-panel.component';
-import { AgendaItem, AgendaModule } from "../../components/utils/agenda/agenda.component";
-import { ApplyPipeModule } from '../../pipes/apply.pipe';
-import { SchedulerTooltipModule } from '../../components/library/scheduler-tooltip/scheduler-tooltip.component';
+import { AgendaItem, AgendaComponent } from "../../components/utils/agenda/agenda.component";
+import { ApplyPipe } from '../../pipes/apply.pipe';
+import { SchedulerTooltipComponent } from '../../components/library/scheduler-tooltip/scheduler-tooltip.component';
 import { DxSchedulerTypes } from 'devextreme-angular/ui/scheduler'
+import { LeftSidePanelComponent } from '../../components/utils/left-side-panel/left-side-panel.component';
+import { CalendarListComponent } from '../../components/utils/calendar-list/calendar-list.component';
+import { RightSidePanelComponent } from '../../components/utils/right-side-panel/right-side-panel.component';
 
 type SelectedAppointment = { data: Record<string, any>, target: any };
 
 @Component({
-  templateUrl: './planning-scheduler.component.html',
-  styleUrls: ['./planning-scheduler.component.scss'],
-  providers: [DataService],
+    templateUrl: './planning-scheduler.component.html',
+    styleUrls: ['./planning-scheduler.component.scss'],
+    providers: [DataService],
+    imports: [LeftSidePanelComponent, DxButtonModule, DxCalendarModule, CalendarListComponent, DxSchedulerModule, DxTooltipModule, SchedulerTooltipComponent, DxSpeedDialActionModule, RightSidePanelComponent, AgendaComponent, ApplyPipe, AsyncPipe, DatePipe]
 })
 export class PlanningSchedulerComponent implements OnInit {
+  private service = inject(DataService);
+  protected screen = inject(ScreenService);
+
   @ViewChild('schedulerRef', { static: false }) schedulerRef: DxSchedulerComponent;
 
   @ViewChild('tooltipRef', { static: false }) tooltipRef: DxTooltipComponent;
@@ -53,7 +55,12 @@ export class PlanningSchedulerComponent implements OnInit {
 
   schedulerCurrentDate: Date = this.currentDate;
 
-  constructor(private service: DataService, protected screen: ScreenService) {
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {
+    const screen = this.screen;
+
     this.service.getDefaultListDS().subscribe(
    (data) => {
      this.listDataSource = data;
@@ -236,23 +243,18 @@ export class PlanningSchedulerComponent implements OnInit {
 
 }
 
-@NgModule({
-  imports: [
-    ApplyPipeModule,
-    DxCalendarModule,
-    DxButtonModule,
-    DxSchedulerModule,
-    DxSpeedDialActionModule,
-    DxTooltipModule,
-    CommonModule,
-    CalendarListModule,
-    LeftSidePanelModule,
-    RightSidePanelModule,
-    AgendaModule,
-    SchedulerTooltipModule,
-  ],
-  providers: [],
-  exports: [],
-  declarations: [PlanningSchedulerComponent],
-})
-export class PlanningSchedulerModule { }
+// @NgModule({
+//     imports: [
+//     DxCalendarModule,
+//     DxButtonModule,
+//     DxSchedulerModule,
+//     DxSpeedDialActionModule,
+//     DxTooltipModule,
+//     CommonModule,
+//     CalendarListModule,
+//     PlanningSchedulerComponent,
+// ],
+//     providers: [],
+//     exports: [],
+// })
+// export class PlanningSchedulerModule { }

@@ -1,15 +1,16 @@
-import { CommonModule } from '@angular/common';
-import {
-  Component, ElementRef, Input, NgModule, OnInit,
-} from '@angular/core';
-import { DxFileUploaderModule } from 'devextreme-angular/ui/file-uploader';
+import { NgStyle } from '@angular/common';
+import { Component, ElementRef, Input, OnInit, inject } from '@angular/core';
+import { DxFileUploaderModule as DxFileUploaderModule_1 } from 'devextreme-angular';
 
 @Component({
-  selector: 'form-photo',
-  templateUrl: './form-photo.component.html',
-  styleUrls: ['./form-photo.component.scss'],
+    selector: 'form-photo',
+    templateUrl: './form-photo.component.html',
+    styleUrls: ['./form-photo.component.scss'],
+    imports: [NgStyle, DxFileUploaderModule_1]
 })
 export class FormPhotoComponent implements OnInit {
+  private elRef = inject(ElementRef);
+
   @Input() link: string;
 
   @Input() editable = false;
@@ -20,19 +21,12 @@ export class FormPhotoComponent implements OnInit {
 
   hostRef = this.elRef.nativeElement;
 
-  constructor(private elRef:ElementRef) {}
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {}
 
   ngOnInit() {
     this.imageUrl = `url('data:image/png;base64,${this.link}')`;
   }
 }
-
-@NgModule({
-  imports: [
-    DxFileUploaderModule,
-    CommonModule
-  ],
-  declarations: [FormPhotoComponent],
-  exports: [FormPhotoComponent],
-})
-export class FormPhotoModule { }

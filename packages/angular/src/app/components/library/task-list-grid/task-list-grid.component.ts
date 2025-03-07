@@ -1,8 +1,6 @@
-import {
-  Component, NgModule, ViewChild, EventEmitter, Output, Input, SimpleChanges, OnChanges,
-} from '@angular/core';
+import { Component, NgModule, ViewChild, EventEmitter, Output, Input, SimpleChanges, OnChanges, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { Router } from '@angular/router';
 import {
   DxButtonModule,
@@ -15,9 +13,7 @@ import {
 } from 'devextreme-angular';
 import { DxDataGridTypes } from 'devextreme-angular/ui/data-grid';
 import { DxTabsTypes } from 'devextreme-angular/ui/tabs';
-import {
-  StatusIndicatorModule,
-} from 'src/app/components';
+
 import { exportDataGrid as exportToPdf } from 'devextreme/pdf_exporter';
 import { exportDataGrid as exportToXLSX } from 'devextreme/excel_exporter';
 import { Workbook } from 'exceljs';
@@ -26,13 +22,19 @@ import { jsPDF } from 'jspdf';
 import { taskPriorityList, taskStatusList } from 'src/app/types/task';
 import { Task } from 'src/app/types/task';
 import 'jspdf-autotable';
+import { DxoPagingModule, DxoPagerModule, DxoEditingModule, DxoSelectionModule, DxoScrollingModule, DxoSortingModule, DxoHeaderFilterModule, DxiColumnModule, DxiValidationRuleModule, DxoLookupModule } from 'devextreme-angular/ui/nested';
+import { DxTemplateModule } from 'devextreme-angular/core';
+import { StatusIndicatorComponent } from '../status-indicator/status-indicator.component';
 
 @Component({
-  selector: 'task-list-grid',
-  templateUrl: './task-list-grid.component.html',
-  styleUrls: ['./task-list-grid.component.scss'],
+    selector: 'task-list-grid',
+    templateUrl: './task-list-grid.component.html',
+    styleUrls: ['./task-list-grid.component.scss'],
+    imports: [DxDataGridModule, DxoPagingModule, DxoPagerModule, DxoEditingModule, DxoSelectionModule, DxoScrollingModule, DxoSortingModule, DxoHeaderFilterModule, DxiColumnModule, DxiValidationRuleModule, DxoLookupModule, DxTemplateModule, StatusIndicatorComponent, DxSelectBoxModule]
 })
 export class TaskListGridComponent implements OnChanges {
+  private router = inject(Router);
+
   @ViewChild(DxDataGridComponent, { static: false }) grid: DxDataGridComponent;
 
   @Input() dataSource: Task[];
@@ -49,7 +51,10 @@ export class TaskListGridComponent implements OnChanges {
 
   useNavigation = true;
 
-  constructor(private router: Router) {
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {
   }
 
   refresh() {
@@ -110,22 +115,12 @@ export class TaskListGridComponent implements OnChanges {
   };
 }
 
-@NgModule({
-  imports: [
-    DxButtonModule,
+@NgModule({ exports: [TaskListGridComponent],
+    imports: [DxButtonModule,
     DxDataGridModule,
     DxDropDownButtonModule,
     DxSelectBoxModule,
     DxTextBoxModule,
     DxToolbarModule,
-
-    StatusIndicatorModule,
-
-    HttpClientModule,
-    CommonModule,
-  ],
-  providers: [],
-  exports: [TaskListGridComponent],
-  declarations: [TaskListGridComponent],
-})
+    CommonModule, TaskListGridComponent], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class TaskListModule { }

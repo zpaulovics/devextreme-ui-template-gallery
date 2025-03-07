@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, from } from 'rxjs';
 import { DateTime } from 'luxon';
@@ -16,7 +16,12 @@ const API_URL = 'https://js.devexpress.com/Demos/RwaService/api';
 
 @Injectable()
 export class DataService {
-  constructor(private http: HttpClient) {}
+  private http = inject(HttpClient);
+
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {}
 
   public getContacts = () =>
     this.http.get<Contact[]>(`${API_URL}/Users/Contacts`);
@@ -25,12 +30,15 @@ export class DataService {
     this.http.get<Contact>(`${API_URL}/Users/Contacts/${id}`);
 
   public getTasks = (): Observable<Task[]> =>
+    // @ts-ignore
     this.http.get<Task[]>(`${API_URL}/Employees/AllTasks`);
 
   public getFilteredTasks = (): Observable<Task[]> =>
+    // @ts-ignore
     this.http.get<Task[]>(`${API_URL}/Employees/FilteredTasks`);
 
   public getTask = (id: number): Observable<Task> =>
+    // @ts-ignore
     this.http.get<Task>(`${API_URL}/Employees/Tasks/${id}`);
 
   public getContactNotes = (id: number) =>
@@ -48,6 +56,7 @@ export class DataService {
   public getContactOpportunities = (id: number, isActive: boolean) => this.http
     .get<any>(`${API_URL}/Users/Contacts/${id}/Opportunities`)
     .pipe(
+      // @ts-ignore
       map((data) => data.filter((_: any, index: number) => {
         const isEven = index % 2 === 0;
         return isActive ? isEven : !isEven;
@@ -100,6 +109,7 @@ export class DataService {
 
   public getProfile = (id: number) =>
     this.http.get<Record<string, any>>(`${API_URL}/Users/Contacts/${id}`).pipe(
+      // @ts-ignore
       map((data)=> {
         data.gender = id == 22 ? 'female' : null;
         data.birthDate = new Date('1980/05/03');

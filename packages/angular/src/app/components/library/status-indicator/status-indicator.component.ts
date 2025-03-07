@@ -1,31 +1,35 @@
-import { CommonModule } from '@angular/common';
+import { NgClass } from '@angular/common';
 import {
-  Component, Input, NgModule, OnInit,
+  Component, Input, OnInit,
 } from '@angular/core';
 import { TaskStatus, TaskPriority } from 'src/app/types/task';
-import { DxTextBoxModule } from 'devextreme-angular/ui/text-box';
+import { DxTextBoxModule as DxTextBoxModule_1 } from 'devextreme-angular';
 
 @Component({
-  selector: 'status-indicator',
-  template: `
+    selector: 'status-indicator',
+    template: `
   <div
     [ngClass]="{'input-with-bar': showBar }"
     class="
       status
       status-indicator
       status-indicator-{{ dashValue }}">
-      <span *ngIf="!isField" class="status-indicator-{{ dashValue }}">{{ getValue(value) }}</span>
+    @if (!isField) {
+      <span class="status-indicator-{{ dashValue }}">{{ getValue(value) }}</span>
+    }
+    @if (isField) {
       <dx-text-box
-        *ngIf="isField"
         class="status-indicator-{{ dashValue }}"
         [inputAttr]="{class: 'status-input status-editor-input'}"
         [hoverStateEnabled]="false"
         [readOnly]="true"
         [value]="getValue(value)">
       </dx-text-box>
-    </div>
+    }
+  </div>
   `,
-  styleUrls: ['./status-indicator.component.scss'],
+    styleUrls: ['./status-indicator.component.scss'],
+    imports: [NgClass, DxTextBoxModule_1]
 })
 export class StatusIndicatorComponent implements OnInit {
   @Input() value: TaskStatus | TaskPriority;
@@ -47,13 +51,3 @@ export class StatusIndicatorComponent implements OnInit {
   spaceToDash = (value: TaskStatus) =>
     (value?.replace(/ /g, '-') || '');
 }
-
-@NgModule({
-  imports: [
-    CommonModule,
-    DxTextBoxModule,
-  ],
-  declarations: [StatusIndicatorComponent],
-  exports: [StatusIndicatorComponent],
-})
-export class StatusIndicatorModule { }

@@ -1,29 +1,23 @@
-import {
-  Component, NgModule, Input,
-} from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {
-  DxButtonModule,
-  DxTabPanelModule,
-  DxDataGridModule,
-} from 'devextreme-angular';
-import {
-  CardNotesModule,
-  CardMessagesModule,
-  CardActivitiesModule,
-  CardOpportunitiesModule,
-  CardTasksModule,
-} from 'src/app/components';
+import { Component, Input } from '@angular/core';
+
+import { DxTabPanelModule } from 'devextreme-angular';
+
 import { Activity } from 'src/app/types/activities';
 import { Messages } from 'src/app/types/messages';
 import { Notes } from 'src/app/types/notes';
 import { Opportunities } from 'src/app/types/opportunities';
 import { Task } from 'src/app/types/task';
+import { CardTasksComponent } from '../../library/card-tasks/card-tasks.component';
+import { CardActivitiesComponent } from '../../library/card-activities/card-activities.component';
+import { CardOpportunitiesComponent } from '../../library/card-opportunities/card-opportunities.component';
+import { CardNotesComponent } from '../../library/card-notes/card-notes.component';
+import { CardMessagesComponent } from '../../library/card-messages/card-messages.component';
 
 @Component({
-  selector: 'contact-cards',
-  templateUrl: './contact-cards.component.html',
-  styleUrls: ['./contact-cards.component.scss'],
+    selector: 'contact-cards',
+    templateUrl: './contact-cards.component.html',
+    styleUrls: ['./contact-cards.component.scss'],
+    imports: [DxTabPanelModule, CardTasksComponent, CardActivitiesComponent, CardOpportunitiesComponent, CardNotesComponent, CardMessagesComponent]
 })
 export class ContactCardsComponent {
     @Input() tasks: Task[];
@@ -42,23 +36,3 @@ export class ContactCardsComponent {
 
     @Input() isLoading: boolean;
 }
-
-@NgModule({
-  imports: [
-    DxButtonModule,
-    DxTabPanelModule,
-    DxDataGridModule,
-
-    CardNotesModule,
-    CardMessagesModule,
-    CardActivitiesModule,
-    CardOpportunitiesModule,
-    CardTasksModule,
-
-    CommonModule,
-  ],
-  providers: [],
-  exports: [ContactCardsComponent],
-  declarations: [ContactCardsComponent],
-})
-export class ContactCardsModule { }

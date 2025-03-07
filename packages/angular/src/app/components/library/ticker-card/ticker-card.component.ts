@@ -1,17 +1,18 @@
-import { CommonModule } from '@angular/common';
+import { CurrencyPipe } from '@angular/common';
 import {
   Component,
-  NgModule,
   Input
 } from '@angular/core';
-import { CardAnalyticsModule } from '../card-analytics/card-analytics.component';
+
 import { Sales, SalesOrOpportunitiesByCategory } from '../../../types/analytics';
-import { ApplyPipeModule } from "src/app/pipes/apply.pipe";
+
+import { ApplyPipe } from '../../../pipes/apply.pipe';
 
 @Component({
-  selector: 'ticker-card',
-  templateUrl: './ticker-card.component.html',
-  styleUrls: ['./ticker-card.component.scss'],
+    selector: 'ticker-card',
+    templateUrl: './ticker-card.component.html',
+    styleUrls: ['./ticker-card.component.scss'],
+    imports: [ApplyPipe, CurrencyPipe]
 })
 
 export class TickerCardComponent {
@@ -39,15 +40,3 @@ export class TickerCardComponent {
 
   getIconClass = () => this.tone || (this.percentage > 0 ? 'positive' : 'negative');
 }
-
-@NgModule({
-  imports: [
-    CardAnalyticsModule,
-    ApplyPipeModule,
-
-    CommonModule,
-  ],
-  declarations: [TickerCardComponent],
-  exports: [TickerCardComponent],
-})
-export class TickerCardModule { }

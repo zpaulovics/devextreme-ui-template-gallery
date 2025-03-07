@@ -1,37 +1,31 @@
-import {
-  Component, OnInit, NgModule,
-} from '@angular/core';
-import { CommonModule, formatDate } from '@angular/common';
+import { Component, OnInit, inject } from '@angular/core';
+import { formatDate } from '@angular/common';
 
 import { Observable, forkJoin } from 'rxjs';
 import { share } from 'rxjs/operators';
 
-import {DxScrollViewModule} from 'devextreme-angular/ui/scroll-view';
-import { DxToolbarModule } from 'devextreme-angular/ui/toolbar';
-import { DxPieChartModule } from 'devextreme-angular/ui/pie-chart';
-import { DxChartModule } from 'devextreme-angular/ui/chart';
-import { DxRangeSelectorModule } from 'devextreme-angular/ui/range-selector';
-import { DxButtonModule } from 'devextreme-angular/ui/button';
-import { DxDropDownButtonModule } from 'devextreme-angular/ui/drop-down-button';
 import { DxLoadPanelModule } from 'devextreme-angular/ui/load-panel';
 import { DxDropDownButtonTypes } from 'devextreme-angular/ui/drop-down-button';
 
 import { DataService } from 'src/app/services';
-import { CardAnalyticsModule } from 'src/app/components/library/card-analytics/card-analytics.component';
-import { ToolbarAnalyticsModule } from 'src/app/components/utils/toolbar-analytics/toolbar-analytics.component';
-import { SalesByRangeCardModule } from 'src/app/components/utils/sales-by-range-card/sales-by-range-card.component';
-import { SalesPerformanceCardModule } from 'src/app/components/utils/sales-performance-card/sales-performance-card.component';
-import { SalesRangeCardModule } from 'src/app/components/utils/sales-range-card/sales-range-card.component';
 import { analyticsPanelItems } from 'src/app/types/resource';
-import { ApplyPipeModule } from 'src/app/pipes/apply.pipe';
+
 import { Sale, SalesOrOpportunitiesByCategory } from 'src/app/types/analytics';
+import { DxScrollViewModule as DxScrollViewModule_1 } from 'devextreme-angular';
+import { ToolbarAnalyticsComponent } from '../../components/utils/toolbar-analytics/toolbar-analytics.component';
+import { SalesRangeCardComponent } from '../../components/utils/sales-range-card/sales-range-card.component';
+import { SalesByRangeCardComponent } from '../../components/utils/sales-by-range-card/sales-by-range-card.component';
+import { SalesPerformanceCardComponent } from '../../components/utils/sales-performance-card/sales-performance-card.component';
 
 @Component({
-  templateUrl: './analytics-sales-report.component.html',
-  styleUrls: ['./analytics-sales-report.component.scss'],
-  providers: [DataService],
+    templateUrl: './analytics-sales-report.component.html',
+    styleUrls: ['./analytics-sales-report.component.scss'],
+    providers: [DataService],
+    imports: [DxScrollViewModule_1, ToolbarAnalyticsComponent, SalesRangeCardComponent, SalesByRangeCardComponent, SalesPerformanceCardComponent, DxLoadPanelModule]
 })
 export class AnalyticsSalesReportComponent implements OnInit {
+  private service = inject(DataService);
+
   groupByPeriods = ['Day', 'Month'];
 
   visualRange: unknown = {};
@@ -42,7 +36,10 @@ export class AnalyticsSalesReportComponent implements OnInit {
   salesByCategory: SalesOrOpportunitiesByCategory = null;
   salesByDateAndCategory: Sale[] = null;
 
-  constructor(private service: DataService) {}
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {}
 
   onRangeChanged = ({value: dates}) => {
     const [startDate, endDate] = dates.map((date) => formatDate(date, 'YYYY-MM-dd', 'en'));
@@ -75,7 +72,8 @@ export class AnalyticsSalesReportComponent implements OnInit {
     const tasks = [
       ['sales', this.service.getSales(startDate, endDate)],
       ['salesByDateAndCategory', this.service.getSalesByOrderDate(groupBy)],
-    ].map(([dataName, loader]: [string, Observable<Sale[]>]) => {
+  // @ts-ignore  
+  ].map(([dataName, loader]: [string, Observable<Sale[]>]) => {
         const task = loader.pipe(share());
         task.subscribe((data) => this[dataName] = data);
         return task;
@@ -91,27 +89,3 @@ export class AnalyticsSalesReportComponent implements OnInit {
     this.loadData(this.groupByPeriods[1].toLowerCase());
   }
 }
-
-@NgModule({
-  imports: [
-    DxScrollViewModule,
-    DxLoadPanelModule,
-    DxButtonModule,
-    DxToolbarModule,
-    DxPieChartModule,
-    DxChartModule,
-    DxDropDownButtonModule,
-    DxRangeSelectorModule,
-    CardAnalyticsModule,
-    ToolbarAnalyticsModule,
-    ApplyPipeModule,
-    CommonModule,
-    SalesByRangeCardModule,
-    SalesPerformanceCardModule,
-    SalesRangeCardModule,
-  ],
-  providers: [],
-  exports: [],
-  declarations: [AnalyticsSalesReportComponent],
-})
-export class AnalyticsSalesReportModule { }

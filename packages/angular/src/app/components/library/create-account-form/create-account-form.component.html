@@ -4,7 +4,7 @@
     [showColonAfterLabel]="true"
     [showRequiredMark]="false"
     [disabled]="loading"
-  >
+    >
     <dxi-item
       dataField="email"
       editorType="dxTextBox"
@@ -14,7 +14,7 @@
         mode: 'email',
         value: defaultAuthData?.data?.email
       }"
-    >
+      >
       <dxi-validation-rule
         type="required"
         message="Email is required"
@@ -35,7 +35,7 @@
         value: 'password',
         mode: 'password'
       }"
-    >
+      >
       <dxi-validation-rule
         type="required"
         message="Password is required"
@@ -52,7 +52,7 @@
         value: 'password',
         mode: 'password'
       }"
-    >
+      >
       <dxi-validation-rule
         type="required"
         message="Password is required"
@@ -61,7 +61,7 @@
         type="custom"
         message="Passwords do not match"
         [validationCallback]="confirmPassword"
-      >
+        >
       </dxi-validation-rule>
       <dxo-label [visible]="false"></dxo-label>
     </dxi-item>
@@ -80,21 +80,22 @@
         type="default"
         [useSubmitBehavior]="true"
         [template]="'createAccountTemplate'"
-      >
+        >
       </dxo-button-options>
     </dxi-item>
 
     <ng-container *dxTemplate="let item of 'createAccountTemplate'">
       <span class="dx-button-text">
-        <ng-container *ngIf="loading; else notLoading">
+        @if (loading) {
           <dx-load-indicator
             width="24px"
             height="24px"
             [visible]="true"
           ></dx-load-indicator>
-        </ng-container>
+        } @else {
+          Create a new account
+        }
 
-        <ng-template #notLoading>Create a new account</ng-template>
       </span>
     </ng-container>
   </dx-form>

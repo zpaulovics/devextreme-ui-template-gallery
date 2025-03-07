@@ -1,34 +1,26 @@
-import {
-  Component, OnInit, NgModule, OnDestroy,
-} from '@angular/core';
+import { Component, OnInit, OnDestroy, inject } from '@angular/core';
 
-import { DxPieChartModule } from 'devextreme-angular/ui/pie-chart';
-import { DxChartModule } from 'devextreme-angular/ui/chart';
-import { DxDataGridModule } from 'devextreme-angular/ui/data-grid';
-import { DxVectorMapModule } from 'devextreme-angular/ui/vector-map';
-import { DxBulletModule } from 'devextreme-angular/ui/bullet';
-import { DxScrollViewModule } from 'devextreme-angular/ui/scroll-view';
 import { DxLoadPanelModule } from 'devextreme-angular/ui/load-panel'
-
-import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
-
 import { DataService } from 'src/app/services';
-import { CardAnalyticsModule } from 'src/app/components/library/card-analytics/card-analytics.component';
-import { ToolbarAnalyticsModule } from 'src/app/components/utils/toolbar-analytics/toolbar-analytics.component';
-import { RevenueAnalysisByStatesCardModule } from 'src/app/components/utils/revenue-analysis-by-states-card/revenue-analysis-by-states-card.component';
-import { SalesMapCardModule } from 'src/app/components/utils/sales-map-card/sales-map-card.component';
-import { RevenueSnapshotByStatesCardModule } from 'src/app/components/utils/revenue-snapshot-by-states-card/revenue-snapshot-by-states-card.component';
 
 import { analyticsPanelItems, Dates } from 'src/app/types/resource';
 import { SalesByState, SalesByStateAndCity } from 'src/app/types/analytics';
+import { DxScrollViewModule as DxScrollViewModule_1 } from 'devextreme-angular';
+import { ToolbarAnalyticsComponent } from '../../components/utils/toolbar-analytics/toolbar-analytics.component';
+import { SalesMapCardComponent } from '../../components/utils/sales-map-card/sales-map-card.component';
+import { RevenueAnalysisByStatesCardComponent } from '../../components/utils/revenue-analysis-by-states-card/revenue-analysis-by-states-card.component';
+import { RevenueSnapshotByStatesCardComponent } from '../../components/utils/revenue-snapshot-by-states-card/revenue-snapshot-by-states-card.component';
 
 @Component({
-  templateUrl: './analytics-geography.component.html',
-  styleUrls: ['./analytics-geography.component.scss'],
-  providers: [DataService],
+    templateUrl: './analytics-geography.component.html',
+    styleUrls: ['./analytics-geography.component.scss'],
+    providers: [DataService],
+    imports: [DxScrollViewModule_1, ToolbarAnalyticsComponent, SalesMapCardComponent, RevenueAnalysisByStatesCardComponent, RevenueSnapshotByStatesCardComponent, DxLoadPanelModule]
 })
 export class AnalyticsGeographyComponent implements OnInit, OnDestroy {
+  private service = inject(DataService);
+
   analyticsPanelItems = analyticsPanelItems;
 
   salesByStateAndCity: SalesByStateAndCity;
@@ -41,7 +33,10 @@ export class AnalyticsGeographyComponent implements OnInit, OnDestroy {
 
   isLoading = false;
 
-  constructor(private service: DataService) {
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {
   }
 
   ngOnInit(): void {
@@ -94,25 +89,3 @@ export class AnalyticsGeographyComponent implements OnInit, OnDestroy {
     });
   };
 }
-
-@NgModule({
-  imports: [
-    DxScrollViewModule,
-    DxDataGridModule,
-    DxBulletModule,
-    DxPieChartModule,
-    DxVectorMapModule,
-    DxChartModule,
-    CardAnalyticsModule,
-    ToolbarAnalyticsModule,
-    DxLoadPanelModule,
-    RevenueAnalysisByStatesCardModule,
-    SalesMapCardModule,
-    RevenueSnapshotByStatesCardModule,
-    CommonModule,
-  ],
-  providers: [],
-  exports: [],
-  declarations: [AnalyticsGeographyComponent],
-})
-export class AnalyticsGeographyModule { }
